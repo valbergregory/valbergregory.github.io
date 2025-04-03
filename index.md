@@ -1,90 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valber Gregory | Página Pessoal</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      margin-bottom: 0.2rem;
+    }
+    section {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .lang-switch {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    .lang-switch button {
+      padding: 0.5rem 1rem;
+      margin: 0 0.3rem;
+      border: none;
+      background-color: #2c3e50;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .lang-switch button.active {
+      background-color: #3498db;
+    }
+    .content {
+      display: none;
+    }
+    .content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Valber Gregory</h1>
+    <p>Economista • Professor Universitário • Analista Judiciário</p>
+  </header>
 
-# 👨‍💻 Valber Gregory
+  <div class="lang-switch">
+    <button onclick="switchLang('pt')" class="active">🇧🇷 Português</button>
+    <button onclick="switchLang('en')">🇬🇧 English</button>
+  </div>
 
-**Economista | Professor Universitário | Analista Judiciário**
+  <div id="pt" class="content active">
+    <section>
+      <h2>Sobre mim</h2>
+      <p>Sou economista, professor universitário e analista judiciário, com atuação em projetos que combinam pesquisa aplicada, inovação institucional e formulação de políticas públicas baseadas em evidências.</p>
+    </section>
+    <section>
+      <h2>Formação Acadêmica</h2>
+      <ul>
+        <li>Doutor em Economia – UFPB</li>
+        <li>Mestre em Economia Aplicada – UFAL</li>
+        <li>Bacharel em Economia – UFAL</li>
+        <li>Bacharel em Direito – CESMAC</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Competências Técnicas</h2>
+      <ul>
+        <li>Análise de dados para políticas públicas</li>
+        <li>Modelagem econométrica</li>
+        <li>Docência no ensino superior</li>
+        <li>Integração entre Direito e Economia</li>
+      </ul>
+    </section>
+  </div>
 
----
+  <div id="en" class="content">
+    <section>
+      <h2>About Me</h2>
+      <p>I’m an economist, university professor and judicial analyst working on projects that connect applied research, institutional innovation and evidence-based policymaking.</p>
+    </section>
+    <section>
+      <h2>Academic Background</h2>
+      <ul>
+        <li>Ph.D. in Economics – UFPB</li>
+        <li>M.Sc. in Applied Economics – UFAL</li>
+        <li>B.A. in Economics – UFAL</li>
+        <li>LL.B. in Law – CESMAC</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>Data analysis for public policies</li>
+        <li>Econometric modeling</li>
+        <li>Higher education teaching</li>
+        <li>Interdisciplinary work in Law & Economics</li>
+      </ul>
+    </section>
+  </div>
 
-<details>
-<summary>🇬🇧 English</summary>
-
-## 👋 About Me
-
-I'm an **Economist**, **University Professor**, and **Judicial Analyst** with experience in projects that combine **applied research**, **institutional innovation**, and **evidence-based public policy**.
-
-### 🎓 Academic Background:
-- Ph.D. in Economics – UFPB
-- M.Sc. in Applied Economics – UFAL
-- B.A. in Economics – UFAL
-- LL.B. in Law – CESMAC
-- Former lawyer in Civil, Administrative, and Tax Law (Brazilian Bar – OAB/AL 9788)
-
-### 🧠 Technical Skills:
-- 📊 Data analysis for public policy evaluation
-- 📈 Econometric modeling and applied quantitative methods
-- 👨‍🏫 Higher education teaching and technical report writing
-- ⚖️ Interdisciplinary work at the intersection of Law and Economics
-
-### 🔬 Research Areas:
-- 💼 Public Sector Economics
-- ⚖️ Law and Economics
-- 🏫 Economics of Education
-- 🧹 Public Sector Innovation
-- 📉 Impact Evaluation of Judicial and Institutional Policies
-
-### 💻 Technologies and Tools:
-Currently deepening technical skills in:
-- **Python** – Automation, data analysis, APIs
-- **R** – Econometrics and data visualization
-- **SQL** – Data manipulation and integration
-- Ongoing certifications in all three languages
-
-### 🌱 Professional Values:
-- 🔄 Lifelong learning
-- 🤖 Ethical use of technology
-- 🌍 Producing knowledge with real-world impact in public service, education, and justice
-
-</details>
-
----
-
-<details open>
-<summary>🇧🇷 Português</summary>
-
-## 👋 Sobre mim
-
-Sou **economista**, **professor universitário** e **analista judiciário**, com atuação em projetos que combinam **pesquisa aplicada**, **inovação institucional** e **formulação de políticas públicas baseadas em evidências**.
-
-### 🎓 Formação Acadêmica:
-- Doutor em Economia – UFPB
-- Mestre em Economia Aplicada – UFAL
-- Bacharel em Economia – UFAL
-- Bacharel em Direito – CESMAC
-- Ex-advogado nas áreas Cível, Administrativa e Tributária (OAB/AL 9788 | 2010–2014)
-
-### 🧠 Competências Técnicas:
-- 📊 Análise de dados voltada à avaliação de políticas públicas
-- 📈 Modelagem econométrica e métodos quantitativos aplicados
-- 👨‍🏫 Docência no ensino superior e elaboração de pareceres técnicos
-- ⚖️ Atuação interdisciplinar entre Direito e Economia
-
-### 🔬 Linhas de Pesquisa:
-- 💼 Economia do setor público
-- ⚖️ Direito e economia
-- 🏫 Economia da educação
-- 🧹 Inovação no serviço público
-- 📉 Avaliação de impacto de políticas judiciais e institucionais
-
-### 💻 Tecnologias e Ferramentas:
-Tenho aprofundado minha formação técnica em:
-- **Python** – Automação, análise de dados, APIs
-- **R** – Econometria e visualização de dados
-- **SQL** – Manipulação e integração de bases de dados
-- Certificações em andamento nas três linguagens
-
-### 🌱 Valores Profissionais:
-- 🔄 Aprendizado contínuo
-- 🤖 Uso ético da tecnologia
-- 🌍 Produção de conhecimento com impacto real no setor público, educação e justiça
-
-</details>
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(lang).classList.add('active');
+      document.querySelector('.lang-switch button[onclick="switchLang(\\'' + lang + '\\')"]').classList.add('active');
+    }
+  </script>
+</body>
+</html>
