@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valber Gregory | Página Pessoal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    section {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .lang-switch {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    .lang-switch button {
+      padding: 0.5rem 1rem;
+      margin: 0 0.3rem;
+      border: none;
+      background-color: #2c3e50;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .lang-switch button.active {
+      background-color: #3498db;
+    }
+    .content {
+      display: none;
+    }
+    .content.active {
+      display: block;
+    }
+    .social-icons {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.8rem;
+      color: #2c3e50;
+      transition: transform 0.2s, color 0.3s;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #3498db;
+    }
+    .cv-button {
+      background-color: #e74c3c;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+    .cv-button:hover {
+      background-color: #c0392b;
+      transform: scale(1.05);
+    }
+    .cv-button i {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Valber Gregory</h1>
+    <p>Economista • Professor Universitário • Analista Judiciário</p>
+  </header>
+
+  <div class="lang-switch">
+    <button id="btn-pt" class="active">🇧🇷 Português</button>
+    <button id="btn-en">🇬🇧 English</button>
+  </div>
+
+  <div id="pt" class="content active">
+    <section>
+      <h2>Sobre mim</h2>
+      <p>Sou economista, professor universitário e analista judiciário, com atuação em projetos que combinam pesquisa aplicada, inovação institucional e formulação de políticas públicas baseadas em evidências.</p>
+    </section>
+    <section>
+      <h2>Formação Acadêmica</h2>
+      <ul>
+        <li>Doutor em Economia – UFPB</li>
+        <li>Mestre em Economia Aplicada – UFAL</li>
+        <li>Bacharel em Economia – UFAL</li>
+        <li>Bacharel em Direito – CESMAC</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Competências Técnicas</h2>
+      <ul>
+        <li>Análise de dados para políticas públicas</li>
+        <li>Modelagem econométrica</li>
+        <li>Docência no ensino superior</li>
+        <li>Integração entre Direito e Economia</li>
+      </ul>
+    </section>
+  </div>
+
+  <div id="en" class="content">
+    <section>
+      <h2>About Me</h2>
+      <p>I’m an economist, university professor and judicial analyst working on projects that connect applied research, institutional innovation and evidence-based policymaking.</p>
+    </section>
+    <section>
+      <h2>Academic Background</h2>
+      <ul>
+        <li>Ph.D. in Economics – UFPB</li>
+        <li>M.Sc. in Applied Economics – UFAL</li>
+        <li>B.A. in Economics – UFAL</li>
+        <li>LL.B. in Law – CESMAC</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>Data analysis for public policies</li>
+        <li>Econometric modeling</li>
+        <li>Higher education teaching</li>
+        <li>Interdisciplinary work in Law & Economics</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/valbergregory" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/valbergregory" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="http://lattes.cnpq.br/SEU-LATTES" target="_blank" title="Lattes"><i class="fas fa-graduation-cap"></i></a>
+    <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+  </div>
+
+  <div style="text-align: center; margin-top: 1.5rem;">
+    <a href="valber-cv.pdf" download class="cv-button">
+      <i class="fas fa-file-pdf"></i> Baixar Currículo (PDF)
+    </a>
+  </div>
+
+  <script>
+    const btnPt = document.getElementById("btn-pt");
+    const btnEn = document.getElementById("btn-en");
+    const contentPt = document.getElementById("pt");
+    const contentEn = document.getElementById("en");
+
+    btnPt.addEventListener("click", () => {
+      contentPt.classList.add("active");
+      contentEn.classList.remove("active");
+      btnPt.classList.add("active");
+      btnEn.classList.remove("active");
+    });
+
+    btnEn.addEventListener("click", () => {
+      contentEn.classList.add("active");
+      contentPt.classList.remove("active");
+      btnEn.classList.add("active");
+      btnPt.classList.remove("active");
+    });
+  </script>
+</body>
+</html>
