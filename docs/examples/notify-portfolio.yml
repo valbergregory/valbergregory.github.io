@@ -1,14 +1,16 @@
-# Copie este arquivo para .github/workflows/notify-portfolio.yml em cada
-# repositório de pesquisa rastreado pela página pessoal. Após um push na branch
-# principal, ele envia o evento `portfolio-update` ao repositório do site, que
-# reconstrói a página com os metadados novos.
+# Instalado em .github/workflows/notify-portfolio.yml em cada repositório de
+# pesquisa rastreado pela página pessoal (11/09/2026). Após um push na branch
+# principal ou a publicação de uma release, ele envia o evento
+# `portfolio-update` ao repositório do site, que reconstrói a página com os
+# metadados novos.
 #
 # Requisitos:
 #  1. Criar um fine-grained personal access token com acesso APENAS ao repositório
 #     valbergregory/valbergregory.github.io e permissão "Contents: Read and write"
 #     (necessária para repository_dispatch). Nenhuma outra permissão.
 #  2. Salvar o token como secret chamado PORTFOLIO_SYNC_TOKEN no repositório de
-#     pesquisa (Settings → Secrets and variables → Actions).
+#     pesquisa (Settings → Secrets and variables → Actions) — ou, para todos de
+#     uma vez, rodar scripts/set-portfolio-secret.ps1 no repositório do site.
 #  3. Nunca gravar o token em arquivo, log ou commit.
 #
 # Sem este workflow a página continua sendo atualizada pelo agendamento
@@ -18,7 +20,7 @@ name: Notify personal website
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   release:
     types: [published]
 

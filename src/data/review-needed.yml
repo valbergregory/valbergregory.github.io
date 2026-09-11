@@ -1,47 +1,35 @@
-# Itens que NÃO puderam ser confirmados durante a reformulação de 11/09/2026.
-# Nada daqui é publicado. Ao confirmar um item, mova a informação para o arquivo
-# de dados correspondente e remova-o desta lista.
-
-- item: Perfil no Google Scholar
-  status: não localizado
-  action: Se existir, adicionar `googleScholar` em profile.yml (links).
+# Itens que ainda dependem de confirmação humana. Nada daqui é publicado.
+# Ao confirmar um item, mova a informação para o arquivo de dados correspondente
+# e remova-o desta lista.
+#
+# Confirmados em 11/09/2026 (removidos): fotografia definitiva; ausência de
+# perfil no Google Scholar; e-mail público institucional; manutenção do
+# currículo em PDF atual (substituir quando houver versão sem telefone).
 
 - item: Título definitivo do artigo sobre gasto público em educação (DSGE)
   status: 'dois títulos candidatos em research.yml (titlePending: true)'
   action: 'Escolher e remover `alternativeTitle` ou marcar `titlePending: false`.'
 
-- item: Título do artigo "Gatekeeping the Quantum"
+- item: 'Título do artigo "Gatekeeping the Quantum"'
   status: 'provisório (titleProvisional: true)'
   action: Confirmar o título e remover a marcação.
 
 - item: Estágio de submissão do artigo sobre adoção de IA sem controles de segurança (27 TJs)
   status: manuscrito em redação; alvo AISecDev 2026 não confirmado
-  action: Atualizar `status` em research.yml quando houver submissão ou aceite.
+  action: 'Atualizar `status` em research.yml quando houver submissão ou aceite.'
 
 - item: Estágio de submissão dos artigos DSGE, leite e IA/produtividade
   status: marcados como pré-submissão
-  action: Atualizar para `submetido` com a data e o periódico/evento quando ocorrer.
+  action: 'Atualizar para `submetido` com a data e o periódico/evento quando ocorrer.'
 
 - item: Repositório do artigo de gravidade do turismo
   status: repositório remoto não confirmado
-  action: Adicionar `repository` e incluir na whitelist quando o repositório for público.
+  action: 'Adicionar `repository` e incluir na whitelist quando o repositório for público.'
 
 - item: Unidade do painel do artigo DSGE
-  status: o briefing menciona "painel municipal"; o repositório descreve painel das 27 UF
-  action: Confirmar e ajustar `dataSources` em research.yml.
+  status: 'o briefing menciona "painel municipal"; o repositório descreve painel das 27 UF'
+  action: 'Confirmar e ajustar `dataSources` em research.yml.'
 
-- item: Currículo em PDF
-  status: exportação do LinkedIn de fev/2025 com telefone pessoal
-  action: Substituir `public/valber-cv.pdf` por versão atualizada sem dados pessoais sensíveis.
-
-- item: Fotografia definitiva
-  status: retrato fornecido em 11/09/2026 (src/assets/valber-portrait.jpg)
-  action: Confirmar se é a imagem definitiva.
-
-- item: Link do resumo ANPTUR 2024
-  status: sem URL pública localizada
-  action: Adicionar `url` em publications.yml se existir.
-
-- item: Ativação do disparo imediato (repository_dispatch) nos repositórios rastreados
-  status: não ativado — depende de secret PORTFOLIO_SYNC_TOKEN em cada repositório
-  action: Seguir docs/PORTFOLIO_AUTOMATION.md.
+- item: Disparo imediato (repository_dispatch) nos repositórios rastreados
+  status: 'workflow notify-portfolio.yml INSTALADO nos 11 repositórios em 11/09/2026; falta o secret PORTFOLIO_SYNC_TOKEN (sem ele o workflow termina sem erro e o agendamento de 6 h cobre a atualização)'
+  action: 'Criar o fine-grained token (só o repo do site, Contents: read/write) e rodar scripts/set-portfolio-secret.ps1 — ver docs/PORTFOLIO_AUTOMATION.md.'

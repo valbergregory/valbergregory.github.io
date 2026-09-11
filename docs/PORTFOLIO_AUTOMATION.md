@@ -43,35 +43,42 @@ Para adicionar um repositório: inclua `owner/repo` no JSON e defina `allowAutom
 
 O workflow `.github/workflows/deploy-pages.yml` roda em quatro situações:
 
-| Gatilho | Quando |
-|---|---|
-| `push` em `main` | qualquer alteração de conteúdo ou código do site |
-| `workflow_dispatch` | manualmente, na aba Actions |
+| Gatilho                                    | Quando                                                                         |
+| ------------------------------------------ | ------------------------------------------------------------------------------ |
+| `push` em `main`                           | qualquer alteração de conteúdo ou código do site                               |
+| `workflow_dispatch`                        | manualmente, na aba Actions                                                    |
 | `repository_dispatch` (`portfolio-update`) | disparo imediato enviado por um repositório de pesquisa (opcional, ver abaixo) |
-| `schedule` (`17 */6 * * *`) | a cada seis horas, como fallback |
+| `schedule` (`17 */6 * * *`)                | a cada seis horas, como fallback                                               |
 
 Em cada execução: `npm ci` → sincronização (com `secrets.GITHUB_TOKEN`, automático do Actions, para elevar o limite de requisições) → lint → typecheck → testes → build → verificação de links → verificação de segredos → upload → deploy. O JSON de metadados é guardado com `actions/cache` entre execuções, para que uma falha da API não deixe o site sem dados.
 
-## Disparo imediato (opcional)
+## Disparo imediato
 
-Para que um push em um repositório de pesquisa reconstrua o site em minutos, em vez de esperar o agendamento:
+**Estado em 11/09/2026:** o workflow `notify-portfolio.yml` está **instalado nos 11 repositórios rastreados** (commit direto na branch padrão de cada um, via API; os clones locais precisam de `git pull` para receber o arquivo). Sem o secret ele termina sem erro com a mensagem "PORTFOLIO_SYNC_TOKEN não configurado", e o agendamento de seis horas segue cobrindo a atualização. O evento `repository_dispatch` já foi testado no repositório do site e reconstrói a página normalmente.
 
-1. Crie um **fine-grained personal access token** em GitHub → Settings → Developer settings → Fine-grained tokens:
-   - *Repository access*: **Only select repositories** → `valbergregory/valbergregory.github.io` (apenas este);
-   - *Permissions* → *Repository permissions* → **Contents: Read and write** (é a permissão que autoriza `repository_dispatch`); nada mais;
-   - prazo de expiração curto (por exemplo, 1 ano) e lembrete para renovar.
-2. Em **cada** repositório de pesquisa que deve disparar o rebuild: Settings → Secrets and variables → Actions → *New repository secret* → nome `PORTFOLIO_SYNC_TOKEN`, valor = o token.
-3. Copie `docs/examples/notify-portfolio.yml` para `.github/workflows/notify-portfolio.yml` no repositório de pesquisa e faça commit.
+Para ativar o disparo, falta apenas o token — um passo que só o proprietário pode fazer:
 
-O workflow de exemplo envia um `POST /repos/valbergregory/valbergregory.github.io/dispatches` com `event_type: portfolio-update` após push em `main` ou publicação de release. Se o secret não existir, ele termina sem erro e o agendamento periódico cuida da atualização.
+1. Crie um **fine-grained personal access token** em GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens:
+   - _Repository access_: **Only select repositories** → `valbergregory/valbergregory.github.io` (apenas este);
+   - _Permissions_ → _Repository permissions_ → **Contents: Read and write** (é a permissão que autoriza `repository_dispatch`); nada mais;
+   - prazo de expiração (por exemplo, 1 ano) e lembrete para renovar.
+2. Grave o token como secret `PORTFOLIO_SYNC_TOKEN` em todos os repositórios da whitelist de uma vez, com o `gh` já autenticado:
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File scripts/set-portfolio-secret.ps1
+   ```
+
+   (ou `bash scripts/set-portfolio-secret.sh`). O script pede o token uma única vez, com digitação oculta, e o envia ao GitHub por stdin; ele nunca é gravado em disco nem impresso. Alternativa manual: Settings → Secrets and variables → Actions → _New repository secret_ em cada repositório.
+
+3. Faça um push em qualquer repositório rastreado e confira, na aba Actions do site, uma execução com gatilho `repository_dispatch`.
+
+O workflow instalado envia um `POST /repos/valbergregory/valbergregory.github.io/dispatches` com `event_type: portfolio-update` após push na branch padrão (`main` ou `master`) ou publicação de release. A cópia de referência está em `docs/examples/notify-portfolio.yml`.
 
 Regras de segurança:
 
 - o token nunca deve ser gravado em arquivo, mostrado em log, incluído no front-end ou commitado;
 - não use tokens clássicos com escopo `repo` amplo;
 - o site continua funcionando sem o disparo imediato.
-
-Os repositórios de pesquisa **não foram alterados** por esta reformulação; a ativação é uma decisão do proprietário.
 
 ## Executar a sincronização localmente
 
