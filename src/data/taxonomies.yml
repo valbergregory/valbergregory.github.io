@@ -1,0 +1,158 @@
+# Vocabulários controlados usados por research.yml e pelos filtros da página de pesquisa.
+# As chaves são estáveis (usadas em URLs e atributos data-*); só os rótulos são traduzidos.
+
+tracks:
+  economia-politicas-publicas:
+    pt: Economia e políticas públicas
+    en: Economics and public policy
+  economia-direito-jurimetria:
+    pt: Economia do Direito e Jurimetria
+    en: Law and Economics and Jurimetrics
+  ia-governo-digital-seguranca:
+    pt: IA, governo digital e segurança
+    en: AI, digital government and security
+  economia-turismo:
+    pt: Economia do Turismo
+    en: Tourism Economics
+  economia-maritima-portos:
+    pt: Economia Marítima e Portos
+    en: Maritime Economics and Ports
+  economia-pesqueira:
+    pt: Economia Pesqueira
+    en: Fisheries Economics
+
+statuses:
+  estruturacao:
+    pt: Em estruturação
+    en: Being structured
+    order: 1
+  em-desenvolvimento:
+    pt: Em desenvolvimento
+    en: In development
+    order: 2
+  redacao:
+    pt: Em redação
+    en: Writing
+    order: 3
+  pre-submissao:
+    pt: Pré-submissão
+    en: Pre-submission
+    order: 4
+  submetido:
+    pt: Submetido
+    en: Submitted
+    order: 5
+  publicado:
+    pt: Publicado
+    en: Published
+    order: 6
+
+methods:
+  painel:
+    pt: Dados em painel
+    en: Panel data
+  dsge:
+    pt: Modelo DSGE
+    en: DSGE model
+  series-temporais:
+    pt: Séries temporais
+    en: Time series
+  cointegracao:
+    pt: Cointegração e VECM
+    en: Cointegration and VECM
+  efeitos-fixos:
+    pt: Efeitos fixos
+    en: Fixed effects
+  did:
+    pt: Diferenças-em-diferenças
+    en: Difference-in-differences
+  estudo-de-eventos:
+    pt: Estudo de eventos
+    en: Event study
+  imputacao:
+    pt: Estimador de imputação
+    en: Imputation estimator
+  text-mining:
+    pt: Mineração de texto
+    en: Text mining
+  analise-espacial:
+    pt: Análise espacial
+    en: Spatial analysis
+  sobrevivencia:
+    pt: Análise de sobrevivência
+    en: Survival analysis
+  ml-explicavel:
+    pt: Aprendizado de máquina explicável
+    en: Explainable machine learning
+  nlp:
+    pt: Processamento de linguagem natural
+    en: Natural language processing
+  benchmark:
+    pt: Benchmark de modelos de linguagem
+    en: LLM benchmark
+  analise-documental:
+    pt: Análise documental comparativa
+    en: Comparative document analysis
+  ppml:
+    pt: PPML
+    en: PPML
+  gravitacional:
+    pt: Modelo gravitacional
+    en: Gravity model
+  redes:
+    pt: Análise de redes
+    en: Network analysis
+  sfa:
+    pt: Fronteira estocástica
+    en: Stochastic frontier
+  cubo-de-dados:
+    pt: Cubo de dados geoespacial
+    en: Geospatial data cube
+  inferencia-causal:
+    pt: Inferência causal
+    en: Causal inference
+
+languages:
+  R:
+    pt: R
+    en: R
+  Python:
+    pt: Python
+    en: Python
+  SQL:
+    pt: SQL / DuckDB
+    en: SQL / DuckDB
+  LaTeX:
+    pt: LaTeX
+    en: LaTeX
+
+outputs:
+  artigo:
+    pt: Artigo científico
+    en: Research article
+  dados-abertos:
+    pt: Dados abertos
+    en: Open data
+  observatorio:
+    pt: Observatório
+    en: Observatory
+  painel-publico:
+    pt: Painel público
+    en: Public dashboard
+  base-conhecimento:
+    pt: Base de conhecimento
+    en: Knowledge base
+  software:
+    pt: Software / pipeline
+    en: Software / pipeline
+
+updateCategories:
+  - codigo
+  - versao
+  - documentacao
+  - dados
+  - painel
+  - texto
+  - evento
+  - site
+  - publicacao

@@ -1,0 +1,120 @@
+---
+/**
+ * Metadados públicos de um repositório (gerados por scripts/sync-github.mjs).
+ * Mostra apenas fatos técnicos; nada aqui expressa estágio ou qualidade científica.
+ */
+import Icon from './Icon.astro';
+import type { Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { formatDate, type RepoMeta } from '@/lib/data';
+
+interface Props {
+  meta: RepoMeta;
+  lang: Lang;
+  showDescription?: boolean;
+}
+const { meta, lang, showDescription = true } = Astro.props;
+const t = useTranslations(lang);
+const updated = meta.latestCommitAt ?? meta.pushedAt;
+---
+
+<div class="repo-meta" data-stale={meta.stale ? 'true' : undefined}>
+  <div class="repo-head">
+    <a href={meta.url} rel="noopener" target="_blank" class="repo-name">
+      <Icon name="github" size={18} />
+      <span>{meta.fullName}</span>
+      <span class="visually-hidden">{t('a11y.newTab')}</span>
+    </a>
+    {meta.archived && <span class="tag">archived</span>}
+  </div>
+  {showDescription && meta.description && <p class="small muted desc">{meta.description}</p>}
+  <dl class="repo-facts">
+    <div>
+      <dt>{t('repo.updated')}</dt>
+      <dd>
+        <time datetime={updated.slice(0, 10)}>{formatDate(updated, lang)}</time>
+      </dd>
+    </div>
+    {meta.language && (
+      <div>
+        <dt>{t('repo.language')}</dt>
+        <dd>{meta.language}</dd>
+      </div>
+    )}
+    {meta.license && (
+      <div>
+        <dt>{t('repo.license')}</dt>
+        <dd>{meta.license}</dd>
+      </div>
+    )}
+    {meta.latestRelease && (
+      <div>
+        <dt>{t('repo.release')}</dt>
+        <dd>
+          {meta.latestRelease.tag}
+          {' · '}
+          <time datetime={meta.latestRelease.publishedAt.slice(0, 10)}>
+            {formatDate(meta.latestRelease.publishedAt, lang)}
+          </time>
+        </dd>
+      </div>
+    )}
+  </dl>
+  {meta.topics.length > 0 && (
+    <ul class="tag-list" aria-label={t('repo.topics')}>
+      {meta.topics.slice(0, 8).map((topic) => (
+        <li class="tag">{topic}</li>
+      ))}
+    </ul>
+  )}
+  {meta.stale && <p class="small muted stale">{t('repo.stale')}</p>}
+</div>
+
+<style>
+  .repo-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .repo-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .repo-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    text-decoration: none;
+    min-height: 2.25rem;
+    overflow-wrap: anywhere;
+  }
+  .repo-name:hover {
+    text-decoration: underline;
+  }
+  .desc {
+    margin: 0;
+  }
+  .repo-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: var(--space-3);
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+  .repo-facts dt {
+    color: var(--text-subtle);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  .repo-facts dd {
+    margin: 0;
+  }
+  .stale {
+    margin: 0;
+  }
+</style>

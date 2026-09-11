@@ -1,0 +1,313 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import StatusBadge from '@/components/StatusBadge.astro';
+import RepoMeta from '@/components/RepoMeta.astro';
+import ResearchCard from '@/components/ResearchCard.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { label, pick, pickList, repoMetaFor, formatDate } from '@/lib/data';
+import { breadcrumbJsonLd, researchJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+  project: CollectionEntry<'research'>;
+}
+const { lang, project } = Astro.props;
+const p = project.data;
+const t = useTranslations(lang);
+const en = lang === 'en';
+
+const meta = p.allowAutomaticMetadata ? repoMetaFor(p.repository) : undefined;
+const findings = p.showPreliminaryFindings ? pickList(p.preliminaryFindings, lang) : [];
+const related = (await getCollection('research'))
+  .filter((r) => r.data.track === p.track && r.data.slug !== p.slug)
+  .slice(0, 3);
+
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('research.title'), href: route('research', lang) },
+  { label: p.title },
+];
+
+const lists: { key: string; title: string; items: string[] }[] = [
+  { key: 'data', title: t('research.data'), items: pickList(p.dataSources, lang) },
+  { key: 'methods', title: t('research.methods'), items: pickList(p.methods, lang) },
+  { key: 'limitations', title: t('research.limitations'), items: pickList(p.limitations, lang) },
+  { key: 'implications', title: t('research.implications'), items: pickList(p.implications, lang) },
+  { key: 'extension', title: t('research.extension'), items: pickList(p.extensionProducts, lang) },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={p.title}
+  description={pick(p.summary, lang)}
+  current="researchItem"
+  alternates={alternates('researchItem', p.slug)}
+  type="article"
+  modifiedTime={p.lastEditorialReview}
+  jsonLd={[
+    ...researchJsonLd(project, lang),
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('research.title'), path: route('research', lang) },
+      { name: p.title, path: route('researchItem', lang, p.slug) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={p.title} eyebrow={label('tracks', p.track, lang)} {crumbs}>
+    <div class="head-meta">
+      <StatusBadge status={p.status} {lang} />
+      {p.subtrack && <span class="muted small">· {pick(p.subtrack, lang)}</span>}
+    </div>
+    {p.alternativeTitle && (
+      <p class="alt-title">
+        <span class="muted small">{t('research.altTitle')}:</span> <em>{p.alternativeTitle}</em>
+        {p.titlePending && <span class="muted small"> — {t('research.altTitle.note')}</span>}
+      </p>
+    )}
+    {p.titleProvisional && (
+      <p class="muted small">
+        {en
+          ? 'Provisional title, subject to confirmation.'
+          : 'Título provisório, sujeito a confirmação.'}
+      </p>
+    )}
+  </PageHeader>
+
+  <div class="container detail-layout">
+    <article class="detail-main">
+      <p class="notice info">{t('research.disclaimer')}</p>
+
+      <section aria-labelledby="q-title">
+        <h2 id="q-title">{t('research.question')}</h2>
+        <p class="question">{pick(p.researchQuestion, lang)}</p>
+      </section>
+
+      <section aria-labelledby="m-title">
+        <h2 id="m-title">{t('research.motivation')}</h2>
+        <p class="prose">{pick(p.motivation, lang)}</p>
+      </section>
+
+      {lists.slice(0, 2).map(
+        (l) =>
+          l.items.length > 0 && (
+            <section aria-labelledby={`${l.key}-title`}>
+              <h2 id={`${l.key}-title`}>{l.title}</h2>
+              <ul class="prose">
+                {l.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ),
+      )}
+
+      {findings.length > 0 && (
+        <section aria-labelledby="f-title" class="findings">
+          <h2 id="f-title">{t('research.findings')}</h2>
+          <p class="notice">{t('research.findings.note')}</p>
+          <ul class="prose">
+            {findings.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {lists.slice(2).map(
+        (l) =>
+          l.items.length > 0 && (
+            <section aria-labelledby={`${l.key}-title`}>
+              <h2 id={`${l.key}-title`}>{l.title}</h2>
+              <ul class="prose">
+                {l.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ),
+      )}
+
+      {p.materials.length > 0 && (
+        <section aria-labelledby="mat-title">
+          <h2 id="mat-title">{t('research.materials')}</h2>
+          <ul class="link-list">
+            {p.materials.map((m) => (
+              <li>
+                <a href={m.url} rel="noopener" target="_blank">
+                  {pick(m.label, lang)} <span class="visually-hidden">{t('a11y.newTab')}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+
+    <aside class="detail-side" aria-label={en ? 'Project details' : 'Ficha do projeto'}>
+      <div class="card side-card">
+        <dl class="definition">
+          <dt>{t('research.authors')}</dt>
+          <dd>
+            <ul class="plain">
+              {p.authors.map((a) => (
+                <li>{a}</li>
+              ))}
+            </ul>
+          </dd>
+          <dt>{t('research.status')}</dt>
+          <dd>
+            <StatusBadge status={p.status} {lang} />
+          </dd>
+          <dt>{t('research.track')}</dt>
+          <dd>
+            <a href={`${route('research', lang)}?area=${p.track}`}>
+              {label('tracks', p.track, lang)}
+            </a>
+          </dd>
+          {p.languages.length > 0 && (
+            <>
+              <dt>{t('research.languages')}</dt>
+              <dd>{p.languages.map((l) => label('languages', l, lang)).join(', ')}</dd>
+            </>
+          )}
+          {p.methodTags.length > 0 && (
+            <>
+              <dt>{t('research.filter.method')}</dt>
+              <dd>
+                <ul class="tag-list">
+                  {p.methodTags.map((m) => (
+                    <li class="tag">{label('methods', m, lang)}</li>
+                  ))}
+                </ul>
+              </dd>
+            </>
+          )}
+          <dt>{t('research.updated')}</dt>
+          <dd>
+            <time datetime={p.lastEditorialReview}>{formatDate(p.lastEditorialReview, lang)}</time>
+          </dd>
+        </dl>
+      </div>
+
+      <div class="card side-card">
+        <h2 class="side-title">{t('research.repository')}</h2>
+        {p.repository && meta ? (
+          <RepoMeta {meta} {lang} />
+        ) : p.repository ? (
+          <a class="button secondary" href={p.repository} rel="noopener" target="_blank">
+            <Icon name="github" /> {t('research.viewRepo')}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        ) : p.repositoryVisibility === 'private' ? (
+          <p class="muted small repo-note">
+            <Icon name="lock" /> {t('research.repository.private')}
+          </p>
+        ) : (
+          <p class="muted small repo-note">{t('research.repository.none')}</p>
+        )}
+      </div>
+    </aside>
+  </div>
+
+  {related.length > 0 && (
+    <section class="section related" aria-labelledby="related-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="related-title">{t('research.related')}</h2>
+        </div>
+        <div class="grid grid-3">
+          {related.map((r) => (
+            <ResearchCard project={r} {lang} compact />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .head-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-4);
+  }
+  .alt-title {
+    margin: var(--space-3) 0 0;
+    max-width: var(--measure);
+  }
+  .detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: var(--space-7);
+    padding-block: var(--space-7);
+    align-items: start;
+  }
+  .detail-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .detail-main h2 {
+    font-size: var(--text-xl);
+  }
+  .question {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    font-variation-settings:
+      'opsz' 24,
+      'wght' 450;
+    max-width: var(--measure);
+    color: var(--navy);
+  }
+  .findings .notice {
+    margin-bottom: var(--space-4);
+    max-width: var(--measure);
+  }
+  .detail-side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-4));
+  }
+  .side-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .plain {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .repo-note {
+    display: flex;
+    gap: var(--space-2);
+    align-items: flex-start;
+    margin: 0;
+  }
+  .related {
+    border-top: 1px solid var(--border);
+    background: var(--bg-muted);
+  }
+  @media (max-width: 60rem) {
+    .detail-layout {
+      grid-template-columns: 1fr;
+    }
+    .detail-side {
+      position: static;
+    }
+  }
+</style>

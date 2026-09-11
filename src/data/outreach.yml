@@ -1,0 +1,122 @@
+# Extensão e projetos aplicados. Apresentação institucional, sem preços,
+# projeções comerciais ou linguagem empresarial. Só entram informações públicas.
+
+- slug: patacidada
+  name: PataCidadã
+  kind:
+    pt: Plataforma de proteção animal
+    en: Animal-protection platform
+  status:
+    pt: Em fase final de aprimoramento para lançamento
+    en: Final refinement phase before launch
+  summary:
+    pt: Plataforma gratuita de proteção animal criada em Alagoas. Reúne registro de animais perdidos e encontrados, canais de denúncia, resgates, adoção e um perfil público para organizações de proteção animal, com um painel de indicadores para a gestão pública.
+    en: Free animal-protection platform created in Alagoas. It brings together lost-and-found reports, reporting channels, rescues, adoption and a public profile for animal-protection organisations, with an indicator dashboard for public management.
+  role:
+    pt: Fundador, desenho do produto e desenvolvimento
+    en: Founder, product design and development
+  links:
+    - label: patacidada.com.br
+      url: https://patacidada.com.br/
+    - label: app.patacidada.com.br
+      url: https://app.patacidada.com.br/
+  tracks: [ia-governo-digital-seguranca]
+
+- slug: smartmap-educacao
+  name: SmartMap Educação
+  kind:
+    pt: Inteligência territorial para a educação municipal
+    en: Territorial intelligence for municipal education
+  status:
+    pt: Protótipo funcional em modo de demonstração com dados públicos
+    en: Working prototype in demonstration mode with public data
+  summary:
+    pt: Plataforma de apoio à decisão para secretarias municipais de educação, que organiza dados públicos (matrículas, IDEB, orçamento) em mapas, indicadores e simuladores. O modo de demonstração usa dados abertos do município de Penedo.
+    en: Decision-support platform for municipal education departments that organises public data (enrolment, IDEB, budget) into maps, indicators and simulators. The demonstration mode uses open data from the municipality of Penedo.
+  role:
+    pt: Coordenação técnica e desenvolvimento
+    en: Technical coordination and development
+  links:
+    - label: smartmap-educacao.vercel.app
+      url: https://smartmap-educacao.vercel.app/
+  tracks: [economia-politicas-publicas, ia-governo-digital-seguranca]
+
+- slug: observatorio-digitalizacao-portuaria
+  name:
+    pt: Observatório da Digitalização Portuária
+    en: Port Digitalisation Observatory
+  kind:
+    pt: Observatório de pesquisa com dados públicos
+    en: Research observatory with public data
+  status:
+    pt: Em construção, derivado da pesquisa sobre o Porto Sem Papel
+    en: Under construction, derived from the Porto Sem Papel research
+  summary:
+    pt: Séries históricas, painéis e mapas sobre a digitalização dos processos portuários brasileiros, construídos a partir dos dados da ANTAQ e das datas de adoção documentadas. Código aberto e pipeline reproduzível.
+    en: Historical series, dashboards and maps on the digitalisation of Brazilian port processes, built from ANTAQ data and documented adoption dates. Open code and reproducible pipeline.
+  role:
+    pt: Concepção, dados e desenvolvimento
+    en: Concept, data and development
+  links:
+    - label: GitHub
+      url: https://github.com/valbergregory/Port-Digitalization-Observatory
+  research: port-digitalization-observatory
+  tracks: [economia-maritima-portos]
+
+- slug: observatorio-economia-transformacao-digital
+  name:
+    pt: Observatório de Economia e Transformação Digital
+    en: Observatory of Economics and Digital Transformation
+  kind:
+    pt: Proposta de observatório universitário
+    en: Proposed university observatory
+  status:
+    pt: Proposta em estruturação
+    en: Proposal being structured
+  summary:
+    pt: Proposta de observatório na UFAL Penedo para reunir, em um só lugar, os painéis, bases e boletins produzidos pelas pesquisas sobre governo digital, portos, turismo e pesca, com participação de estudantes de Sistemas de Informação.
+    en: Proposed observatory at UFAL Penedo to bring together the dashboards, datasets and bulletins produced by the research on digital government, ports, tourism and fisheries, with the participation of Information Systems students.
+  role:
+    pt: Proponente
+    en: Proponent
+  links: []
+  tracks: [ia-governo-digital-seguranca, economia-politicas-publicas]
+
+- slug: observatorios-turismo-pesca
+  name:
+    pt: Observatórios de turismo, pesca e atividade marítima
+    en: Tourism, fisheries and maritime observatories
+  kind:
+    pt: Produtos de extensão derivados das pesquisas
+    en: Outreach products derived from research
+  status:
+    pt: Planejados
+    en: Planned
+  summary:
+    pt: Cubos de dados, painéis, mapas e boletins previstos como desdobramento das pesquisas em Economia do Turismo e Economia Pesqueira, com aplicações para Penedo, o Baixo São Francisco e Alagoas e instrumentos para pescadores, comunidades costeiras, pesquisadores e gestores.
+    en: Data cubes, dashboards, maps and bulletins planned as outputs of the research in Tourism and Fisheries Economics, with applications for Penedo, the Lower São Francisco and Alagoas and tools for fishers, coastal communities, researchers and managers.
+  role:
+    pt: Coordenação
+    en: Coordination
+  links: []
+  research: marine-heatwaves-fishing-effort
+  tracks: [economia-turismo, economia-pesqueira, economia-maritima-portos]
+
+- slug: materiais-didaticos
+  name:
+    pt: Materiais didáticos e painéis públicos
+    en: Teaching materials and public dashboards
+  kind:
+    pt: Recursos educacionais
+    en: Educational resources
+  status:
+    pt: Em uso nas disciplinas; publicação gradual
+    en: In use in courses; gradual publication
+  summary:
+    pt: Apostilas, slides e séries de textos didáticos produzidos para as disciplinas de Economia, Informação Contábil, Direito Aplicado à Informática e Economia Pesqueira, além de cursos de extensão em análise de dados com R. Os materiais serão publicados à medida que forem revisados.
+    en: Handouts, slides and series of teaching texts produced for the courses in Economics, Accounting Information, Law Applied to Computing and Fisheries Economics, plus outreach courses on data analysis with R. Materials will be published as they are reviewed.
+  role:
+    pt: Autor
+    en: Author
+  links: []
+  tracks: [economia-politicas-publicas, economia-pesqueira]

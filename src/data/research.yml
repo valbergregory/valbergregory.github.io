@@ -1,0 +1,974 @@
+# Cadastro editorial das pesquisas. Este arquivo é a fonte de verdade para
+# títulos, autoria, estágio, textos científicos e links. Nada aqui é inferido
+# de commits; o script de sincronização só complementa metadados públicos
+# (linguagem, data do último commit, licença, release) dos repositórios
+# autorizados em github-whitelist.json.
+#
+# Estágios permitidos (taxonomies.yml): estruturacao, em-desenvolvimento,
+# redacao, pre-submissao, submetido, publicado.
+# Nunca use "publicado" para manuscritos que ainda não foram publicados.
+
+# ---------------------------------------------------------------------------
+# 6.1 Economia e políticas públicas
+# ---------------------------------------------------------------------------
+- slug: gasto-publico-educacao-dsge
+  title: 'Gasto Público em Educação, Salários Regionais e Dinâmica Fiscal no Brasil: Evidências em Painel e um DSGE Fiscal com Capital Humano'
+  alternativeTitle: 'A Austeridade Educacional se Autofinancia? Efeito Laffer Dinâmico do Gasto Público em Educação num DSGE Fiscal com Capital Humano'
+  titlePending: true
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-politicas-publicas
+  status: pre-submissao
+  summary:
+    pt: Quanto o gasto público em educação retorna em produto, salários e arrecadação ao longo do tempo? O trabalho combina evidências em painel para o Brasil com um modelo DSGE fiscal em que a educação forma capital humano.
+    en: How much does public spending on education return in output, wages and tax revenue over time? The paper combines panel evidence for Brazil with a fiscal DSGE model in which education builds human capital.
+  researchQuestion:
+    pt: Quanto o gasto público em educação retorna em produto, salários e arrecadação ao longo do tempo?
+    en: How much does public spending on education return in output, wages and tax revenue over time?
+  motivation:
+    pt: Cortes em educação costumam ser defendidos como ajuste fiscal imediato, mas o gasto educacional forma capital humano que eleva salários e a base tributária no futuro. Medir esse retorno dinâmico ajuda a avaliar se a austeridade educacional se paga ou se custa mais do que economiza.
+    en: Education cuts are often defended as immediate fiscal adjustment, yet education spending builds human capital that raises wages and the tax base in the future. Measuring this dynamic return helps assess whether educational austerity pays for itself or costs more than it saves.
+  dataSources:
+    pt:
+      - Dados em painel de unidades subnacionais brasileiras (gasto em educação, salários regionais e arrecadação)
+      - Parâmetros calibrados para a economia brasileira no modelo DSGE
+    en:
+      - Panel data for Brazilian subnational units (education spending, regional wages and tax revenue)
+      - Parameters calibrated to the Brazilian economy in the DSGE model
+  methods:
+    pt:
+      - Econometria de dados em painel
+      - Modelo DSGE fiscal com capital humano e simulação de choques de gasto
+    en:
+      - Panel-data econometrics
+      - Fiscal DSGE model with human capital and simulation of spending shocks
+  methodTags: [painel, dsge, efeitos-fixos]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - O modelo depende de calibração; os resultados quantitativos são sensíveis aos parâmetros de formação de capital humano.
+      - A escolha entre o título principal e o alternativo ainda não foi definida.
+    en:
+      - The model relies on calibration; quantitative results are sensitive to the human-capital formation parameters.
+      - The choice between the main and the alternative title has not been made yet.
+  implications:
+    pt:
+      - Avaliação de regras fiscais e de pisos constitucionais para a educação.
+      - Discussão sobre o horizonte temporal adequado para medir o retorno do gasto educacional.
+    en:
+      - Assessment of fiscal rules and constitutional spending floors for education.
+      - Discussion of the appropriate time horizon to measure the return on education spending.
+  extensionProducts:
+    pt:
+      - Material didático sobre política fiscal e capital humano para as disciplinas de Economia
+    en:
+      - Teaching material on fiscal policy and human capital for Economics courses
+  repository: https://github.com/valbergregory/artigo-dsge-educacao
+  repositoryVisibility: public
+  languages: [Python, LaTeX]
+  outputTypes: [artigo]
+  codeAvailable: true
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+- slug: transmissao-precos-leite
+  title: Transmissão de Preços do Leite ao Produtor entre Regiões Brasileiras
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-politicas-publicas
+  subtrack:
+    pt: Economia agrícola e mercados
+    en: Agricultural economics and markets
+  status: pre-submissao
+  summary:
+    pt: Como os preços pagos ao produtor de leite se transmitem entre regiões brasileiras e quais mercados lideram o processo de ajuste? Séries mensais do CEPEA/ESALQ analisadas com cointegração e modelos de correção de erros.
+    en: How do farm-gate milk prices transmit across Brazilian regions and which markets lead the adjustment process? Monthly CEPEA/ESALQ series analysed with cointegration and error-correction models.
+  researchQuestion:
+    pt: Como os preços pagos ao produtor se transmitem entre regiões brasileiras e quais mercados lideram o processo de ajuste?
+    en: How do farm-gate prices transmit across Brazilian regions and which markets lead the adjustment process?
+  motivation:
+    pt: O leite é produzido em quase todos os estados, mas a formação de preços é regionalmente desigual. Saber quais mercados lideram e com que velocidade os demais reagem informa políticas de abastecimento, crédito rural e defesa da concorrência.
+    en: Milk is produced in almost every Brazilian state, yet price formation is regionally uneven. Knowing which markets lead and how fast the others react informs supply, rural credit and competition policies.
+  dataSources:
+    pt:
+      - Preços mensais ao produtor por estado (CEPEA/ESALQ-USP), 2016–2026
+      - Deflacionamento pelo IPCA (IBGE)
+    en:
+      - Monthly farm-gate prices by state (CEPEA/ESALQ-USP), 2016–2026
+      - Deflation by the IPCA consumer price index (IBGE)
+  methods:
+    pt:
+      - Testes de raiz unitária e cointegração
+      - Modelo vetorial de correção de erros (VECM) e versão com limiar (TVECM) para assimetrias
+      - Causalidade de Granger
+    en:
+      - Unit-root and cointegration tests
+      - Vector error-correction model (VECM) and threshold version (TVECM) for asymmetries
+      - Granger causality
+  methodTags: [series-temporais, cointegracao]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - Preços estaduais agregam heterogeneidade dentro de cada estado.
+      - Quebras estruturais (pandemia, choques de custo) exigem tratamento explícito.
+    en:
+      - State-level prices aggregate heterogeneity within each state.
+      - Structural breaks (pandemic, cost shocks) require explicit treatment.
+  implications:
+    pt:
+      - Identificação de mercados líderes para monitoramento de preços.
+      - Subsídio para políticas de crédito e abastecimento na cadeia do leite.
+    en:
+      - Identification of leading markets for price monitoring.
+      - Input for credit and supply policies in the dairy chain.
+  extensionProducts:
+    pt:
+      - Boletim de preços regionais do leite para produtores e cooperativas
+    en:
+      - Regional milk price bulletin for producers and cooperatives
+  repository: https://github.com/valbergregory/transmissao-precos-leite-brasil
+  repositoryVisibility: public
+  languages: [R, LaTeX]
+  outputTypes: [artigo]
+  codeAvailable: true
+  dataAvailable: true
+  featured: false
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+- slug: ia-produtividade-tribunais
+  title: 'Inteligência Artificial e Produtividade no Setor Público: Evidências dos Tribunais de Justiça Brasileiros'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-politicas-publicas
+  subtrack:
+    pt: Economia do setor público e inovação
+    en: Public-sector economics and innovation
+  status: pre-submissao
+  summary:
+    pt: A primeira adoção institucional oficial de IA foi acompanhada por ganhos agregados mensuráveis de produtividade nos Tribunais de Justiça? Painel dos 27 TJs com cronologia auditada de adoção e métodos de diferenças-em-diferenças escalonadas.
+    en: Was the first official institutional adoption of AI followed by measurable aggregate productivity gains in Brazilian state courts? Panel of the 27 state courts with an audited adoption timeline and staggered difference-in-differences methods.
+  researchQuestion:
+    pt: A primeira adoção institucional oficial de IA foi acompanhada por ganhos agregados mensuráveis de produtividade nos Tribunais de Justiça?
+    en: Was the first official institutional adoption of AI followed by measurable aggregate productivity gains in the state courts?
+  motivation:
+    pt: Tribunais brasileiros adotaram ferramentas de IA em ritmos diferentes desde 2018. Essa variação no tempo permite testar, com dados administrativos públicos, se a adoção se reflete em indicadores agregados de produtividade — em vez de assumir o ganho a partir de relatos de casos de uso.
+    en: Brazilian courts adopted AI tools at different paces since 2018. This variation over time makes it possible to test, with public administrative data, whether adoption shows up in aggregate productivity indicators — instead of assuming gains from use-case reports.
+  dataSources:
+    pt:
+      - Painel anual dos 27 Tribunais de Justiça (Justiça em Números, CNJ)
+      - Cronologia auditada da primeira adoção institucional de IA em cada tribunal
+    en:
+      - Annual panel of the 27 state courts (Justiça em Números, CNJ)
+      - Audited timeline of the first institutional AI adoption in each court
+  methods:
+    pt:
+      - Efeitos fixos de tribunal e ano
+      - Diferenças-em-diferenças escalonadas (estimadores robustos a heterogeneidade temporal)
+      - Estudos de eventos e estimador de imputação
+    en:
+      - Court and year fixed effects
+      - Staggered difference-in-differences (estimators robust to treatment heterogeneity)
+      - Event studies and imputation estimator
+  methodTags: [painel, efeitos-fixos, did, estudo-de-eventos, imputacao]
+  showPreliminaryFindings: true
+  preliminaryFindings:
+    pt:
+      - Até o estágio atual, não foram identificados ganhos médios agregados robustos e estatisticamente detectáveis de produtividade após a primeira adoção institucional de IA.
+      - Esse resultado não exclui efeitos localizados por ferramenta, tarefa ou unidade judiciária, que os indicadores agregados não captam.
+    en:
+      - At the current stage, no robust, statistically detectable average aggregate productivity gains were identified after the first institutional adoption of AI.
+      - This result does not rule out localised effects by tool, task or judicial unit, which aggregate indicators cannot capture.
+  limitations:
+    pt:
+      - Indicadores agregados anuais são pouco sensíveis a ganhos concentrados em tarefas específicas.
+      - A data de adoção oficial pode diferir da data de uso efetivo pelas unidades.
+      - Um resultado nulo não é prova de que a IA não funciona; é ausência de efeito médio detectável com estes dados.
+    en:
+      - Annual aggregate indicators are not very sensitive to gains concentrated in specific tasks.
+      - The official adoption date may differ from the date of effective use by units.
+      - A null result is not proof that AI does not work; it is the absence of a detectable average effect with these data.
+  implications:
+    pt:
+      - Avaliações de IA no Judiciário precisam de dados por tarefa e por unidade, e não apenas de indicadores agregados.
+      - Cronologias auditadas de adoção são um insumo público reutilizável para outras pesquisas.
+    en:
+      - Evaluations of AI in the judiciary need task- and unit-level data, not only aggregate indicators.
+      - Audited adoption timelines are a reusable public input for other studies.
+  extensionProducts:
+    pt:
+      - Cronologia pública de adoção de IA pelos Tribunais de Justiça
+    en:
+      - Public timeline of AI adoption by the state courts
+  repository: null
+  repositoryVisibility: none
+  languages: [R, LaTeX]
+  outputTypes: [artigo, dados-abertos]
+  codeAvailable: false
+  dataAvailable: false
+  featured: true
+  featuredOrder: 1
+  allowAutomaticMetadata: false
+  lastEditorialReview: '2026-09-11'
+
+# ---------------------------------------------------------------------------
+# 6.2 Economia do Direito e Jurimetria
+# ---------------------------------------------------------------------------
+- slug: pricing-non-pecuniary-harm
+  title: 'Pricing Non-Pecuniary Harm: A Jurimetric Analysis of Moral Damages Awards in a Brazilian Appellate Court (Federal District, 2015–2025)'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-direito-jurimetria
+  status: em-desenvolvimento
+  summary:
+    pt: Quais fatores explicam o valor das indenizações por danos morais e quanto varia a decisão entre casos semelhantes? Acórdãos do TJDFT entre 2015 e 2025 tratados como dados.
+    en: Which factors explain the value of moral damages awards and how much do decisions vary across similar cases? Appellate decisions of the Federal District court (TJDFT), 2015–2025, treated as data.
+  researchQuestion:
+    pt: Quais fatores explicam o valor das indenizações por danos morais e quanto varia a decisão entre casos semelhantes?
+    en: Which factors explain the value of moral damages awards and how much do decisions vary across similar cases?
+  motivation:
+    pt: O dano moral não tem tabela legal no Brasil. A dispersão dos valores entre casos parecidos afeta a previsibilidade, o incentivo a litigar e a igualdade de tratamento. Medir essa dispersão e seus determinantes é o primeiro passo para discuti-la com evidência.
+    en: Moral damages have no statutory schedule in Brazil. The dispersion of awards across similar cases affects predictability, incentives to litigate and equal treatment. Measuring that dispersion and its determinants is the first step to discussing it with evidence.
+  dataSources:
+    pt:
+      - Acórdãos públicos do Tribunal de Justiça do Distrito Federal e dos Territórios (2015–2025)
+      - Extração estruturada de valores, matéria e características do caso a partir do texto
+    en:
+      - Public appellate decisions of the Federal District court (2015–2025)
+      - Structured extraction of award values, subject matter and case characteristics from text
+  methods:
+    pt:
+      - Mineração de texto e extração de variáveis com validação manual
+      - Modelos de regressão para o valor da indenização e para a dispersão
+    en:
+      - Text mining and variable extraction with manual validation
+      - Regression models for award values and for dispersion
+  methodTags: [text-mining, painel]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - A coleta ainda está em andamento; o extrator de variáveis está em validação.
+      - Apenas casos que chegaram à segunda instância são observados.
+    en:
+      - Data collection is still in progress; the variable extractor is under validation.
+      - Only cases that reached the appellate level are observed.
+  implications:
+    pt:
+      - Parâmetros empíricos para o debate sobre previsibilidade das indenizações.
+      - Ferramentas de consulta para advogados, juízes e pesquisadores.
+    en:
+      - Empirical parameters for the debate on award predictability.
+      - Reference tools for lawyers, judges and researchers.
+  extensionProducts:
+    pt:
+      - Painel de consulta de valores por matéria (após validação)
+    en:
+      - Award-value lookup dashboard by subject matter (after validation)
+  repository: https://github.com/valbergregory/Pricing-Non-Pecuniary-Harm
+  repositoryVisibility: public
+  languages: [R]
+  outputTypes: [artigo, software]
+  codeAvailable: true
+  dataAvailable: false
+  featured: true
+  featuredOrder: 3
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+- slug: gatekeeping-the-quantum
+  title: "Gatekeeping the Quantum: How Brazil's Superior Court of Justice Reviews Moral-Damages Awards"
+  titleProvisional: true
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-direito-jurimetria
+  status: em-desenvolvimento
+  summary:
+    pt: Quando o STJ aceita revisar o quantum do dano moral e como a Súmula 7 funciona como barreira de acesso a essa revisão? Censo de metadados de decisões do STJ e leitura estruturada dos textos.
+    en: When does the Superior Court of Justice (STJ) agree to review the amount of moral damages, and how does Precedent 7 (Súmula 7) act as a gate to that review? Census of STJ decision metadata and structured reading of the texts.
+  researchQuestion:
+    pt: Quando o STJ aceita revisar o quantum do dano moral e como a Súmula 7 funciona como barreira de acesso a essa revisão?
+    en: When does the STJ agree to review the quantum of moral damages, and how does Súmula 7 act as a barrier to that review?
+  motivation:
+    pt: O STJ diz que só revisa valores "irrisórios ou exorbitantes", mas a fronteira entre reexame de fato (vedado pela Súmula 7) e questão de direito é decidida caso a caso. Mapear essa fronteira com dados mostra o que a regra faz na prática.
+    en: The STJ says it only reviews awards that are "derisory or exorbitant", but the line between re-examining facts (barred by Súmula 7) and a question of law is drawn case by case. Mapping that line with data shows what the rule does in practice.
+  dataSources:
+    pt:
+      - Metadados e textos de decisões do Superior Tribunal de Justiça sobre danos morais
+    en:
+      - Metadata and texts of Superior Court of Justice decisions on moral damages
+  methods:
+    pt:
+      - Censo e amostragem de decisões; classificação estruturada dos fundamentos
+      - Modelos para a probabilidade de conhecimento do recurso e de revisão do valor
+    en:
+      - Census and sampling of decisions; structured classification of grounds
+      - Models for the probability of admitting the appeal and of revising the amount
+  methodTags: [text-mining, nlp]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - Título provisório, ainda sujeito a confirmação.
+      - O protocolo de anotação das decisões ainda está em validação.
+    en:
+      - Provisional title, still subject to confirmation.
+      - The decision annotation protocol is still under validation.
+  implications:
+    pt:
+      - Evidência sobre o papel dos filtros recursais na uniformização das indenizações.
+    en:
+      - Evidence on the role of appellate filters in harmonising awards.
+  extensionProducts:
+    pt:
+      - Base anotada de decisões do STJ sobre revisão do quantum (após validação)
+    en:
+      - Annotated dataset of STJ decisions on quantum review (after validation)
+  repository: https://github.com/valbergregory/STJ-Moral-Damages-Jurimetrics
+  repositoryVisibility: public
+  languages: [R, SQL]
+  outputTypes: [artigo, dados-abertos]
+  codeAvailable: true
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+- slug: geography-of-judicial-delay
+  title: 'The Geography of Judicial Delay: Spatial Inequality and Procedural Trajectories in Brazil'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-direito-jurimetria
+  status: em-desenvolvimento
+  summary:
+    pt: A duração do processo depende do lugar em que ele tramita? Trajetórias processuais do DataJud analisadas com métodos espaciais e de sobrevivência para explicar a desigualdade territorial da demora.
+    en: Does case duration depend on where the case is processed? Procedural trajectories from DataJud analysed with spatial and survival methods to explain territorial inequality in delay.
+  researchQuestion:
+    pt: A duração do processo depende do lugar em que ele tramita e quais características territoriais e institucionais explicam essa desigualdade?
+    en: Does case duration depend on where the case is processed, and which territorial and institutional characteristics explain that inequality?
+  motivation:
+    pt: A demora judicial é medida por médias nacionais, mas quem litiga vive em uma comarca específica. Diferenças entre comarcas vizinhas, com estruturas parecidas, apontam para causas institucionais que políticas de gestão podem enfrentar.
+    en: Judicial delay is measured by national averages, but litigants live in a specific judicial district. Differences between neighbouring districts with similar structures point to institutional causes that management policies can address.
+  dataSources:
+    pt:
+      - Movimentações processuais públicas do DataJud (CNJ), com sondagem em 12 tribunais estaduais
+      - Características territoriais e institucionais das comarcas
+    en:
+      - Public case-movement records from DataJud (CNJ), with a pilot in 12 state courts
+      - Territorial and institutional characteristics of judicial districts
+  methods:
+    pt:
+      - Reconstrução de trajetórias processuais
+      - Análise de sobrevivência e modelos espaciais
+    en:
+      - Reconstruction of procedural trajectories
+      - Survival analysis and spatial models
+  methodTags: [analise-espacial, sobrevivencia, painel]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - A coleta ampla ainda não foi iniciada; o recorte de tribunais está em definição.
+      - A qualidade do registro de movimentações varia entre tribunais.
+    en:
+      - Large-scale collection has not started; the sample of courts is being defined.
+      - The quality of movement records varies across courts.
+  implications:
+    pt:
+      - Mapas de demora por comarca para gestão judiciária e políticas de acesso à Justiça.
+    en:
+      - Delay maps by judicial district for court management and access-to-justice policies.
+  extensionProducts:
+    pt:
+      - Mapas e painéis de duração processual por território
+    en:
+      - Maps and dashboards of case duration by territory
+  repository: https://github.com/valbergregory/Geography-of-Judicial-Delay
+  repositoryVisibility: public
+  languages: [R, SQL]
+  outputTypes: [artigo, painel-publico]
+  codeAvailable: true
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+- slug: binding-precedents
+  title: 'Do Binding Precedents Actually Bind? Measuring Judicial Compliance and Diffusion Across Brazilian Courts'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-direito-jurimetria
+  status: em-desenvolvimento
+  summary:
+    pt: Os precedentes vinculantes realmente se difundem e são aplicados pelos tribunais de origem? Em qual velocidade e com quais diferenças territoriais?
+    en: Do binding precedents actually diffuse and get applied by the lower courts? How fast, and with which territorial differences?
+  researchQuestion:
+    pt: Os precedentes vinculantes realmente se difundem e são aplicados pelos tribunais de origem? Em qual velocidade e com quais diferenças territoriais?
+    en: Do binding precedents actually diffuse and get applied by the courts of origin? How fast, and with which territorial differences?
+  motivation:
+    pt: O sistema de precedentes qualificados do CPC de 2015 promete uniformidade e previsibilidade. Medir se, quando e onde os tribunais passam a aplicar cada tese permite avaliar a promessa com dados, e não apenas com doutrina.
+    en: The qualified-precedent system of Brazil's 2015 Civil Procedure Code promises uniformity and predictability. Measuring whether, when and where courts start applying each precedent allows the promise to be assessed with data rather than doctrine alone.
+  dataSources:
+    pt:
+      - Teses vinculantes do STJ e do STF (temas repetitivos e repercussão geral)
+      - Decisões dos tribunais de origem que citam ou aplicam cada tese
+    en:
+      - Binding precedents of the STJ and STF (repetitive-appeal themes and general repercussion)
+      - Lower-court decisions citing or applying each precedent
+  methods:
+    pt:
+      - Processamento de linguagem natural para detectar aplicação e citação
+      - Modelos de difusão e de tempo até a adoção por tribunal
+    en:
+      - Natural language processing to detect application and citation
+      - Diffusion models and time-to-adoption by court
+  methodTags: [nlp, sobrevivencia, analise-espacial]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - A prova de conceito ainda não foi executada; o tema-piloto está em definição.
+    en:
+      - The proof of concept has not been run yet; the pilot precedent is being defined.
+  implications:
+    pt:
+      - Indicadores de aderência a precedentes para gestão judiciária e para o debate sobre o sistema de precedentes.
+    en:
+      - Precedent-compliance indicators for court management and for the debate on the precedent system.
+  extensionProducts:
+    pt:
+      - Painel de difusão de precedentes por tribunal
+    en:
+      - Precedent-diffusion dashboard by court
+  repository: https://github.com/valbergregory/binding-precedents-brazil
+  repositoryVisibility: public
+  languages: [Python, R]
+  outputTypes: [artigo, painel-publico]
+  codeAvailable: true
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+- slug: generative-ai-legal-drafting
+  title: 'Can Generative AI Draft Legally Reliable Decisions?'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-direito-jurimetria
+  subtrack:
+    pt: IA e prática jurídica
+    en: AI and legal practice
+  status: estruturacao
+  summary:
+    pt: Minutas elaboradas por modelos de linguagem com recuperação de contexto (RAG) são juridicamente confiáveis? Projeto em estruturação para avaliar correção jurídica, fundamentação, atualização normativa, citações, alucinações, consistência e estabilidade.
+    en: Are drafts produced by retrieval-augmented language models legally reliable? Project being structured to assess legal correctness, reasoning, normative currency, citations, hallucinations, consistency and stability.
+  researchQuestion:
+    pt: Minutas elaboradas por modelos de linguagem com RAG são juridicamente confiáveis?
+    en: Are drafts produced by retrieval-augmented language models legally reliable?
+  motivation:
+    pt: Tribunais e escritórios já usam modelos de linguagem para redigir minutas. Antes de confiar nelas, é preciso medir, com um protocolo replicável, onde elas acertam, onde erram e quão estáveis são as respostas.
+    en: Courts and law firms already use language models to draft decisions. Before relying on them, one needs to measure, with a replicable protocol, where they are right, where they fail and how stable their answers are.
+  dataSources:
+    pt:
+      - Conjunto de casos-teste e gabaritos elaborados com revisão jurídica humana (em definição)
+    en:
+      - Set of test cases and answer keys built with human legal review (being defined)
+  methods:
+    pt:
+      - Benchmark de modelos de linguagem com e sem recuperação de contexto
+      - "Avaliação em sete dimensões: correção jurídica, fundamentação, atualização normativa, citações, alucinações, consistência e estabilidade"
+    en:
+      - Benchmark of language models with and without retrieval-augmented generation
+      - Assessment across seven dimensions - legal correctness, reasoning, normative currency, citations, hallucinations, consistency and stability
+  methodTags: [benchmark, nlp]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - Projeto em estruturação; ainda não há repositório público nem resultados.
+    en:
+      - Project being structured; there is no public repository or results yet.
+  implications:
+    pt:
+      - Critérios objetivos para políticas de uso de IA generativa no Judiciário.
+    en:
+      - Objective criteria for policies on the use of generative AI in the judiciary.
+  extensionProducts:
+    pt:
+      - Protocolo público de avaliação de minutas geradas por IA
+    en:
+      - Public protocol for evaluating AI-generated legal drafts
+  repository: null
+  repositoryVisibility: none
+  languages: [Python]
+  outputTypes: [artigo, base-conhecimento]
+  codeAvailable: false
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: false
+  lastEditorialReview: '2026-09-11'
+
+- slug: abusive-litigation-patterns
+  title: 'Detecting Patterns of Abusive Litigation: An Explainable and Human-Centered Jurimetric Framework'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-direito-jurimetria
+  status: em-desenvolvimento
+  summary:
+    pt: É possível identificar padrões de litigância abusiva de forma explicável, auditável e compatível com supervisão humana e devido processo? O projeto analisa padrões processuais; não atribui culpa nem rotula pessoas automaticamente.
+    en: Can patterns of abusive litigation be identified in an explainable, auditable way that is compatible with human oversight and due process? The project analyses procedural patterns; it does not assign blame or label people automatically.
+  researchQuestion:
+    pt: É possível identificar padrões de litigância abusiva de forma explicável, auditável e compatível com supervisão humana e devido processo?
+    en: Can patterns of abusive litigation be identified in an explainable, auditable way that is compatible with human oversight and due process?
+  motivation:
+    pt: Litigância repetitiva e artificial consome recursos judiciais e prejudica quem tem demandas legítimas. Ferramentas de triagem existem, mas raramente são explicáveis ou auditáveis. O projeto propõe um arcabouço em que cada sinal é interpretável e a decisão permanece humana.
+    en: Repetitive and artificial litigation consumes judicial resources and harms those with legitimate claims. Screening tools exist, but they are rarely explainable or auditable. The project proposes a framework in which every signal is interpretable and the decision remains human.
+  dataSources:
+    pt:
+      - Metadados processuais públicos (DataJud e STJ), sem identificadores pessoais
+    en:
+      - Public procedural metadata (DataJud and STJ), without personal identifiers
+  methods:
+    pt:
+      - Indicadores de padrão processual interpretáveis
+      - Aprendizado de máquina explicável com salvaguardas de revisão humana
+    en:
+      - Interpretable procedural-pattern indicators
+      - Explainable machine learning with human-review safeguards
+  methodTags: [ml-explicavel, text-mining]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - "Fase inicial: apenas sondagens de dados foram realizadas."
+      - Padrões estatísticos não equivalem a conduta ilícita; qualquer uso exige supervisão humana e devido processo.
+    en:
+      - Early stage - only data probes have been carried out.
+      - Statistical patterns are not equivalent to unlawful conduct; any use requires human oversight and due process.
+  implications:
+    pt:
+      - Critérios de transparência e auditabilidade para ferramentas de triagem judicial.
+    en:
+      - Transparency and auditability criteria for judicial screening tools.
+  extensionProducts:
+    pt:
+      - Protocolo de anotação e documentação pública do arcabouço
+    en:
+      - Annotation protocol and public documentation of the framework
+  repository: https://github.com/valbergregory/abusive-litigation-jurimetrics
+  repositoryVisibility: public
+  languages: [Python]
+  outputTypes: [artigo, software]
+  codeAvailable: true
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+# ---------------------------------------------------------------------------
+# 6.3 IA, segurança e governança judicial
+# ---------------------------------------------------------------------------
+- slug: adocao-ia-judiciario-seguranca
+  title: 'Adoção de IA no Poder Judiciário Brasileiro sem Controles de Segurança: Um Estudo Comparativo dos 27 Tribunais de Justiça Estaduais'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+    - Gustavo Henrique Ferreira de Miranda Oliveira
+    - Jário José dos Santos Júnior
+  track: ia-governo-digital-seguranca
+  status: redacao
+  summary:
+    pt: Os Tribunais de Justiça estão adotando IA na mesma velocidade em que desenvolvem controles de segurança, governança, proteção de dados e resposta a incidentes? Levantamento documental comparativo dos 27 tribunais estaduais, com dados de replicação públicos.
+    en: Are Brazilian state courts adopting AI at the same pace at which they develop security, governance, data-protection and incident-response controls? Comparative document survey of the 27 state courts, with public replication data.
+  researchQuestion:
+    pt: Os Tribunais de Justiça estão adotando IA na mesma velocidade em que desenvolvem controles de segurança, governança, proteção de dados e resposta a incidentes?
+    en: Are the state courts adopting AI at the same pace at which they develop security, governance, data-protection and incident-response controls?
+  motivation:
+    pt: Sistemas de IA no Judiciário lidam com dados sensíveis e decisões que afetam direitos. A pesquisa verifica, tribunal a tribunal, se a adoção veio acompanhada de estruturas mínimas de governança e segurança.
+    en: AI systems in the judiciary handle sensitive data and decisions that affect rights. The study checks, court by court, whether adoption came with minimum governance and security structures.
+  dataSources:
+    pt:
+      - Normas, portarias e documentos públicos dos 27 Tribunais de Justiça
+      - Matriz de replicação publicada com licença CC BY 4.0
+    en:
+      - Regulations, ordinances and public documents of the 27 state courts
+      - Replication matrix published under a CC BY 4.0 licence
+  methods:
+    pt:
+      - 'Análise documental comparativa em seis dimensões: governança de dados; política de segurança da informação; encarregado de proteção de dados; relatório de impacto; resposta a incidentes; regulamentação de IA'
+    en:
+      - 'Comparative document analysis across six dimensions: data governance; information-security policy; data-protection officer; impact assessment; incident response; AI regulation'
+  methodTags: [analise-documental]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - Contagens finais estão em validação e não são divulgadas até a conclusão do manuscrito.
+      - A análise capta a existência de normas públicas, não a sua efetividade.
+    en:
+      - Final counts are under validation and are not disclosed until the manuscript is complete.
+      - The analysis captures the existence of public rules, not their effectiveness.
+  implications:
+    pt:
+      - Parâmetros para políticas de segurança e governança de IA no Judiciário.
+    en:
+      - Parameters for AI security and governance policies in the judiciary.
+  extensionProducts:
+    pt:
+      - Dados abertos de replicação (matriz dos 27 tribunais)
+    en:
+      - Open replication data (matrix of the 27 courts)
+  repository: https://github.com/valbergregory/aisecdev-tjs-2026
+  repositoryVisibility: public
+  languages: []
+  outputTypes: [artigo, dados-abertos]
+  codeAvailable: false
+  dataAvailable: true
+  featured: true
+  featuredOrder: 2
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+# ---------------------------------------------------------------------------
+# 6.4 Economia do Turismo
+# ---------------------------------------------------------------------------
+- slug: tourism-gravity-brazil
+  title: 'Distance, Connectivity, and Price Competitiveness: A Gravity-Based Analysis of International Tourism Demand for Brazil'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-turismo
+  status: redacao
+  summary:
+    pt: Qual é o papel da distância, da conectividade aérea e da competitividade de preços na demanda internacional de turismo para o Brasil? Painel mensal de 2000 a 2025 com 87 origens e modelos gravitacionais estimados por PPML.
+    en: What is the role of distance, air connectivity and price competitiveness in international tourism demand for Brazil? Monthly panel from 2000 to 2025 with 87 origin countries and gravity models estimated by PPML.
+  researchQuestion:
+    pt: Qual é o papel da distância, da conectividade aérea e da competitividade de preços na demanda internacional de turismo para o Brasil?
+    en: What is the role of distance, air connectivity and price competitiveness in international tourism demand for Brazil?
+  motivation:
+    pt: "O interesse pela área foi fortalecido ao trabalhar temas de Turismo nas aulas de graduação em Penedo. A pergunta prática é simples — o que mais pesa na chegada de turistas estrangeiros: estar longe, ter poucos voos ou ser caro? — e a resposta orienta promoção internacional e política aérea."
+    en: Interest in the topic grew while teaching Tourism-related subjects in undergraduate courses in Penedo. The practical question is simple - what weighs most on foreign arrivals - being far away, having few flights or being expensive? - and the answer guides international promotion and aviation policy.
+  dataSources:
+    pt:
+      - Chegadas internacionais mensais por país de origem, 2000–2025 (87 origens)
+      - Distância, conectividade aérea e preços relativos
+    en:
+      - Monthly international arrivals by origin country, 2000–2025 (87 origins)
+      - Distance, air connectivity and relative prices
+  methods:
+    pt:
+      - Modelos gravitacionais estimados por PPML com efeitos fixos
+      - Análises de robustez com exclusão de origens (leave-one-out)
+    en:
+      - Gravity models estimated by PPML with fixed effects
+      - Robustness checks with leave-one-out exclusion of origins
+  methodTags: [gravitacional, ppml, painel, efeitos-fixos]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - Manuscrito em desenvolvimento; a redação dos resultados ainda não foi concluída.
+      - O repositório remoto ainda não foi confirmado.
+    en:
+      - Manuscript in development; the write-up of results is not complete.
+      - The remote repository has not been confirmed yet.
+  implications:
+    pt:
+      - Promoção internacional, malha aérea, conectividade e competitividade.
+      - Planejamento de destinos e políticas da Embratur.
+    en:
+      - International promotion, air network, connectivity and competitiveness.
+      - Destination planning and Embratur policies.
+  extensionProducts:
+    pt:
+      - Observatório de turismo
+      - Painéis de fluxo, mapas e boletins
+      - Aplicações para Penedo, Baixo São Francisco e Alagoas
+    en:
+      - Tourism observatory
+      - Flow dashboards, maps and bulletins
+      - Applications for Penedo, the Lower São Francisco and Alagoas
+  repository: null
+  repositoryVisibility: none
+  languages: [R]
+  outputTypes: [artigo, observatorio]
+  codeAvailable: false
+  dataAvailable: false
+  featured: true
+  featuredOrder: 8
+  allowAutomaticMetadata: false
+  lastEditorialReview: '2026-09-11'
+
+# ---------------------------------------------------------------------------
+# 6.5 Economia Marítima e Portos
+# ---------------------------------------------------------------------------
+- slug: port-network-resilience
+  title: 'Port Network Shocks and Regional Economic Resilience: Evidence from Maritime Disruptions and Brazilian Trade Networks'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-maritima-portos
+  status: em-desenvolvimento
+  summary:
+    pt: Quando um porto sofre uma paralisação física, a rede de comércio consegue absorver o choque ou a atividade econômica regional diminui? O caso das enchentes no Rio Grande do Sul em 2024.
+    en: When a port suffers a physical shutdown, can the trade network absorb the shock or does regional economic activity fall? The case of the 2024 floods in Rio Grande do Sul.
+  researchQuestion:
+    pt: Quando um porto sofre uma paralisação física, a rede de comércio consegue absorver o choque ou a atividade econômica regional diminui?
+    en: When a port suffers a physical shutdown, can the trade network absorb the shock or does regional economic activity fall?
+  motivation:
+    pt: As enchentes de 2024 no Rio Grande do Sul interromperam operações portuárias em escala rara. O episódio permite observar como cargas, navios e municípios reagem a um choque exógeno sobre um nó da rede de comércio.
+    en: The 2024 floods in Rio Grande do Sul interrupted port operations on a rare scale. The episode makes it possible to observe how cargo, ships and municipalities react to an exogenous shock on a node of the trade network.
+  dataSources:
+    pt:
+      - Atracações e tempos de espera por porto (ANTAQ)
+      - Exportações por município e porto de saída
+    en:
+      - Berthings and waiting times by port (ANTAQ)
+      - Exports by municipality and port of exit
+  methods:
+    pt:
+      - Estudos de eventos e diferenças-em-diferenças
+      - Análise de redes de comércio e modelos PPML
+    en:
+      - Event studies and difference-in-differences
+      - Trade-network analysis and PPML models
+  methodTags: [estudo-de-eventos, did, redes, ppml]
+  showPreliminaryFindings: true
+  preliminaryFindings:
+    pt:
+      - Forte redução das atracações e aumento expressivo do tempo de espera nos portos atingidos.
+      - Maior resiliência do valor agregado das exportações do que do volume físico.
+      - Possível consolidação das cargas em menos embarcações.
+      - Maior vulnerabilidade de municípios dependentes de um único porto.
+    en:
+      - Sharp reduction in berthings and a marked increase in waiting times at the affected ports.
+      - Greater resilience of export value than of physical volume.
+      - Possible consolidation of cargo into fewer vessels.
+      - Greater vulnerability of municipalities that depend on a single port.
+  limitations:
+    pt:
+      - Repositório privado; código e dados ainda não são públicos.
+      - Resultados preliminares, sujeitos a revisão após novas validações.
+    en:
+      - Private repository; code and data are not yet public.
+      - Preliminary results, subject to revision after further validation.
+  implications:
+    pt:
+      - Planejamento de contingência logística e diversificação de portos de saída.
+    en:
+      - Logistics contingency planning and diversification of exit ports.
+  extensionProducts:
+    pt:
+      - Indicadores de dependência portuária por município
+    en:
+      - Port-dependence indicators by municipality
+  repository: null
+  repositoryVisibility: private
+  languages: [R, Python]
+  outputTypes: [artigo]
+  codeAvailable: false
+  dataAvailable: false
+  featured: true
+  featuredOrder: 4
+  allowAutomaticMetadata: false
+  lastEditorialReview: '2026-09-11'
+
+- slug: port-digitalization-observatory
+  title: 'Digitalizing Port Processes: Design and Causal Evaluation of a Port Transformation Observatory'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-maritima-portos
+  status: redacao
+  summary:
+    pt: O Porto Sem Papel reduziu tempos portuários e custos de comércio? Que transformação informacional foi produzida pela digitalização? Avaliação causal com dados da ANTAQ de 2010 a 2026 e um observatório reproduzível.
+    en: Did the Porto Sem Papel (paperless port) programme reduce port times and trade costs? What informational transformation did digitalisation produce? Causal evaluation with ANTAQ data from 2010 to 2026 and a reproducible observatory.
+  researchQuestion:
+    pt: O Porto Sem Papel reduziu tempos portuários e custos de comércio? Que transformação informacional foi produzida pela digitalização?
+    en: Did the Porto Sem Papel programme reduce port times and trade costs? What informational transformation did digitalisation produce?
+  motivation:
+    pt: A digitalização portuária é apresentada como fonte de ganhos operacionais. Avaliar essa promessa com dados públicos e datas de adoção documentadas evita tanto o otimismo automático quanto a rejeição sem evidência.
+    en: Port digitalisation is presented as a source of operational gains. Evaluating that promise with public data and documented adoption dates avoids both automatic optimism and evidence-free rejection.
+  dataSources:
+    pt:
+      - Estatísticas de atracação da ANTAQ, 2010–2026
+      - Datas de adoção do Porto Sem Papel por porto, documentadas em publicações oficiais
+    en:
+      - ANTAQ berthing statistics, 2010–2026
+      - Porto Sem Papel adoption dates by port, documented in official publications
+  methods:
+    pt:
+      - Diferenças-em-diferenças escalonadas e estudos de eventos
+      - Fronteira estocástica de eficiência portuária
+      - Modelos PPML para comércio e fretes
+    en:
+      - Staggered difference-in-differences and event studies
+      - Stochastic frontier of port efficiency
+      - PPML models for trade and freight
+  methodTags: [did, estudo-de-eventos, sfa, ppml, painel]
+  showPreliminaryFindings: true
+  preliminaryFindings:
+    pt:
+      - Os resultados preliminares não indicam redução operacional generalizada dos tempos portuários após a digitalização.
+      - A principal contribuição identificada pode estar na ampliação da cobertura e da governança dos dados portuários.
+    en:
+      - Preliminary results do not indicate a generalised operational reduction in port times after digitalisation.
+      - The main contribution identified may lie in the expansion of coverage and governance of port data.
+  limitations:
+    pt:
+      - Resultados preliminares; a redação do manuscrito está em andamento.
+      - Datas de adoção dependem de registros oficiais que podem não coincidir com o uso efetivo.
+    en:
+      - Preliminary results; the manuscript is being written.
+      - Adoption dates depend on official records that may not coincide with effective use.
+  implications:
+    pt:
+      - Instrumentos de avaliação de governo digital baseados em dados administrativos.
+    en:
+      - Digital-government evaluation instruments based on administrative data.
+  extensionProducts:
+    pt:
+      - Observatório da Digitalização Portuária
+      - Painéis, séries históricas e mapas
+      - Documentação de políticas e instrumentos de avaliação de governo digital
+    en:
+      - Port Digitalisation Observatory
+      - Dashboards, historical series and maps
+      - Policy documentation and digital-government evaluation instruments
+  repository: https://github.com/valbergregory/Port-Digitalization-Observatory
+  repositoryVisibility: public
+  languages: [R, SQL]
+  outputTypes: [artigo, observatorio, painel-publico]
+  codeAvailable: true
+  dataAvailable: true
+  featured: true
+  featuredOrder: 5
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+# ---------------------------------------------------------------------------
+# 6.6 Economia Pesqueira
+# ---------------------------------------------------------------------------
+- slug: marine-heatwaves-fishing-effort
+  title: 'Marine Heatwaves, Ocean Productivity and Fishing Effort: High-Frequency Evidence from the Brazilian Coast'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-pesqueira
+  status: redacao
+  summary:
+    pt: Como ondas de calor marinhas e alterações na produtividade oceânica afetam o esforço pesqueiro na costa brasileira? Cubo de dados geoespacial de alta frequência com esforço de pesca, temperatura e produtividade.
+    en: How do marine heatwaves and changes in ocean productivity affect fishing effort along the Brazilian coast? High-frequency geospatial data cube combining fishing effort, temperature and productivity.
+  researchQuestion:
+    pt: Como ondas de calor marinhas e alterações na produtividade oceânica afetam o esforço pesqueiro na costa brasileira?
+    en: How do marine heatwaves and changes in ocean productivity affect fishing effort along the Brazilian coast?
+  motivation:
+    pt: O interesse por Economia Pesqueira foi fortalecido ao lecionar a disciplina para Engenharia de Pesca na UFAL, em Penedo, em 2026. Eventos térmicos extremos estão mais frequentes, e a resposta da frota — atração, redução ou deslocamento — importa para comunidades costeiras e gestão pesqueira.
+    en: Interest in fisheries economics grew while teaching the subject to Fisheries Engineering students at UFAL, Penedo, in 2026. Extreme thermal events are becoming more frequent, and the fleet's response - attraction, reduction or displacement - matters for coastal communities and fisheries management.
+  dataSources:
+    pt:
+      - Esforço de pesca por célula e dia (Global Fishing Watch), 2013–2024
+      - Temperatura da superfície do mar (NOAA OISST) e índices de produtividade oceânica
+    en:
+      - Fishing effort by cell and day (Global Fishing Watch), 2013–2024
+      - Sea-surface temperature (NOAA OISST) and ocean-productivity indices
+  methods:
+    pt:
+      - Cubo de dados geoespacial (H3, Parquet/DuckDB)
+      - Painéis célula-dia com efeitos fixos e testes de placebo
+    en:
+      - Geospatial data cube (H3, Parquet/DuckDB)
+      - Cell-day panels with fixed effects and placebo tests
+  methodTags: [cubo-de-dados, painel, efeitos-fixos, inferencia-causal]
+  showPreliminaryFindings: true
+  preliminaryFindings:
+    pt:
+      - Anomalias térmicas moderadas e eventos extremos podem produzir efeitos distintos sobre atração, redução ou deslocamento do esforço pesqueiro.
+    en:
+      - Moderate thermal anomalies and extreme events may produce distinct effects on the attraction, reduction or displacement of fishing effort.
+  limitations:
+    pt:
+      - Resultados preliminares; não devem ser lidos como causalidade definitiva.
+      - O esforço observado depende da cobertura do rastreamento por AIS, que varia no tempo.
+    en:
+      - Preliminary results; they should not be read as definitive causality.
+      - Observed effort depends on AIS tracking coverage, which varies over time.
+  implications:
+    pt:
+      - Alertas e planejamento para comunidades costeiras e gestores pesqueiros diante de eventos térmicos.
+    en:
+      - Warnings and planning for coastal communities and fisheries managers facing thermal events.
+  extensionProducts:
+    pt:
+      - Cubos de dados, painéis, mapas e boletins
+      - Instrumentos para pescadores, comunidades costeiras, pesquisadores e gestores
+    en:
+      - Data cubes, dashboards, maps and bulletins
+      - Tools for fishers, coastal communities, researchers and managers
+  repository: https://github.com/valbergregory/marine-fisheries-data-cube
+  repositoryVisibility: public
+  languages: [R, SQL]
+  outputTypes: [artigo, dados-abertos, painel-publico]
+  codeAvailable: true
+  dataAvailable: true
+  featured: true
+  featuredOrder: 6
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'
+
+- slug: fishing-closures-brazil
+  title: "Do Fishing Closures Protect Fish or Displace Fishing? Causal Evidence from Brazil's Seasonal Bans and Marine Protected Areas"
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-pesqueira
+  status: em-desenvolvimento
+  summary:
+    pt: Defesos e áreas marinhas protegidas reduzem a pressão pesqueira ou deslocam o esforço para áreas vizinhas? Avaliação causal com dados de rastreamento e uma base legal legível por máquina das normas de defeso.
+    en: Do seasonal bans and marine protected areas reduce fishing pressure or displace effort to neighbouring areas? Causal evaluation with tracking data and a machine-readable knowledge base of closure regulations.
+  researchQuestion:
+    pt: Defesos e áreas marinhas protegidas reduzem a pressão pesqueira ou deslocam o esforço para áreas vizinhas?
+    en: Do seasonal bans and marine protected areas reduce fishing pressure or displace effort to neighbouring areas?
+  motivation:
+    pt: O interesse por Economia Pesqueira foi fortalecido ao lecionar a disciplina para Engenharia de Pesca na UFAL, em Penedo, em 2026. Defesos e áreas protegidas são os principais instrumentos de gestão pesqueira no Brasil, mas raramente são avaliados com dados de esforço observado.
+    en: Interest in fisheries economics grew while teaching the subject to Fisheries Engineering students at UFAL, Penedo, in 2026. Seasonal bans and protected areas are Brazil's main fisheries-management instruments, yet they are rarely evaluated with observed effort data.
+  dataSources:
+    pt:
+      - Esforço de pesca por célula (Global Fishing Watch)
+      - Corpus legal de normas de defeso e de áreas marinhas protegidas (26 normas), estruturado como base de conhecimento
+    en:
+      - Fishing effort by cell (Global Fishing Watch)
+      - Legal corpus of closure and marine-protected-area rules (26 regulations), structured as a knowledge base
+  methods:
+    pt:
+      - Diferenças-em-diferenças espaciais e testes de placebo
+      - Decomposição por embarcação para separar mudanças de cobertura de mudanças reais de atividade
+    en:
+      - Spatial difference-in-differences and placebo tests
+      - Vessel-level decomposition to separate coverage changes from real activity changes
+  methodTags: [did, analise-espacial, inferencia-causal, cubo-de-dados]
+  showPreliminaryFindings: true
+  preliminaryFindings:
+    pt:
+      - 'Contribuição metodológica: mudanças na cobertura de AIS e de outros sistemas de rastreamento podem ser confundidas com mudanças reais na atividade pesqueira; a avaliação precisa separar os dois.'
+    en:
+      - 'Methodological contribution: changes in AIS and other tracking coverage can be mistaken for real changes in fishing activity; evaluations must separate the two.'
+  limitations:
+    pt:
+      - Parte dos casos (áreas protegidas oceânicas) ainda não permite identificação causal com os dados disponíveis.
+      - O rastreamento por AIS cobre principalmente a frota industrial.
+    en:
+      - Some cases (oceanic protected areas) do not yet allow causal identification with the available data.
+      - AIS tracking mainly covers the industrial fleet.
+  implications:
+    pt:
+      - Desenho e monitoramento de defesos e áreas protegidas com base em esforço observado.
+    en:
+      - Design and monitoring of closures and protected areas based on observed effort.
+  extensionProducts:
+    pt:
+      - Cubos de dados, painéis, mapas e boletins
+      - Base de conhecimento pública das normas de defeso
+      - Instrumentos para pescadores, comunidades costeiras, pesquisadores e gestores
+    en:
+      - Data cubes, dashboards, maps and bulletins
+      - Public knowledge base of closure regulations
+      - Tools for fishers, coastal communities, researchers and managers
+  repository: https://github.com/valbergregory/fisheries-closures-brazil
+  repositoryVisibility: public
+  languages: [R, SQL]
+  outputTypes: [artigo, base-conhecimento, painel-publico]
+  codeAvailable: true
+  dataAvailable: true
+  featured: true
+  featuredOrder: 7
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-11'

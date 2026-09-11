@@ -1,0 +1,343 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import ResearchCard from '@/components/ResearchCard.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getTaxonomies, pick } from '@/lib/data';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const tax = getTaxonomies();
+
+const projects = (await getCollection('research')).sort((a, b) => {
+  const ta = tax.tracks[a.data.track] ? Object.keys(tax.tracks).indexOf(a.data.track) : 99;
+  const tb = tax.tracks[b.data.track] ? Object.keys(tax.tracks).indexOf(b.data.track) : 99;
+  if (ta !== tb) return ta - tb;
+  return (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99);
+});
+
+const used = (key: 'methodTags' | 'languages' | 'outputTypes') => [
+  ...new Set(projects.flatMap((p) => p.data[key] as string[])),
+];
+
+const methodOptions = used('methodTags').filter((m) => tax.methods[m]);
+const languageOptions = used('languages').filter((l) => tax.languages[l]);
+const outputOptions = used('outputTypes').filter((o) => tax.outputs[o]);
+const statusOptions = Object.entries(tax.statuses)
+  .sort((a, b) => a[1].order - b[1].order)
+  .map(([k]) => k)
+  .filter((s) => projects.some((p) => p.data.status === s));
+
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('research.title') },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={t('research.title')}
+  description={t('research.lead')}
+  current="research"
+  alternates={alternates('research')}
+  jsonLd={[
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('research.title'), path: route('research', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('research.title')} lead={t('research.lead')} {crumbs} />
+
+  <div class="container research-layout">
+    <form class="filters" data-filters aria-labelledby="filters-title">
+      <h2 id="filters-title" class="filters-title">
+        {t('research.filters')}
+      </h2>
+
+      <div class="filter-group">
+        <label for="f-track">{t('research.filter.track')}</label>
+        <select id="f-track" name="area" data-filter="track">
+          <option value="">{t('research.filter.all')}</option>
+          {Object.entries(tax.tracks).map(([k, v]) => (
+            <option value={k}>{pick(v, lang)}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="f-status">{t('research.filter.status')}</label>
+        <select id="f-status" name="estagio" data-filter="status">
+          <option value="">{t('research.filter.all')}</option>
+          {statusOptions.map((k) => (
+            <option value={k}>{pick(tax.statuses[k]!, lang)}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="f-method">{t('research.filter.method')}</label>
+        <select id="f-method" name="metodo" data-filter="methods">
+          <option value="">{t('research.filter.all')}</option>
+          {methodOptions.map((k) => (
+            <option value={k}>{pick(tax.methods[k]!, lang)}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="f-language">{t('research.filter.language')}</label>
+        <select id="f-language" name="linguagem" data-filter="languages">
+          <option value="">{t('research.filter.all')}</option>
+          {languageOptions.map((k) => (
+            <option value={k}>{pick(tax.languages[k]!, lang)}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="f-output">{t('research.filter.output')}</label>
+        <select id="f-output" name="resultado" data-filter="outputs">
+          <option value="">{t('research.filter.all')}</option>
+          {outputOptions.map((k) => (
+            <option value={k}>{pick(tax.outputs[k]!, lang)}</option>
+          ))}
+        </select>
+      </div>
+
+      <fieldset class="filter-group checks">
+        <legend>{t('research.filter.availability')}</legend>
+        <label>
+          <input type="checkbox" name="codigo" value="1" data-filter="code" />{' '}
+          {t('research.filter.code')}
+        </label>
+        <label>
+          <input type="checkbox" name="dados" value="1" data-filter="data" />{' '}
+          {t('research.filter.data')}
+        </label>
+      </fieldset>
+
+      <button type="reset" class="button subtle" data-clear>
+        {t('research.filter.clear')}
+      </button>
+      <p class="filter-count" role="status" aria-live="polite" data-count>
+        <span data-count-number>{projects.length}</span>
+        <span data-count-label data-one={t('research.count.one')} data-many={t('research.count')}>
+          {t('research.count')}
+        </span>
+      </p>
+    </form>
+
+    <div class="results">
+      <div class="grid grid-2" data-results>
+        {projects.map((project) => (
+          <ResearchCard {project} {lang} headingLevel="h2" />
+        ))}
+      </div>
+      <p class="empty" data-empty hidden>
+        {t('research.empty')}
+      </p>
+      <p class="small muted disclaimer">{t('research.disclaimer.all')}</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .research-layout {
+    display: grid;
+    grid-template-columns: 17rem minmax(0, 1fr);
+    gap: var(--space-7);
+    padding-block: var(--space-7);
+    align-items: start;
+  }
+  .filters {
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-4));
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .filters-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+  }
+  .filter-group label,
+  .filter-group legend {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 0;
+  }
+  .filter-group select {
+    font: inherit;
+    font-size: var(--text-sm);
+    min-height: 2.75rem;
+    padding: 0 var(--space-3);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text);
+    max-width: 100%;
+  }
+  .checks label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 2.25rem;
+    color: var(--text);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .checks input {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--teal);
+  }
+  .filter-count {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+  .empty {
+    padding: var(--space-6);
+    text-align: center;
+    color: var(--text-muted);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .disclaimer {
+    margin-top: var(--space-5);
+  }
+  @media (max-width: 56rem) {
+    .research-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+    .filters {
+      position: static;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      gap: var(--space-3) var(--space-4);
+    }
+    .filters-title,
+    .filter-count,
+    .checks,
+    [data-clear] {
+      grid-column: 1 / -1;
+    }
+    .checks {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+    [data-clear] {
+      justify-self: start;
+    }
+  }
+</style>
+
+<script>
+  // Filtros progressivos: sem JavaScript todos os projetos aparecem.
+  // O estado vai para a query string (?area=...), o que permite links diretos.
+  const form = document.querySelector<HTMLFormElement>('[data-filters]');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-results] > article'));
+  const empty = document.querySelector<HTMLElement>('[data-empty]');
+  const countNumber = document.querySelector<HTMLElement>('[data-count-number]');
+  const countLabel = document.querySelector<HTMLElement>('[data-count-label]');
+
+  type Filter = { attr: string; value: string; multi: boolean };
+
+  function readFilters(): Filter[] {
+    if (!form) return [];
+    const filters: Filter[] = [];
+    form.querySelectorAll<HTMLSelectElement | HTMLInputElement>('[data-filter]').forEach((el) => {
+      const key = el.dataset.filter!;
+      if (el instanceof HTMLInputElement && el.type === 'checkbox') {
+        if (el.checked) filters.push({ attr: `data-${key}`, value: '1', multi: false });
+      } else if (el.value) {
+        filters.push({
+          attr: `data-${key}`,
+          value: el.value,
+          multi: key === 'methods' || key === 'languages' || key === 'outputs',
+        });
+      }
+    });
+    return filters;
+  }
+
+  function matches(card: HTMLElement, f: Filter): boolean {
+    const raw = card.getAttribute(f.attr) ?? '';
+    return f.multi ? raw.split(/\s+/).includes(f.value) : raw === f.value;
+  }
+
+  function apply() {
+    const filters = readFilters();
+    let shown = 0;
+    for (const card of cards) {
+      const ok = filters.every((f) => matches(card, f));
+      card.hidden = !ok;
+      if (ok) shown += 1;
+    }
+    if (empty) empty.hidden = shown > 0;
+    if (countNumber) countNumber.textContent = String(shown);
+    if (countLabel) {
+      countLabel.textContent = shown === 1 ? countLabel.dataset.one! : countLabel.dataset.many!;
+    }
+    syncUrl();
+  }
+
+  function syncUrl() {
+    if (!form) return;
+    const params = new URLSearchParams();
+    new FormData(form).forEach((v, k) => {
+      if (typeof v === 'string' && v) params.set(k, v);
+    });
+    const qs = params.toString();
+    history.replaceState(null, '', `${location.pathname}${qs ? `?${qs}` : ''}`);
+  }
+
+  function restoreFromUrl() {
+    if (!form) return;
+    const params = new URLSearchParams(location.search);
+    params.forEach((value, key) => {
+      const el = form.elements.namedItem(key);
+      if (el instanceof HTMLSelectElement) el.value = value;
+      else if (el instanceof HTMLInputElement && el.type === 'checkbox') el.checked = value === '1';
+    });
+  }
+
+  if (form) {
+    restoreFromUrl();
+    apply();
+    form.addEventListener('change', apply);
+    form.addEventListener('reset', () => {
+      // O reset nativo ocorre depois do evento; adia a reaplicação.
+      setTimeout(apply, 0);
+    });
+    form.addEventListener('submit', (e) => e.preventDefault());
+  }
+</script>

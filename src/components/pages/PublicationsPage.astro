@@ -1,0 +1,290 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import StatusBadge from '@/components/StatusBadge.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getTaxonomies, label, pick } from '@/lib/data';
+import { breadcrumbJsonLd, publicationJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const tax = getTaxonomies();
+
+const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const articles = pubs.filter((p) => p.data.type === 'article');
+const chapters = pubs.filter((p) => p.data.type === 'chapter');
+const presented = pubs.filter((p) => p.data.type === 'presented' || p.data.type === 'abstract');
+
+const statusOrder = (s: string) => tax.statuses[s]?.order ?? 0;
+const working = (await getCollection('research')).sort(
+  (a, b) =>
+    statusOrder(b.data.status) - statusOrder(a.data.status) ||
+    a.data.title.localeCompare(b.data.title),
+);
+
+const jsonLd = pubs.map(publicationJsonLd).filter((x): x is NonNullable<typeof x> => x !== null);
+
+const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t('pub.title') }];
+const authorsLine = (authors: string[]) => authors.join('; ');
+type Pub = (typeof pubs)[number]['data'];
+/** Sufixo bibliográfico após o nome do periódico/evento (volume, páginas, ano). */
+const articleTail = (d: Pub) =>
+  `${d.volume ? `, ${d.volume}` : ''}${d.pages ? `, p. ${d.pages}` : ''}, ${d.year}.`;
+const presentedTail = (d: Pub) => `${d.place ? `, ${d.place}` : ''}, ${d.year}.`;
+const chapterTail = (d: Pub) =>
+  `. ${d.place}: ${d.publisher}, ${d.year}${d.pages ? `, p. ${d.pages}` : ''}.${d.isbn ? ` ISBN ${d.isbn}.` : ''}`;
+---
+
+<BaseLayout
+  {lang}
+  title={t('pub.title')}
+  description={t('pub.lead')}
+  current="publications"
+  alternates={alternates('publications')}
+  jsonLd={[
+    ...jsonLd,
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('pub.title'), path: route('publications', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('pub.title')} lead={t('pub.lead')} {crumbs} />
+
+  <div class="container page-body">
+    <nav class="toc" aria-label={en ? 'Sections' : 'Seções'}>
+      <a href="#artigos">{t('pub.articles')}</a>
+      <a href="#capitulos">{t('pub.chapters')}</a>
+      <a href="#apresentados">{t('pub.presented')}</a>
+      <a href="#working-papers">{t('pub.working')}</a>
+    </nav>
+
+    <section id="artigos" aria-labelledby="artigos-title" class="pub-section">
+      <h2 id="artigos-title">{t('pub.articles')}</h2>
+      <ol class="pub-list">
+        {articles.map((p) => (
+          <li class="pub">
+            <p class="pub-title">{p.data.title}</p>
+            <p class="pub-authors">{authorsLine(p.data.authors)}</p>
+            <p class="pub-venue">
+              <em>{p.data.venue}</em>{articleTail(p.data)}
+            </p>
+            {p.data.note && <p class="small muted">{pick(p.data.note, lang)}</p>}
+            <ul class="pub-links">
+              {p.data.doi && (
+                <li>
+                  <a href={`https://doi.org/${p.data.doi}`} rel="noopener" target="_blank">
+                    {t('pub.doi')}: {p.data.doi}{' '}
+                    <span class="visually-hidden">{t('a11y.newTab')}</span>
+                  </a>
+                </li>
+              )}
+              {p.data.url && (
+                <li>
+                  <a href={p.data.url} rel="noopener" target="_blank">
+                    {t('pub.access')} <Icon name="external" size={14} />
+                    <span class="visually-hidden">{t('a11y.newTab')}</span>
+                  </a>
+                </li>
+              )}
+              {p.data.pdf && (
+                <li>
+                  <a href={p.data.pdf} rel="noopener" target="_blank">
+                    {t('pub.pdf')} <span class="visually-hidden">{t('a11y.newTab')}</span>
+                  </a>
+                </li>
+              )}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="capitulos" aria-labelledby="capitulos-title" class="pub-section">
+      <h2 id="capitulos-title">{t('pub.chapters')}</h2>
+      <ol class="pub-list">
+        {chapters.map((p) => (
+          <li class="pub">
+            <p class="pub-title">{p.data.title}</p>
+            <p class="pub-authors">{authorsLine(p.data.authors)}</p>
+            <p class="pub-venue">
+              {t('pub.in')}: {p.data.editors?.join('; ')} ({en ? 'eds.' : 'org.'}).{' '}
+              <em>{p.data.bookTitle}</em>{chapterTail(p.data)}
+            </p>
+            <ul class="pub-links">
+              {p.data.url && (
+                <li>
+                  <a href={p.data.url} rel="noopener" target="_blank">
+                    {t('pub.publisher')} <Icon name="external" size={14} />
+                    <span class="visually-hidden">{t('a11y.newTab')}</span>
+                  </a>
+                </li>
+              )}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="apresentados" aria-labelledby="apresentados-title" class="pub-section">
+      <h2 id="apresentados-title">{t('pub.presented')}</h2>
+      <ol class="pub-list">
+        {presented.map((p) => (
+          <li class="pub">
+            <p class="pub-title">{p.data.title}</p>
+            <p class="pub-authors">{authorsLine(p.data.authors)}</p>
+            <p class="pub-venue">
+              <em>{p.data.venue}</em>{presentedTail(p.data)}
+            </p>
+            {p.data.note && <p class="small muted">{pick(p.data.note, lang)}</p>}
+            {p.data.url && (
+              <ul class="pub-links">
+                <li>
+                  <a href={p.data.url} rel="noopener" target="_blank">
+                    {t('pub.pdf')} <Icon name="external" size={14} />
+                    <span class="visually-hidden">{t('a11y.newTab')}</span>
+                  </a>
+                </li>
+              </ul>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="working-papers" aria-labelledby="wp-title" class="pub-section">
+      <h2 id="wp-title">{t('pub.working')}</h2>
+      <p class="notice">{t('pub.working.note')}</p>
+      <div class="table-wrap">
+        <table class="wp-table">
+          <caption class="visually-hidden">{t('pub.working')}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{en ? 'Title' : 'Título'}</th>
+              <th scope="col">{t('research.track')}</th>
+              <th scope="col">{t('research.status')}</th>
+              <th scope="col">{en ? 'Links' : 'Links'}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {working.map((w) => (
+              <tr>
+                <th scope="row">
+                  <a href={route('researchItem', lang, w.data.slug)}>{w.data.title}</a>
+                  {w.data.titleProvisional && (
+                    <span class="small muted">
+                      {' '}
+                      ({en ? 'provisional title' : 'título provisório'})
+                    </span>
+                  )}
+                </th>
+                <td>{label('tracks', w.data.track, lang)}</td>
+                <td>
+                  <StatusBadge status={w.data.status} {lang} />
+                </td>
+                <td>
+                  {w.data.repository ? (
+                    <a href={w.data.repository} rel="noopener" target="_blank">
+                      GitHub <span class="visually-hidden">{t('a11y.newTab')}</span>
+                    </a>
+                  ) : (
+                    <span class="muted small">—</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-body {
+    padding-block: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+  }
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+  .toc a {
+    min-height: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+  }
+  .pub-section {
+    min-width: 0;
+  }
+  .pub-section h2 {
+    font-size: var(--text-xl);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-4);
+  }
+  .pub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-5);
+    max-width: 80ch;
+  }
+  .pub p {
+    margin: 0 0 var(--space-1);
+  }
+  .pub-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-md);
+    font-variation-settings:
+      'opsz' 24,
+      'wght' 500;
+  }
+  .pub-authors {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+  .pub-venue {
+    font-size: var(--text-sm);
+  }
+  .pub-links {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+  }
+  .pub-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-height: 2rem;
+  }
+  .wp-table th[scope='row'] {
+    font-weight: 500;
+    color: var(--text);
+    min-width: 18rem;
+  }
+  .wp-table td {
+    white-space: nowrap;
+  }
+  .notice {
+    max-width: var(--measure);
+    margin-bottom: var(--space-4);
+  }
+</style>

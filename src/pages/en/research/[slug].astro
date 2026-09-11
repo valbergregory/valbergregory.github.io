@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import ResearchDetail from '@/components/pages/ResearchDetail.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('research');
+  return projects.map((project) => ({ params: { slug: project.data.slug }, props: { project } }));
+}
+
+const { project } = Astro.props;
+---
+
+<ResearchDetail lang="en" {project} />

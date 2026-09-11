@@ -1,0 +1,89 @@
+---
+/**
+ * Metadados de SEO por página: title/description únicos, canonical, hreflang,
+ * Open Graph, Twitter/X cards e JSON-LD.
+ */
+import { HTML_LANG, type Lang } from '@/i18n/routes';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  /** Caminhos equivalentes por idioma, ex.: { 'pt-br': '/sobre/', en: '/en/about/' } */
+  alternates?: Partial<Record<Lang, string>>;
+  type?: 'website' | 'article' | 'profile';
+  image?: string;
+  imageAlt?: string;
+  jsonLd?: Record<string, unknown>[];
+  noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const {
+  title,
+  description,
+  lang,
+  alternates = {},
+  type = 'website',
+  image,
+  imageAlt,
+  jsonLd = [],
+  noindex = false,
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://valbergregory.github.io');
+const canonical = new URL(Astro.url.pathname, site).href;
+const resolvedImage = image ?? (lang === 'en' ? '/og/en.png' : '/og/default.png');
+const resolvedImageAlt =
+  imageAlt ??
+  (lang === 'en'
+    ? 'Valber Gregory — Professor at UFAL, Economist, Judicial Analyst at TJAL'
+    : 'Valber Gregory — Professor da UFAL, Economista, Analista Judiciário no TJAL');
+const imageUrl = new URL(resolvedImage, site).href;
+const siteName = 'Valber Gregory';
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+const ogLocale = lang === 'en' ? 'en_US' : 'pt_BR';
+const ogLocaleAlt = lang === 'en' ? 'pt_BR' : 'en_US';
+const xDefault = alternates['pt-br'];
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+{!noindex && <link rel="canonical" href={canonical} />}
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+{Object.entries(alternates).map(([l, path]) => (
+  <link rel="alternate" hreflang={HTML_LANG[l as Lang]} href={new URL(path!, site).href} />
+))}
+{xDefault && <link rel="alternate" hreflang="x-default" href={new URL(xDefault, site).href} />}
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlt} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+{!noindex && <meta property="og:url" content={canonical} />}
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={resolvedImageAlt} />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={resolvedImageAlt} />
+
+{jsonLd.map((obj) => (
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({ '@context': 'https://schema.org', ...obj })}
+  ></script>
+))}

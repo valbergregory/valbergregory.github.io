@@ -1,0 +1,171 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getProfile, pick } from '@/lib/data';
+import { breadcrumbJsonLd, personJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const profile = getProfile();
+
+const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t('contact.title') }];
+const topics = en
+  ? [
+      'Academic collaboration on applied economics, jurimetrics, tourism, maritime and fisheries economics.',
+      'Supervision and dialogue with undergraduate students (Information Systems, Tourism, Fisheries Engineering).',
+      'Interdisciplinary projects that combine public data, econometrics and information systems.',
+      'Institutional partnerships around observatories, dashboards and open datasets.',
+    ]
+  : [
+      'Colaboração acadêmica em economia aplicada, Jurimetria, turismo, economia marítima e pesqueira.',
+      'Orientação e diálogo com estudantes de graduação (Sistemas de Informação, Turismo, Engenharia de Pesca).',
+      'Projetos interdisciplinares que combinem dados públicos, econometria e sistemas de informação.',
+      'Parcerias institucionais em torno de observatórios, painéis e bases de dados abertas.',
+    ];
+---
+
+<BaseLayout
+  {lang}
+  title={t('contact.title')}
+  description={t('contact.lead')}
+  current="contact"
+  alternates={alternates('contact')}
+  jsonLd={[
+    personJsonLd(lang),
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('contact.title'), path: route('contact', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('contact.title')} lead={t('contact.lead')} {crumbs} />
+
+  <div class="container contact">
+    <section class="card contact-card" aria-labelledby="email-title">
+      <h2 id="email-title">{t('contact.email')}</h2>
+      <p class="email">
+        <a href={`mailto:${profile.email}`}>
+          <Icon name="mail" /> {profile.email}
+        </a>
+      </p>
+      <p class="small muted">
+        {en
+          ? 'Please mention the subject (research, supervision, project) in the message title.'
+          : 'Indique o assunto (pesquisa, orientação, projeto) no título da mensagem.'}
+      </p>
+    </section>
+
+    <section class="card contact-card" aria-labelledby="profiles-title">
+      <h2 id="profiles-title">{t('contact.profiles')}</h2>
+      <ul class="link-list">
+        <li>
+          <a href={profile.links.orcid} rel="me noopener" target="_blank">
+            <Icon name="orcid" /> ORCID <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.lattes} rel="me noopener" target="_blank">
+            <Icon name="lattes" /> {en ? 'Lattes CV' : 'Currículo Lattes'}{' '}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.github} rel="me noopener" target="_blank">
+            <Icon name="github" /> GitHub <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.linkedin} rel="me noopener" target="_blank">
+            <Icon name="linkedin" /> LinkedIn{' '}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card contact-card" aria-labelledby="aff-title">
+      <h2 id="aff-title">{t('contact.affiliation')}</h2>
+      <ul class="plain">
+        {profile.roles.slice(0, 2).map((r) => (
+          <li>
+            <strong>{r.org}</strong>
+            <br />
+            <span class="small muted">{pick(r.unit, lang)}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="small muted">{pick(profile.location, lang)}</p>
+    </section>
+
+    <section class="topics" aria-labelledby="topics-title">
+      <h2 id="topics-title">{en ? 'What I am open to' : 'Assuntos de interesse'}</h2>
+      <ul class="prose">
+        {topics.map((topic) => (
+          <li>{topic}</li>
+        ))}
+      </ul>
+      <p class="notice info">{t('contact.note')}</p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact {
+    padding-block: var(--space-7);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+  .contact-card h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .email a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-md);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+    min-height: 2.5rem;
+  }
+  .link-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 2.25rem;
+  }
+  .plain {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-3);
+    display: grid;
+    gap: var(--space-3);
+  }
+  .topics {
+    grid-column: 1 / -1;
+    margin-top: var(--space-4);
+  }
+  .topics h2 {
+    font-size: var(--text-xl);
+  }
+  .topics li {
+    margin-bottom: var(--space-2);
+  }
+  @media (max-width: 56rem) {
+    .contact {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

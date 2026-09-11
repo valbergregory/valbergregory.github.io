@@ -1,0 +1,430 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import NetworkDecor from '@/components/NetworkDecor.astro';
+import ResearchCard from '@/components/ResearchCard.astro';
+import RepoMeta from '@/components/RepoMeta.astro';
+import portrait from '@/assets/valber-portrait.jpg';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getProfile, getGithubProjects, pick, formatDate } from '@/lib/data';
+import { personJsonLd, websiteJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const profile = getProfile();
+const en = lang === 'en';
+
+const research = await getCollection('research');
+const featured = research
+  .filter((r) => r.data.featured)
+  .sort((a, b) => (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99))
+  .slice(0, 8);
+
+const outreach = (await getCollection('outreach')).filter((o) =>
+  ['patacidada', 'smartmap-educacao', 'observatorio-digitalizacao-portuaria'].includes(o.data.slug),
+);
+
+const github = getGithubProjects();
+const byRepo = new Map(
+  research
+    .filter((r) => r.data.repository && r.data.allowAutomaticMetadata)
+    .map((r) => [r.data.repository!.toLowerCase(), r]),
+);
+const recent = [...github.repositories]
+  .filter((r) => byRepo.has(r.url.toLowerCase()))
+  .sort((a, b) => (b.latestCommitAt ?? b.pushedAt).localeCompare(a.latestCommitAt ?? a.pushedAt))
+  .slice(0, 5);
+
+const roles = [
+  {
+    title: 'Universidade Federal de Alagoas',
+    text: en
+      ? 'Professor in the Information Systems programme at the Penedo Educational Unit; teaching in Tourism and Fisheries Engineering.'
+      : 'Professor do curso de Sistemas de Informação na Unidade Educacional Penedo; aulas também em Turismo e Engenharia de Pesca.',
+  },
+  {
+    title: 'Tribunal de Justiça de Alagoas',
+    text: en
+      ? 'Judicial Analyst in Economics since 2014 and judicial adviser to trial judges since 2023.'
+      : 'Analista Judiciário, área de Economia, desde 2014, e assessor de juízes desde 2023.',
+  },
+  {
+    title: en
+      ? 'Economics, Law and Information Systems'
+      : 'Economia, Direito e Sistemas de Informação',
+    text: en
+      ? 'Degrees in Law and Economics, MSc in Applied Economics and PhD in Economics; registered economist.'
+      : 'Formação em Direito e Economia, mestrado em Economia Aplicada e doutorado em Economia; economista registrado no CORECON/AL.',
+  },
+  {
+    title: en
+      ? 'Research, teaching, innovation and outreach'
+      : 'Pesquisa, ensino, inovação e extensão',
+    text: en
+      ? 'Empirical projects with public data that return to the classroom as tools, dashboards and open datasets.'
+      : 'Projetos empíricos com dados públicos que voltam para a sala de aula como ferramentas, painéis e bases abertas.',
+  },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={
+    en
+      ? 'Valber Gregory — Professor, Economist, Judicial Analyst'
+      : 'Valber Gregory — Professor, Economista, Analista Judiciário'
+  }
+  description={t('site.description')}
+  current="home"
+  alternates={alternates('home')}
+  type="profile"
+  jsonLd={[websiteJsonLd(lang), personJsonLd(lang)]}
+>
+  <section class="hero" aria-labelledby="hero-title">
+    <NetworkDecor class="hero-decor" />
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">{pick(profile.positioning, lang)}</p>
+        <h1 id="hero-title">{profile.name}</h1>
+        <p class="hero-tagline">{pick(profile.tagline, lang)}</p>
+        <p class="hero-intro">{pick(profile.intro, lang)}</p>
+        <div class="hero-actions">
+          <a class="button" href={route('research', lang)}>
+            {t('hero.cta.research')} <Icon name="arrow" size={18} />
+          </a>
+          <a class="button secondary" href={route('cv', lang)}>
+            {t('hero.cta.cv')}
+          </a>
+          <a class="button subtle" href={route('contact', lang)}>
+            {t('hero.cta.contact')}
+          </a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <Image
+          src={portrait}
+          alt={pick(profile.photo.alt, lang)}
+          width={420}
+          height={560}
+          widths={[280, 420, 640, 840]}
+          sizes="(max-width: 48rem) 60vw, 420px"
+          format="webp"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="roles-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="roles-title">{t('home.current')}</h2>
+      </div>
+      <ul class="grid grid-2 roles">
+        {roles.map((r) => (
+          <li class="card role">
+            <h3>{r.title}</h3>
+            <p>{r.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="lines-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="lines-title">{t('home.lines')}</h2>
+      </div>
+      <ul class="lines">
+        {profile.researchLines.map((line) => (
+          <li class:list={['line', { transversal: line.transversal }]}>
+            {line.transversal ? (
+              <h3>{pick(line.label, lang)}</h3>
+            ) : (
+              <h3>
+                <a href={`${route('research', lang)}?area=${line.key}`}>{pick(line.label, lang)}</a>
+              </h3>
+            )}
+            <p>{pick(line.blurb, lang)}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="featured-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="featured-title">{t('home.featured')}</h2>
+        <p class="lead">{t('home.featured.lead')}</p>
+      </div>
+      <div class="grid grid-2">
+        {featured.map((project) => (
+          <ResearchCard {project} {lang} />
+        ))}
+      </div>
+      <p class="more">
+        <a class="button secondary" href={route('research', lang)}>
+          {t('home.featured.all')}
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="recent-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="recent-title">{t('home.recent')}</h2>
+        <p class="lead">{t('home.recent.lead')}</p>
+      </div>
+      {recent.length > 0 ? (
+        <ol class="recent">
+          {recent.map((repo) => {
+            const project = byRepo.get(repo.url.toLowerCase())!;
+            return (
+              <li class="card recent-item">
+                <h3>
+                  <a href={route('researchItem', lang, project.data.slug)}>{project.data.title}</a>
+                </h3>
+                <RepoMeta meta={repo} {lang} showDescription={false} />
+              </li>
+            );
+          })}
+        </ol>
+      ) : (
+        <p class="muted">{t('repo.none')}</p>
+      )}
+      {github.source !== 'empty' && (
+        <p class="small muted">
+          {t('repo.fetchedAt')}{' '}
+          <time datetime={github.generatedAt}>{formatDate(github.generatedAt, lang)}</time>
+          {github.source === 'cache' ? ` — ${t('repo.stale')}` : ''}
+        </p>
+      )}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="teaching-title">
+    <div class="container two-col">
+      <div>
+        <h2 id="teaching-title">{t('home.teaching')}</h2>
+        <p class="prose">
+          {en
+            ? 'I teach at UFAL Penedo in the Information Systems programme and also in Tourism and Fisheries Engineering. The classroom is where concepts turn into concrete questions: Fisheries Economics opened a permanent research front, Tourism strengthened the interest in territorial development, and the subjects connecting Law, Economics and technology drive the jurimetrics and digital-government projects.'
+            : 'Leciono na UFAL Penedo, no curso de Sistemas de Informação e também em Turismo e Engenharia de Pesca. A sala de aula é onde os conceitos viram perguntas concretas: Economia Pesqueira abriu uma frente permanente de pesquisa, o Turismo fortaleceu o interesse pelo desenvolvimento territorial, e as disciplinas que ligam Direito, Economia e tecnologia estimulam os projetos de Jurimetria e governo digital.'}
+        </p>
+        <a class="button subtle" href={route('teaching', lang)}>
+          {en ? 'More about teaching' : 'Mais sobre o ensino'} <Icon name="arrow" size={18} />
+        </a>
+      </div>
+      <div>
+        <h2 id="outreach-title">{t('home.outreach')}</h2>
+        <ul class="link-list outreach-list">
+          {outreach.map((o) => (
+            <li>
+              <strong>{pick(o.data.name, lang)}</strong>
+              <span class="muted"> — {pick(o.data.kind, lang)}</span>
+            </li>
+          ))}
+          <li>
+            <strong>
+              {en
+                ? 'Observatory of Economics and Digital Transformation'
+                : 'Observatório de Economia e Transformação Digital'}
+            </strong>
+            <span class="muted"> — {en ? 'proposal' : 'proposta'}</span>
+          </li>
+        </ul>
+        <a class="button subtle" href={route('outreach', lang)}>
+          {en ? 'See projects' : 'Ver projetos'} <Icon name="arrow" size={18} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section closing" aria-labelledby="closing-title">
+    <div class="container closing-inner">
+      <h2 id="closing-title">{t('home.closing')}</h2>
+      <p class="lead">{t('home.closing.text')}</p>
+      <a class="button" href={route('contact', lang)}>
+        {t('home.closing.cta')}
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-7);
+    padding-block: var(--space-8);
+  }
+  .hero-text h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-4);
+  }
+  .hero-tagline {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-variation-settings:
+      'opsz' 36,
+      'wght' 450;
+    color: var(--navy);
+    margin-bottom: var(--space-3);
+    text-wrap: balance;
+  }
+  .hero-intro {
+    max-width: 58ch;
+    color: var(--text-muted);
+    font-size: var(--text-md);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+  .hero-photo {
+    margin: 0;
+    justify-self: end;
+    width: min(100%, 26rem);
+  }
+  .hero-photo :global(img) {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    background: var(--bg-muted);
+  }
+  :global(.hero-decor) {
+    opacity: 0.55;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.35) 35%, #000 70%);
+    mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.35) 35%, #000 70%);
+  }
+  @media (max-width: 56rem) {
+    :global(.hero-decor) {
+      opacity: 0.35;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+
+  .roles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  }
+  .role p {
+    margin: 0;
+    color: var(--text-muted);
+  }
+
+  .lines {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: var(--space-4) var(--space-6);
+  }
+  .line {
+    border-top: 2px solid var(--teal);
+    padding-top: var(--space-3);
+  }
+  .line.transversal {
+    border-top-color: var(--ochre);
+  }
+  .line h3 {
+    font-size: var(--text-md);
+  }
+  .line h3 a {
+    text-decoration: none;
+    color: var(--text);
+  }
+  .line h3 a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+  }
+  .line p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .more {
+    margin-top: var(--space-5);
+  }
+
+  .recent {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-4);
+    display: grid;
+    gap: var(--space-4);
+  }
+  .recent-item h3 {
+    font-size: var(--text-md);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
+  }
+  .two-col h2 {
+    font-size: var(--text-xl);
+  }
+  .outreach-list {
+    margin-bottom: var(--space-4);
+  }
+
+  .closing {
+    background: var(--bg-muted);
+    border-top: 1px solid var(--border);
+    padding-block: var(--space-8);
+  }
+  .closing-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .closing h2 {
+    margin: 0;
+  }
+
+  @media (max-width: 56rem) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      padding-block: var(--space-7);
+    }
+    .hero-photo {
+      justify-self: start;
+      order: -1;
+      width: min(60%, 18rem);
+    }
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+</style>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://valbergregory.github.io/sitemap-index.xml

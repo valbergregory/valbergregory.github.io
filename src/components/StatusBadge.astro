@@ -1,0 +1,58 @@
+---
+/**
+ * Estágio da pesquisa. Sempre traz o texto: a cor é reforço, não a única pista.
+ */
+import type { Lang } from '@/i18n/routes';
+import { label } from '@/lib/data';
+
+interface Props {
+  status: string;
+  lang: Lang;
+  class?: string;
+}
+const { status, lang, class: className = '' } = Astro.props;
+const text = label('statuses', status, lang);
+---
+
+<span class={`status status-${status} ${className}`.trim()} data-status={status}>
+  <span class="dot" aria-hidden="true"></span>
+  {text}
+</span>
+
+<style>
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--status-color, var(--text-muted));
+    white-space: nowrap;
+  }
+  .dot {
+    width: 0.55em;
+    height: 0.55em;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .status-estruturacao {
+    --status-color: var(--status-estruturacao);
+  }
+  .status-em-desenvolvimento {
+    --status-color: var(--status-em-desenvolvimento);
+  }
+  .status-redacao {
+    --status-color: var(--status-redacao);
+  }
+  .status-pre-submissao {
+    --status-color: var(--status-pre-submissao);
+  }
+  .status-submetido {
+    --status-color: var(--status-submetido);
+  }
+  .status-publicado {
+    --status-color: var(--status-publicado);
+  }
+</style>

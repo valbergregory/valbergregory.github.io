@@ -1,0 +1,170 @@
+/* ------------------------------------------------------------------
+   Design tokens — identidade visual acadêmica
+   Fundo branco quente, azul-marinho institucional, azul-petróleo
+   secundário e ocre fosco como acento discreto.
+   ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: light;
+
+  /* Superfícies */
+  --bg: #faf8f4;
+  --bg-elevated: #ffffff;
+  --bg-muted: #f1eee7;
+  --bg-inverse: #14284b;
+
+  /* Texto */
+  --text: #1c2331;
+  --text-muted: #4b5566;
+  --text-subtle: #5b6473;
+  --text-inverse: #f4f6fa;
+
+  /* Cores institucionais */
+  --navy: #14284b;
+  --navy-strong: #0e1d38;
+  --navy-soft: #e4e9f2;
+  --teal: #1c6b73;
+  --teal-strong: #14535a;
+  --teal-soft: #e0eff0;
+  --ochre: #a8782a;
+  --ochre-text: #7a5417;
+  --ochre-soft: #f4ecda;
+
+  /* Semânticas */
+  --link: var(--navy);
+  --link-hover: var(--teal);
+  --accent: var(--teal);
+  --border: #d8d3c8;
+  --border-strong: #b9b2a3;
+  --focus: #b45309;
+  --focus-ring: 0 0 0 3px var(--bg), 0 0 0 6px var(--focus);
+  --shadow-sm: 0 1px 2px rgb(20 40 75 / 0.06), 0 1px 3px rgb(20 40 75 / 0.08);
+  --shadow-md: 0 4px 12px rgb(20 40 75 / 0.08);
+
+  /* Estados de pesquisa (não dependem só de cor: sempre acompanhados de texto) */
+  --status-estruturacao: #5b6473;
+  --status-em-desenvolvimento: #1c6b73;
+  --status-redacao: #7a5417;
+  --status-pre-submissao: #14284b;
+  --status-submetido: #4c3b8a;
+  --status-publicado: #2f6b3a;
+
+  /* Tipografia */
+  --font-serif: 'Newsreader Variable', 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Source Sans 3 Variable', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Mono', 'SFMono-Regular', Menlo, monospace;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-md: 1.1875rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: clamp(2.25rem, 1.6rem + 2.4vw, 3.25rem);
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+
+  /* Espaçamento e layout */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  --container: 72rem;
+  --measure: 68ch;
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 14px;
+
+  --header-h: 4rem;
+  --transition: 160ms ease;
+}
+
+/* Tema escuro: escolha explícita do usuário ou preferência do sistema. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0f151f;
+  --bg-elevated: #161e2b;
+  --bg-muted: #1b2433;
+  --bg-inverse: #e6e9ef;
+
+  --text: #e6e9ef;
+  --text-muted: #b3bcc9;
+  --text-subtle: #8b96a6;
+  --text-inverse: #14284b;
+
+  --navy: #9db4dd;
+  --navy-strong: #c4d3ee;
+  --navy-soft: #1f2c44;
+  --teal: #6cc0c6;
+  --teal-strong: #8fd3d8;
+  --teal-soft: #17323a;
+  --ochre: #d3a95a;
+  --ochre-text: #e2bd76;
+  --ochre-soft: #3a2f1a;
+
+  --link: #a9c1e6;
+  --link-hover: #6cc0c6;
+  --accent: #6cc0c6;
+  --border: #2b3546;
+  --border-strong: #3f4b60;
+  --focus: #f5b352;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.5);
+
+  --status-estruturacao: #9aa5b5;
+  --status-em-desenvolvimento: #6cc0c6;
+  --status-redacao: #e2bd76;
+  --status-pre-submissao: #a9c1e6;
+  --status-submetido: #b9a7f0;
+  --status-publicado: #8fcf9a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #0f151f;
+    --bg-elevated: #161e2b;
+    --bg-muted: #1b2433;
+    --bg-inverse: #e6e9ef;
+
+    --text: #e6e9ef;
+    --text-muted: #b3bcc9;
+    --text-subtle: #8b96a6;
+    --text-inverse: #14284b;
+
+    --navy: #9db4dd;
+    --navy-strong: #c4d3ee;
+    --navy-soft: #1f2c44;
+    --teal: #6cc0c6;
+    --teal-strong: #8fd3d8;
+    --teal-soft: #17323a;
+    --ochre: #d3a95a;
+    --ochre-text: #e2bd76;
+    --ochre-soft: #3a2f1a;
+
+    --link: #a9c1e6;
+    --link-hover: #6cc0c6;
+    --accent: #6cc0c6;
+    --border: #2b3546;
+    --border-strong: #3f4b60;
+    --focus: #f5b352;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 4px 12px rgb(0 0 0 / 0.5);
+
+    --status-estruturacao: #9aa5b5;
+    --status-em-desenvolvimento: #6cc0c6;
+    --status-redacao: #e2bd76;
+    --status-pre-submissao: #a9c1e6;
+    --status-submetido: #b9a7f0;
+    --status-publicado: #8fcf9a;
+  }
+}

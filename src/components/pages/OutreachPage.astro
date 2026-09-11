@@ -1,0 +1,142 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { label, pick } from '@/lib/data';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const projects = await getCollection('outreach');
+const research = await getCollection('research');
+const researchTitle = (slug?: string) => research.find((r) => r.data.slug === slug)?.data.title;
+
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('outreach.title') },
+];
+const lead = en
+  ? 'Applied projects, observatories and educational resources derived from research and teaching. Institutional presentation: no prices, no commercial language.'
+  : 'Projetos aplicados, observatórios e recursos educacionais derivados da pesquisa e do ensino. Apresentação institucional: sem preços nem linguagem comercial.';
+---
+
+<BaseLayout
+  {lang}
+  title={t('outreach.title')}
+  description={lead}
+  current="outreach"
+  alternates={alternates('outreach')}
+  jsonLd={[
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('outreach.title'), path: route('outreach', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('outreach.title')} {lead} {crumbs} />
+
+  <div class="container page-body">
+    <p class="prose intro">
+      {en
+        ? 'Every research project on this site is expected to produce something beyond the paper: a dashboard, an open dataset, a bulletin or a tool. The projects below are at different stages — some are in public use, others are proposals. The status of each is stated explicitly.'
+        : 'Cada pesquisa deste site deve produzir algo além do artigo: um painel, uma base aberta, um boletim ou uma ferramenta. Os projetos abaixo estão em estágios diferentes — alguns em uso público, outros ainda como proposta. A situação de cada um é indicada explicitamente.'}
+    </p>
+
+    <ul class="projects">
+      {projects.map((o) => (
+        <li class="card project" id={o.data.slug}>
+          <div class="project-head">
+            <p class="eyebrow">{pick(o.data.kind, lang)}</p>
+            <h2>{pick(o.data.name, lang)}</h2>
+          </div>
+          <p class="prose">{pick(o.data.summary, lang)}</p>
+          <dl class="definition">
+            <dt>{t('outreach.status')}</dt>
+            <dd>{pick(o.data.status, lang)}</dd>
+            <dt>{en ? 'Role' : 'Papel'}</dt>
+            <dd>{pick(o.data.role, lang)}</dd>
+            {o.data.tracks.length > 0 && (
+              <>
+                <dt>{t('research.track')}</dt>
+                <dd>{o.data.tracks.map((tr) => label('tracks', tr, lang)).join(' · ')}</dd>
+              </>
+            )}
+            {o.data.research && researchTitle(o.data.research) && (
+              <>
+                <dt>{en ? 'Related research' : 'Pesquisa relacionada'}</dt>
+                <dd>
+                  <a href={route('researchItem', lang, o.data.research)}>
+                    {researchTitle(o.data.research)}
+                  </a>
+                </dd>
+              </>
+            )}
+            {o.data.links.length > 0 && (
+              <>
+                <dt>{t('outreach.links')}</dt>
+                <dd>
+                  <ul class="plain">
+                    {o.data.links.map((l) => (
+                      <li>
+                        <a href={l.url} rel="noopener" target="_blank">
+                          {l.label} <Icon name="external" size={14} />
+                          <span class="visually-hidden">{t('a11y.newTab')}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </>
+            )}
+          </dl>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-body {
+    padding-block: var(--space-7);
+  }
+  .intro {
+    margin-bottom: var(--space-6);
+  }
+  .projects {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-5);
+  }
+  .project h2 {
+    font-size: var(--text-xl);
+    margin: 0;
+  }
+  .project-head .eyebrow {
+    margin-bottom: var(--space-1);
+  }
+  .project .prose {
+    margin: 0;
+  }
+  .plain {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+  }
+  .plain a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+</style>
