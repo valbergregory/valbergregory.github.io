@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import ui from '../src/i18n/ui';
+import ui, { type UiKey } from '../src/i18n/ui';
 import { alternates, langFromPath, NAV_ORDER, ROUTES, route } from '../src/i18n/routes';
 
 describe('i18n/routes', () => {
@@ -23,8 +23,9 @@ describe('i18n/routes', () => {
 
   it('tem rótulos de navegação para todos os itens em ambos os idiomas', () => {
     for (const key of NAV_ORDER) {
-      expect(ui['pt-br'][`nav.${key}`]).toBeTruthy();
-      expect(ui.en[`nav.${key}`]).toBeTruthy();
+      const uiKey = `nav.${key}` as UiKey;
+      expect(ui['pt-br'][uiKey]).toBeTruthy();
+      expect(ui.en[uiKey]).toBeTruthy();
     }
   });
 });
