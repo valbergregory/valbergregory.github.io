@@ -73,8 +73,17 @@ export function buildRepoRecord(repo, release, latestCommit) {
 }
 
 /**
+ * @typedef {object} SyncOptions
+ * @property {typeof fetch} [fetchImpl] implementação de fetch (injetável nos testes)
+ * @property {string} [token] token do GitHub, usado apenas no cabeçalho Authorization
+ * @property {(msg: string) => void} [log] função de log
+ */
+
+/**
  * Busca um repositório. Retorna { record } ou { error }.
  * Nunca lança para falhas de rede: o chamador decide o fallback.
+ * @param {string} fullName
+ * @param {SyncOptions} [options]
  */
 export async function fetchRepo(fullName, { fetchImpl = fetch, token, log = () => {} } = {}) {
   const headers = {
@@ -117,6 +126,7 @@ export async function fetchRepo(fullName, { fetchImpl = fetch, token, log = () =
 
 /**
  * Sincroniza a whitelist inteira, mesclando com o cache anterior.
+ * @param {SyncOptions & { whitelist: string[], cache?: {generatedAt?: string, repositories?: Array<{fullName: string} & Record<string, unknown>>} | null, now?: () => Date }} options
  * @returns {Promise<{generatedAt:string, source:'github-api'|'cache'|'empty', repositories:RepoRecord[], errors:string[]}>}
  */
 export async function syncGithub({

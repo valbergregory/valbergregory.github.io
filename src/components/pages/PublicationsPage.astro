@@ -74,7 +74,8 @@ const chapterTail = (d: Pub) =>
             <p class="pub-title">{p.data.title}</p>
             <p class="pub-authors">{authorsLine(p.data.authors)}</p>
             <p class="pub-venue">
-              <em>{p.data.venue}</em>{articleTail(p.data)}
+              <em>{p.data.venue}</em>
+              {articleTail(p.data)}
             </p>
             {p.data.note && <p class="small muted">{pick(p.data.note, lang)}</p>}
             <ul class="pub-links">
@@ -116,7 +117,8 @@ const chapterTail = (d: Pub) =>
             <p class="pub-authors">{authorsLine(p.data.authors)}</p>
             <p class="pub-venue">
               {t('pub.in')}: {p.data.editors?.join('; ')} ({en ? 'eds.' : 'org.'}).{' '}
-              <em>{p.data.bookTitle}</em>{chapterTail(p.data)}
+              <em>{p.data.bookTitle}</em>
+              {chapterTail(p.data)}
             </p>
             <ul class="pub-links">
               {p.data.url && (
@@ -141,7 +143,8 @@ const chapterTail = (d: Pub) =>
             <p class="pub-title">{p.data.title}</p>
             <p class="pub-authors">{authorsLine(p.data.authors)}</p>
             <p class="pub-venue">
-              <em>{p.data.venue}</em>{presentedTail(p.data)}
+              <em>{p.data.venue}</em>
+              {presentedTail(p.data)}
             </p>
             {p.data.note && <p class="small muted">{pick(p.data.note, lang)}</p>}
             {p.data.url && (

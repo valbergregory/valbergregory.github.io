@@ -7,11 +7,11 @@
   action: Se existir, adicionar `googleScholar` em profile.yml (links).
 
 - item: Título definitivo do artigo sobre gasto público em educação (DSGE)
-  status: dois títulos candidatos em research.yml (titlePending: true)
-  action: Escolher e remover `alternativeTitle` ou marcar `titlePending: false`.
+  status: 'dois títulos candidatos em research.yml (titlePending: true)'
+  action: 'Escolher e remover `alternativeTitle` ou marcar `titlePending: false`.'
 
 - item: Título do artigo "Gatekeeping the Quantum"
-  status: provisório (titleProvisional: true)
+  status: 'provisório (titleProvisional: true)'
   action: Confirmar o título e remover a marcação.
 
 - item: Estágio de submissão do artigo sobre adoção de IA sem controles de segurança (27 TJs)

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { buildRepoRecord, normalizeFullName, syncGithub } from '../scripts/lib/github-sync.mjs';
 
-type FetchLike = (url: string, init?: RequestInit) => Promise<Response>;
+type FetchLike = typeof fetch;
 
 function jsonResponse(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), {
@@ -11,8 +11,8 @@ function jsonResponse(body: unknown, status = 200): Response {
 }
 
 function fakeApi(repos: Record<string, Record<string, unknown>>): FetchLike {
-  return async (url) => {
-    const path = url.replace('https://api.github.com', '');
+  return async (input) => {
+    const path = String(input).replace('https://api.github.com', '');
     const m = path.match(/^\/repos\/([^/]+\/[^/]+)(\/.*)?$/);
     if (!m) return jsonResponse({ message: 'not found' }, 404);
     const repo = repos[m[1]!.toLowerCase()];
@@ -136,11 +136,11 @@ describe('syncGithub', () => {
 
   it('nunca envia o token para fora do cabeçalho Authorization', async () => {
     const seen: string[] = [];
-    const fetchImpl: FetchLike = async (url, init) => {
-      seen.push(url);
+    const fetchImpl: FetchLike = async (input, init) => {
+      seen.push(String(input));
       const headers = init?.headers as Record<string, string>;
       expect(headers.Authorization).toBe('Bearer segredo');
-      return fakeApi({ 'valbergregory/exemplo-publico': publicRepo })(url, init);
+      return fakeApi({ 'valbergregory/exemplo-publico': publicRepo })(input, init);
     };
     const result = await syncGithub({
       whitelist: ['valbergregory/exemplo-publico'],
