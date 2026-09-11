@@ -1,0 +1,147 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import StatusBadge from './StatusBadge.astro';
+import Icon from './Icon.astro';
+import { route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { label, pick, pickList, repoMetaFor, formatDate } from '@/lib/data';
+
+interface Props {
+  project: CollectionEntry<'research'>;
+  lang: Lang;
+  /** Nível do título dentro da página (padrão h3). */
+  headingLevel?: 'h2' | 'h3';
+  compact?: boolean;
+}
+
+const { project, lang, headingLevel = 'h3', compact = false } = Astro.props;
+const p = project.data;
+const t = useTranslations(lang);
+const Heading = headingLevel;
+const href = route('researchItem', lang, p.slug);
+const methods = pickList(p.methods, lang);
+const meta = p.allowAutomaticMetadata ? repoMetaFor(p.repository) : undefined;
+const langs = p.languages.map((l) => label('languages', l, lang));
+---
+
+<article
+  class:list={['card research-card', { compact }]}
+  data-track={p.track}
+  data-status={p.status}
+  data-methods={p.methodTags.join(' ')}
+  data-languages={p.languages.join(' ')}
+  data-outputs={p.outputTypes.join(' ')}
+  data-code={p.codeAvailable ? '1' : '0'}
+  data-data={p.dataAvailable ? '1' : '0'}
+>
+  <div class="card-top">
+    <span class="eyebrow">{label('tracks', p.track, lang)}</span>
+    <StatusBadge status={p.status} {lang} />
+  </div>
+  <Heading>
+    <a href={href}>{p.title}</a>
+  </Heading>
+  <p class="question">{pick(p.researchQuestion, lang)}</p>
+  {!compact && methods.length > 0 && (
+    <p class="small muted methods">
+      <strong>{t('research.methods')}:</strong> {methods.slice(0, 2).join('; ')}
+      {methods.length > 2 ? '…' : ''}
+    </p>
+  )}
+  <div class="card-foot">
+    <ul class="chip-list" aria-label={t('research.languages')}>
+      {langs.map((l) => (
+        <li class="tag">{l}</li>
+      ))}
+      {p.repositoryVisibility === 'private' && (
+        <li class="tag">
+          <Icon name="lock" size={14} /> {lang === 'en' ? 'private repo' : 'repositório privado'}
+        </li>
+      )}
+    </ul>
+    {p.repository && (
+      <a class="repo-link" href={p.repository} rel="noopener" target="_blank">
+        <Icon name="github" size={16} />
+        <span>GitHub</span>
+        <span class="visually-hidden">{t('a11y.newTab')}</span>
+      </a>
+    )}
+  </div>
+  {meta?.latestCommitAt && (
+    <p class="small muted updated">
+      {t('research.repoUpdated')}:{' '}
+      <time datetime={meta.latestCommitAt.slice(0, 10)}>
+        {formatDate(meta.latestCommitAt, lang)}
+      </time>
+    </p>
+  )}
+</article>
+
+<style>
+  .research-card {
+    position: relative;
+    transition:
+      border-color var(--transition),
+      box-shadow var(--transition);
+  }
+  .research-card:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .card-top .eyebrow {
+    margin: 0;
+  }
+  .research-card h2,
+  .research-card h3 {
+    font-size: var(--text-lg);
+    line-height: 1.25;
+  }
+  .research-card h3 a::after,
+  .research-card h2 a::after {
+    /* estende a área clicável ao cartão inteiro, mantendo o link real no título */
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  .question {
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .methods {
+    margin: 0;
+  }
+  .card-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: var(--space-2);
+  }
+  .repo-link {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.25rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .repo-link:hover {
+    text-decoration: underline;
+  }
+  .updated {
+    margin: 0;
+  }
+</style>

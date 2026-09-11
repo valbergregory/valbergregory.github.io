@@ -1,0 +1,146 @@
+---
+import Icon from './Icon.astro';
+import { route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getProfile, formatDate } from '@/lib/data';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const profile = getProfile();
+const buildDate = new Date();
+const year = buildDate.getUTCFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <p class="footer-name">{profile.name}</p>
+      <p class="muted small">{profile.positioning[lang === 'en' ? 'en' : 'pt']}</p>
+      <ul class="footer-links" aria-label={t('contact.profiles')}>
+        <li>
+          <a href={profile.links.github} rel="me noopener" target="_blank">
+            <Icon name="github" /> GitHub <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.orcid} rel="me noopener" target="_blank">
+            <Icon name="orcid" /> ORCID <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.lattes} rel="me noopener" target="_blank">
+            <Icon name="lattes" /> Lattes <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.linkedin} rel="me noopener" target="_blank">
+            <Icon name="linkedin" /> LinkedIn{' '}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${profile.email}`}>
+            <Icon name="mail" /> {profile.email}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <ul class="footer-nav">
+        <li>
+          <a href={route('research', lang)}>{t('nav.research')}</a>
+        </li>
+        <li>
+          <a href={route('publications', lang)}>{t('nav.publications')}</a>
+        </li>
+        <li>
+          <a href={route('updates', lang)}>{t('nav.updates')}</a>
+        </li>
+        <li>
+          <a href={route('cv', lang)}>{t('nav.cv')}</a>
+        </li>
+        <li>
+          <a href={route('contact', lang)}>{t('nav.contact')}</a>
+        </li>
+        <li>
+          <a href="/rss.xml">
+            <Icon name="rss" /> RSS
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-meta">
+      <p class="small muted">{t('footer.built')}</p>
+      <p class="small muted">{t('footer.rights')}</p>
+      <p class="small muted">
+        <a
+          href="https://github.com/valbergregory/valbergregory.github.io"
+          rel="noopener"
+          target="_blank"
+        >
+          {t('footer.source')} <span class="visually-hidden">{t('a11y.newTab')}</span>
+        </a>
+        · {t('footer.updated')}:{' '}
+        <time datetime={buildDate.toISOString().slice(0, 10)}>{formatDate(buildDate, lang)}</time>
+      </p>
+      <p class="small muted">
+        © {year} {profile.shortName}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: var(--space-9);
+    border-top: 1px solid var(--border);
+    background: var(--bg-muted);
+    padding-block: var(--space-7) var(--space-6);
+  }
+  .footer-inner {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: 2fr 1fr 1.4fr;
+  }
+  .footer-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-md);
+    margin-bottom: var(--space-1);
+  }
+  .footer-links,
+  .footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .footer-links a,
+  .footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 2rem;
+    text-decoration: none;
+    font-size: var(--text-sm);
+    overflow-wrap: anywhere;
+  }
+  .footer-links a:hover,
+  .footer-nav a:hover {
+    text-decoration: underline;
+  }
+  .footer-meta p {
+    margin-bottom: var(--space-2);
+  }
+  @media (max-width: 52rem) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

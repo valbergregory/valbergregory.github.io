@@ -1,0 +1,281 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getProfile, pick } from '@/lib/data';
+import { breadcrumbJsonLd, personJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const profile = getProfile();
+
+const featured = (await getCollection('research'))
+  .filter((r) => r.data.featured)
+  .sort((a, b) => (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99));
+const outreach = (await getCollection('outreach')).filter((o) =>
+  ['patacidada', 'smartmap-educacao'].includes(o.data.slug),
+);
+
+const summary = en
+  ? [
+      'Professor at the Federal University of Alagoas (Penedo Educational Unit, Information Systems programme) since 2023 and Judicial Analyst in Economics at the Alagoas State Court of Justice since 2014, where I also serve as judicial adviser. Registered economist (CORECON/AL) with degrees in Law and Economics, an MSc in Applied Economics (UFAL) and a PhD in Economics (UFPB).',
+      'Research in applied economics, jurimetrics, AI adoption in the public sector, tourism economics and maritime and fisheries economics, with public data and reproducible methods in R, Python and SQL. Teaching in Information Systems, Tourism and Fisheries Engineering; supervision of final-year projects; applied projects and observatories derived from research.',
+    ]
+  : [
+      'Professor da Universidade Federal de Alagoas (Unidade Educacional Penedo, curso de Sistemas de Informação) desde 2023 e Analista Judiciário, área de Economia, no Tribunal de Justiça de Alagoas desde 2014, onde também atuo como assessor judicial. Economista registrado no CORECON/AL, com formação em Direito e Economia, mestrado em Economia Aplicada (UFAL) e doutorado em Economia (UFPB).',
+      'Pesquisa em Economia Aplicada, Jurimetria, adoção de IA no setor público, economia do turismo e economia marítima e pesqueira, com dados públicos e métodos reproduzíveis em R, Python e SQL. Docência em Sistemas de Informação, Turismo e Engenharia de Pesca; orientação de trabalhos de conclusão; projetos aplicados e observatórios derivados das pesquisas.',
+    ];
+
+const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t('cv.title') }];
+---
+
+<BaseLayout
+  {lang}
+  title={t('cv.title')}
+  description={summary[0]!}
+  current="cv"
+  alternates={alternates('cv')}
+  type="profile"
+  jsonLd={[
+    personJsonLd(lang),
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('cv.title'), path: route('cv', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('cv.title')} eyebrow={profile.name} {crumbs}>
+    <p class="download">
+      <a class="button" href={profile.cvPdf} download>
+        <Icon name="download" /> {t('cv.download')}
+      </a>
+      <span class="small muted">{t('cv.download.note')}</span>
+    </p>
+  </PageHeader>
+
+  <div class="container cv">
+    <section aria-labelledby="sum-title">
+      <h2 id="sum-title">{t('cv.summary')}</h2>
+      {summary.map((p) => (
+        <p class="prose">{p}</p>
+      ))}
+    </section>
+
+    <section aria-labelledby="pos-title">
+      <h2 id="pos-title">{t('cv.positions')}</h2>
+      <ul class="timeline">
+        {profile.roles.map((r) => (
+          <li>
+            <p class="when">
+              {r.since}–{t('cv.current')}
+            </p>
+            <div>
+              <h3>{pick(r.title, lang)}</h3>
+              <p class="where">
+                {r.url ? (
+                  <a href={r.url} rel="noopener" target="_blank">
+                    {r.org} <span class="visually-hidden">{t('a11y.newTab')}</span>
+                  </a>
+                ) : (
+                  r.org
+                )}{' '}
+                · {pick(r.unit, lang)}
+              </p>
+              {r.detail && <p class="small muted">{pick(r.detail, lang)}</p>}
+            </div>
+          </li>
+        ))}
+        <li>
+          <p class="when">2019–2021</p>
+          <div>
+            <h3>{en ? 'Substitute lecturer' : 'Professor substituto'}</h3>
+            <p class="where">
+              Universidade Federal de Alagoas ·{' '}
+              {en ? 'Tourism programme, Penedo' : 'curso de Turismo, Penedo'}
+            </p>
+          </div>
+        </li>
+        <li>
+          <p class="when">2010–2014</p>
+          <div>
+            <h3>{en ? 'Lawyer' : 'Advogado'}</h3>
+            <p class="where">
+              {en
+                ? 'Private practice — tax, administrative and civil law (Maceió)'
+                : 'Advocacia autônoma — tributário, administrativo e cível (Maceió)'}
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="edu-title">
+      <h2 id="edu-title">{t('cv.education')}</h2>
+      <ul class="timeline">
+        {profile.education.map((e) => (
+          <li>
+            <p class="when">{e.years}</p>
+            <div>
+              <h3>{pick(e.degree, lang)}</h3>
+              <p class="where">{e.institution}</p>
+              {e.note && <p class="small muted">{pick(e.note, lang)}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section aria-labelledby="areas-title">
+      <h2 id="areas-title">{t('cv.areas')}</h2>
+      <ul class="two-col-list">
+        {profile.researchLines.map((l) => (
+          <li>{pick(l.label, lang)}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section aria-labelledby="tools-title">
+      <h2 id="tools-title">{t('cv.tools')}</h2>
+      <ul class="two-col-list">
+        {profile.tools.map((tool) => (
+          <li>{tool}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section aria-labelledby="proj-title">
+      <h2 id="proj-title">{t('cv.projects')}</h2>
+      <ul class="two-col-list">
+        {featured.map((r) => (
+          <li>
+            <a href={route('researchItem', lang, r.data.slug)}>{r.data.title}</a>
+          </li>
+        ))}
+        {outreach.map((o) => (
+          <li>
+            <a href={`${route('outreach', lang)}#${o.data.slug}`}>{pick(o.data.name, lang)}</a>
+            <span class="muted"> — {pick(o.data.kind, lang)}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section aria-labelledby="links-title">
+      <h2 id="links-title">{t('cv.links')}</h2>
+      <ul class="link-list">
+        <li>
+          <a href={profile.links.orcid} rel="me noopener" target="_blank">
+            <Icon name="orcid" /> ORCID 0000-0003-1504-8923{' '}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.lattes} rel="me noopener" target="_blank">
+            <Icon name="lattes" /> {en ? 'Lattes CV' : 'Currículo Lattes'}{' '}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.github} rel="me noopener" target="_blank">
+            <Icon name="github" /> GitHub <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.linkedin} rel="me noopener" target="_blank">
+            <Icon name="linkedin" /> LinkedIn{' '}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${profile.email}`}>
+            <Icon name="mail" /> {profile.email}
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .download {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin: var(--space-4) 0 0;
+  }
+  .cv {
+    padding-block: var(--space-7);
+    display: grid;
+    gap: var(--space-7);
+    max-width: 80ch;
+  }
+  .cv h2 {
+    font-size: var(--text-xl);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: var(--space-4);
+  }
+  .timeline h3 {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+  }
+  .timeline p {
+    margin: 0;
+  }
+  .when {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    font-variant-numeric: tabular-nums;
+  }
+  .where {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+  .two-col-list {
+    columns: 2;
+    column-gap: var(--space-6);
+    padding-left: 1.2rem;
+    margin: 0;
+  }
+  .two-col-list li {
+    break-inside: avoid;
+    margin-bottom: var(--space-2);
+  }
+  .link-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 2.25rem;
+  }
+  @media (max-width: 40rem) {
+    .timeline li {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+    .two-col-list {
+      columns: 1;
+    }
+  }
+</style>

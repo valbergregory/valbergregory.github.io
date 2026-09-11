@@ -1,0 +1,17 @@
+{
+  "$comment": "Somente estes repositórios públicos são consultados pelo script de sincronização. Repositórios privados nunca entram aqui.",
+  "owner": "valbergregory",
+  "repositories": [
+    "valbergregory/artigo-dsge-educacao",
+    "valbergregory/transmissao-precos-leite-brasil",
+    "valbergregory/Port-Digitalization-Observatory",
+    "valbergregory/marine-fisheries-data-cube",
+    "valbergregory/fisheries-closures-brazil",
+    "valbergregory/Pricing-Non-Pecuniary-Harm",
+    "valbergregory/STJ-Moral-Damages-Jurimetrics",
+    "valbergregory/Geography-of-Judicial-Delay",
+    "valbergregory/binding-precedents-brazil",
+    "valbergregory/abusive-litigation-jurimetrics",
+    "valbergregory/aisecdev-tjs-2026"
+  ]
+}

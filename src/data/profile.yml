@@ -1,0 +1,271 @@
+# Dados de perfil. Tudo aqui foi verificado em fontes documentais (Lattes,
+# página do curso, exportações do LinkedIn, inventário de 08/09/2026).
+# Itens ainda não confirmados ficam em src/data/review-needed.yml e não são publicados.
+
+name: Valber Gregory Barbosa Costa Bezerra Santos
+shortName: Valber Gregory
+citationName: SANTOS, V. G. B. C. B.
+location:
+  pt: Penedo e Maceió, Alagoas, Brasil
+  en: Penedo and Maceió, Alagoas, Brazil
+
+positioning:
+  pt: Professor da UFAL | Economista | Analista Judiciário e Assessor Judicial no TJAL | Dados, Econometria, Direito e Inovação Pública
+  en: Professor at UFAL | Economist | Judicial Analyst and Judicial Adviser at TJAL | Data, Econometrics, Law and Public Innovation
+
+tagline:
+  pt: Pesquisa, ensino e tecnologia aplicados a problemas públicos.
+  en: Research, teaching and technology applied to public problems.
+
+intro:
+  pt: >-
+    Atuo na interface entre Economia, Direito, Sistemas de Informação e Administração Pública,
+    desenvolvendo pesquisas empíricas, projetos tecnológicos e iniciativas de extensão baseadas em dados.
+  en: >-
+    I work at the interface between Economics, Law, Information Systems and Public Administration,
+    developing empirical research, technology projects and data-driven outreach initiatives.
+
+email: valber.santos@penedo.ufal.br
+
+links:
+  github: https://github.com/valbergregory
+  linkedin: https://www.linkedin.com/in/valber-gregory-49013744
+  lattes: http://lattes.cnpq.br/9400489411252847
+  orcid: https://orcid.org/0000-0003-1504-8923
+  # googleScholar: não confirmado — ver review-needed.yml
+
+cvPdf: /valber-cv.pdf
+cvPdfDate: '2025-02'
+
+photo:
+  alt:
+    pt: Retrato de Valber Gregory, de terno azul-marinho e gravata vinho, em um escritório com estantes ao fundo.
+    en: Portrait of Valber Gregory in a navy suit and burgundy tie, in an office with bookshelves in the background.
+
+# Vínculos atuais exibidos na página inicial e no currículo.
+roles:
+  - org: Universidade Federal de Alagoas (UFAL)
+    unit:
+      pt: Campus Arapiraca, Unidade Educacional Penedo — curso de Sistemas de Informação
+      en: Arapiraca Campus, Penedo Educational Unit — Information Systems programme
+    title:
+      pt: Professor do Magistério Superior (Adjunto)
+      en: Assistant Professor (Professor Adjunto)
+    since: '2023'
+    detail:
+      pt: Membro titular do Colegiado e membro do Núcleo Docente Estruturante do curso de Sistemas de Informação. Professor substituto no curso de Turismo entre 2019 e 2021.
+      en: Member of the programme board and of the curriculum core group (NDE) of the Information Systems programme. Substitute lecturer in the Tourism programme between 2019 and 2021.
+    url: https://ufal.br/
+  - org: Tribunal de Justiça do Estado de Alagoas (TJAL)
+    unit:
+      pt: Analista Judiciário, área de Economia; Assessor Judicial
+      en: Judicial Analyst (Economics); Judicial Adviser
+    title:
+      pt: Analista Judiciário e Assessor Judicial
+      en: Judicial Analyst and Judicial Adviser
+    since: '2014'
+    detail:
+      pt: Pareceres técnicos e estudos em Economia, estimativas de impacto orçamentário e perícias em processos administrativos; desde 2023, assessoria a juízes de primeira e segunda entrâncias.
+      en: Technical opinions and economic studies, budget-impact estimates and expert analysis in administrative proceedings; since 2023, adviser to trial judges.
+    url: https://www.tjal.jus.br/
+  - org: CORECON/AL
+    unit:
+      pt: Conselho Regional de Economia de Alagoas
+      en: Regional Council of Economics of Alagoas
+    title:
+      pt: Economista registrado
+      en: Registered economist
+    since: '2013'
+    detail:
+      pt: Registro profissional n. 972.
+      en: Professional registration no. 972.
+
+education:
+  - degree:
+      pt: Doutorado em Economia
+      en: PhD in Economics
+    institution: Universidade Federal da Paraíba (UFPB)
+    years: 2020–2023
+    note:
+      pt: 'Tese: Ensaios sobre Tecnologia da Informação e Comunicação na Economia da Educação.'
+      en: 'Thesis: Essays on Information and Communication Technology in the Economics of Education.'
+  - degree:
+      pt: Mestrado em Economia Aplicada
+      en: MSc in Applied Economics
+    institution: Universidade Federal de Alagoas (UFAL)
+    years: 2012–2015
+    note:
+      pt: 'Dissertação sobre localização geográfica e efeitos aglomerativos da indústria no Nordeste (1995–2005). Bolsista CAPES.'
+      en: 'Dissertation on industrial location and agglomeration effects in Northeast Brazil (1995–2005). CAPES scholarship.'
+  - degree:
+      pt: Pós-graduação lato sensu em Direito 4.0 — Direito Digital, Proteção de Dados e Cibersegurança
+      en: Graduate certificate in Law 4.0 — Digital Law, Data Protection and Cybersecurity
+    institution: PUC-Campinas em conjunto com PUC-PR
+    years: 2025–2026
+    note:
+      pt: Concluída em julho de 2026.
+      en: Completed in July 2026.
+  - degree:
+      pt: MBA em Poder Judiciário
+      en: MBA in Judicial Administration
+    institution: Fundação Getulio Vargas (FGV)
+    years: 2015–2017
+  - degree:
+      pt: Bacharelado em Ciências Econômicas
+      en: BSc in Economics
+    institution: Universidade Federal de Alagoas (UFAL)
+    years: 2005–2013
+  - degree:
+      pt: Bacharelado em Direito
+      en: LLB (Bachelor of Laws)
+    institution: Centro Universitário CESMAC
+    years: 2005–2009
+    note:
+      pt: Advogado entre 2010 e 2014 (OAB/AL).
+      en: Practised law between 2010 and 2014 (Alagoas Bar).
+
+# Linhas de pesquisa exibidas na página inicial (a sexta é transversal).
+researchLines:
+  - key: economia-politicas-publicas
+    label:
+      pt: Economia e políticas públicas
+      en: Economics and public policy
+    blurb:
+      pt: Gasto público, educação, preços agrícolas e avaliação de políticas com dados em painel e séries temporais.
+      en: Public spending, education, agricultural prices and policy evaluation with panel and time-series data.
+  - key: economia-direito-jurimetria
+    label:
+      pt: Economia do Direito e Jurimetria
+      en: Law and Economics and Jurimetrics
+    blurb:
+      pt: Decisões judiciais como dados — danos morais, duração dos processos, precedentes e litigância.
+      en: Court decisions as data — moral damages, case duration, precedents and litigation patterns.
+  - key: ia-governo-digital-seguranca
+    label:
+      pt: IA, governo digital e segurança
+      en: AI, digital government and security
+    blurb:
+      pt: Adoção de inteligência artificial no setor público, produtividade, governança e controles de segurança.
+      en: AI adoption in the public sector, productivity, governance and security controls.
+  - key: economia-turismo
+    label:
+      pt: Economia do Turismo
+      en: Tourism Economics
+    blurb:
+      pt: Demanda internacional, conectividade, competitividade de preços e desenvolvimento territorial.
+      en: International demand, connectivity, price competitiveness and territorial development.
+  - key: economia-maritima-portos
+    label:
+      pt: Economia Marítima e Portos
+      en: Maritime Economics and Ports
+    blurb:
+      pt: Choques portuários, resiliência regional e digitalização dos processos portuários.
+      en: Port shocks, regional resilience and the digitalisation of port processes.
+  - key: economia-pesqueira
+    label:
+      pt: Economia Pesqueira
+      en: Fisheries Economics
+    blurb:
+      pt: Ondas de calor marinhas, esforço pesqueiro, defesos e áreas marinhas protegidas.
+      en: Marine heatwaves, fishing effort, seasonal closures and marine protected areas.
+  - key: dados-econometria-si
+    label:
+      pt: Dados, econometria e Sistemas de Informação
+      en: Data, econometrics and Information Systems
+    blurb:
+      pt: Linha transversal — R, Python, SQL, análise espacial, pipelines reproduzíveis e sistemas de apoio à decisão.
+      en: Cross-cutting line — R, Python, SQL, spatial analysis, reproducible pipelines and decision-support systems.
+    transversal: true
+
+tools:
+  - R (tidyverse, fixest, targets, renv)
+  - Python (pandas, scikit-learn, uv)
+  - SQL, DuckDB, PostgreSQL/PostGIS
+  - Econometria de painel e séries temporais
+  - Inferência causal (diferenças-em-diferenças, estudos de eventos, PPML)
+  - Análise espacial e geoprocessamento (sf, H3)
+  - LaTeX, Quarto e Git
+  - Dados públicos (DataJud, ANTAQ, CEPEA, Global Fishing Watch, INEP, SICONFI)
+
+# Bio em cinco idiomas. Cada bloco é usado com o atributo lang correspondente.
+bio:
+  pt:
+    lang: pt-BR
+    label: Português
+    paragraphs:
+      - >-
+        Sou professor da Universidade Federal de Alagoas, na Unidade Educacional Penedo, economista
+        registrado no CORECON/AL e Analista Judiciário, área de Economia, no Tribunal de Justiça de Alagoas,
+        onde também atuo como assessor judicial. Tenho formação em Direito e em Economia, com mestrado em
+        Economia Aplicada (UFAL) e doutorado em Economia (UFPB).
+      - >-
+        Minha pesquisa fica na interface entre Economia, Direito, Sistemas de Informação e Administração
+        Pública. Estudo políticas públicas, Jurimetria, adoção de inteligência artificial e transformação
+        digital no setor público, economia do turismo, economia marítima e economia pesqueira — sempre com
+        dados públicos, métodos reproduzíveis e a preocupação de que os resultados voltem para a sala de
+        aula, para a extensão e para quem toma decisões.
+  en:
+    lang: en
+    label: English
+    paragraphs:
+      - >-
+        I am a professor at the Federal University of Alagoas (UFAL), Penedo Educational Unit, a registered
+        economist (CORECON/AL) and a Judicial Analyst in Economics at the Alagoas State Court of Justice
+        (TJAL), where I also serve as a judicial adviser. I hold degrees in Law and in Economics, a master's
+        degree in Applied Economics (UFAL) and a PhD in Economics (UFPB).
+      - >-
+        My research sits at the interface between Economics, Law, Information Systems and Public
+        Administration. I study public policy, jurimetrics, the adoption of artificial intelligence and
+        digital transformation in the public sector, tourism economics, maritime economics and fisheries
+        economics — always with public data, reproducible methods and the aim of bringing results back to
+        the classroom, to outreach work and to decision-makers.
+  fr:
+    lang: fr
+    label: Français
+    paragraphs:
+      - >-
+        Je suis professeur à l'Université fédérale d'Alagoas (UFAL), unité d'enseignement de Penedo,
+        économiste inscrit au CORECON/AL et analyste judiciaire en économie au Tribunal de justice de
+        l'État d'Alagoas (TJAL), où j'exerce également comme conseiller judiciaire. Formé en droit et en
+        économie, je suis titulaire d'un master en économie appliquée (UFAL) et d'un doctorat en économie
+        (UFPB).
+      - >-
+        Mes recherches se situent à l'interface entre l'économie, le droit, les systèmes d'information et
+        l'administration publique. J'étudie les politiques publiques, la jurimétrie, l'adoption de
+        l'intelligence artificielle et la transformation numérique dans le secteur public, l'économie du
+        tourisme, l'économie maritime et l'économie des pêches — toujours à partir de données publiques,
+        avec des méthodes reproductibles et le souci que les résultats reviennent vers la salle de classe,
+        les actions de vulgarisation et les décideurs.
+  de:
+    lang: de
+    label: Deutsch
+    paragraphs:
+      - >-
+        Ich bin Professor an der Bundesuniversität von Alagoas (UFAL) am Standort Penedo, beim CORECON/AL
+        registrierter Volkswirt und Justizanalyst für Wirtschaft am Gerichtshof des Bundesstaates Alagoas
+        (TJAL), wo ich außerdem als Justizreferent tätig bin. Ich habe Rechtswissenschaft und
+        Volkswirtschaftslehre studiert, einen Master in angewandter Volkswirtschaftslehre (UFAL) und einen
+        Doktortitel in Volkswirtschaftslehre (UFPB) erworben.
+      - >-
+        Meine Forschung bewegt sich an der Schnittstelle von Volkswirtschaftslehre, Recht,
+        Informationssystemen und öffentlicher Verwaltung. Ich untersuche öffentliche Politik, Jurimetrie,
+        den Einsatz künstlicher Intelligenz und die digitale Transformation im öffentlichen Sektor,
+        Tourismusökonomie, maritime Ökonomie und Fischereiökonomie — stets mit öffentlichen Daten,
+        reproduzierbaren Methoden und dem Anspruch, dass die Ergebnisse in die Lehre, in den
+        Wissenstransfer und zu den Entscheidungsträgern zurückfließen.
+  it:
+    lang: it
+    label: Italiano
+    paragraphs:
+      - >-
+        Sono professore all'Università Federale di Alagoas (UFAL), unità didattica di Penedo, economista
+        iscritto al CORECON/AL e analista giudiziario in economia presso il Tribunale di Giustizia dello
+        Stato di Alagoas (TJAL), dove lavoro anche come assessore giudiziario. Ho una formazione in
+        Giurisprudenza e in Economia, con un master in Economia Applicata (UFAL) e un dottorato in
+        Economia (UFPB).
+      - >-
+        La mia ricerca si colloca all'interfaccia tra Economia, Diritto, Sistemi Informativi e Pubblica
+        Amministrazione. Studio le politiche pubbliche, la giurimetria, l'adozione dell'intelligenza
+        artificiale e la trasformazione digitale nel settore pubblico, l'economia del turismo, l'economia
+        marittima e l'economia della pesca — sempre con dati pubblici, metodi riproducibili e l'obiettivo
+        che i risultati tornino in aula, nelle attività di terza missione e a chi prende le decisioni.

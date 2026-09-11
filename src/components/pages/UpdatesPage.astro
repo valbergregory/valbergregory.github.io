@@ -1,0 +1,251 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations, type UiKey } from '@/i18n/ui';
+import { formatDate, getGithubProjects, isoDate } from '@/lib/data';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const research = await getCollection('research');
+const titleOf = (slug?: string) => research.find((r) => r.data.slug === slug)?.data.title;
+
+const entries = (await getCollection('updates'))
+  .filter((u) => u.data.lang === lang && !u.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const rendered = await Promise.all(
+  entries.map(async (e) => ({ entry: e, Content: (await render(e)).Content })),
+);
+
+// Eventos automáticos derivados de metadados públicos (não são notícias editoriais).
+const github = getGithubProjects();
+const byRepo = new Map(
+  research.filter((r) => r.data.repository).map((r) => [r.data.repository!.toLowerCase(), r]),
+);
+type Event = {
+  date: string;
+  kind: 'push' | 'release';
+  repo: string;
+  url: string;
+  title: string;
+  slug: string;
+  tag?: string;
+};
+const events: Event[] = [];
+for (const repo of github.repositories) {
+  const project = byRepo.get(repo.url.toLowerCase());
+  if (!project || !project.data.allowAutomaticMetadata) continue;
+  const base = {
+    repo: repo.fullName,
+    url: repo.url,
+    title: project.data.title,
+    slug: project.data.slug,
+  };
+  if (repo.latestCommitAt) events.push({ ...base, date: repo.latestCommitAt, kind: 'push' });
+  if (repo.latestRelease)
+    events.push({
+      ...base,
+      date: repo.latestRelease.publishedAt,
+      kind: 'release',
+      tag: repo.latestRelease.tag,
+    });
+}
+events.sort((a, b) => b.date.localeCompare(a.date));
+
+const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t('updates.title') }];
+const catKey = (c: string) => `category.${c}` as UiKey;
+---
+
+<BaseLayout
+  {lang}
+  title={t('updates.title')}
+  description={t('updates.lead')}
+  current="updates"
+  alternates={alternates('updates')}
+  jsonLd={[
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('updates.title'), path: route('updates', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('updates.title')} lead={t('updates.lead')} {crumbs}>
+    <p class="rss">
+      <a href="/rss.xml">
+        <Icon name="rss" size={16} /> {t('updates.rss')}
+      </a>
+    </p>
+  </PageHeader>
+
+  <div class="container updates-layout">
+    <section aria-labelledby="diary-title" class="diary">
+      <h2 id="diary-title" class="visually-hidden">
+        {t('updates.title')}
+      </h2>
+      {rendered.length === 0 ? (
+        <p class="muted">{t('updates.none')}</p>
+      ) : (
+        <ol class="entries">
+          {rendered.map(({ entry, Content }) => (
+            <li class="entry" id={entry.id}>
+              <div class="entry-meta">
+                <time datetime={isoDate(entry.data.date)}>{formatDate(entry.data.date, lang)}</time>
+                <span class="tag">{t(catKey(entry.data.category))}</span>
+              </div>
+              <h3>{entry.data.title}</h3>
+              {entry.data.project && titleOf(entry.data.project) && (
+                <p class="small muted">
+                  {t('updates.project')}:{' '}
+                  <a href={route('researchItem', lang, entry.data.project)}>
+                    {titleOf(entry.data.project)}
+                  </a>
+                </p>
+              )}
+              <div class="markdown">
+                <Content />
+              </div>
+              {entry.data.link && (
+                <p class="entry-link">
+                  <a href={entry.data.link} rel="noopener" target="_blank">
+                    {t('updates.link')} <Icon name="external" size={14} />
+                    <span class="visually-hidden">{t('a11y.newTab')}</span>
+                  </a>
+                </p>
+              )}
+            </li>
+          ))}
+        </ol>
+      )}
+    </section>
+
+    <aside class="activity" aria-labelledby="activity-title">
+      <h2 id="activity-title">{t('updates.activity')}</h2>
+      <p class="small muted">{t('updates.activity.lead')}</p>
+      {events.length === 0 ? (
+        <p class="muted small">{t('repo.none')}</p>
+      ) : (
+        <ol class="events">
+          {events.slice(0, 12).map((ev) => (
+            <li>
+              <time datetime={ev.date.slice(0, 10)} class="small muted">
+                {formatDate(ev.date, lang, { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+              <p>
+                <strong>{ev.kind === 'release' ? t('updates.release') : t('updates.push')}</strong>
+                {ev.tag && <span class="tag">{ev.tag}</span>}
+                <br />
+                <a href={route('researchItem', lang, ev.slug)}>{ev.title}</a>
+                <br />
+                <a class="small muted repo" href={ev.url} rel="noopener" target="_blank">
+                  {ev.repo} <span class="visually-hidden">{t('a11y.newTab')}</span>
+                </a>
+              </p>
+            </li>
+          ))}
+        </ol>
+      )}
+      {github.source !== 'empty' && (
+        <p class="small muted">
+          {t('repo.fetchedAt')}{' '}
+          <time datetime={github.generatedAt}>{formatDate(github.generatedAt, lang)}</time>
+          {github.source === 'cache' ? ` — ${t('repo.stale')}` : ''}
+        </p>
+      )}
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .rss a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+  .updates-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: var(--space-7);
+    padding-block: var(--space-7);
+    align-items: start;
+  }
+  .entries {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-6);
+    max-width: 72ch;
+  }
+  .entry {
+    padding-left: var(--space-5);
+    border-left: 3px solid var(--teal);
+  }
+  .entry-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+  }
+  .entry h3 {
+    font-size: var(--text-lg);
+  }
+  .entry-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+  .activity {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+  }
+  .activity h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .events {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-3);
+    display: grid;
+    gap: var(--space-3);
+  }
+  .events li {
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--border);
+  }
+  .events p {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+  .events .tag {
+    margin-left: var(--space-2);
+  }
+  .events .repo {
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 56rem) {
+    .updates-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

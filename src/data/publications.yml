@@ -1,0 +1,143 @@
+# Publicações verificadas em 11/09/2026 por acesso direto às páginas indicadas.
+# Tipos: article | chapter | presented | abstract
+# Working papers (manuscritos em andamento) vêm de research.yml e não são listados aqui.
+
+- id: repd-2014-regime-metas
+  type: article
+  title: 'Regime de metas: vantagens e desvantagens do uso de metas monetárias e inflacionárias'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+    - Felippe Rocha Presado Menezes de Barros
+  venue: Revista Economia Política do Desenvolvimento
+  venueShort: REPD (UFAL)
+  volume: 'v. 6, n. 19'
+  pages: 49–61
+  year: 2014
+  doi: 10.28998/repd.v6i19.8663
+  url: https://periodicos.ufal.br/repd/article/view/8663
+  pdf: https://periodicos.ufal.br/repd/article/view/8663/6389
+  language: pt
+  track: economia-politicas-publicas
+
+- id: repd-2014-ciclos-economicos
+  type: article
+  title: 'Ciclos econômicos e o papel do Estado: uma análise das hipóteses pós-keynesianas e novo-keynesianas'
+  authors:
+    - Felippe Rocha Presado Menezes de Barros
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  venue: Revista Economia Política do Desenvolvimento
+  venueShort: REPD (UFAL)
+  volume: 'v. 6, n. 18'
+  pages: 1–15
+  year: 2014
+  doi: 10.28998/repd.v6i18.8634
+  url: https://periodicos.ufal.br/repd/article/view/8634
+  pdf: https://periodicos.ufal.br/repd/article/view/8634/6334
+  language: pt
+  track: economia-politicas-publicas
+
+- id: repd-2015-racionalidade-limitada
+  type: article
+  title: 'Um escorço da racionalidade limitada nas teorias evolucionista e dos custos de transação: pontos potenciais de convergência'
+  authors:
+    - Everton de Souza Coelho
+    - Valber Gregory Barbosa Costa Bezerra Santos
+    - Felippe Rocha Presado Menezes de Barros
+  venue: Revista Economia Política do Desenvolvimento
+  venueShort: REPD (UFAL)
+  volume: 'v. 6, n. 20'
+  pages: 1–24
+  year: 2015
+  doi: 10.28998/repd.v6i20.8706
+  url: https://periodicos.ufal.br/repd/article/view/8706
+  pdf: https://periodicos.ufal.br/repd/article/view/8706/6433
+  language: pt
+  track: economia-politicas-publicas
+
+- id: repd-2015-protecionismo
+  type: article
+  title: 'Análise do protecionismo brasileiro pós-crise de 2008: barreiras comerciais e planos de incentivos à indústria'
+  authors:
+    - Felippe Rocha Presado Menezes de Barros
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  venue: Revista Economia Política do Desenvolvimento
+  venueShort: REPD (UFAL)
+  volume: 'v. 6, n. 21'
+  pages: 1–14
+  year: 2015
+  doi: 10.28998/repd.v6i21.8713
+  url: https://periodicos.ufal.br/repd/article/view/8713
+  pdf: https://periodicos.ufal.br/repd/article/view/8713/6440
+  language: pt
+  track: economia-politicas-publicas
+
+- id: extensao-em-debate-2025-reparo-tecnologico
+  type: article
+  title: 'Grupo Reparo Tecnológico: manutenção e oferta de cursos de manutenção de computadores'
+  authors:
+    - Waldsson Sacramento dos Santos
+    - Thyago Tenório Martins de Oliveira
+    - Valber Gregory Barbosa Costa Bezerra Santos
+    - Jário José dos Santos Júnior
+    - Gustavo Henrique Ferreira de Miranda Oliveira
+  venue: Revista Eletrônica Extensão em Debate
+  venueShort: Extensão em Debate (UFAL)
+  volume: 'v. 14, n. 23'
+  year: 2025
+  url: https://periodicos.ufal.br/extensaoemdebate/article/view/18725
+  pdf: https://periodicos.ufal.br/extensaoemdebate/article/view/18725/12826
+  language: pt
+  track: extensao
+  note:
+    pt: Relato de projeto de extensão do curso de Sistemas de Informação (UFAL Penedo).
+    en: Report on an outreach project of the Information Systems programme (UFAL Penedo).
+
+- id: edufal-2018-localizacao-geografica
+  type: chapter
+  title: 'Localização geográfica e efeitos aglomerativos na Região Nordeste do Brasil (1995–2005)'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+    - André Maia Gomes Lages
+  bookTitle: 'Desenvolvimento e economia regional: evidências do Nordeste e de Alagoas'
+  editors:
+    - Thierry Molnar Prates
+    - Maria Cecília Junqueira Lustosa
+  publisher: EDUFAL
+  place: Maceió
+  year: 2018
+  pages: 41–66
+  isbn: 978-85-5913-114-7
+  url: https://www.edufal.com.br/Produtos/Detalhes/511524
+  language: pt
+  track: economia-politicas-publicas
+
+- id: itr-municipalizacao-2015
+  type: presented
+  title: "A 'municipalização' do ITR: uma opção viável? O caso de Alagoas"
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+    - André Maia Gomes Lages
+  venue: Seminário de Desenvolvimento Econômico e Governança Fundiária
+  year: 2015
+  pdf: https://governancadeterras.com.br/wp-content/uploads/2017/10/A-municipaliza%C3%A7%C3%A3o-do-ITR.pdf
+  url: https://governancadeterras.com.br/wp-content/uploads/2017/10/A-municipaliza%C3%A7%C3%A3o-do-ITR.pdf
+  language: pt
+  track: economia-politicas-publicas
+  note:
+    pt: Texto completo hospedado pelo evento (Governança de Terras). Analisa os ganhos dos municípios alagoanos que optaram pela cobrança integral do ITR entre 2008 e 2012.
+    en: Full text hosted by the event (Governança de Terras). Analyses the gains of Alagoas municipalities that opted to collect the rural land tax (ITR) in full between 2008 and 2012.
+
+- id: anptur-2024-eudaimonia
+  type: abstract
+  title: 'Eudaimonia e turismo: uma análise da produção científica internacional'
+  authors:
+    - Medeiros, S. A.
+    - et al. (incluindo Valber Gregory Barbosa Costa Bezerra Santos)
+  venue: Anais do XXI Seminário da ANPTUR
+  place: São Paulo
+  year: 2024
+  language: pt
+  track: economia-turismo
+  note:
+    pt: Resumo em anais vinculado ao projeto de pesquisa "Eudaimonia e experiência turística" (UFAL). Link não disponível.
+    en: Conference abstract linked to the research project "Eudaimonia and tourist experience" (UFAL). No link available.

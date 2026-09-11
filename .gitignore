@@ -1,0 +1,22 @@
+# build
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs e temporários
+npm-debug.log*
+*.log
+.DS_Store
+Thumbs.db
+
+# ambiente local (nunca commitar tokens)
+.env
+.env.*
+!.env.example
+
+# capturas de QA completas (PNG de página inteira) ficam fora do repositório;
+# só as versões leves em JPEG são versionadas
+docs/qa/shots/
+docs/qa/*.png

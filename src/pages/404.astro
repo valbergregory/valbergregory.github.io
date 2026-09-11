@@ -1,0 +1,49 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { route } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+
+const t = useTranslations('pt-br');
+const tEn = useTranslations('en');
+---
+
+<BaseLayout
+  lang="pt-br"
+  title={t('notFound.title')}
+  description={t('notFound.text')}
+  current="home"
+  noindex
+>
+  <div class="container not-found">
+    <p class="eyebrow">404</p>
+    <h1>{t('notFound.title')}</h1>
+    <p class="lead">{t('notFound.text')}</p>
+    <p lang="en" class="muted">
+      {tEn('notFound.title')} — {tEn('notFound.text')}
+    </p>
+    <div class="actions">
+      <a class="button" href={route('home', 'pt-br')}>
+        {t('notFound.home')}
+      </a>
+      <a class="button secondary" href={route('research', 'pt-br')}>
+        {t('nav.research')}
+      </a>
+      <a class="button subtle" href={route('home', 'en')} lang="en" hreflang="en">
+        {tEn('notFound.home')}
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found {
+    padding-block: var(--space-9);
+    max-width: 60ch;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+</style>

@@ -1,0 +1,96 @@
+name: Build and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  # Disparo imediato enviado pelos repositórios de pesquisa (ver docs/PORTFOLIO_AUTOMATION.md).
+  repository_dispatch:
+    types: [portfolio-update]
+  # Fallback periódico: a cada seis horas os metadados públicos são atualizados
+  # mesmo sem disparo imediato.
+  schedule:
+    - cron: '17 */6 * * *'
+
+# Permissões mínimas. O GITHUB_TOKEN só lê o conteúdo e publica no Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Um deploy por vez; execuções em fila não cancelam a que está em andamento.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      # Mantém o último JSON válido entre execuções, para que uma falha da
+      # API do GitHub não deixe o site sem metadados.
+      - name: Restaurar cache de metadados do GitHub
+        uses: actions/cache/restore@v4
+        with:
+          path: src/generated/github-projects.json
+          key: github-projects-${{ github.run_id }}
+          restore-keys: |
+            github-projects-
+
+      - name: Sincronizar metadados públicos do GitHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run sync:github
+
+      - name: Salvar cache de metadados do GitHub
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: src/generated/github-projects.json
+          key: github-projects-${{ github.run_id }}
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Testes
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Verificar links internos
+        run: npm run check:links
+
+      - name: Verificar ausência de segredos no build
+        run: npm run check:secrets -- --dist-only
+
+      - name: Upload do artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

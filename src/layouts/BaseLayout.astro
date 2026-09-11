@@ -1,0 +1,107 @@
+---
+import '@/styles/global.css';
+import Seo from '@/components/Seo.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { HTML_LANG, type Lang, type RouteKey } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  current: RouteKey;
+  alternates?: Partial<Record<Lang, string>>;
+  type?: 'website' | 'article' | 'profile';
+  image?: string;
+  imageAlt?: string;
+  jsonLd?: Record<string, unknown>[];
+  noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const {
+  lang,
+  title,
+  description,
+  current,
+  alternates,
+  type,
+  image,
+  imageAlt,
+  jsonLd,
+  noindex,
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
+const t = useTranslations(lang);
+const otherLang: Lang = lang === 'en' ? 'pt-br' : 'en';
+const alternatePath = alternates?.[otherLang];
+---
+
+<!doctype html>
+<html lang={HTML_LANG[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f151f" media="(prefers-color-scheme: dark)" />
+    <meta name="author" content="Valber Gregory Barbosa Costa Bezerra Santos" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Valber Gregory — atualizações"
+      href="/rss.xml"
+    />
+    <Seo
+      {title}
+      {description}
+      {lang}
+      {alternates}
+      {type}
+      {image}
+      {imageAlt}
+      {jsonLd}
+      {noindex}
+      {publishedTime}
+      {modifiedTime}
+    />
+    <script is:inline>
+      // Aplica o tema salvo antes da primeira pintura para evitar flash.
+      (function () {
+        try {
+          const saved = localStorage.getItem('theme');
+          if (saved === 'dark' || saved === 'light') {
+            document.documentElement.dataset.theme = saved;
+          }
+        } catch {
+          /* sem armazenamento local: usa a preferência do sistema */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      {t('skip')}
+    </a>
+    <Header {lang} {current} {alternatePath} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer {lang} />
+  </body>
+</html>
+
+<style is:global>
+  main:focus {
+    outline: none;
+  }
+</style>
