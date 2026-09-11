@@ -13,18 +13,19 @@ Site: https://valbergregory.github.io (pt-BR) · https://valbergregory.github.io
 
 ## Scripts
 
-| Comando | Função |
-|---|---|
-| `npm run dev` | servidor de desenvolvimento em http://localhost:4321 |
-| `npm run sync:github` | atualiza `src/generated/github-projects.json` (usa `GITHUB_TOKEN` se existir) |
-| `npm run lint` | ESLint |
-| `npm run typecheck` | `astro check` |
-| `npm test` | Vitest (dados, sincronização, i18n) |
-| `npm run build` | gera `dist/` |
-| `npm run check:links` | verifica links internos do build (`-- --external` inclui externos) |
-| `npm run check:secrets` | garante que nenhum token ou dado privado entrou no código ou no build |
-| `npm run og:generate` | regenera imagens sociais e ícones |
-| `npm run preview` | serve `dist/` localmente |
+| Comando                                    | Função                                                                                           |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `npm run dev`                              | servidor de desenvolvimento em http://localhost:4321                                             |
+| `npm run sync:github`                      | atualiza `src/generated/github-projects.json` (usa `GITHUB_TOKEN` se existir)                    |
+| `npm run lint`                             | ESLint                                                                                           |
+| `npm run typecheck`                        | `astro check`                                                                                    |
+| `npm test`                                 | Vitest (dados, sincronização, i18n)                                                              |
+| `npm run build`                            | gera `dist/`                                                                                     |
+| `npm run check:links`                      | verifica links internos do build (`-- --external` inclui externos)                               |
+| `npm run check:secrets`                    | garante que nenhum token ou dado privado entrou no código ou no build                            |
+| `npm run og:generate`                      | regenera imagens sociais e ícones                                                                |
+| `scripts/set-portfolio-secret.ps1` / `.sh` | grava o secret `PORTFOLIO_SYNC_TOKEN` nos repositórios rastreados (pede o token de forma oculta) |
+| `npm run preview`                          | serve `dist/` localmente                                                                         |
 
 Requisitos: Node 22+ e npm 9+.
 
