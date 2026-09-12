@@ -109,6 +109,26 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
             </li>
           </ul>
         </dd>
+        {profile.links.cultura && (
+          <>
+            <dt>{en ? 'Beyond academia' : 'Fora da academia'}</dt>
+            <dd>
+              <a href={profile.links.cultura} rel="me noopener" target="_blank">
+                {en
+                  ? 'Economics of Culture and Entertainment'
+                  : 'Economia da Cultura e Entretenimento'}
+                <span class="visually-hidden">{t('a11y.newTab')}</span>
+              </a>
+              <span class="small muted">
+                {' '}
+                —{' '}
+                {en
+                  ? 'music, poems, book and film reviews'
+                  : 'música, poemas, crítica de livros e cinema'}
+              </span>
+            </dd>
+          </>
+        )}
       </dl>
     </aside>
   </div>

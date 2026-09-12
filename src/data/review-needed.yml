@@ -24,10 +24,6 @@
   status: 'capas vetoriais geradas por scripts/generate-series-covers.mjs (12/09/2026), enquanto não há imagens próprias'
   action: 'Gravar as imagens definitivas com os mesmos nomes em src/content/conteudos/economia-maritima-e-pesqueira/ (e o banner em src/content/series/).'
 
-- item: Fotografias para a página Ensino (livro Desenvolvimento e Economia Regional, apresentação na FEAC, foto de 2012)
-  status: 'enviadas no chat em 12/09/2026, sem arquivo no disco, sem legenda/data confirmadas e com terceiros identificáveis'
-  action: 'Salvar os arquivos em uma pasta, informar legenda e data de cada foto e confirmar o consentimento das outras pessoas (ou autorizar o recorte só com o Valber).'
-
-- item: Espaço para música, cinema e resenhas
-  status: 'tipos de conteúdo `musica`, `cinema` e `leitura` criados na seção Conteúdos (12/09/2026); nada publicado; links de composições não informados'
-  action: 'Informar onde as composições estão publicadas (Spotify, YouTube, SoundCloud…) e se deseja uma linha sobre música na página Sobre.'
+- item: Fotografias da página Ensino
+  status: 'mosaico publicado em 12/09/2026 (src/assets/valber-mosaico.webp) por decisão do Valber; inclui um retrato gerado por IA e pessoas não identificadas'
+  action: 'Se quiser legendas com nomes/datas ou trocar o retrato por foto real, informar.'

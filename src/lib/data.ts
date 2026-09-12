@@ -53,6 +53,7 @@ const profileSchema = z.object({
     lattes: z.url(),
     orcid: z.url(),
     googleScholar: z.url().optional(),
+    cultura: z.url().optional(),
   }),
   founder: z.object({
     lead: bilingual,
