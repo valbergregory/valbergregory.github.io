@@ -56,7 +56,7 @@ const profileSchema = z.object({
   }),
   founder: z.object({
     lead: bilingual,
-    items: z.array(z.object({ name: z.string(), url: z.url(), note: bilingual })),
+    items: z.array(z.object({ name: z.string(), url: z.url().optional(), note: bilingual })),
   }),
   linkedinNote: bilingual,
   cvPdf: z.string(),

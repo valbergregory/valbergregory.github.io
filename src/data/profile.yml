@@ -37,8 +37,8 @@ links:
 # Destaque do hero (pedido de 12/09/2026): fundador das startups.
 founder:
   lead:
-    pt: Fundador das startups
-    en: Founder of the startups
+    pt: Fundador das startups e legaltechs
+    en: Founder of the startups and legaltechs
   items:
     - name: PataCidadã
       url: https://patacidada.com.br/
@@ -50,6 +50,14 @@ founder:
       note:
         pt: concorrendo ao Programa Centelha
         en: competing in the Centelha programme
+    - name: PortaJus
+      note:
+        pt: acesso à Justiça, em desenvolvimento
+        en: access to justice, in development
+    - name: LiquidaJus
+      note:
+        pt: liquidação de sentenças, em desenvolvimento
+        en: judgment liquidation, in development
 
 # Nota sobre a escrita regular no LinkedIn (informada em 12/09/2026).
 linkedinNote:

@@ -41,6 +41,40 @@
       url: https://smartmap-educacao.vercel.app/
   tracks: [economia-politicas-publicas, ia-governo-digital-seguranca]
 
+- slug: liquidajus
+  name: LiquidaJus
+  kind:
+    pt: Legaltech — liquidação de sentenças (em desenvolvimento)
+    en: Legaltech — judgment liquidation (in development)
+  status:
+    pt: Em desenvolvimento; sem versão pública
+    en: In development; no public release
+  summary:
+    pt: Sistema para liquidação de sentenças judiciais que lê os autos em PDF, extrai os comandos condenatórios com revisão humana obrigatória e calcula os valores com um motor determinístico baseado em índices oficiais, produzindo memória de cálculo auditável, com trilha de revisão e tratamento de dados pessoais conforme a LGPD.
+    en: System for liquidating court judgments that reads case files in PDF, extracts the operative provisions with mandatory human review and computes amounts with a deterministic engine based on official indices, producing an auditable calculation memory with a review trail and LGPD-compliant handling of personal data.
+  role:
+    pt: Fundador e desenvolvedor
+    en: Founder and developer
+  links: []
+  tracks: [economia-direito-jurimetria, ia-governo-digital-seguranca]
+
+- slug: portajus
+  name: PortaJus
+  kind:
+    pt: Legaltech — acesso à Justiça (em desenvolvimento)
+    en: Legaltech — access to justice (in development)
+  status:
+    pt: Protótipo funcional em ambiente de demonstração; sem versão pública
+    en: Working prototype in a demonstration environment; no public release
+  summary:
+    pt: Plataforma que ajuda o cidadão e o microempreendedor a estruturar uma demanda nos casos em que a lei dispensa advogado (Juizados Especiais), com motor jurídico determinístico e versionado, documentos com verificação de integridade, guias de custas e acessibilidade (WCAG 2.2 AA, modo totem).
+    en: Platform that helps citizens and micro-entrepreneurs structure a claim in cases where the law does not require a lawyer (small-claims courts), with a deterministic, versioned legal engine, integrity-checked documents, court-fee guides and accessibility (WCAG 2.2 AA, kiosk mode).
+  role:
+    pt: Fundador e desenvolvedor
+    en: Founder and developer
+  links: []
+  tracks: [economia-direito-jurimetria, ia-governo-digital-seguranca]
+
 - slug: materiais-didaticos
   name:
     pt: Materiais didáticos e painéis públicos
