@@ -278,17 +278,19 @@ bio:
 # Aprovações em concursos públicos (informadas pelo titular em 12/09/2026; conferem com o Lattes).
 publicExamsIntro:
   pt: >-
-    Concursos públicos fazem parte da minha trajetória — como candidato e, hoje, como servidor.
-    Fui aprovado em oito seleções para carreiras de economista, professor, analista judiciário e
-    procurador municipal, três delas em primeiro lugar. Mantenho um pé nesse mundo: acompanho
-    editais, bancas e o desenho das carreiras públicas, e isso alimenta o interesse por avaliação,
-    gestão e políticas de pessoal no setor público.
+    Os concursos públicos fazem parte da minha trajetória, tanto como candidato quanto como servidor.
+    Fui aprovado em oito seleções para os cargos de economista, professor, analista judiciário e
+    procurador municipal, três delas em primeiro lugar, além de ter sido habilitado no Exame Nacional
+    da Magistratura (ENAM). Ainda participo de concursos públicos e acompanho editais, bancas
+    examinadoras e a estruturação das carreiras, mantendo vivo meu interesse por avaliação, gestão e
+    políticas de pessoal no setor público.
   en: >-
-    Public service examinations (concursos públicos) are part of my trajectory — as a candidate
-    and, today, as a civil servant. I passed eight competitive selections for economist, professor,
-    judicial analyst and municipal attorney positions, three of them in first place. I keep a foot
-    in that world: I follow calls, examination boards and the design of public careers, which feeds
-    my interest in evaluation, management and personnel policy in the public sector.
+    Public service examinations (concursos públicos) are part of my trajectory, both as a candidate
+    and as a civil servant. I passed eight competitive selections for economist, professor, judicial
+    analyst and municipal attorney positions, three of them in first place, and I was also certified
+    in the National Judiciary Examination (ENAM). I still sit public examinations and follow calls,
+    examination boards and the structuring of public careers, which keeps alive my interest in
+    evaluation, management and personnel policy in the public sector.
 publicExams:
   - place: 1
     role:

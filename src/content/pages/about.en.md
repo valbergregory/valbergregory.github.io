@@ -17,7 +17,7 @@ In parallel, I completed a PhD in Economics at UFPB, with a thesis on informatio
 
 ## A foot in the world of public service examinations
 
-Both of my current positions came through competitive public examinations (concursos), and they are a permanent part of my trajectory: I passed eight selections for economist, professor, judicial analyst and municipal attorney positions — three of them in first place, including the tenured professorship at UFAL and the economist post at CBTU. I still follow calls, examination boards and the design of public careers, and that experience, as a candidate and as a civil servant, feeds my interest in evaluation, management and personnel policy in the public sector. The full list is in the [CV](/en/cv/#exams-title).
+Both of my current positions came through competitive public examinations (concursos), which are part of my trajectory both as a candidate and as a civil servant. I passed eight selections for economist, professor, judicial analyst and municipal attorney positions — three of them in first place, including the tenured professorship at UFAL and the economist post at CBTU — and I was certified in the National Judiciary Examination (ENAM). I still sit public examinations and follow calls, examination boards and the structuring of public careers, which keeps alive my interest in evaluation, management and personnel policy in the public sector. The full list is in the [CV](/en/cv/#exams-title).
 
 ## The turn towards Information Systems
 
