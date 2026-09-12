@@ -666,17 +666,15 @@
       - Destination planning and Embratur policies.
   extensionProducts:
     pt:
-      - Observatório de turismo
-      - Painéis de fluxo, mapas e boletins
+      - Painéis de fluxo, mapas e boletins sobre a demanda turística
       - Aplicações para Penedo, Baixo São Francisco e Alagoas
     en:
-      - Tourism observatory
-      - Flow dashboards, maps and bulletins
+      - Flow dashboards, maps and bulletins on tourism demand
       - Applications for Penedo, the Lower São Francisco and Alagoas
   repository: null
   repositoryVisibility: none
   languages: [R]
-  outputTypes: [artigo, observatorio]
+  outputTypes: [artigo, painel-publico]
   codeAvailable: false
   dataAvailable: false
   featured: true
@@ -764,8 +762,8 @@
   track: economia-maritima-portos
   status: redacao
   summary:
-    pt: O Porto Sem Papel reduziu tempos portuários e custos de comércio? Que transformação informacional foi produzida pela digitalização? Avaliação causal com dados da ANTAQ de 2010 a 2026 e um observatório reproduzível.
-    en: Did the Porto Sem Papel (paperless port) programme reduce port times and trade costs? What informational transformation did digitalisation produce? Causal evaluation with ANTAQ data from 2010 to 2026 and a reproducible observatory.
+    pt: O Porto Sem Papel reduziu tempos portuários e custos de comércio? Que transformação informacional foi produzida pela digitalização? Avaliação causal com dados da ANTAQ de 2010 a 2026 e um pipeline reproduzível de dados portuários.
+    en: Did the Porto Sem Papel (paperless port) programme reduce port times and trade costs? What informational transformation did digitalisation produce? Causal evaluation with ANTAQ data from 2010 to 2026 and a reproducible port-data pipeline.
   researchQuestion:
     pt: O Porto Sem Papel reduziu tempos portuários e custos de comércio? Que transformação informacional foi produzida pela digitalização?
     en: Did the Porto Sem Papel programme reduce port times and trade costs? What informational transformation did digitalisation produce?
@@ -811,17 +809,15 @@
       - Digital-government evaluation instruments based on administrative data.
   extensionProducts:
     pt:
-      - Observatório da Digitalização Portuária
-      - Painéis, séries históricas e mapas
+      - Painéis, séries históricas e mapas sobre a digitalização portuária
       - Documentação de políticas e instrumentos de avaliação de governo digital
     en:
-      - Port Digitalisation Observatory
-      - Dashboards, historical series and maps
+      - Dashboards, historical series and maps on port digitalisation
       - Policy documentation and digital-government evaluation instruments
   repository: https://github.com/valbergregory/Port-Digitalization-Observatory
   repositoryVisibility: public
   languages: [R, SQL]
-  outputTypes: [artigo, observatorio, painel-publico]
+  outputTypes: [artigo, painel-publico]
   codeAvailable: true
   dataAvailable: true
   featured: true

@@ -31,5 +31,5 @@ export default defineConfig({
   image: {
     responsiveStyles: true,
   },
-  compressHTML: true,
+  compressHTML: 'jsx',
 });

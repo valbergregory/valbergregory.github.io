@@ -133,9 +133,6 @@ outputs:
   dados-abertos:
     pt: Dados abertos
     en: Open data
-  observatorio:
-    pt: Observatório
-    en: Observatory
   painel-publico:
     pt: Painel público
     en: Public dashboard

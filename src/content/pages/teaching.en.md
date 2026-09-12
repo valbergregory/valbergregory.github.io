@@ -21,6 +21,6 @@ Some of these questions became permanent research fronts:
 
 ## The way back
 
-Research and outreach return to the classroom as real data, case studies and tools. The datasets built for the papers — milk prices, port calls, fishing effort, court decisions — become exercises and course projects; the R and Python pipelines become material for outreach courses on data analysis; and the dashboards produced by the observatories are designed so that students take part in building and maintaining them.
+Research and outreach return to the classroom as real data, case studies and tools. The datasets built for the papers — milk prices, port calls, fishing effort, court decisions — become exercises and course projects; the R and Python pipelines become material for outreach courses on data analysis; and the dashboards planned as research outputs are designed so that students take part in building and maintaining them.
 
 I supervise final-year projects on topics such as business intelligence, IT governance, information systems for the public sector and the monitoring of photovoltaic systems, and I serve on examination boards in the Information Systems and Economics programmes.
