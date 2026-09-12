@@ -18,6 +18,7 @@ export const TRACKS = [
   'economia-turismo',
   'economia-maritima-portos',
   'economia-pesqueira',
+  'economia-digital-direito-digital',
 ] as const;
 
 export const STATUSES = [

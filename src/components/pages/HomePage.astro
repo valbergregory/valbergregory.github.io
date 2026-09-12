@@ -60,8 +60,8 @@ const roles = [
       ? 'Economics, Law and Information Systems'
       : 'Economia, Direito e Sistemas de Informação',
     text: en
-      ? 'Degrees in Law and Economics, MSc in Applied Economics and PhD in Economics; registered economist.'
-      : 'Formação em Direito e Economia, mestrado em Economia Aplicada e doutorado em Economia; economista registrado no CORECON/AL.',
+      ? 'Degrees in Law and Economics, MSc in Applied Economics and PhD in Economics; practised law from 2010 to 2014; registered economist.'
+      : 'Formação em Direito e Economia, mestrado em Economia Aplicada e doutorado em Economia; advogado entre 2010 e 2014; economista registrado no CORECON/AL.',
   },
   {
     title: en
@@ -408,10 +408,15 @@ const roles = [
     gap: var(--space-4) var(--space-6);
   }
   .line {
-    flex: 1 1 18rem;
-    max-width: calc((100% - 2 * var(--space-6)) / 3);
+    flex: 1 1 16rem;
+    max-width: calc((100% - 3 * var(--space-6)) / 4);
     border-top: 2px solid var(--teal);
     padding-top: var(--space-3);
+  }
+  @media (max-width: 72rem) {
+    .line {
+      max-width: calc((100% - var(--space-6)) / 2);
+    }
   }
   @media (max-width: 56rem) {
     .line {

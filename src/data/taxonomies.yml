@@ -3,14 +3,17 @@
 
 tracks:
   economia-politicas-publicas:
-    pt: Economia e políticas públicas
-    en: Economics and public policy
+    pt: Desenvolvimento Regional e Políticas Públicas
+    en: Regional Development and Public Policy
   economia-direito-jurimetria:
-    pt: Economia do Direito e Jurimetria
-    en: Law and Economics and Jurimetrics
+    pt: Análise Econômica do Direito e Jurimetria
+    en: Economic Analysis of Law and Jurimetrics
   ia-governo-digital-seguranca:
-    pt: IA, governo digital e segurança
-    en: AI, digital government and security
+    pt: Inteligência Artificial, governo digital e decisão jurídica
+    en: Artificial Intelligence, digital government and legal decision-making
+  economia-digital-direito-digital:
+    pt: Economia Digital e Direito Digital
+    en: Digital Economy and Digital Law
   economia-turismo:
     pt: Economia do Turismo
     en: Tourism Economics
