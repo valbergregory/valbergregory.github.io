@@ -4,3 +4,4 @@
 *.ico binary
 *.pdf binary
 *.woff2 binary
+scripts/*.ps1 text eol=crlf

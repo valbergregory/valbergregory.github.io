@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   Grava o secret PORTFOLIO_SYNC_TOKEN em todos os repositórios rastreados pela
   página pessoal, usando o GitHub CLI (gh) já autenticado.
