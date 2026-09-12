@@ -27,8 +27,6 @@ Em termos econômicos, o versionamento constitui uma forma de discriminação de
 
 Em certas situações, a versão mais barata resulta da limitação deliberada de um produto tecnicamente mais completo. A literatura denomina esse fenômeno de “bens danificados”, pois a empresa pode incorrer em custo para restringir funcionalidades que já existem. A estratégia protege o preço da versão superior, mas exige atenção a cláusulas de licença, limites de uso e deveres de informação ao consumidor.
 
-## Conclusão
-
 O versionamento transforma diferenças entre usuários em uma estrutura de ofertas. Quando as versões são claras, proporcionais e transparentes, a estratégia amplia o acesso e melhora a adequação do produto. Em contrapartida, quando as limitações são artificiais ou pouco compreensíveis, pode gerar frustração e questionamentos jurídicos.
 
 ## Para aprofundar

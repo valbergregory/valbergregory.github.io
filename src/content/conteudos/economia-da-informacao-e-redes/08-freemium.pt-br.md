@@ -27,8 +27,6 @@ O preço zero produz um efeito de atração que costuma ser maior do que a simpl
 
 A sustentabilidade depende da taxa de conversão, do custo da base gratuita e da diferença de utilidade entre os planos. Como apenas uma parcela dos usuários costuma contratar a versão paga, limites excessivamente generosos podem elevar custos sem produzir receita, enquanto restrições severas impedem que o usuário reconheça o valor do produto. O desenho do plano gratuito, portanto, precisa permitir uso real e, ao mesmo tempo, oferecer razões legítimas para a migração.
 
-## Conclusão
-
 O freemium funciona quando a gratuidade amplia o mercado sem comprometer a capacidade de financiar o serviço. O equilíbrio depende de custos controlados, comunicação transparente e uma progressão de valor que respeite o usuário em vez de transformar limitações artificiais em pressão para contratar.
 
 ## Para aprofundar

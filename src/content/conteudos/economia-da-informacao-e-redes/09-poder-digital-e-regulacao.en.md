@@ -32,8 +32,6 @@ The European Union has structured specific responses through the Digital Markets
 
 Reports produced in the United Kingdom, the European Union and the United States in 2019 converge on problems examined in this series, among them network effects, data that work as an entry barrier and switching costs that reduce user mobility. These factors help explain why traditional competition instruments may need adjustment in the face of the speed and structure of digital markets.
 
-## Conclusion
-
 Regulating digital markets requires preserving the benefits of innovation without ignoring the conditions that allow power to concentrate. The goal should be to ensure effective competition, users' rights and a real possibility of choice, with measures proportionate to the risks and characteristics of each market.
 
 ## Further reading

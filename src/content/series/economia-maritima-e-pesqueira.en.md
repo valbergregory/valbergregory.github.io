@@ -41,6 +41,4 @@ My interest in these subjects took shape during the first semester of 2026, when
 
 From that experience I gradually began to develop research, teaching materials, scientific articles and outreach proposals related to maritime and fisheries economics. The publications are in dialogue with ongoing studies on marine heatwaves and fishing effort, the effects of closed seasons and marine protected areas, and the performance of Brazilian ports. As they are completed, course materials and outreach products aimed at the fishing communities of Alagoas and the lower São Francisco will also be added to the site.
 
-## Conclusion
-
 The series starts from the conviction that sea-related development depends on the articulation between scientific knowledge, economic efficiency, environmental protection and community participation. Studying these relationships is indispensable for turning maritime and fisheries potential into lasting income, food security and territorial development.

@@ -31,8 +31,6 @@ A União Europeia estruturou respostas específicas por meio do Regulamento dos 
 
 Relatórios produzidos no Reino Unido, na União Europeia e nos Estados Unidos em 2019 convergem em torno de problemas examinados nesta série, entre eles os efeitos de rede, os dados que funcionam como barreira à entrada e os custos de troca que reduzem a mobilidade dos usuários. Esses fatores ajudam a explicar por que instrumentos tradicionais de defesa da concorrência podem precisar de adaptações diante da velocidade e da estrutura dos mercados digitais.
 
-## Conclusão
-
 Regular mercados digitais exige preservar os benefícios da inovação sem ignorar as condições que permitem a concentração de poder. O objetivo deve ser assegurar concorrência efetiva, direitos dos usuários e possibilidade real de escolha, com medidas proporcionais aos riscos e às características de cada mercado.
 
 ## Para aprofundar

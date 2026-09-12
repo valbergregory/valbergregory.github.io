@@ -31,8 +31,6 @@ Moral hazard appears after the contract, when one party can change its behaviour
 
 Signalling and screening are responses to information asymmetries. Degrees, certifications, warranties, ratings and track records provide signals about characteristics that cannot be directly observed. Information systems expand this capacity by organising records, easing verification and producing indicators. The same technology, however, can concentrate data in a few hands and widen informational inequality, especially when automated criteria are not transparent.
 
-## Conclusion
-
 Information has economic value because it changes choices and outcomes. Well-designed systems can therefore reduce uncertainty and improve decisions, provided that the expansion of informational capacity comes with transparency, data protection and criteria of use compatible with the rights of those involved.
 
 ## Further reading

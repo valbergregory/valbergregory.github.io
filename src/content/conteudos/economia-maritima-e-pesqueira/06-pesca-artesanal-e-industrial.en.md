@@ -31,8 +31,6 @@ The General Fisheries Registry (RGP) works as a requirement for access to polici
 
 Small-scale fishing accounts for a large share of landings in Brazil's Northeast and sustains many jobs, but it remains less covered by statistics. This gap makes it hard to estimate income, productivity and territorial dependence. Applying a single rule to agents with different scales, costs and technologies can distribute both the benefits and the burdens of regulation unevenly.
 
-## Conclusion
-
 Fisheries policy has to recognise the differences between small-scale and industrial fishing. Regulation will therefore be more effective when it combines common environmental criteria with instruments proportionate to the productive scale, economic capacity and social importance of each segment.
 
 ## Further reading

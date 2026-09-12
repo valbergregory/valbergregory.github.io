@@ -31,8 +31,6 @@ O porto não produz desenvolvimento regional de forma automática, haja vista qu
 
 A digitalização também influencia o desempenho. Janelas únicas, comunidades portuárias digitais e integração de bases de dados reduzem retrabalho, tempos de liberação e custos de transação. Ao mesmo tempo, o planejamento precisa considerar poluição, congestionamento, pressão imobiliária e conflitos pelo uso do território, pois essas externalidades recaem sobre cidades e comunidades próximas.
 
-## Conclusão
-
 Portos contribuem para o desenvolvimento quando eficiência operacional, conectividade terrestre, integração produtiva e gestão das externalidades avançam em conjunto. Avaliar essas dimensões evita confundir volume movimentado com benefício efetivamente incorporado pelo território.
 
 ## Para aprofundar

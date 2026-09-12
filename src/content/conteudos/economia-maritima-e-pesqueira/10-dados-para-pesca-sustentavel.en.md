@@ -32,8 +32,6 @@ Signals from AIS and VMS systems make it possible to reconstruct part of the fis
 
 The main blind spot remains small-scale fishing. Many small boats have no tracking, and landing statistics are discontinuous. Local monitoring programmes and apps built together with communities can narrow this gap, provided that fishers' data are protected, that the purposes of use are clear and that the information produced returns as benefits to the participants themselves.
 
-## Conclusion
-
 Technology alone does not ensure sustainable fishing. Data need to be reliable, integrated and turned into legitimate decisions through governance, data protection and fishers' participation. Only that combination allows information to become conservation, income and the capacity to adapt.
 
 ## Further reading

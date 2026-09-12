@@ -31,8 +31,6 @@ The concept gained international prominence after the Rio+20 Conference and was 
 
 Marine protected areas, closed seasons and spatial planning are examples of such instruments. Their effectiveness depends on data, enforcement and the participation of those who live from the sea. Without monitoring of results and social legitimacy, formally adequate measures can displace problems or impose disproportionate costs on certain groups.
 
-## Conclusion
-
 The blue economy treats sustainability as a condition for the continuity of sea-related income and work. Consistent policies therefore have to protect the ecological base, distribute costs and benefits fairly and assess whether the instruments adopted produce the expected results.
 
 ## Further reading

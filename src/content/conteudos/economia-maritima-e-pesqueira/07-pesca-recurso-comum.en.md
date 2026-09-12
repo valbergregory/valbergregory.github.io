@@ -31,8 +31,6 @@ Hardin popularised this problem as the "tragedy of the commons", but later liter
 
 In fisheries, closed seasons, quotas, licences, protected areas, enforcement, monitoring and co-management seek to align effort with the renewal capacity of stocks. In Brazil, the closed season (defeso) combines a temporary ban on catching certain species with income protection for eligible small-scale fishers. Assessing its effects on stocks and income remains a relevant empirical question.
 
-## Conclusion
-
 Sustainable fishing depends on institutions that turn the interdependence between users into legitimate and verifiable rules. The challenge is not only to limit catches, but to build a governance that preserves stocks and distributes the costs of conservation fairly.
 
 ## Further reading

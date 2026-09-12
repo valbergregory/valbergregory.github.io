@@ -28,8 +28,6 @@ Para profissionais de Sistemas de Informação, essa discussão possui consequê
 
 Ao longo desta série, examinarei como as assimetrias informacionais mudam decisões, por que bens digitais se comportam de maneira diferente dos bens físicos e como os efeitos de rede ajudam plataformas a alcançar massa crítica. Também discutirei mercados multilaterais, estratégias de versionamento, bundling e freemium, além dos problemas de concentração, poder digital e regulação.
 
-## Conclusão
-
 A Economia da Informação oferece instrumentos para compreender como dados, conhecimento e redes criam valor e reorganizam relações econômicas. Essa abordagem permite analisar sistemas digitais de forma mais completa, considerando simultaneamente sua estrutura tecnológica, seus incentivos e seus efeitos sobre a sociedade.
 
 ## Para aprofundar

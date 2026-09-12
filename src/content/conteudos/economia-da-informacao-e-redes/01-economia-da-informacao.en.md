@@ -29,8 +29,6 @@ For information systems professionals, this discussion has practical consequence
 
 Over the course of this series I will examine how information asymmetries change decisions, why digital goods behave differently from physical goods and how network effects help platforms reach critical mass. I will also discuss multi-sided markets, versioning, bundling and freemium strategies, and the problems of concentration, digital power and regulation.
 
-## Conclusion
-
 Information economics offers instruments for understanding how data, knowledge and networks create value and reorganise economic relationships. This approach makes it possible to analyse digital systems more completely, considering at once their technological structure, their incentives and their effects on society.
 
 ## Further reading

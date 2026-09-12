@@ -39,6 +39,4 @@ Os temas também admitem investigação empírica. A teoria dos grafos e a anál
 
 ![Painel "Modelos em economia digital": precificação dinâmica (ajuste de preços em tempo real conforme oferta, demanda e algoritmos); previsão de demanda com séries temporais (ARIMA, LSTM) para gestão de recursos e infraestrutura; e valoração de dados e impacto com análise econométrica (diferenças em diferenças, regressão descontínua e data valuation) para medir eficiência e adoção tecnológica.](./modelos-economia-digital.webp)
 
-## Conclusão
-
 Compreender a economia da informação e das redes permite avaliar produtos digitais como sistemas de incentivos, e não apenas como conjuntos de funcionalidades. Essa perspectiva ajuda profissionais e estudantes a formular decisões tecnicamente consistentes, economicamente sustentáveis e juridicamente responsáveis.

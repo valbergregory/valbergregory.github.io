@@ -29,8 +29,6 @@ The model is especially attractive for information goods, since including one mo
 
 A firm with an established position can use the bundle as an entry barrier. A competitor offering only a spreadsheet, a communication service or another specific solution comes to compete with a set in which the equivalent product seems to have no separate price. For that reason, bundling and tying frequently appear in competition analyses.
 
-## Conclusion
-
 Bundling can reduce transaction costs and offer convenience, but it can also reinforce closed ecosystems and limit competition from specialised suppliers. Evaluating it therefore requires considering price, the possibility of choice, effective integration and effects on the entry of competitors.
 
 ## Further reading
