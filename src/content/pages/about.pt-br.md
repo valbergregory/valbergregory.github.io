@@ -17,7 +17,7 @@ Em paralelo, concluí o doutorado em Economia na UFPB, com uma tese sobre tecnol
 
 ## Um pé no mundo dos concursos públicos
 
-Os dois vínculos atuais vieram de concursos, e concursos são uma parte permanente da minha trajetória: fui aprovado em oito seleções para carreiras de economista, professor, analista judiciário e procurador municipal — três delas em primeiro lugar, entre elas a do cargo de professor efetivo da UFAL e a de economista da CBTU. Continuo acompanhando editais, bancas e o desenho das carreiras públicas, e essa experiência, como candidato e como servidor, alimenta o interesse por avaliação, gestão e políticas de pessoal no setor público. A lista completa está no [currículo](/curriculo/#exams-title).
+Os dois vínculos atuais vieram de concursos, e os concursos públicos fazem parte da minha trajetória, tanto como candidato quanto como servidor. Fui aprovado em oito seleções para os cargos de economista, professor, analista judiciário e procurador municipal — três delas em primeiro lugar, entre elas a de professor efetivo da UFAL e a de economista da CBTU — e fui habilitado no Exame Nacional da Magistratura (ENAM). Ainda participo de concursos e acompanho editais, bancas examinadoras e a estruturação das carreiras, o que mantém vivo o interesse por avaliação, gestão e políticas de pessoal no setor público. A lista completa está no [currículo](/curriculo/#exams-title).
 
 ## A aproximação com Sistemas de Informação
 
