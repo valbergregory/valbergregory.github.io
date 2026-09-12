@@ -35,6 +35,9 @@ valbergregory/Geography-of-Judicial-Delay
 valbergregory/binding-precedents-brazil
 valbergregory/abusive-litigation-jurimetrics
 valbergregory/aisecdev-tjs-2026
+valbergregory/tourism-gravity-brazil
+valbergregory/ia-produtividade-tjs-brasil
+valbergregory/pix-geography-brazil
 ```
 
 Para adicionar um repositório: inclua `owner/repo` no JSON e defina `allowAutomaticMetadata: true` no projeto correspondente em `research.yml`. Nunca liste todos os repositórios da conta.
@@ -54,7 +57,7 @@ Em cada execução: `npm ci` → sincronização (com `secrets.GITHUB_TOKEN`, au
 
 ## Disparo imediato
 
-**Estado em 12/09/2026: ATIVO.** O workflow `notify-portfolio.yml` está instalado nos 11 repositórios rastreados (commit direto na branch padrão de cada um, via API; os clones locais precisam de `git pull` para receber o arquivo) e o secret `PORTFOLIO_SYNC_TOKEN` foi gravado em todos. O fluxo foi verificado de ponta a ponta: uma execução do workflow em `aisecdev-tjs-2026` disparou o `repository_dispatch` e o site foi reconstruído e publicado. O token expira em **11/09/2027** — ao renovar, basta repetir os passos abaixo.
+**Estado em 12/09/2026: ATIVO.** O workflow `notify-portfolio.yml` está instalado nos 14 repositórios rastreados (commit direto na branch padrão de cada um, via API; os clones locais precisam de `git pull` para receber o arquivo) e o secret `PORTFOLIO_SYNC_TOKEN` foi gravado nos 11 originais; os três criados em 12/09 (turismo, IA/produtividade, Pix) recebem o secret ao rodar `scripts/set-portfolio-secret.ps1` novamente. O fluxo foi verificado de ponta a ponta: uma execução do workflow em `aisecdev-tjs-2026` disparou o `repository_dispatch` e o site foi reconstruído e publicado. O token expira em **11/09/2027** — ao renovar, basta repetir os passos abaixo.
 
 Passos para (re)configurar o token — só o proprietário pode fazê-los:
 

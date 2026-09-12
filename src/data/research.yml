@@ -195,19 +195,19 @@
       - Audited adoption timelines are a reusable public input for other studies.
   extensionProducts:
     pt:
-      - Cronologia pública de adoção de IA pelos Tribunais de Justiça
+      - Cronologia pública e auditada de adoção de IA pelos Tribunais de Justiça (dado aberto, CC BY 4.0, no repositório)
     en:
-      - Public timeline of AI adoption by the state courts
-  repository: null
-  repositoryVisibility: none
+      - Public, audited timeline of AI adoption by the state courts (open data, CC BY 4.0, in the repository)
+  repository: https://github.com/valbergregory/ia-produtividade-tjs-brasil
+  repositoryVisibility: public
   languages: [R, LaTeX]
   outputTypes: [artigo, dados-abertos]
-  codeAvailable: false
-  dataAvailable: false
+  codeAvailable: true
+  dataAvailable: true
   featured: true
   featuredOrder: 1
-  allowAutomaticMetadata: false
-  lastEditorialReview: '2026-09-11'
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-12'
 
 # ---------------------------------------------------------------------------
 # 6.2 Economia do Direito e Jurimetria
@@ -653,10 +653,10 @@
   limitations:
     pt:
       - Manuscrito em desenvolvimento; a redação dos resultados ainda não foi concluída.
-      - O código será publicado em repositório próprio quando o manuscrito estiver fechado.
+      - Os dados brutos não são redistribuídos; o pipeline os baixa das fontes oficiais.
     en:
       - Manuscript in development; the write-up of results is not complete.
-      - The code will be published in its own repository once the manuscript is complete.
+      - Raw data are not redistributed; the pipeline downloads them from the official sources.
   implications:
     pt:
       - Promoção internacional, malha aérea, conectividade e competitividade.
@@ -671,15 +671,15 @@
     en:
       - Flow dashboards, maps and bulletins on tourism demand
       - Applications for Penedo, the Lower São Francisco and Alagoas
-  repository: null
-  repositoryVisibility: none
+  repository: https://github.com/valbergregory/tourism-gravity-brazil
+  repositoryVisibility: public
   languages: [R]
   outputTypes: [artigo, painel-publico]
-  codeAvailable: false
+  codeAvailable: true
   dataAvailable: false
   featured: true
   featuredOrder: 8
-  allowAutomaticMetadata: false
+  allowAutomaticMetadata: true
   lastEditorialReview: '2026-09-12'
 
 # ---------------------------------------------------------------------------
@@ -961,3 +961,68 @@
   featuredOrder: 7
   allowAutomaticMetadata: true
   lastEditorialReview: '2026-09-11'
+
+# ---------------------------------------------------------------------------
+# 6.7 Economia Digital e Direito Digital
+# ---------------------------------------------------------------------------
+- slug: pix-geography-brazil
+  title: 'Forecasting Pix Across Brazil: Global Models and Coherent Geographic Reconciliation'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-digital-direito-digital
+  status: em-desenvolvimento
+  summary:
+    pt: É possível prever a difusão e o volume do Pix município a município, com modelos globais e reconciliação coerente entre município, estado, região e país — e onde a previsão é menos confiável? Painel municipal mensal construído a partir dos dados abertos do Banco Central.
+    en: Can the diffusion and volume of Pix be forecast municipality by municipality, with global models and coherent reconciliation across municipality, state, region and country — and where is the forecast least reliable? Monthly municipal panel built from the Central Bank's open data.
+  researchQuestion:
+    pt: Modelos globais de previsão, reconciliados de forma coerente na hierarquia município–UF–região–Brasil, preveem a geografia do Pix melhor do que modelos locais — e em quais territórios a previsão é menos confiável?
+    en: Do global forecasting models, coherently reconciled across the municipality–state–region–Brazil hierarchy, forecast the geography of Pix better than local models — and in which territories is the forecast least reliable?
+  motivation:
+    pt: O Pix mudou a economia dos pagamentos no Brasil em poucos anos, mas a adoção não foi uniforme no território. Prever seu volume por município importa para bancos, comércio e políticas de inclusão financeira, e a coerência entre níveis geográficos evita previsões locais que não somam ao total nacional.
+    en: Pix changed the economics of payments in Brazil within a few years, but adoption was not uniform across the territory. Forecasting its volume by municipality matters for banks, retailers and financial-inclusion policy, and coherence across geographic levels prevents local forecasts that do not add up to the national total.
+  dataSources:
+    pt:
+      - Estatísticas mensais do Pix por município (dados abertos do Banco Central do Brasil), nov/2020 em diante
+      - Malha municipal do IBGE e hierarquia município–UF–região–Brasil
+    en:
+      - Monthly Pix statistics by municipality (Banco Central do Brasil open data), from Nov 2020 onwards
+      - IBGE municipal mesh and the municipality–state–region–Brazil hierarchy
+  methods:
+    pt:
+      - Geografia temporalmente estável e painel município-mês com hashes e metadados do snapshot
+      - Modelos globais de previsão avaliados por origem móvel (rolling origin) contra baselines
+      - Reconciliação hierárquica coerente e métricas de erro escaladas (MASE/RMSSE)
+      - Testes de quebras estruturais e análise de heterogeneidade da confiabilidade preditiva
+    en:
+      - Temporally stable geography and municipality-month panel with snapshot hashes and metadata
+      - Global forecasting models evaluated by rolling origin against baselines
+      - Coherent hierarchical reconciliation and scaled error metrics (MASE/RMSSE)
+      - Structural-break tests and heterogeneity analysis of forecast reliability
+  methodTags: [series-temporais, painel, analise-espacial]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - Estágio inicial — extração, descritivas e quebras estruturais executadas; modelos globais ainda não estimados.
+      - A disponibilidade e o contrato da API do Banco Central são externos ao projeto; o snapshot usado no artigo será congelado com hash.
+    en:
+      - Early stage — extraction, descriptives and structural breaks run; global models not yet estimated.
+      - The availability and contract of the Central Bank API are external to the project; the snapshot used in the paper will be frozen with a hash.
+  implications:
+    pt:
+      - Previsões territorialmente coerentes para planejamento de serviços financeiros e políticas de inclusão.
+    en:
+      - Territorially coherent forecasts for financial-services planning and inclusion policy.
+  extensionProducts:
+    pt:
+      - Painel municipal de difusão do Pix e mapas de confiabilidade preditiva
+    en:
+      - Municipal Pix-diffusion dashboard and forecast-reliability maps
+  repository: https://github.com/valbergregory/pix-geography-brazil
+  repositoryVisibility: public
+  languages: [R, SQL]
+  outputTypes: [artigo, painel-publico]
+  codeAvailable: true
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: true
+  lastEditorialReview: '2026-09-12'
