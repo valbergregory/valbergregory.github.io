@@ -37,8 +37,9 @@ src/
     pages/           "páginas-modelo" que recebem `lang` e são usadas pelas rotas pt-BR e EN
   content/
     pages/           textos longos em Markdown (Sobre, Ensino), um arquivo por idioma
-    updates/         textos semanais (seção "Textos") em Markdown, um arquivo por idioma
-  content.config.ts  esquemas Zod das coleções (research, publications, outreach, updates, pages)
+    series/          apresentação das séries temáticas (seção "Conteúdos"), um arquivo por idioma
+    conteudos/       publicações da seção "Conteúdos" (capas na mesma pasta), um arquivo por idioma
+  content.config.ts  esquemas Zod das coleções (research, publications, outreach, series, contents, pages)
   data/
     research.yml     cadastro editorial das pesquisas (fonte de verdade)
     publications.yml publicações verificadas
@@ -51,7 +52,7 @@ src/
     github-projects.json   metadados públicos gerados por scripts/sync-github.mjs
   i18n/              rotas traduzidas e strings de interface
   layouts/           BaseLayout (head, header, main, footer)
-  lib/               carregamento de dados, JSON-LD, formatação de datas, utilitários dos textos
+  lib/               carregamento de dados, JSON-LD, formatação de datas, utilitários dos conteúdos
   pages/             rotas pt-BR (raiz) e EN (/en/)
   styles/            tokens (cores, tipografia) e estilos globais
 public/              arquivos estáticos (favicon, OG, robots, manifest); o currículo PDF é gerado no build
@@ -68,7 +69,7 @@ docs/                documentação e QA
 - `hreflang` e `x-default` são emitidos em `Seo.astro`; o seletor de idioma aponta para a página equivalente.
 - Títulos originais dos artigos são preservados nos dois idiomas; traduções são apoio.
 - A bio em francês, alemão e italiano fica guardada em `profile.yml`, com a seção da página Sobre desligada por enquanto (`SHOW_MULTILINGUAL_BIO`).
-- Os textos da seção "Textos" existem por idioma; quando há a versão nos dois idiomas com o mesmo slug, as páginas se apontam mutuamente (`hreflang`).
+- As publicações da seção "Conteúdos" existem por idioma (slugs traduzidos no frontmatter); a versão pt-BR e a EN se ligam pela mesma série e ordem — ou pelo nome do arquivo, nos conteúdos avulsos — e apontam uma para a outra (`hreflang`).
 
 ## Conteúdo editorial × metadados automáticos
 

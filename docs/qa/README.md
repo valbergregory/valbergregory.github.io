@@ -56,3 +56,10 @@ As capturas completas (60 PNGs) ficam em `docs/qa/shots/`, ignoradas pelo Git.
 - Busca (Pagefind): índice com 63 páginas em 2 idiomas; consulta "defeso" retorna 7 resultados com trechos destacados.
 - Filtro por categoria dos textos (`?categoria=publicacao`): 1 de 5 visível; redirecionamento `/atualizacoes/` → `/textos/` funcionando.
 - Currículo em PDF gerado no build (6 páginas, pt e en), sem telefone.
+
+## Rodada de 12/09/2026 (seção Conteúdos e Séries Temáticas)
+
+- Páginas `/conteudos/`, `/conteudos/<série>/`, `/conteudos/<série>/<slug>/`, `/en/content/…` e `/` em 1366 px e 375 px (Chromium/Playwright): axe 0 violações (WCAG 2.2 AA + best-practice), sem overflow horizontal (corrigido o formulário de filtros no celular), sem erros de console.
+- Filtros (série, tema, área, tipo) com estado na query string; botões de compartilhamento (LinkedIn, Facebook, WhatsApp, X, copiar link, compartilhamento nativo); imagens sociais 1200 × 630 geradas a partir das capas.
+- Links externos das referências verificados com `node scripts/check-links.mjs --external` (337 URLs); corrigidos os que estavam errados; `www.oecd.org` e `www.marinha.mil.br` entram na lista de hosts que bloqueiam robôs (aviso, não erro).
+- Redirecionamentos `/textos/`, `/textos/<slug>/`, `/en/writing/`, `/atualizacoes/` → seção Conteúdos.

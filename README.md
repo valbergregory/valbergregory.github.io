@@ -39,7 +39,7 @@ Leia `docs/CONTENT_GUIDE.md`. Em resumo:
 - extensão e projetos → `src/data/outreach.yml`
 - perfil, vínculos, formação e bio (pt, en, fr, de, it) → `src/data/profile.yml`
 - textos das páginas Sobre e Ensino → `src/content/pages/`
-- textos semanais (opinião, eventos, notas de pesquisa) → `src/content/updates/` (página "Textos", RSS)
+- séries temáticas e publicações (notas, opiniões, leituras…) → `src/content/series/` e `src/content/conteudos/` (página "Conteúdos", RSS)
 - itens pendentes de confirmação (não publicados) → `src/data/review-needed.yml`
 
 ## Automações

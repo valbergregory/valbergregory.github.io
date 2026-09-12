@@ -1,0 +1,346 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Icon from '@/components/Icon.astro';
+import SeriesCard from '@/components/SeriesCard.astro';
+import ContentCard from '@/components/ContentCard.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations, type UiKey } from '@/i18n/ui';
+import { getProfile, getTaxonomies } from '@/lib/data';
+import { breadcrumbJsonLd, SITE } from '@/lib/jsonld';
+import { getContents, getSeries, type Series } from '@/lib/contents';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const profile = getProfile();
+const tax = getTaxonomies();
+
+const series = await getSeries(lang);
+const contents = await getContents(lang);
+const bySeries = new Map<string, Series>(series.map((s) => [s.data.series, s]));
+const countOf = (s: Series) => contents.filter((c) => c.data.series === s.data.series).length;
+
+const typesUsed = tax.contentTypes.filter((k) => contents.some((c) => c.data.type === k));
+const areasUsed = tax.contentAreas.filter((k) =>
+  contents.some((c) => (c.data.areas as string[]).includes(k)),
+);
+const tagsUsed = Array.from(new Set(contents.flatMap((c) => c.data.tags))).sort((a, b) =>
+  a.localeCompare(b, en ? 'en' : 'pt-BR'),
+);
+
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('contents.title') },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={t('contents.title')}
+  description={t('contents.lead')}
+  current="contents"
+  alternates={alternates('contents')}
+  jsonLd={[
+    {
+      '@type': 'CollectionPage',
+      name: `${profile.shortName} — ${t('contents.title')}`,
+      url: `${SITE}${route('contents', lang)}`,
+      inLanguage: en ? 'en' : 'pt-BR',
+      author: { '@id': `${SITE}/#person` },
+      hasPart: series.map((s) => ({
+        '@type': 'CreativeWorkSeries',
+        name: s.data.title,
+        url: `${SITE}${route('contentsSeries', lang, s.data.slug)}`,
+      })),
+    },
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('contents.title'), path: route('contents', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('contents.title')} lead={t('contents.call')} {crumbs}>
+    <p class="intro">{t('contents.lead')}</p>
+    <p class="rss">
+      <a href="/rss.xml">
+        <Icon name="rss" size={16} /> {t('contents.rss')}
+      </a>
+      <span class="muted">·</span>
+      <a href={profile.links.linkedin} rel="me noopener" target="_blank">
+        <Icon name="linkedin" size={16} /> LinkedIn{' '}
+        <span class="visually-hidden">{t('a11y.newTab')}</span>
+      </a>
+    </p>
+  </PageHeader>
+
+  <section class="section" aria-labelledby="series-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="series-title">{t('contents.series')}</h2>
+      </div>
+      <div class="grid grid-2">
+        {series.map((s, i) => (
+          <SeriesCard series={s} {lang} count={countOf(s)} eager={i === 0} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section all" aria-labelledby="all-title">
+    <div class="container contents-layout">
+      <form class="filters" data-filters aria-labelledby="all-title">
+        <h2 id="all-title" class="filters-title">
+          {t('contents.filters')}
+        </h2>
+
+        <div class="filter-group">
+          <label for="f-series">{t('contents.filter.series')}</label>
+          <select id="f-series" name="serie" data-filter="series">
+            <option value="">{t('contents.filter.all')}</option>
+            {series.map((s) => (
+              <option value={s.data.series}>{s.data.title}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="f-tag">{t('contents.filter.tag')}</label>
+          <select id="f-tag" name="tema" data-filter="tags">
+            <option value="">{t('contents.filter.all')}</option>
+            {tagsUsed.map((tag) => (
+              <option value={tag.toLowerCase()}>{tag}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="f-area">{t('contents.filter.area')}</label>
+          <select id="f-area" name="area" data-filter="areas">
+            <option value="">{t('contents.filter.all')}</option>
+            {areasUsed.map((k) => (
+              <option value={k}>{t(`area.${k}` as UiKey)}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="f-type">{t('contents.filter.type')}</label>
+          <select id="f-type" name="tipo" data-filter="type">
+            <option value="">{t('contents.filter.all')}</option>
+            {typesUsed.map((k) => (
+              <option value={k}>{t(`contentType.${k}` as UiKey)}</option>
+            ))}
+          </select>
+        </div>
+
+        <button type="reset" class="button subtle" data-clear>
+          {t('contents.filter.clear')}
+        </button>
+        <p class="filter-count" role="status" aria-live="polite">
+          <span data-count-number>{contents.length}</span>{' '}
+          <span data-count-label data-one={t('contents.count.one')} data-many={t('contents.count')}>
+            {t('contents.count')}
+          </span>
+        </p>
+      </form>
+
+      <div class="results">
+        <h2 class="visually-hidden">{t('contents.all')}</h2>
+        {contents.length === 0 ? (
+          <p class="muted">{t('contents.none')}</p>
+        ) : (
+          <div class="results-list" data-results>
+            {contents.map((c, i) => (
+              <ContentCard
+                content={c}
+                {lang}
+                series={c.data.series ? bySeries.get(c.data.series) : undefined}
+                showSeries
+                compact
+                index={i + 3}
+              />
+            ))}
+          </div>
+        )}
+        <p class="empty" data-empty hidden>
+          {t('contents.empty')}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro {
+    max-width: var(--measure);
+    margin: var(--space-3) 0 0;
+    color: var(--text-muted);
+  }
+  .rss {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    flex-wrap: wrap;
+    margin: var(--space-4) 0 0;
+  }
+  .rss a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    min-height: 2.25rem;
+  }
+  .section.all {
+    padding-top: 0;
+  }
+  .contents-layout {
+    display: grid;
+    grid-template-columns: 17rem minmax(0, 1fr);
+    gap: var(--space-7);
+    align-items: start;
+  }
+  .filters {
+    position: sticky;
+    top: var(--space-5);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .filters-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0;
+  }
+  .filter-group label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .filter-group select {
+    font: inherit;
+    font-size: var(--text-sm);
+    min-height: 2.75rem;
+    padding: 0 var(--space-3);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text);
+    width: 100%;
+    max-width: 100%;
+  }
+  .filter-count {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+  .results-list {
+    display: grid;
+    gap: var(--space-4);
+  }
+  .empty {
+    padding: var(--space-6);
+    text-align: center;
+    color: var(--text-muted);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+  }
+  @media (max-width: 56rem) {
+    .contents-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-5);
+    }
+    .filters {
+      position: static;
+    }
+  }
+</style>
+
+<script>
+  // Filtros progressivos (sem JavaScript, todas as publicações aparecem).
+  // O estado vai para a query string (?serie=…&tema=…), o que permite links diretos.
+  const form = document.querySelector<HTMLFormElement>('[data-filters]');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-results] > article'));
+  const empty = document.querySelector<HTMLElement>('[data-empty]');
+  const countNumber = document.querySelector<HTMLElement>('[data-count-number]');
+  const countLabel = document.querySelector<HTMLElement>('[data-count-label]');
+
+  type Filter = { key: string; value: string };
+
+  function readFilters(): Filter[] {
+    if (!form) return [];
+    const filters: Filter[] = [];
+    form.querySelectorAll<HTMLSelectElement>('[data-filter]').forEach((el) => {
+      if (el.value) filters.push({ key: el.dataset.filter!, value: el.value });
+    });
+    return filters;
+  }
+
+  function matches(card: HTMLElement, f: Filter): boolean {
+    const raw = card.getAttribute(`data-${f.key}`) ?? '';
+    if (f.key === 'tags') return raw.split('|').includes(f.value);
+    if (f.key === 'areas') return raw.split(/\s+/).includes(f.value);
+    return raw === f.value;
+  }
+
+  function apply() {
+    const filters = readFilters();
+    let shown = 0;
+    for (const card of cards) {
+      const ok = filters.every((f) => matches(card, f));
+      card.hidden = !ok;
+      if (ok) shown += 1;
+    }
+    if (empty) empty.hidden = shown > 0;
+    if (countNumber) countNumber.textContent = String(shown);
+    if (countLabel) {
+      countLabel.textContent = shown === 1 ? countLabel.dataset.one! : countLabel.dataset.many!;
+    }
+    syncUrl();
+  }
+
+  function syncUrl() {
+    if (!form) return;
+    const params = new URLSearchParams();
+    new FormData(form).forEach((v, k) => {
+      if (typeof v === 'string' && v) params.set(k, v);
+    });
+    const qs = params.toString();
+    history.replaceState(null, '', `${location.pathname}${qs ? `?${qs}` : ''}`);
+  }
+
+  function restoreFromUrl() {
+    if (!form) return;
+    new URLSearchParams(location.search).forEach((value, key) => {
+      const el = form.elements.namedItem(key);
+      if (el instanceof HTMLSelectElement) el.value = value;
+    });
+  }
+
+  if (form) {
+    restoreFromUrl();
+    apply();
+    form.addEventListener('change', apply);
+    form.addEventListener('reset', () => setTimeout(apply, 0));
+    form.addEventListener('submit', (e) => e.preventDefault());
+  }
+</script>

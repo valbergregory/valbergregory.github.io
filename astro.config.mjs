@@ -8,10 +8,17 @@ export default defineConfig({
   base: '/',
   output: 'static',
   trailingSlash: 'always',
-  // URLs antigas da seção "Atualizações" (renomeada para "Textos" em 12/09/2026).
+  // URLs antigas das seções "Atualizações" e "Textos", substituídas por "Conteúdos" (12/09/2026).
   redirects: {
-    '/atualizacoes/': '/textos/',
-    '/en/updates/': '/en/writing/',
+    '/atualizacoes/': '/conteudos/',
+    '/en/updates/': '/en/content/',
+    '/textos/': '/conteudos/',
+    '/en/writing/': '/en/content/',
+    '/textos/site-reformulado/': '/conteudos/',
+    '/textos/compendios-publicos/': '/conteudos/',
+    '/textos/dados-replicacao-aisecdev/': '/conteudos/',
+    '/textos/artigo-extensao-em-debate/': '/conteudos/',
+    '/textos/tres-repositorios/': '/conteudos/',
   },
   build: {
     format: 'directory',

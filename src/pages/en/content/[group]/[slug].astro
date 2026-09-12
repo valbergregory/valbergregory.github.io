@@ -1,0 +1,21 @@
+---
+import ContentPost from '@/components/pages/ContentPost.astro';
+import { contentSlug, getContents, getSeries, TYPE_SLUGS } from '@/lib/contents';
+
+export async function getStaticPaths() {
+  const lang = 'en';
+  const series = await getSeries(lang);
+  const contents = await getContents(lang);
+  return contents.map((content) => {
+    const s = content.data.series
+      ? series.find((x) => x.data.series === content.data.series)
+      : undefined;
+    const group = s?.data.slug ?? TYPE_SLUGS[content.data.type][lang];
+    return { params: { group, slug: contentSlug(content) }, props: { content } };
+  });
+}
+
+const { content } = Astro.props;
+---
+
+<ContentPost lang="en" {content} />

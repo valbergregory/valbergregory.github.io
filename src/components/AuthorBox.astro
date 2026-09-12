@@ -1,0 +1,104 @@
+---
+/** Assinatura do autor nas publicações da seção Conteúdos. */
+import { Image } from 'astro:assets';
+import portrait from '@/assets/valber-portrait.jpg';
+import Icon from './Icon.astro';
+import { route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getProfile, pick } from '@/lib/data';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const profile = getProfile();
+---
+
+<aside class="author" aria-label={t('contents.author')}>
+  <Image
+    src={portrait}
+    alt=""
+    width={144}
+    height={144}
+    fit="cover"
+    position="top"
+    format="webp"
+    class="author-photo"
+    loading="lazy"
+  />
+  <div>
+    <p class="author-name">
+      <a href={route('about', lang)}>{profile.name}</a>
+    </p>
+    <p class="small">{pick(profile.authorBio, lang)}</p>
+    <p class="author-links small">
+      <a href={profile.links.linkedin} rel="me noopener" target="_blank">
+        <Icon name="linkedin" size={14} /> LinkedIn
+        <span class="visually-hidden">{t('a11y.newTab')}</span>
+      </a>
+      <a href={profile.links.lattes} rel="me noopener" target="_blank">
+        <Icon name="lattes" size={14} /> Lattes
+        <span class="visually-hidden">{t('a11y.newTab')}</span>
+      </a>
+      <a href={route('contact', lang)}>
+        <Icon name="mail" size={14} /> {t('nav.contact')}
+      </a>
+    </p>
+  </div>
+</aside>
+
+<style>
+  .author {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: start;
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+  }
+  .author :global(.author-photo) {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .author p {
+    margin-bottom: var(--space-2);
+  }
+  .author-name {
+    font-weight: 700;
+  }
+  .author-name a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .author-name a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+  }
+  .author-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0;
+  }
+  .author-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-height: 2rem;
+  }
+  @media (max-width: 30rem) {
+    .author {
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
+    }
+    .author-links {
+      justify-content: center;
+    }
+  }
+</style>

@@ -64,6 +64,17 @@ linkedinNote:
   pt: Escrevo semanalmente no LinkedIn sobre essas áreas — economia aplicada, Jurimetria, IA no setor público, turismo, portos e pesca — em textos curtos para não especialistas.
   en: I write weekly on LinkedIn about these areas — applied economics, jurimetrics, AI in the public sector, tourism, ports and fisheries — in short pieces for non-specialists.
 
+# Descrição curta do autor (assinatura das publicações da seção Conteúdos).
+authorBio:
+  pt: >-
+    Professor da Universidade Federal de Alagoas, economista, doutor em Economia, bacharel em Direito
+    e servidor do Tribunal de Justiça de Alagoas. Desenvolve atividades na interseção entre Economia,
+    Direito, Sistemas de Informação, dados, econometria e inovação pública.
+  en: >-
+    Professor at the Federal University of Alagoas, economist, PhD in Economics, Bachelor of Laws
+    and civil servant at the Alagoas State Court of Justice. Works at the intersection of economics,
+    law, information systems, data, econometrics and public innovation.
+
 # Gerados automaticamente no build por scripts/generate-cv.mjs (sem telefone).
 cvPdf: /valber-cv.pdf
 cvPdfEn: /valber-cv-en.pdf

@@ -30,17 +30,23 @@ describe('i18n/routes', () => {
   });
 });
 
-describe('i18n/ui — categorias dos textos', () => {
-  it('tem rótulo para toda categoria de texto em ambos os idiomas', async () => {
+describe('i18n/ui — tipos e áreas dos conteúdos', () => {
+  it('tem rótulo para todo tipo de conteúdo e área em ambos os idiomas', async () => {
     const { parse } = await import('yaml');
     const { readFileSync } = await import('node:fs');
     const tax = parse(readFileSync('src/data/taxonomies.yml', 'utf8')) as {
-      updateCategories: string[];
+      contentTypes: string[];
+      contentAreas: string[];
     };
-    for (const c of tax.updateCategories) {
-      const key = `category.${c}` as UiKey;
+    for (const c of tax.contentTypes) {
+      const key = `contentType.${c}` as UiKey;
       expect(ui['pt-br'][key], `pt ${c}`).toBeTruthy();
       expect(ui.en[key], `en ${c}`).toBeTruthy();
+    }
+    for (const a of tax.contentAreas) {
+      const key = `area.${a}` as UiKey;
+      expect(ui['pt-br'][key], `pt ${a}`).toBeTruthy();
+      expect(ui.en[key], `en ${a}`).toBeTruthy();
     }
   });
 });

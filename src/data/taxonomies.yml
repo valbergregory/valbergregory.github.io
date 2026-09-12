@@ -146,17 +146,24 @@ outputs:
     pt: Software / pipeline
     en: Software / pipeline
 
-updateCategories:
-  - opiniao
+# Tipos de conteúdo e áreas de conhecimento da seção "Conteúdos e Séries Temáticas".
+# Os rótulos ficam em src/i18n/ui.ts (contentType.* e area.*).
+contentTypes:
+  - serie
   - nota
+  - opiniao
   - leitura
   - aula
-  - codigo
-  - versao
-  - documentacao
-  - dados
-  - painel
-  - texto
   - evento
-  - site
-  - publicacao
+  - musica
+  - cinema
+
+contentAreas:
+  - economia
+  - direito
+  - sistemas-de-informacao
+  - dados-econometria
+  - inovacao-publica
+  - desenvolvimento-territorial
+  - economia-maritima
+  - economia-pesqueira

@@ -1,0 +1,304 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Icon from '@/components/Icon.astro';
+import ContentCard from '@/components/ContentCard.astro';
+import SeriesCard from '@/components/SeriesCard.astro';
+import ResearchCard from '@/components/ResearchCard.astro';
+import ShareButtons from '@/components/ShareButtons.astro';
+import AuthorBox from '@/components/AuthorBox.astro';
+import { route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { formatDate, getProfile } from '@/lib/data';
+import { breadcrumbJsonLd, SITE } from '@/lib/jsonld';
+import {
+  contentPath,
+  dateIso,
+  getContents,
+  getSeries,
+  getSeriesContents,
+  seriesPath,
+  type Series,
+} from '@/lib/contents';
+
+interface Props {
+  lang: Lang;
+  series: Series;
+}
+const { lang, series } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const profile = getProfile();
+const s = series.data;
+const { Content } = await render(series);
+
+const items = await getSeriesContents(lang, s.series);
+const otherSeries = (await getSeries(lang)).filter((x) => x.data.series !== s.series);
+const allContents = await getContents(lang);
+const countOf = (x: Series) => allContents.filter((c) => c.data.series === x.data.series).length;
+
+const research = (await getCollection('research')).filter((r) => s.research.includes(r.data.slug));
+
+// Versão no outro idioma (mesma série).
+const other: Lang = en ? 'pt-br' : 'en';
+const counterpart = (await getCollection('series')).find(
+  (x) => x.data.series === s.series && x.data.lang === other && !x.data.draft,
+);
+const path = seriesPath(series);
+const alternates: Partial<Record<Lang, string>> = { [lang]: path };
+if (counterpart) alternates[other] = route('contentsSeries', other, counterpart.data.slug);
+
+// Imagem social: banner (ou capa) recortado em 1200 × 630.
+const social = s.banner ?? s.cover;
+const og = social
+  ? await getImage({ src: social, width: 1200, height: 630, fit: 'cover', format: 'jpg' })
+  : undefined;
+
+const url = `${SITE}${path}`;
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('contents.title'), href: route('contents', lang) },
+  { label: s.title },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={s.title}
+  description={s.description}
+  current="contents"
+  {alternates}
+  image={og?.src}
+  imageAlt={s.bannerAlt ?? s.coverAlt}
+  jsonLd={[
+    {
+      '@type': 'CreativeWorkSeries',
+      name: s.title,
+      description: s.description,
+      url,
+      inLanguage: en ? 'en' : 'pt-BR',
+      datePublished: dateIso(s.date),
+      author: { '@id': `${SITE}/#person` },
+      keywords: s.tags.join(', '),
+      hasPart: items.map((c, i) => ({
+        '@type': 'Article',
+        position: i + 1,
+        headline: c.data.title,
+        url: `${SITE}${contentPath(c, series)}`,
+      })),
+    },
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('contents.title'), path: route('contents', lang) },
+      { name: s.title, path },
+    ]),
+  ]}
+>
+  <header class:list={['series-hero', `palette-${s.palette}`]}>
+    <div class="container">
+      <Breadcrumbs {lang} items={crumbs} />
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">{t('contents.series.one')}</p>
+          <h1>{s.title}</h1>
+          <p class="lead">{s.tagline}</p>
+          <p class="meta small">
+            <span>
+              {t('contents.published')}{' '}
+              <time datetime={dateIso(s.date)}>{formatDate(s.date, lang)}</time>
+            </span>
+            <span>· {profile.shortName}</span>
+            <span>
+              · {items.length} {t('contents.publicationsCount')}
+            </span>
+          </p>
+          <ul class="chip-list" aria-label={t('contents.tags')}>
+            {s.tags.map((tag) => (
+              <li class="tag">{tag}</li>
+            ))}
+          </ul>
+        </div>
+        {s.banner && (
+          <figure class="hero-banner">
+            <Image
+              src={s.banner}
+              alt={s.bannerAlt ?? ''}
+              width={1200}
+              height={510}
+              widths={[640, 960, 1200, 1600]}
+              sizes="(max-width: 64rem) 92vw, 640px"
+              fit="cover"
+              format="webp"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </figure>
+        )}
+      </div>
+    </div>
+  </header>
+
+  <div class="container series-layout">
+    <section class="intro" aria-labelledby="intro-title">
+      <h2 id="intro-title">{t('contents.seriesIntro')}</h2>
+      <div class="markdown prose">
+        <Content />
+      </div>
+    </section>
+
+    <section class="items" aria-labelledby="items-title">
+      <div class="section-head">
+        <h2 id="items-title">{t('contents.publications')}</h2>
+      </div>
+      {items.length === 0 ? (
+        <p class="muted">{t('contents.none')}</p>
+      ) : (
+        <ol class="grid grid-3 items-grid">
+          {items.map((c, i) => (
+            <li>
+              <ContentCard content={c} {lang} {series} index={i} />
+            </li>
+          ))}
+        </ol>
+      )}
+    </section>
+
+    {research.length > 0 && (
+      <section class="related" aria-labelledby="research-title">
+        <div class="section-head">
+          <h2 id="research-title">{t('contents.relatedResearch')}</h2>
+          <p class="lead small muted">{t('research.disclaimer.all')}</p>
+        </div>
+        <div class="grid grid-2">
+          {research.map((r) => (
+            <ResearchCard project={r} {lang} compact />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <footer class="series-footer">
+      <ShareButtons {lang} {url} title={s.title} />
+      <AuthorBox {lang} />
+      <p class="small muted">
+        {counterpart ? (
+          <a href={alternates[other]} hreflang={en ? 'pt-BR' : 'en'} lang={en ? 'pt-BR' : 'en'}>
+            {t('contents.otherLang')}
+          </a>
+        ) : (
+          t('contents.onlyLang')
+        )}
+      </p>
+    </footer>
+
+    {otherSeries.length > 0 && (
+      <section class="related" aria-labelledby="other-title">
+        <div class="section-head">
+          <h2 id="other-title">{t('contents.otherSeries')}</h2>
+        </div>
+        <div class="grid grid-2">
+          {otherSeries.map((x) => (
+            <SeriesCard series={x} {lang} count={countOf(x)} />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <p class="back">
+      <a class="button subtle" href={route('contents', lang)}>
+        <Icon name="arrow" size={16} class="flip" /> {t('contents.backToList')}
+      </a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .series-hero {
+    padding-block: var(--space-6) var(--space-7);
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(60rem 22rem at 100% -10%, var(--teal-soft) 0%, transparent 60%), var(--bg);
+  }
+  .series-hero.palette-ocean {
+    background:
+      radial-gradient(60rem 22rem at 100% -10%, var(--navy-soft) 0%, transparent 60%), var(--bg);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-6);
+    align-items: center;
+    margin-top: var(--space-4);
+  }
+  .hero-text h1 {
+    max-width: 22ch;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+  }
+  .hero-banner {
+    margin: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  .hero-banner :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .series-layout {
+    padding-block: var(--space-7);
+    display: grid;
+    gap: var(--space-8);
+  }
+  .intro .markdown {
+    max-width: 72ch;
+  }
+  .intro .markdown :global(h2) {
+    font-size: var(--text-xl);
+    margin-top: var(--space-6);
+  }
+  .intro .markdown :global(img) {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    margin: var(--space-4) 0;
+    max-width: 100%;
+    height: auto;
+  }
+  .items-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: item;
+  }
+  .items-grid > li {
+    min-width: 0;
+    display: flex;
+  }
+  .items-grid > li > :global(*) {
+    flex: 1;
+  }
+  .series-footer {
+    display: grid;
+    gap: var(--space-5);
+    max-width: 72ch;
+  }
+  .back {
+    margin: 0;
+  }
+  .back :global(.flip) {
+    transform: scaleX(-1);
+  }
+  @media (max-width: 56rem) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
