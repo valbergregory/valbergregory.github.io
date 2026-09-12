@@ -1,7 +1,7 @@
 ---
 title: Informação muda decisões
 subtitle: Dados, conhecimento e sistemas alteram escolhas.
-summary: Decisões econômicas dependem das informações disponíveis. Quando as partes sabem coisas diferentes, surgem seleção adversa, risco moral, desconfiança e contratos ineficientes — e os Sistemas de Informação podem reduzir ou concentrar essas assimetrias.
+summary: Decisões econômicas dependem das informações disponíveis. Quando as partes sabem coisas diferentes, surgem seleção adversa, risco moral, desconfiança e contratos ineficientes, e os Sistemas de Informação podem reduzir ou concentrar essas assimetrias.
 lang: pt-br
 type: serie
 series: economia-da-informacao-e-redes
@@ -22,19 +22,17 @@ areas:
 date: 2026-09-12
 ---
 
-Decisões econômicas dependem das informações disponíveis para consumidores, empresas e governos.
+Decisões econômicas dependem das informações disponíveis para consumidores, empresas e governos. Quando uma das partes conhece aspectos relevantes que a outra não consegue observar, preços e contratos podem deixar de refletir adequadamente a qualidade, o risco ou o comportamento envolvido na transação. Surgem, então, problemas de confiança e escolhas que seriam diferentes se a informação fosse distribuída de forma mais equilibrada.
 
-Quando as partes possuem informações diferentes, podem surgir problemas como **seleção adversa**, **risco moral**, desconfiança e contratos ineficientes.
+A seleção adversa ocorre antes da contratação. No exemplo clássico do mercado de carros usados, o vendedor conhece melhor a qualidade do veículo do que o comprador. Se o comprador não dispõe de sinais confiáveis para distinguir os produtos, tende a oferecer um preço médio. Esse preço pode afastar os vendedores de bens de melhor qualidade e reduzir a qualidade média do próprio mercado.
 
-Os Sistemas de Informação podem reduzir essas assimetrias ao organizar dados, ampliar a transparência e melhorar o processo decisório. Entretanto, também podem concentrar informações e criar novas formas de poder.
+O risco moral aparece depois do contrato, quando uma parte pode alterar seu comportamento sem que a outra consiga observá-lo plenamente. Situações desse tipo são frequentes em seguros, crédito, relações de emprego e terceirizações. Contratos, auditorias e mecanismos de monitoramento procuram reduzir o problema, mas também geram custos e podem criar incentivos indesejados.
 
-O ponto central é que a informação possui valor porque **modifica decisões**.
+Sinalização e triagem constituem respostas às assimetrias informacionais. Diplomas, certificações, garantias, avaliações e históricos fornecem sinais sobre características que não são diretamente observáveis. Sistemas de Informação ampliam essa capacidade ao organizar registros, facilitar verificações e produzir indicadores. A mesma tecnologia, contudo, pode concentrar dados em poucos agentes e ampliar a desigualdade informacional, especialmente quando critérios automatizados não são transparentes.
 
-## Três situações para reconhecer
+## Conclusão
 
-- **Seleção adversa** — o vendedor sabe mais sobre a qualidade do que o comprador; sem sinais confiáveis, os bons produtos saem do mercado (o "mercado de limões" de Akerlof).
-- **Risco moral** — depois do contrato, uma das partes muda de comportamento porque a outra não consegue observar o que ela faz (seguros, terceirização, crédito).
-- **Sinalização e triagem** — diplomas, certificações, garantias, avaliações e histórico são mecanismos para revelar informação que, de outro modo, ficaria oculta.
+A informação possui valor econômico porque modifica escolhas e resultados. Destarte, sistemas bem concebidos podem reduzir incertezas e melhorar decisões, desde que a ampliação da capacidade informacional venha acompanhada de transparência, proteção de dados e critérios de uso compatíveis com os direitos dos envolvidos.
 
 ## Para aprofundar
 

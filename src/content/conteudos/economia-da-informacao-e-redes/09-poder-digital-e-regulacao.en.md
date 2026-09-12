@@ -1,7 +1,7 @@
 ---
 title: Digital power and regulation
 subtitle: Innovation with competition and rights.
-summary: Network effects, economies of scale, control over data and low marginal costs favour concentration in digital markets. The regulatory challenge goes beyond price — it involves data, attention, portability, interoperability, lock-in, privacy and algorithmic transparency.
+summary: "Network effects, economies of scale, control over data and low marginal costs favour concentration in digital markets. The regulatory challenge goes beyond price: it involves data, attention, portability, interoperability, supplier dependence, privacy and algorithmic transparency."
 lang: en
 slug: digital-power-and-regulation
 type: serie
@@ -24,29 +24,17 @@ project: adocao-ia-judiciario-seguranca
 date: 2026-09-12
 ---
 
-Network effects, economies of scale, control over data and low marginal costs can favour high concentration in digital markets.
+Network effects, economies of scale, control over data and reduced marginal costs can favour high concentration in digital markets. In certain segments, a few platforms come to intermediate a significant share of the relationships between users, firms and advertisers. The position reached allows them to set access rules, order information and influence the conditions of competition within the digital environment itself.
 
-This environment shows **winner-takes-all** tendencies, in which a few platforms come to control a significant share of the market.
+The regulatory challenge is not limited to the price charged to consumers. Many services monetise data, attention and advertising or create technological dependence, even when offered without direct payment. An adequate assessment has to consider market power, switching costs, technological lock-in, freedom of choice, data portability, interoperability, privacy and the transparency of automated systems.
 
-The regulatory challenge is not limited to the price charged to consumers. Many services are apparently free but use **data**, **attention**, **advertising** and **technological dependence** as sources of value.
+The European Union has structured specific responses through the Digital Markets Act, which imposes ex-ante obligations on designated gatekeepers, and the Digital Services Act, aimed at duties related to intermediary services, moderation and transparency. In Brazil, the General Data Protection Law (LGPD) and the Marco Civil da Internet govern relevant aspects of data processing, users' rights and liability online. The competition regulation of platforms is also part of the institutional and legislative debate, including through Bill 2,768/2022 and studies by the Administrative Council for Economic Defense (CADE).
 
-Regulation has to consider:
+Reports produced in the United Kingdom, the European Union and the United States in 2019 converge on problems examined in this series, among them network effects, data that work as an entry barrier and switching costs that reduce user mobility. These factors help explain why traditional competition instruments may need adjustment in the face of the speed and structure of digital markets.
 
-- network effects;
-- concentration and market power;
-- data portability;
-- interoperability;
-- switching costs and lock-in;
-- freedom of choice;
-- privacy and data protection;
-- algorithmic transparency;
-- innovation and competition.
+## Conclusion
 
-## What already exists
-
-- In the **European Union**, the Digital Markets Act (DMA, 2022) imposes ex-ante obligations on "gatekeepers", and the Digital Services Act (DSA, 2022) deals with content moderation and transparency.
-- In **Brazil**, the LGPD (2018) and the Marco Civil da Internet (2014) already regulate data and liability; platform-specific competition rules are under discussion in Congress (Bill 2,768/2022) and in CADE's studies.
-- The reports that guided these initiatives — Furman (United Kingdom), Crémer (EU) and Stigler (United States), all from 2019 — start from the same concepts as this series: network effects, data as a barrier and switching costs.
+Regulating digital markets requires preserving the benefits of innovation without ignoring the conditions that allow power to concentrate. The goal should be to ensure effective competition, users' rights and a real possibility of choice, with measures proportionate to the risks and characteristics of each market.
 
 ## Further reading
 

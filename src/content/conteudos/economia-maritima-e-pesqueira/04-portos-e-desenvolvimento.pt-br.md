@@ -1,7 +1,7 @@
 ---
 title: Portos e desenvolvimento
 subtitle: Infraestrutura que conecta territórios.
-summary: Um porto eficiente reduz custos, facilita exportações, atrai investimentos e estimula atividades logísticas e industriais. Mas seu impacto no território depende da integração com rodovias, ferrovias, sistemas de informação, planejamento urbano e políticas ambientais — e das externalidades que ele gera.
+summary: Um porto eficiente reduz custos, facilita exportações, atrai investimentos e estimula atividades logísticas e industriais. Mas seu impacto no território depende da integração com rodovias, ferrovias, sistemas de informação, planejamento urbano e políticas ambientais, e das externalidades que ele gera.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -23,19 +23,17 @@ project: port-digitalization-observatory
 date: 2026-09-12
 ---
 
-Os portos conectam economias locais aos mercados nacionais e internacionais.
+Os portos conectam economias locais aos mercados nacionais e internacionais. Um terminal eficiente pode reduzir custos, facilitar exportações, atrair investimentos e estimular atividades logísticas e industriais. Esses benefícios, entretanto, dependem da relação do porto com o território e com as redes que transportam pessoas, mercadorias e informações.
 
-Um porto eficiente pode reduzir custos, facilitar exportações, atrair investimentos e estimular atividades logísticas e industriais.
+A eficiência portuária deve ser demonstrada por indicadores. Tempo de espera para atracação, permanência do navio, movimentação por hora e custo por contêiner permitem comparar operações e localizar gargalos. O Brasil dispõe de dados públicos que podem apoiar esse diagnóstico e orientar decisões sobre capacidade, gestão e investimentos.
 
-Entretanto, seu impacto territorial depende de integração com rodovias, ferrovias, sistemas de informação, planejamento urbano e políticas ambientais.
+O porto não produz desenvolvimento regional de forma automática, haja vista que seus efeitos dependem da retroárea, dos acessos rodoviários e ferroviários, da presença de indústrias e serviços e da capacidade de integrar empresas locais às cadeias movimentadas. Um porto isolado pode transportar grandes volumes sem produzir transformações proporcionais no entorno.
 
-O desenvolvimento portuário também precisa considerar **externalidades** como poluição, congestionamento, pressão imobiliária e conflitos pelo uso do território.
+A digitalização também influencia o desempenho. Janelas únicas, comunidades portuárias digitais e integração de bases de dados reduzem retrabalho, tempos de liberação e custos de transação. Ao mesmo tempo, o planejamento precisa considerar poluição, congestionamento, pressão imobiliária e conflitos pelo uso do território, pois essas externalidades recaem sobre cidades e comunidades próximas.
 
-## Três lições da literatura
+## Conclusão
 
-- **Eficiência é medida, não adjetivo**: tempo de espera para atracar, tempo de estadia do navio, movimentação por hora e custo por contêiner são indicadores comparáveis entre portos — e o Brasil tem dados públicos para isso.
-- **O porto não desenvolve sozinho**: o efeito sobre a região depende do que acontece atrás dele — retroárea, acesso terrestre, indústria e serviços. Portos "ilha" movimentam carga sem transformar o território.
-- **Digitalização importa**: janela única, comunidade portuária digital e integração de dados reduzem tempos e custos de transação, tema de uma das pesquisas em andamento ligadas a esta série.
+Portos contribuem para o desenvolvimento quando eficiência operacional, conectividade terrestre, integração produtiva e gestão das externalidades avançam em conjunto. Avaliar essas dimensões evita confundir volume movimentado com benefício efetivamente incorporado pelo território.
 
 ## Para aprofundar
 

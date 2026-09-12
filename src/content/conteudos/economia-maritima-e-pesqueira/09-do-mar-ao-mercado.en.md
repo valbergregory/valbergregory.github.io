@@ -1,7 +1,7 @@
 ---
 title: From sea to market
 subtitle: Quality along the whole chain. Valuable fish on the plate.
-summary: The seafood value chain does not end at the catch. Value depends on integrating capture, landing, refrigeration, transport, processing, marketing and consumption — and breaks in the cold chain cause waste, loss of quality, lower prices for fishers and food-safety risks.
+summary: The seafood value chain does not end at the catch. Value depends on integrating capture, landing, refrigeration, transport, processing, marketing and consumption, and breaks in the cold chain cause waste, loss of quality, lower prices for fishers and food-safety risks.
 lang: en
 slug: from-sea-to-market
 type: serie
@@ -22,29 +22,17 @@ areas:
 date: 2026-09-12
 ---
 
-The seafood production chain does not end with the catch.
+The seafood production chain does not end with the catch. The value of the product is built through landing, refrigeration, transport, processing, marketing and consumption. A failure at any of these stages can reduce quality, interrupt access to markets and lower the price received by the fisher.
 
-The value of the product depends on integrating:
+Fish is among the most perishable foods. Without adequate ice from the boat onwards, its quality can fall within a few hours. Part of the product may be discarded, while another part reaches the market in poorer condition and sells for less. Both forms of loss undermine income and food security.
 
-1. capture;
-2. landing;
-3. refrigeration;
-4. transport;
-5. processing;
-6. marketing;
-7. consumption.
+These problems hit small-scale fishing hardest, since it often has limited access to ice plants, cold rooms, refrigerated transport and processing units. Investment in these structures can reduce physical and economic losses, but it has to be organised according to the volume, the location and the real conditions of use by communities.
 
-Failures in the **cold chain** can cause waste, loss of quality, lower prices for fishers and food-safety risks.
+Traceability, sanitary inspection and certification build trust and can open markets that pay better for the product. Meeting these requirements demands records, infrastructure and coordination. Fishers' guilds, cooperatives and associations can spread costs and ease access for small producers, provided that the organisational mechanisms preserve their autonomy and participation.
 
-Investment in ice, storage, refrigerated transport, traceability and processing can reduce losses and raise the income of workers along the chain.
+## Conclusion
 
-**Economic value is lost when the chain breaks.**
-
-## Where the value escapes
-
-- Fish is among the most perishable foods: without ice from the boat onwards, quality drops within hours and price follows.
-- Physical losses (discarded fish) and quality losses (fish sold for less) hit small-scale fishing hardest, since it has less access to ice plants, cold rooms and refrigerated transport.
-- Traceability, sanitary inspection and certification open markets that pay more — but they require collective organisation (fishers' guilds, cooperatives, associations) so that small producers can meet the requirements.
+The economic value of fish depends on the continuity and quality of the whole chain. Improving preservation, logistics, collective organisation and information reduces waste, protects the consumer and increases the share of value that stays with those who work in the activity.
 
 ## Further reading
 

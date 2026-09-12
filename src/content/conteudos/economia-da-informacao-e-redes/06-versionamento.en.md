@@ -1,7 +1,7 @@
 ---
 title: Versioning
 subtitle: One product. Different levels of value.
-summary: Versioning means offering different versions of the same product to audiences with different needs and willingness to pay — varying features, capacity, support, security or number of users — without developing separate products.
+summary: Versioning means offering different versions of the same product to audiences with different needs and willingness to pay, varying features, capacity, support, security or number of users, without developing separate products.
 lang: en
 slug: versioning
 type: serie
@@ -20,24 +20,17 @@ areas:
 date: 2026-09-12
 ---
 
-Versioning consists of offering different versions of the same product to audiences with different needs and different willingness to pay.
+Versioning consists of offering different configurations of the same product to audiences with different needs and willingness to pay. Versions can vary in features, capacity, speed, support, security, number of users or integration options. The firm uses a common base and organises differentiated offers without having to develop entirely separate products.
 
-Versions can differ in features, capacity, speed, support, security, number of users or integration options.
+This model appears in the individual, business and education plans of Adobe Creative Cloud, in LinkedIn's tiers, in the Home and Pro editions of Windows and in the basic, professional and enterprise tiers of many software services. Each version seeks to match a usage profile and to present a difference in value that justifies the consumer's choice.
 
-The strategy makes it possible to **segment consumers** without developing entirely separate products.
+In economic terms, versioning is a form of second-degree price discrimination. Since the firm does not directly know each customer's willingness to pay, it offers a menu of options and lets users reveal their own profile through their choice. Versions need to be sufficiently distinct, since the migration of customers willing to pay more towards a lower offer can undermine the strategy.
 
-## Examples
+In certain situations the cheaper version results from deliberately limiting a technically more complete product. The literature calls this phenomenon "damaged goods", since the firm may incur costs to restrict features that already exist. The strategy protects the price of the premium version, but it requires attention to licence clauses, usage limits and duties to inform the consumer.
 
-- **Adobe Creative Cloud**: individual, business and education plans.
-- **LinkedIn**: free version, Premium Career and Sales Navigator.
-- **Microsoft Windows**: Home and Pro editions.
-- **SaaS products**: basic, professional and enterprise plans.
+## Conclusion
 
-## What lies behind it
-
-- In economic terms, versioning is **second-degree price discrimination**: the firm does not know how much each customer is worth, so it offers a "menu" and lets each one reveal it through their choice.
-- The cheap version is often the full version **deliberately limited** ("damaged goods"): creating the limitation costs more than not creating it, but it protects the price of the premium version.
-- The number of versions and the distance between them are product decisions with legal consequences — licence clauses, usage limits and transparency towards consumers.
+Versioning turns differences between users into a structure of offers. When versions are clear, proportionate and transparent, the strategy widens access and improves the fit of the product. When limitations are artificial or hard to understand, on the other hand, it can generate frustration and legal challenges.
 
 ## Further reading
 

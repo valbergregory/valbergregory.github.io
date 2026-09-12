@@ -21,20 +21,17 @@ areas:
 date: 2026-09-12
 ---
 
-Information economics studies how information and knowledge influence decisions, markets, contracts and forms of productive organisation.
+Information economics studies how data and knowledge influence decisions, markets, contracts and forms of productive organisation. Its starting point is simple: economic agents rarely have the same information, at the same time and of the same quality. That difference affects prices, negotiations, expectations and the distribution of power among consumers, firms and governments.
 
-In the digital economy, information is not merely an auxiliary resource. It becomes an **economic asset**, a **productive input** and a **source of power**.
+In the digital economy, information no longer occupies a merely auxiliary position. It has come to work as an economic asset, a productive input and a source of competitive advantage. Databases can improve services, reduce uncertainty and guide decisions, but their value depends on quality, organisation, usability and the rules that govern their collection and circulation.
 
-For information systems professionals, understanding this field makes it clear that the architecture of a piece of software, the way data is collected and the design of a platform directly affect its business model and its capacity to generate value.
+For information systems professionals, this discussion has practical consequences, since the architecture of a piece of software defines which data will be collected, how they can be related and who will have access to them. The design of a platform influences the formation of markets, the visibility of participants, reputation mechanisms and the capacity for monetisation. Choices regarded as technical therefore also distribute opportunities, risks and responsibilities.
 
-## What the series covers
+Over the course of this series I will examine how information asymmetries change decisions, why digital goods behave differently from physical goods and how network effects help platforms reach critical mass. I will also discuss multi-sided markets, versioning, bundling and freemium strategies, and the problems of concentration, digital power and regulation.
 
-1. How information changes decisions — and what happens when the parties know different things.
-2. Why digital goods behave differently from physical goods.
-3. Network effects and the race for critical mass.
-4. Multi-sided markets and the chicken-and-egg problem.
-5. Three ways to monetise information: versioning, bundling and freemium.
-6. Digital power, concentration and regulation.
+## Conclusion
+
+Information economics offers instruments for understanding how data, knowledge and networks create value and reorganise economic relationships. This approach makes it possible to analyse digital systems more completely, considering at once their technological structure, their incentives and their effects on society.
 
 ## Further reading
 

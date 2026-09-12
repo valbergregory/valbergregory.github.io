@@ -1,7 +1,7 @@
 ---
-title: "Fisheries: a common-pool resource"
+title: Fisheries as a common-pool resource
 subtitle: Rival in use. Hard to exclude.
-summary: Fish stocks are the classic example of a common-pool resource — access is hard to prevent, but the fish caught by one are no longer available to the others. Without rules, every fisher has an incentive to increase effort, and the result can be overfishing and lost income.
+summary: "Fish stocks are the classic example of a common-pool resource: access is hard to prevent, but the fish caught by one are no longer available to the others. Without rules, every fisher has an incentive to increase effort, and the result can be overfishing and lost income."
 lang: en
 slug: fisheries-common-pool-resource
 type: serie
@@ -23,28 +23,17 @@ project: fishing-closures-brazil
 date: 2026-09-12
 ---
 
-Fish stocks are the classic example of a **common-pool resource**.
+Fish stocks are classic examples of common-pool resources. Excluding users can be difficult or costly, while the fish caught by one agent are no longer available to the others. This combination creates an interdependence that does not appear with the same intensity in conventional private goods.
 
-It is difficult to prevent access to the resource entirely, but the fish caught by one agent are no longer available to the others.
+Without adequate rules, each fisher has an incentive to increase effort before others capture the resource. The behaviour can be rational at the individual level and produce, taken together, overfishing, shrinking stocks and lost income in the long run. Gordon showed that, under open access, effort tends to advance until it dissipates the economic rent provided by the resource.
 
-Without adequate rules, each fisher has an incentive to increase effort before others capture the resource. The result can be **overfishing**, shrinking stocks and lost income in the long run.
+Hardin popularised this problem as the "tragedy of the commons", but later literature demonstrated that the outcome is not inevitable. Elinor Ostrom documented situations in which communities manage common resources through clear boundaries, rules adapted to the context, monitoring, user participation and graduated sanctions. Governance can therefore emerge from combinations of state, community and local organisations.
 
-Management can involve:
+In fisheries, closed seasons, quotas, licences, protected areas, enforcement, monitoring and co-management seek to align effort with the renewal capacity of stocks. In Brazil, the closed season (defeso) combines a temporary ban on catching certain species with income protection for eligible small-scale fishers. Assessing its effects on stocks and income remains a relevant empirical question.
 
-- closed seasons;
-- quotas;
-- licences;
-- protected areas;
-- enforcement;
-- monitoring;
-- community participation;
-- co-management.
+## Conclusion
 
-## From "tragedy" to governance
-
-- Gordon (1954) showed that under open access fishing effort grows until it dissipates all the economic rent of the resource: the stock falls below its optimum and nobody gains from it.
-- Hardin (1968) popularised the "tragedy of the commons", but Elinor Ostrom demonstrated, with hundreds of cases, that communities can manage common-pool resources when there are clear boundaries, rules adapted to the place, monitoring and graduated sanctions — a finding that earned her the 2009 Nobel Prize.
-- In Brazil, the **closed season** (*defeso*, a temporary ban on fishing given species) is the most widespread instrument, combined with an insurance benefit for small-scale fishers; whether it actually rebuilds stocks and income is an open empirical question — and the subject of one of the research projects linked to this series.
+Sustainable fishing depends on institutions that turn the interdependence between users into legitimate and verifiable rules. The challenge is not only to limit catches, but to build a governance that preserves stocks and distributes the costs of conservation fairly.
 
 ## Further reading
 

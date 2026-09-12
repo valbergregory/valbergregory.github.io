@@ -1,7 +1,7 @@
 ---
 title: Poder digital e regulação
 subtitle: Inovação com concorrência e direitos.
-summary: Efeitos de rede, economias de escala, controle de dados e custos marginais baixos favorecem a concentração nos mercados digitais. O desafio regulatório vai além do preço — envolve dados, atenção, portabilidade, interoperabilidade, lock-in, privacidade e transparência algorítmica.
+summary: Efeitos de rede, economias de escala, controle de dados e custos marginais baixos favorecem a concentração nos mercados digitais. O desafio regulatório vai além do preço, envolve dados, atenção, portabilidade, interoperabilidade, dependência do fornecedor, privacidade e transparência algorítmica.
 lang: pt-br
 type: serie
 series: economia-da-informacao-e-redes
@@ -23,29 +23,17 @@ project: adocao-ia-judiciario-seguranca
 date: 2026-09-12
 ---
 
-Efeitos de rede, economias de escala, controle de dados e baixos custos marginais podem favorecer elevada concentração nos mercados digitais.
+Efeitos de rede, economias de escala, controle de dados e custos marginais reduzidos podem favorecer elevada concentração nos mercados digitais. Em certos segmentos, poucas plataformas passam a intermediar parcela expressiva das relações entre usuários, empresas e anunciantes. A posição alcançada permite definir regras de acesso, ordenar informações e influenciar as condições de concorrência dentro do próprio ambiente digital.
 
-Esse ambiente apresenta tendências de ***winner-takes-all***, nas quais poucas plataformas passam a controlar uma parcela relevante do mercado.
+O desafio regulatório não se limita ao preço cobrado do consumidor. Muitos serviços monetizam dados, atenção e publicidade ou criam dependência tecnológica, ainda que sejam oferecidos sem pagamento direto. Uma avaliação adequada precisa considerar poder de mercado, custos de troca, aprisionamento tecnológico, liberdade de escolha, portabilidade de dados, interoperabilidade, privacidade e transparência dos sistemas automatizados.
 
-O desafio regulatório não se limita ao preço cobrado do consumidor. Muitos serviços são aparentemente gratuitos, mas utilizam **dados**, **atenção**, **publicidade** e **dependência tecnológica** como fontes de valor.
+A União Europeia estruturou respostas específicas por meio do Regulamento dos Mercados Digitais, que estabelece obrigações prévias para determinados controladores de acesso, e do Regulamento dos Serviços Digitais, voltado a deveres relacionados a serviços intermediários, moderação e transparência. No Brasil, a Lei Geral de Proteção de Dados e o Marco Civil da Internet disciplinam aspectos relevantes do tratamento de dados, dos direitos dos usuários e da responsabilidade na rede. A regulação concorrencial das plataformas também integra o debate institucional e legislativo, inclusive por meio do Projeto de Lei nº 2.768/2022 e de estudos do Conselho Administrativo de Defesa Econômica.
 
-A regulação deve considerar:
+Relatórios produzidos no Reino Unido, na União Europeia e nos Estados Unidos em 2019 convergem em torno de problemas examinados nesta série, entre eles os efeitos de rede, os dados que funcionam como barreira à entrada e os custos de troca que reduzem a mobilidade dos usuários. Esses fatores ajudam a explicar por que instrumentos tradicionais de defesa da concorrência podem precisar de adaptações diante da velocidade e da estrutura dos mercados digitais.
 
-- efeitos de rede;
-- concentração e poder de mercado;
-- portabilidade de dados;
-- interoperabilidade;
-- custos de troca e *lock-in*;
-- liberdade de escolha;
-- privacidade e proteção de dados;
-- transparência algorítmica;
-- inovação e concorrência.
+## Conclusão
 
-## O que já existe
-
-- Na **União Europeia**, o Regulamento dos Mercados Digitais (DMA, 2022) impõe obrigações *ex ante* aos "controladores de acesso" (*gatekeepers*), e o Regulamento dos Serviços Digitais (DSA, 2022) trata de moderação de conteúdo e transparência.
-- No **Brasil**, a LGPD (2018) e o Marco Civil da Internet (2014) já regulam dados e responsabilidade; a regulação concorrencial específica de plataformas está em discussão no Congresso (PL 2.768/2022) e nos estudos do CADE.
-- Em comum, os relatórios que orientaram essas iniciativas — Furman (Reino Unido), Crémer (UE) e Stigler (EUA), todos de 2019 — partem dos mesmos conceitos desta série: efeitos de rede, dados como barreira e custos de troca.
+Regular mercados digitais exige preservar os benefícios da inovação sem ignorar as condições que permitem a concentração de poder. O objetivo deve ser assegurar concorrência efetiva, direitos dos usuários e possibilidade real de escolha, com medidas proporcionais aos riscos e às características de cada mercado.
 
 ## Para aprofundar
 

@@ -1,7 +1,7 @@
 ---
 title: Economia Marítima e Pesqueira
 subtitle: O mar conecta produção, trabalho e território.
-summary: A Economia Marítima e a Economia Pesqueira estudam atividades que usam o mar e seus recursos como base produtiva, logística e social — transporte, portos, pesca, processamento, energia, comércio, ciência, monitoramento e comunidades tradicionais.
+summary: A Economia Marítima e a Economia Pesqueira estudam atividades que usam o mar e seus recursos como base produtiva, logística e social, transporte, portos, pesca, processamento, energia, comércio, ciência, monitoramento e comunidades tradicionais.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -21,23 +21,17 @@ areas:
 date: 2026-09-12
 ---
 
-A Economia Marítima e a Economia Pesqueira estudam atividades que utilizam o mar e seus recursos como base produtiva, logística e social.
+A Economia Marítima e a Economia Pesqueira estudam atividades que utilizam o mar e seus recursos como base produtiva, logística e social. O tema abrange transporte, portos, pesca, processamento, infraestrutura, energia, comércio, ciência, monitoramento ambiental e modos de vida de comunidades costeiras e tradicionais.
 
-O tema envolve transporte marítimo, portos, pesca, processamento, infraestrutura, energia, comércio, ciência, monitoramento ambiental e comunidades tradicionais.
+A Economia Marítima oferece uma visão ampla das atividades relacionadas ao espaço oceânico e costeiro. Ela examina como rotas, terminais portuários, indústrias, serviços e recursos naturais se conectam às cadeias nacionais e internacionais. A Economia Pesqueira aprofunda uma parte específica desse universo ao relacionar dinâmica biológica, esforço de pesca, custos, preços, renda e formas de regulação.
 
-A série procura demonstrar que o desenvolvimento econômico relacionado ao mar depende da integração entre **eficiência produtiva**, **inclusão social**, **conhecimento científico** e **sustentabilidade**.
+Esses campos não podem ser analisados apenas pela quantidade produzida ou movimentada. A eficiência econômica depende da infraestrutura e da organização das cadeias, enquanto a continuidade das atividades exige estoques saudáveis e ecossistemas capazes de sustentar a produção. Os resultados também variam entre territórios e grupos sociais, o que torna indispensável examinar distribuição de renda, segurança alimentar e participação das comunidades.
 
-## O percurso da série
+A série começa pela delimitação da Economia Marítima e avança pelas rotas globais, pelos portos e pela Economia Azul. Em seguida, compara a pesca artesanal e a industrial, apresenta a pesca como recurso de uso comum e discute a bioeconomia do setor. Os textos finais acompanham o pescado até o mercado e mostram como dados e Sistemas de Informação podem apoiar uma gestão mais sustentável.
 
-1. A Economia Marítima vai muito além dos navios.
-2. Rotas marítimas moldam custos globais.
-3. Portos e desenvolvimento territorial.
-4. Economia azul: crescer sem degradar.
-5. Pesca artesanal e pesca industrial.
-6. A pesca como recurso comum.
-7. Bioeconomia da pesca.
-8. Do mar ao mercado: a cadeia do pescado.
-9. Dados para uma pesca sustentável.
+## Conclusão
+
+Estudar a economia do mar significa compreender a relação entre produção, território e recursos naturais. O desenvolvimento marítimo e pesqueiro será consistente quando combinar eficiência, inclusão social, conhecimento científico e conservação da base ambiental que sustenta essas atividades.
 
 ## Para aprofundar
 

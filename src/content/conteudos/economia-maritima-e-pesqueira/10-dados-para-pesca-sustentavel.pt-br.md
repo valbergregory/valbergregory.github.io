@@ -1,7 +1,7 @@
 ---
 title: Dados para uma pesca sustentável
 subtitle: Tecnologia, governança e conhecimento local.
-summary: A gestão pesqueira depende de informação confiável sobre estoques, capturas, esforço, localização, oceano, clima, preços e comunidades. Sistemas de Informação podem integrar desembarques, rastreamento de embarcações, sensoriamento remoto e dados locais — desde que combinados com governança, proteção de dados e participação dos pescadores.
+summary: A gestão pesqueira depende de informação confiável sobre estoques, capturas, esforço, localização, oceano, clima, preços e comunidades. Sistemas de Informação podem integrar desembarques, rastreamento de embarcações, sensoriamento remoto e dados locais, desde que combinados com governança, proteção de dados e participação dos pescadores.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -23,29 +23,17 @@ project: marine-heatwaves-fishing-effort
 date: 2026-09-12
 ---
 
-A gestão pesqueira depende de informações confiáveis sobre estoques, capturas, esforço, localização, condições oceanográficas, clima, preços e características socioeconômicas das comunidades.
+A gestão pesqueira depende de informações confiáveis sobre estoques, capturas, esforço, localização, condições oceanográficas, clima, preços e características socioeconômicas das comunidades. Quando esses dados são fragmentados, descontínuos ou inacessíveis, torna-se difícil definir regras, fiscalizar seu cumprimento e avaliar seus resultados.
 
-Sistemas de Informação podem integrar:
+Sistemas de Informação podem integrar registros de desembarque, rastreamento de embarcações, sensoriamento remoto, temperatura da superfície do mar, eventos climáticos, áreas protegidas, infraestrutura portuária, dados municipais e informações fornecidas pelas comunidades. Essa integração apoia monitoramento ambiental, planejamento, pesquisa, fiscalização e adaptação às mudanças climáticas.
 
-- dados de desembarque;
-- rastreamento das embarcações;
-- sensoriamento remoto;
-- temperatura do mar;
-- eventos climáticos;
-- áreas protegidas;
-- infraestrutura portuária;
-- dados municipais;
-- informações fornecidas pelas comunidades.
+Sinais dos sistemas AIS e VMS permitem reconstruir parte do esforço de pesca de frotas rastreadas. No Brasil, o Programa Nacional de Rastreamento de Embarcações Pesqueiras por Satélite cobre parte da frota industrial. Satélites também registram a temperatura da superfície do mar e possibilitam identificar ondas de calor marinhas, relacionando alterações ambientais ao deslocamento de cardumes e do esforço pesqueiro.
 
-Esses sistemas podem apoiar o monitoramento ambiental, a fiscalização, o planejamento, a pesquisa e a adaptação às mudanças climáticas.
+O principal ponto cego permanece na pesca artesanal. Muitas embarcações pequenas não possuem rastreamento, e as estatísticas de desembarque são descontínuas. Programas locais de monitoramento e aplicativos construídos com as comunidades podem reduzir essa lacuna, desde que os dados dos pescadores sejam protegidos, que as finalidades de uso sejam claras e que as informações produzidas retornem em benefícios para os próprios participantes.
 
-A tecnologia deve ser combinada com **governança**, **proteção de dados** e **participação dos pescadores**.
+## Conclusão
 
-## O que já se consegue medir — e o que falta
-
-- Sinais **AIS** e **VMS** transmitidos pelas embarcações permitem reconstruir o esforço de pesca da frota industrial em escala global; no Brasil, o Programa Nacional de Rastreamento de Embarcações Pesqueiras por Satélite (PREPS) cobre parte dessa frota.
-- Satélites medem diariamente a temperatura da superfície do mar, o que permite identificar **ondas de calor marinhas** e relacioná-las ao deslocamento dos cardumes e do esforço — tema de uma das pesquisas ligadas a esta série.
-- O ponto cego continua sendo a **pesca artesanal**: pequenas embarcações sem rastreamento e estatísticas de desembarque descontínuas. Programas estaduais de monitoramento e aplicativos preenchidos com as comunidades são o caminho mais promissor — desde que os dados dos pescadores sejam protegidos e revertam em benefício deles.
+Tecnologia, por si só, não assegura uma pesca sustentável. Os dados precisam ser confiáveis, integrados e convertidos em decisões legítimas por meio de governança, proteção de dados e participação dos pescadores. Somente essa combinação permite que informação se transforme em conservação, renda e capacidade de adaptação.
 
 ## Para aprofundar
 

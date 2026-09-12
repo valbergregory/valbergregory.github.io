@@ -1,7 +1,7 @@
 ---
 title: Pesca artesanal e industrial
 subtitle: Escalas diferentes. Políticas diferentes.
-summary: A pesca artesanal depende mais do território, usa embarcações menores e pesa na renda e na segurança alimentar local; a industrial opera em maior escala, com mais capital, tecnologia e logística. Diferenças de escala, custo e impacto exigem políticas específicas — uma regra única produz efeitos desiguais.
+summary: A pesca artesanal depende mais do território, usa embarcações menores e pesa na renda e na segurança alimentar local; a industrial opera em maior escala, com mais capital, tecnologia e logística. Diferenças de escala, custo e impacto exigem políticas específicas, uma regra única produz efeitos desiguais.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -22,19 +22,17 @@ areas:
 date: 2026-09-12
 ---
 
-A pesca artesanal e a pesca industrial possuem estruturas econômicas distintas.
+A pesca artesanal e a pesca industrial possuem estruturas econômicas distintas. A primeira costuma apresentar maior dependência do território, uso de embarcações menores, organização familiar ou comunitária e participação relevante na geração de renda e na segurança alimentar local. A segunda opera em maior escala, com mais capital, tecnologia, capacidade de armazenamento e cadeias logísticas extensas.
 
-A **pesca artesanal** geralmente apresenta maior dependência do território, utilização de embarcações menores, relações comunitárias e participação significativa na geração de renda e na segurança alimentar local.
+A legislação brasileira reconhece essa diferença. A Lei nº 11.959/2009 caracteriza a pesca artesanal como aquela praticada diretamente por pescador profissional, de forma autônoma ou em regime de economia familiar, com meios próprios ou mediante parceria e, em regra, com embarcações de pequeno porte. A pesca industrial envolve pessoa física ou jurídica, trabalhadores contratados e embarcações compatíveis com operações de maior escala.
 
-A **pesca industrial** opera em maior escala, utiliza mais capital, tecnologia, capacidade de armazenamento e cadeias logísticas mais extensas.
+O Registro Geral da Atividade Pesqueira funciona como requisito de acesso a políticas e direitos associados ao setor, entre eles o seguro-defeso e modalidades de crédito. A qualidade cadastral afeta a capacidade do Estado de identificar beneficiários, acompanhar o esforço e planejar medidas ajustadas à realidade de cada grupo.
 
-As diferenças de escala, custos, tecnologia e impacto exigem **políticas públicas específicas**. Uma única forma de regulação pode produzir efeitos desiguais sobre os diferentes grupos.
+A pesca artesanal responde por parte expressiva da produção desembarcada no Nordeste e sustenta numerosos postos de trabalho, mas permanece menos coberta por estatísticas. Essa lacuna dificulta estimar renda, produtividade e dependência territorial. Aplicar uma única regra a agentes com escalas, custos e tecnologias diferentes pode distribuir de forma desigual tanto os benefícios quanto os encargos da regulação.
 
-## Como o Brasil define as duas
+## Conclusão
 
-- A Lei nº 11.959/2009 (Política Nacional de Desenvolvimento Sustentável da Aquicultura e da Pesca) distingue a pesca **artesanal** — praticada diretamente por pescador profissional, de forma autônoma ou em economia familiar, com meios de produção próprios ou por parceria, em embarcações de pequeno porte — da pesca **industrial**, praticada por pessoa física ou jurídica com embarcações de qualquer tamanho e trabalhadores contratados.
-- O **Registro Geral da Atividade Pesqueira (RGP)** é a porta de entrada para políticas como o seguro-defeso (Lei nº 10.779/2003) e o crédito rural.
-- A pesca artesanal responde por parcela expressiva do pescado desembarcado no Nordeste e por grande parte do emprego no setor — mas é a menos coberta por estatísticas, o que dificulta desenhar políticas ajustadas.
+Políticas pesqueiras precisam reconhecer as diferenças entre pesca artesanal e industrial. Dessarte, a regulação será mais efetiva quando combinar critérios ambientais comuns com instrumentos proporcionais à escala produtiva, à capacidade econômica e à importância social de cada segmento.
 
 ## Para aprofundar
 

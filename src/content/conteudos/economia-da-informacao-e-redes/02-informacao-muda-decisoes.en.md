@@ -1,7 +1,7 @@
 ---
 title: Information changes decisions
 subtitle: Data, knowledge and systems alter choices.
-summary: Economic decisions depend on the information available. When the parties know different things, adverse selection, moral hazard, distrust and inefficient contracts appear — and information systems can either reduce or concentrate those asymmetries.
+summary: Economic decisions depend on the information available. When the parties know different things, adverse selection, moral hazard, distrust and inefficient contracts appear, and information systems can either reduce or concentrate those asymmetries.
 lang: en
 slug: information-changes-decisions
 type: serie
@@ -23,19 +23,17 @@ areas:
 date: 2026-09-12
 ---
 
-Economic decisions depend on the information available to consumers, firms and governments.
+Economic decisions depend on the information available to consumers, firms and governments. When one party knows relevant aspects that the other cannot observe, prices and contracts may fail to reflect adequately the quality, the risk or the behaviour involved in the transaction. Problems of trust then arise, along with choices that would be different if information were more evenly distributed.
 
-When the parties hold different information, problems such as **adverse selection**, **moral hazard**, distrust and inefficient contracts can arise.
+Adverse selection occurs before the contract. In the classic example of the used-car market, the seller knows the quality of the vehicle better than the buyer. If the buyer has no reliable signals to tell products apart, they tend to offer an average price. That price can drive away sellers of higher-quality goods and lower the average quality of the market itself.
 
-Information systems can reduce these asymmetries by organising data, widening transparency and improving decision-making. But they can also concentrate information and create new forms of power.
+Moral hazard appears after the contract, when one party can change its behaviour without the other being able to observe it fully. Situations of this kind are common in insurance, credit, employment relationships and outsourcing. Contracts, audits and monitoring mechanisms seek to reduce the problem, but they also generate costs and can create unwanted incentives.
 
-The central point is that information has value because it **changes decisions**.
+Signalling and screening are responses to information asymmetries. Degrees, certifications, warranties, ratings and track records provide signals about characteristics that cannot be directly observed. Information systems expand this capacity by organising records, easing verification and producing indicators. The same technology, however, can concentrate data in a few hands and widen informational inequality, especially when automated criteria are not transparent.
 
-## Three situations to recognise
+## Conclusion
 
-- **Adverse selection** — the seller knows more about quality than the buyer; without credible signals, good products leave the market (Akerlof's "market for lemons").
-- **Moral hazard** — after the contract is signed, one party changes its behaviour because the other cannot observe what it does (insurance, outsourcing, credit).
-- **Signalling and screening** — degrees, certifications, warranties, ratings and track records are mechanisms to reveal information that would otherwise stay hidden.
+Information has economic value because it changes choices and outcomes. Well-designed systems can therefore reduce uncertainty and improve decisions, provided that the expansion of informational capacity comes with transparency, data protection and criteria of use compatible with the rights of those involved.
 
 ## Further reading
 

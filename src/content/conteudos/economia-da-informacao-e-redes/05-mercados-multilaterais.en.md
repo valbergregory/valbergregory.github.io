@@ -1,7 +1,7 @@
 ---
 title: Multi-sided markets
 subtitle: One platform connects different groups.
-summary: Multi-sided platforms bring together groups that need each other — consumers and sellers, passengers and drivers, developers and users. Each side's value depends on the other, which creates the chicken-and-egg problem and justifies cross-subsidies.
+summary: "Multi-sided platforms bring together groups that need each other: consumers and sellers, passengers and drivers, developers and users. Each side's value depends on the other, which creates the chicken-and-egg problem and justifies cross-subsidies."
 lang: en
 slug: multi-sided-markets
 type: serie
@@ -21,20 +21,17 @@ areas:
 date: 2026-09-12
 ---
 
-Multi-sided platforms bring together groups that need one another, such as consumers and sellers, passengers and drivers, developers and users.
+Multi-sided platforms bring together groups that need one another, such as consumers and sellers, passengers and drivers, advertisers and audiences, developers and users. The service provided is not limited to technological infrastructure, since the platform also sets rules, organises matches, reduces search costs and manages trust mechanisms.
 
-The value perceived by one group depends on the presence and participation of the other. This produces the so-called **chicken-and-egg problem**: how do you attract one side when the other is not there yet?
+The value perceived by each group depends on the presence and participation of the others. This gives rise to the so-called chicken-and-egg problem: it is hard to attract buyers without sellers and sellers without buyers. To overcome that obstacle, the platform can subsidise, reward or charge less to the side that produces the largest positive externality for the whole. In some cases one group uses the service for free while another funds the operation.
 
-A common strategy is to **subsidise**, reward or charge less to the group that generates the largest positive externality for the platform.
+Deciding who pays and who receives incentives is part of the economic design of the product. The platform also has to decide how to verify identities, control quality, organise ratings, moderate conduct and prevent participants from bypassing the service after the first contact. These choices affect safety, reputation, conversion and financial sustainability.
 
-The technical architecture has to be aligned with the **architecture of incentives**. Connecting users is not enough; interests, safety, quality and economic sustainability have to be balanced.
+As the platform grows, it becomes just as important to examine how the value created is shared. Fees, access rules, data handling and ranking criteria can change the economic position of each side. The platform's market power therefore shifts the balance between the efficiency of intermediation, the remuneration of participants and freedom of choice.
 
-## Questions a platform design has to answer
+## Conclusion
 
-- Which side is "subsidised" and which one "pays"? Why?
-- Who controls quality and reputation on each side (ratings, verification, moderation)?
-- What rules stop the sides from bypassing the platform once they have met?
-- How does the platform share the value it creates — and what happens to that balance when it gains market power?
+The success of a multi-sided market depends on the articulation between technological architecture and the architecture of incentives. Connecting groups is only the beginning, since the platform has to sustain trust, quality and economic balance without turning its position as intermediary into excessive dependence for participants.
 
 ## Further reading
 

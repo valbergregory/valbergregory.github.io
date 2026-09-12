@@ -1,7 +1,7 @@
 ---
 title: Physical goods × digital goods
 subtitle: Copying information costs almost nothing.
-summary: A physical good is rival; information and many digital goods are not. The initial production cost can be high, but an extra copy costs almost nothing — which changes pricing and favours subscriptions, advertising, licensing, versioning, bundles and freemium.
+summary: A physical good is rival; information and many digital goods are not. The initial production cost can be high, but an extra copy costs almost nothing, and that changes pricing and favours subscriptions, advertising, licensing, versioning, bundles and freemium.
 lang: en
 slug: physical-versus-digital-goods
 type: serie
@@ -20,19 +20,17 @@ areas:
 date: 2026-09-12
 ---
 
-A physical good is normally **rival**: when one person uses a given resource, it may no longer be available to someone else.
+A physical good is normally rival: when one person uses a given resource, it may no longer be available to someone else. Many digital goods behave differently. A piece of software, a file, a video or an e-book can be reproduced and used simultaneously by many people without the access of one of them reducing, in itself, the availability for the others.
 
-Information and many digital goods have different characteristics. A piece of software, a file, a video or an e-book can be reproduced and used simultaneously by many people.
+This characteristic does not mean that producing information is cheap. Research, programming, infrastructure, editing and creative work can require substantial investment. The difference appears once the first version is ready, since the cost of making an additional copy available tends to be very low. The activity thus combines significant fixed costs with a marginal cost close to zero.
 
-The initial production cost can be high, especially in research, programming, infrastructure and creative work. But the cost of making one additional copy available tends to be very low.
+This structure limits the usefulness of pricing the product solely by the cost of producing one more unit. Firms come to consider the value perceived by different groups of users and turn to subscriptions, advertising, licensing, versioning, bundles and freemium models. The choice of revenue mechanism depends on the profile of demand, on operating costs and on the possibilities of controlling access.
 
-This structure changes traditional pricing and favours models such as **subscriptions**, **advertising**, **licensing**, **versioning**, **bundles** and **freemium**.
+Non-rivalry also turns exclusion into a decision built into the system's architecture. Authentication, licences, digital rights management and usage restrictions define who can access the product and under which conditions. In the opposite direction, the same non-rivalry sustains free software, open data and Creative Commons licences, since sharing does not reduce the stock of information available.
 
-## Why this matters for people who build systems
+## Conclusion
 
-- With a marginal cost close to zero, price cannot be anchored in the cost of producing one more unit; it comes to depend on the **value perceived** by each group of users.
-- **Non-rivalry** turns exclusion (access control, licences, DRM, authentication) into an economic decision embedded in the system's architecture.
-- **Non-rivalry** also underpins free software, open data and Creative Commons licences: sharing does not reduce the stock available.
+The economic difference between physical and digital goods explains why information markets develop their own forms of pricing, access and distribution. For those who design systems, understanding this structure is essential to choosing coherent business models and access rules proportionate to the value and the rights involved.
 
 ## Further reading
 

@@ -1,7 +1,7 @@
 ---
 title: Data for sustainable fisheries
 subtitle: Technology, governance and local knowledge.
-summary: Fisheries management depends on reliable information about stocks, catches, effort, location, the ocean, climate, prices and communities. Information systems can integrate landings, vessel tracking, remote sensing and local data — provided they are combined with governance, data protection and fishers' participation.
+summary: "Fisheries management depends on reliable information about stocks, catches, effort, location, the ocean, climate, prices and communities. Information systems can integrate landings, vessel tracking, remote sensing and local data, provided they are combined with governance, data protection and fishers' participation."
 lang: en
 slug: data-for-sustainable-fisheries
 type: serie
@@ -24,29 +24,17 @@ project: marine-heatwaves-fishing-effort
 date: 2026-09-12
 ---
 
-Fisheries management depends on reliable information about stocks, catches, effort, location, oceanographic conditions, climate, prices and the socio-economic characteristics of communities.
+Fisheries management depends on reliable information about stocks, catches, effort, location, oceanographic conditions, climate, prices and the socio-economic characteristics of communities. When these data are fragmented, discontinuous or inaccessible, it becomes hard to set rules, enforce them and evaluate their results.
 
-Information systems can integrate:
+Information systems can integrate landing records, vessel tracking, remote sensing, sea-surface temperature, climate events, protected areas, port infrastructure, municipal data and information provided by communities. This integration supports environmental monitoring, planning, research, enforcement and adaptation to climate change.
 
-- landing data;
-- vessel tracking;
-- remote sensing;
-- sea temperature;
-- climate events;
-- protected areas;
-- port infrastructure;
-- municipal data;
-- information provided by communities.
+Signals from AIS and VMS systems make it possible to reconstruct part of the fishing effort of tracked fleets. In Brazil, the National Programme for Satellite Tracking of Fishing Vessels covers part of the industrial fleet. Satellites also record sea-surface temperature and make it possible to identify marine heatwaves, relating environmental changes to the movement of fish and of fishing effort.
 
-Such systems can support environmental monitoring, enforcement, planning, research and adaptation to climate change.
+The main blind spot remains small-scale fishing. Many small boats have no tracking, and landing statistics are discontinuous. Local monitoring programmes and apps built together with communities can narrow this gap, provided that fishers' data are protected, that the purposes of use are clear and that the information produced returns as benefits to the participants themselves.
 
-Technology has to be combined with **governance**, **data protection** and **fishers' participation**.
+## Conclusion
 
-## What can already be measured — and what is missing
-
-- **AIS** and **VMS** signals transmitted by vessels make it possible to reconstruct the fishing effort of the industrial fleet on a global scale; in Brazil, the National Programme for Satellite Tracking of Fishing Vessels (PREPS) covers part of that fleet.
-- Satellites measure sea-surface temperature every day, which makes it possible to identify **marine heatwaves** and relate them to the movement of fish and of fishing effort — the subject of one of the research projects linked to this series.
-- The blind spot is still **small-scale fishing**: small boats without tracking and discontinuous landing statistics. State monitoring programmes and apps filled in together with communities are the most promising path — as long as fishers' data are protected and the benefits flow back to them.
+Technology alone does not ensure sustainable fishing. Data need to be reliable, integrated and turned into legitimate decisions through governance, data protection and fishers' participation. Only that combination allows information to become conservation, income and the capacity to adapt.
 
 ## Further reading
 

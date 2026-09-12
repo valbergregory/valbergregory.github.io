@@ -1,7 +1,7 @@
 ---
-title: "Pesca: recurso comum"
+title: Pesca como recurso comum
 subtitle: Rival no uso. Difícil exclusão.
-summary: Os estoques pesqueiros são o exemplo clássico de recurso de uso comum — é difícil impedir o acesso, mas o peixe capturado por um deixa de estar disponível para os outros. Sem regras, cada pescador tem incentivo a aumentar o esforço, e o resultado pode ser sobrepesca e perda de renda.
+summary: Os estoques pesqueiros são o exemplo clássico de recurso de uso comum, é difícil impedir o acesso, mas o peixe capturado por um deixa de estar disponível para os outros. Sem regras, cada pescador tem incentivo a aumentar o esforço, e o resultado pode ser sobrepesca e perda de renda.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -22,28 +22,17 @@ project: fishing-closures-brazil
 date: 2026-09-12
 ---
 
-Os estoques pesqueiros são exemplos clássicos de **recursos de uso comum**.
+Os estoques pesqueiros são exemplos clássicos de recursos de uso comum. A exclusão de usuários pode ser difícil ou custosa, enquanto o peixe capturado por um agente deixa de estar disponível para os demais. Essa combinação cria uma interdependência que não aparece com a mesma intensidade em bens privados convencionais.
 
-É difícil impedir completamente o acesso ao recurso, mas o peixe capturado por um agente deixa de estar disponível para os demais.
+Sem regras adequadas, cada pescador possui incentivo para ampliar o esforço antes que outros capturem o recurso. O comportamento pode ser racional no plano individual e produzir, em conjunto, sobrepesca, redução dos estoques e perda de renda no longo prazo. Gordon mostrou que, em regime de livre acesso, o esforço tende a avançar até dissipar a renda econômica proporcionada pelo recurso.
 
-Sem regras adequadas, cada pescador possui incentivo para aumentar seu esforço antes que outros capturem o recurso. O resultado pode ser **sobrepesca**, redução dos estoques e perda de renda no longo prazo.
+Hardin popularizou esse problema como “tragédia dos comuns”, mas a literatura posterior demonstrou que o resultado não é inevitável. Elinor Ostrom documentou situações em que comunidades administram recursos comuns por meio de limites claros, regras adaptadas ao contexto, monitoramento, participação dos usuários e sanções graduais. A governança, portanto, pode surgir de combinações entre Estado, comunidade e organizações locais.
 
-A gestão pode envolver:
+Na pesca, períodos de defeso, cotas, licenças, áreas protegidas, fiscalização, monitoramento e gestão compartilhada procuram alinhar o esforço à capacidade de renovação dos estoques. No Brasil, o defeso combina proibição temporária da captura de determinadas espécies com proteção de renda para pescadores artesanais elegíveis. Avaliar seus efeitos sobre estoques e renda continua sendo uma questão empírica relevante.
 
-- períodos de defeso;
-- cotas;
-- licenças;
-- áreas protegidas;
-- fiscalização;
-- monitoramento;
-- participação das comunidades;
-- gestão compartilhada.
+## Conclusão
 
-## Da "tragédia" à governança
-
-- Gordon (1954) mostrou que, em livre acesso, o esforço de pesca cresce até dissipar toda a renda econômica do recurso: o estoque fica abaixo do ótimo e ninguém ganha com isso.
-- Hardin (1968) popularizou a "tragédia dos comuns", mas Elinor Ostrom demonstrou, com centenas de casos, que comunidades conseguem gerir recursos comuns quando há limites claros, regras adaptadas ao lugar, monitoramento e sanções graduais — um resultado que lhe valeu o Nobel de 2009.
-- No Brasil, o **defeso** (proibição temporária da pesca de determinadas espécies) é o instrumento mais difundido, combinado ao seguro-defeso para os pescadores artesanais; medir se ele de fato recupera os estoques e a renda é uma pergunta empírica em aberto — e objeto de uma das pesquisas ligadas a esta série.
+A pesca sustentável depende de instituições que convertam a interdependência entre usuários em regras legítimas e verificáveis. O desafio não consiste apenas em limitar capturas, mas em construir uma governança que preserve os estoques e distribua de forma justa os custos da conservação.
 
 ## Para aprofundar
 

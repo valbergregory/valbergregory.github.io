@@ -21,24 +21,17 @@ areas:
 date: 2026-09-12
 ---
 
-Bundling is the grouping of different products or services into a single package.
+Bundling is the joint offer of products or services in a single package. The price of the set is usually lower than the sum of the components bought separately, which raises the perceived value for consumers with different preferences. Common examples include Microsoft 365, streaming bundles, combinations of domain, hosting, e-mail and digital certificate, and ecosystems that bring together storage, productivity and communication.
 
-The package usually costs less than buying all the components separately and raises the perceived value for consumers with different preferences.
+The economic logic of the bundle is related to the diversity of willingness to pay. One user may value a word processor more, while another attaches greater utility to storage or communication. By combining the items, the firm reduces the dispersion of these valuations and manages to offer a single price acceptable to a larger share of the market.
 
-The strategy can also increase how long users stay within the ecosystem and make competition harder for firms that offer only a single, stand-alone solution.
+The model is especially attractive for information goods, since including one more component may add little to the marginal cost. The bundle also favours the user's permanence in the ecosystem, simplifies purchasing and integrates features. These advantages, however, do not eliminate its possible effects on competition.
 
-## Examples
+A firm with an established position can use the bundle as an entry barrier. A competitor offering only a spreadsheet, a communication service or another specific solution comes to compete with a set in which the equivalent product seems to have no separate price. For that reason, bundling and tying frequently appear in competition analyses.
 
-- **Microsoft 365**: Word, Excel, PowerPoint, Outlook, OneDrive and Teams.
-- **Streaming bundles**.
-- **Domain, hosting, e-mail and digital certificate** sold together.
-- **Storage, productivity and communication services** offered jointly.
+## Conclusion
 
-## Why it works — and why it worries regulators
-
-- When consumers value the components differently, the bundle **reduces the dispersion** of willingness to pay and makes it possible to sell to more people at a single price.
-- For information goods, with near-zero marginal cost, bundling is especially profitable: adding one more item costs almost nothing.
-- The same mechanism can work as an **entry barrier**: a competitor selling only a spreadsheet or only a chat service faces a bundle in which that item comes "for free". That is why bundling (and tying) appears so often in competition cases.
+Bundling can reduce transaction costs and offer convenience, but it can also reinforce closed ecosystems and limit competition from specialised suppliers. Evaluating it therefore requires considering price, the possibility of choice, effective integration and effects on the entry of competitors.
 
 ## Further reading
 

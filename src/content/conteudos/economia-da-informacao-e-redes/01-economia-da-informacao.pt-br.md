@@ -20,20 +20,17 @@ areas:
 date: 2026-09-12
 ---
 
-A Economia da Informação estuda como informação e conhecimento influenciam decisões, mercados, contratos e formas de organização produtiva.
+A Economia da Informação estuda como os dados e o conhecimento influenciam decisões, mercados, contratos e formas de organização produtiva. Seu ponto de partida é simples, pois agentes econômicos raramente dispõem das mesmas informações, no mesmo momento e com a mesma qualidade. Essa diferença afeta preços, negociações, expectativas e a distribuição do poder entre consumidores, empresas e governos.
 
-Na economia digital, a informação não é apenas um recurso auxiliar. Ela se transforma em **ativo econômico**, **insumo produtivo** e **fonte de poder**.
+Na economia digital, a informação deixou de ocupar uma posição meramente auxiliar. Ela passou a funcionar como ativo econômico, insumo produtivo e fonte de vantagem competitiva. Bases de dados podem aperfeiçoar serviços, reduzir incertezas e orientar decisões, mas seu valor depende da qualidade, da organização, da possibilidade de uso e das regras que disciplinam sua coleta e circulação.
 
-Para profissionais de Sistemas de Informação, compreender essa área permite perceber que a arquitetura de um software, a forma de coleta dos dados e o desenho de uma plataforma afetam diretamente seu modelo de negócio e sua capacidade de gerar valor.
+Para profissionais de Sistemas de Informação, essa discussão possui consequências práticas, haja vista que a arquitetura de um software define quais dados serão coletados, como poderão ser relacionados e quem terá acesso a eles. O desenho de uma plataforma influencia a formação de mercados, a visibilidade dos participantes, os mecanismos de reputação e a capacidade de monetização. Escolhas consideradas técnicas, portanto, também distribuem oportunidades, riscos e responsabilidades.
 
-## O que a série vai percorrer
+Ao longo desta série, examinarei como as assimetrias informacionais mudam decisões, por que bens digitais se comportam de maneira diferente dos bens físicos e como os efeitos de rede ajudam plataformas a alcançar massa crítica. Também discutirei mercados multilaterais, estratégias de versionamento, bundling e freemium, além dos problemas de concentração, poder digital e regulação.
 
-1. Como a informação muda decisões — e o que acontece quando as partes sabem coisas diferentes.
-2. Por que bens digitais se comportam de modo diferente dos bens físicos.
-3. Efeitos de rede e a corrida por massa crítica.
-4. Mercados multilaterais e o problema do "ovo e da galinha".
-5. Três formas de monetizar informação: versionamento, bundling e freemium.
-6. Poder digital, concentração e regulação.
+## Conclusão
+
+A Economia da Informação oferece instrumentos para compreender como dados, conhecimento e redes criam valor e reorganizam relações econômicas. Essa abordagem permite analisar sistemas digitais de forma mais completa, considerando simultaneamente sua estrutura tecnológica, seus incentivos e seus efeitos sobre a sociedade.
 
 ## Para aprofundar
 

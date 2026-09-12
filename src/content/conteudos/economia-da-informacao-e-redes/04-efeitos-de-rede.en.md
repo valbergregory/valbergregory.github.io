@@ -1,7 +1,7 @@
 ---
 title: Network effects
 subtitle: More users. More connections. More value.
-summary: Network effects arise when the value of a product grows as more people use it — directly, as in messaging apps, or across groups, when one side attracts the other. The challenge for platforms is to reach critical mass.
+summary: Network effects arise when the value of a product grows as more people use it, directly, as in messaging apps, or across groups, when one side attracts the other. The challenge for platforms is to reach critical mass.
 lang: en
 slug: network-effects
 type: serie
@@ -20,21 +20,17 @@ areas:
 date: 2026-09-12
 ---
 
-Network effects occur when the value of a product or service increases as more people start using it.
+Network effects occur when the value of a product or service changes as the number of participants grows. In direct effects, each new user widens the possibilities of interaction for the others, as happens in messaging apps and communication networks. In indirect or cross-side effects, the growth of one group attracts participants from another. A mobility platform, for example, becomes more attractive to drivers when it gathers more passengers and more useful to passengers when the supply of drivers grows.
 
-In **direct effects**, each new participant increases the usefulness of the network for the other users. Messaging apps and communication networks are the typical case.
+Metcalfe's law is a heuristic often used to illustrate the expansion of potential connections. In a network with N users there are N(N − 1)/2 possible pairs, which is why the value of the network is usually represented as proportional to N². This formulation should not be treated as an empirical law. Not all connections carry the same relevance, and other approximations, such as N log N, may describe certain contexts better.
 
-In **indirect or cross-side effects**, the growth of one group attracts participants from another group. More passengers, for example, can attract more drivers to a mobility platform.
+The main challenge for a new platform is to reach critical mass. Before that point, the small number of participants reduces the usefulness of the service and makes new adoption harder. After it, growth can acquire some capacity to feed itself. This process helps explain why firms subsidise early users, ease invitations and lower entry barriers.
 
-**Metcalfe's law** is presented as a heuristic to show that the potential number of connections grows quickly as the network expands: with *N* users there are *N(N − 1)/2* possible pairs, so value would grow roughly with *N²*. It is a useful approximation, not an empirical law — not every connection is worth the same, and some estimates suggest slower growth (*N log N*).
+The same effects that create value can raise switching costs and produce technological lock-in. Leaving a network can mean losing contacts, reputation, history or compatibility with other users. This dynamic favours concentration and makes interoperability a relevant issue for competition policy, since communication between networks can reduce dependence on a single supplier.
 
-The challenge for platforms is to reach **critical mass**, the point at which adoption becomes more intense and partly self-sustaining.
+## Conclusion
 
-## The less visible side
-
-- Network effects generate **switching costs** and lock-in: leaving a network means losing the connections built there.
-- They explain why digital markets tend towards concentration — the subject of the last piece in the series.
-- They also explain why **interoperability** (the ability to talk across networks) is such a widely discussed regulatory tool.
+Network effects are central to explaining growth, concentration and user retention in digital markets. Studying them makes it possible to distinguish the value created by the expansion of the network from the risks that stem from dependence, switching costs and reduced competition.
 
 ## Further reading
 
