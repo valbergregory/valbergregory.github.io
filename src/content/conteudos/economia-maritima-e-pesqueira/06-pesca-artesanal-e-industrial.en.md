@@ -1,7 +1,7 @@
 ---
 title: Small-scale and industrial fishing
 subtitle: Different scales. Different policies.
-summary: Small-scale fishing is more tied to the territory, uses smaller boats and weighs heavily on local income and food security; industrial fishing operates at larger scale, with more capital, technology and logistics. Differences in scale, cost and impact call for specific policies — a single rule produces unequal effects.
+summary: "Small-scale fishing is more tied to the territory, uses smaller boats and weighs on local income and food security; industrial fishing operates at larger scale, with more capital, technology and logistics. Differences in scale, cost and impact call for specific policies: a single rule produces unequal effects."
 lang: en
 slug: small-scale-and-industrial-fishing
 type: serie
@@ -23,19 +23,17 @@ areas:
 date: 2026-09-12
 ---
 
-Small-scale (artisanal) fishing and industrial fishing have distinct economic structures.
+Small-scale (artisanal) fishing and industrial fishing have distinct economic structures. The former usually shows greater dependence on the territory, the use of smaller boats, family or community organisation and a significant role in local income and food security. The latter operates at larger scale, with more capital, technology, storage capacity and extensive logistics chains.
 
-**Small-scale fishing** is usually more dependent on the territory, uses smaller boats, rests on community relationships and plays a significant role in local income and food security.
+Brazilian law recognises this difference. Law 11,959/2009 characterises artisanal fishing as that carried out directly by a professional fisher, autonomously or within a family economy, with their own means or through partnership and, as a rule, on small boats. Industrial fishing involves individuals or companies, hired workers and vessels suited to larger-scale operations.
 
-**Industrial fishing** operates at larger scale and uses more capital, technology, storage capacity and longer logistics chains.
+The General Fisheries Registry (RGP) works as a requirement for access to policies and rights associated with the sector, among them the closed-season insurance benefit and lines of credit. The quality of the registry affects the state's capacity to identify beneficiaries, track effort and plan measures adjusted to the reality of each group.
 
-Differences in scale, costs, technology and impact call for **specific public policies**. A single form of regulation can have unequal effects on the different groups.
+Small-scale fishing accounts for a large share of landings in Brazil's Northeast and sustains many jobs, but it remains less covered by statistics. This gap makes it hard to estimate income, productivity and territorial dependence. Applying a single rule to agents with different scales, costs and technologies can distribute both the benefits and the burdens of regulation unevenly.
 
-## How Brazil defines the two
+## Conclusion
 
-- Law 11,959/2009 (the National Policy for the Sustainable Development of Aquaculture and Fisheries) distinguishes **artisanal** fishing — carried out directly by a professional fisher, autonomously or within a family economy, with their own means of production or in partnership, on small boats — from **industrial** fishing, carried out by individuals or companies with vessels of any size and hired crews.
-- The **General Fisheries Registry (RGP)** is the gateway to policies such as the closed-season insurance benefit (Law 10,779/2003) and rural credit.
-- Small-scale fishing accounts for a large share of landings in Brazil's Northeast and for most of the sector's employment — yet it is the least covered by statistics, which makes it hard to design well-fitted policies.
+Fisheries policy has to recognise the differences between small-scale and industrial fishing. Regulation will therefore be more effective when it combines common environmental criteria with instruments proportionate to the productive scale, economic capacity and social importance of each segment.
 
 ## Further reading
 

@@ -1,7 +1,7 @@
 ---
 title: Economia Marítima
 subtitle: Muito além dos navios.
-summary: A Economia Marítima abrange, além do transporte, a infraestrutura portuária, a construção naval, a logística, a pesca e a aquicultura, a energia offshore, a tecnologia e os serviços das zonas costeiras — atividades que afetam empregos, preços, exportações, segurança alimentar e desenvolvimento regional.
+summary: A Economia Marítima abrange, além do transporte, a infraestrutura portuária, a construção naval, a logística, a pesca e a aquicultura, a energia offshore, a tecnologia e os serviços das zonas costeiras, atividades que afetam empregos, preços, exportações, segurança alimentar e desenvolvimento regional.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -21,25 +21,17 @@ areas:
 date: 2026-09-12
 ---
 
-A Economia Marítima abrange um conjunto amplo de atividades econômicas.
+A Economia Marítima abrange um conjunto amplo de atividades associadas ao mar e às zonas costeiras. Além do transporte, inclui infraestrutura portuária, construção e manutenção naval, logística, pesca, aquicultura, energia offshore, tecnologia, monitoramento e serviços costeiros. O desempenho desse conjunto afeta empregos, preços, exportações, segurança alimentar e desenvolvimento regional.
 
-Além do transporte marítimo, ela inclui:
+Uma dificuldade importante está na mensuração. Muitas atividades não aparecem nas contas nacionais sob uma categoria única denominada “setor marítimo”. Elas se distribuem entre transporte, indústria, energia, serviços e produção de alimentos. A construção de indicadores integrados é, portanto, condição para identificar a contribuição econômica do mar, comparar territórios e planejar investimentos.
 
-- infraestrutura portuária;
-- construção e manutenção naval;
-- logística;
-- pesca e aquicultura;
-- energia *offshore*;
-- tecnologia e monitoramento;
-- serviços associados às zonas costeiras.
+No Brasil, a expressão Amazônia Azul designa a extensa área marítima sob jurisdição nacional, estimada em cerca de 5,7 milhões de quilômetros quadrados. O Plano Setorial para os Recursos do Mar, coordenado pela Comissão Interministerial para os Recursos do Mar, organiza ações públicas relacionadas ao conhecimento e ao uso desses recursos. Esses instrumentos mostram que a agenda marítima envolve planejamento econômico, ciência, defesa, proteção ambiental e coordenação institucional.
 
-O desempenho dessas atividades afeta **empregos**, **preços**, **exportações**, **segurança alimentar** e **desenvolvimento regional**.
+Para Alagoas e o Nordeste, o tema reúne pesca artesanal, turismo costeiro, portos, estuários e a foz do rio São Francisco. Cada atividade possui necessidades próprias, mas todas dependem da qualidade da infraestrutura, do ambiente e das informações disponíveis para orientar decisões públicas e privadas.
 
-## Por que medir a economia do mar
+## Conclusão
 
-- Boa parte dessas atividades não aparece como "setor marítimo" nas contas nacionais: está diluída em transporte, indústria, energia e serviços. Medir o conjunto é o primeiro passo para planejar.
-- No Brasil, a Marinha chama de **Amazônia Azul** a área marítima sob jurisdição nacional — cerca de 5,7 milhões de km² — e o **Plano Setorial para os Recursos do Mar (PSRM)**, coordenado pela Comissão Interministerial para os Recursos do Mar (CIRM), organiza a política pública para o uso desses recursos.
-- Para Alagoas e o Nordeste, o mar articula pesca artesanal, turismo costeiro, portos e a foz do São Francisco — temas que atravessam esta série.
+A Economia Marítima permite enxergar como um mesmo espaço articula setores que costumam ser analisados separadamente. Medir essas conexões é o primeiro passo para formular políticas capazes de gerar renda e competitividade sem comprometer os ecossistemas e as comunidades costeiras.
 
 ## Para aprofundar
 

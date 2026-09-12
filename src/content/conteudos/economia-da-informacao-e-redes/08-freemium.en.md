@@ -20,24 +20,17 @@ areas:
 date: 2026-09-12
 ---
 
-The freemium model combines a free basic version with paid plans that offer additional features.
+The freemium model combines a free basic version with paid plans that offer additional features. Free access lowers the entry barrier, widens the user base and can help a platform reach critical mass. Free access, however, is part of a segmentation strategy and needs to be sustained by revenue from subscriptions, advertising or other sources compatible with the service.
 
-The free version lowers the entry barrier, widens the user base and can help the platform reach **critical mass**.
+Spotify, Dropbox and Zoom illustrate different ways of organising the model. The free version may carry ads, limit storage, restrict the length of meetings or reduce the number of projects. Paid plans remove those limits or add features aimed at users with heavier usage and greater willingness to pay.
 
-Sustainability depends on **converting** part of the users, on **controlling the costs** of the free base and on a **clear difference in value** between the plans.
+A zero price produces a pull that tends to be greater than the mere saving of a few cents. This characteristic favours experimentation and recommendation, especially in products that benefit from network effects. The strategy is viable when the marginal cost of serving each free user stays low and when the enlarged base contributes to acquisition, product learning or conversion.
 
-## Examples
+Sustainability depends on the conversion rate, on the cost of the free base and on the difference in utility between plans. Since only a share of users usually takes up the paid version, overly generous limits can raise costs without producing revenue, while severe restrictions prevent users from recognising the product's value. The design of the free plan therefore has to allow real use and, at the same time, offer legitimate reasons to upgrade.
 
-- **Spotify**: free version with ads and Premium version.
-- **Dropbox**: free initial storage and plans with more capacity.
-- **Zoom**: free meetings with limits and professional plans.
-- **Productivity tools** with free basic features and paid advanced functions.
+## Conclusion
 
-## Scale first, convert later
-
-- Freemium is a case of versioning in which the entry version costs zero — and a zero price has a psychological effect of its own, out of proportion to the few cents saved.
-- It only adds up when the marginal cost of serving a free user is low (digital goods) and when the product benefits from network or referral effects.
-- Typical conversion rates are small; that is why the design of the free plan's limits (storage, time, ads, number of projects) is one of the most sensitive product decisions.
+Freemium works when free access widens the market without undermining the capacity to fund the service. The balance depends on controlled costs, transparent communication and a progression of value that respects the user instead of turning artificial limitations into pressure to buy.
 
 ## Further reading
 

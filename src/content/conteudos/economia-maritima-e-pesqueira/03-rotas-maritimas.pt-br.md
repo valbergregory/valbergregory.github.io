@@ -1,7 +1,7 @@
 ---
 title: Rotas marítimas
 subtitle: O mar organiza cadeias globais.
-summary: Grande parte do comércio internacional depende do transporte marítimo. Distâncias, capacidade dos portos, combustível, tempo de viagem, seguros e gargalos influenciam o preço final dos produtos — e uma interrupção em uma passagem estratégica afeta cadeias produtivas em vários países.
+summary: Grande parte do comércio internacional depende do transporte marítimo. Distâncias, capacidade dos portos, combustível, tempo de viagem, seguros e gargalos influenciam o preço final dos produtos, e uma interrupção em uma passagem estratégica afeta cadeias produtivas em vários países.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -20,17 +20,17 @@ project: port-network-resilience
 date: 2026-09-12
 ---
 
-Grande parte do comércio internacional depende do transporte marítimo.
+Grande parte do comércio internacional depende do transporte marítimo. Distância, capacidade portuária, preço dos combustíveis, tempo de viagem, seguro e disponibilidade de navios influenciam o custo final dos produtos. Por isso, as rotas marítimas integram a infraestrutura econômica mundial e afetam empresas e consumidores muito além das regiões costeiras.
 
-Distâncias, capacidade dos portos, preço dos combustíveis, tempo de viagem, seguros e gargalos logísticos influenciam o custo final dos produtos.
+Canais e estreitos concentram fluxos expressivos em passagens relativamente estreitas. Suez, Panamá, Malaca, Ormuz e Bab el-Mandeb são exemplos de pontos de estrangulamento. Quando uma dessas passagens fecha, perde capacidade ou se torna insegura, embarcações podem ser desviadas para trajetos mais longos, com aumento de fretes e prazos.
 
-Interrupções em rotas ou passagens estratégicas podem afetar cadeias produtivas em diversos países. Por isso, rotas marítimas constituem parte importante da **infraestrutura econômica mundial**.
+O custo do transporte não corresponde apenas ao valor pago pelo frete. Também inclui seguro, risco de atraso, capital imobilizado durante a viagem e necessidade de manter estoques maiores para compensar a incerteza. Uma interrupção localizada pode, assim, produzir efeitos sucessivos sobre fábricas, centros de distribuição, exportadores e preços ao consumidor.
 
-## Pontos de estrangulamento
+Para países geograficamente distantes dos grandes mercados, como o Brasil, esses custos funcionam como uma espécie de tarifa natural sobre exportações e importações. Eficiência portuária, previsibilidade logística e integração com redes terrestres tornam-se fatores decisivos para a competitividade.
 
-- Canais e estreitos — Suez, Panamá, Malaca, Ormuz, Bab el-Mandeb — concentram fluxos enormes em passagens estreitas; quando um deles fecha ou fica inseguro, os navios desviam por rotas mais longas, o frete sobe e os prazos se alargam.
-- O custo de transporte não é só o frete: inclui seguro, tempo de capital parado, risco de atraso e a necessidade de manter estoques maiores.
-- Para países distantes dos grandes mercados, como o Brasil, o custo de transporte funciona como uma "tarifa natural" sobre exportações e importações.
+## Conclusão
+
+Rotas marítimas organizam cadeias produtivas globais e transmitem choques entre países. Compreender seus custos e vulnerabilidades ajuda governos e empresas a planejar infraestrutura, estoques e alternativas logísticas capazes de reduzir os efeitos de interrupções.
 
 ## Para aprofundar
 

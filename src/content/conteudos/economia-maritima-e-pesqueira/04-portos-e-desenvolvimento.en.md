@@ -1,7 +1,7 @@
 ---
 title: Ports and development
 subtitle: Infrastructure that connects territories.
-summary: An efficient port cuts costs, eases exports, attracts investment and stimulates logistics and industry. But its impact on the territory depends on integration with roads, railways, information systems, urban planning and environmental policy — and on the externalities it creates.
+summary: An efficient port cuts costs, eases exports, attracts investment and stimulates logistics and industry. But its impact on the territory depends on integration with roads, railways, information systems, urban planning and environmental policy, and on the externalities it creates.
 lang: en
 slug: ports-and-development
 type: serie
@@ -24,19 +24,17 @@ project: port-digitalization-observatory
 date: 2026-09-12
 ---
 
-Ports connect local economies to national and international markets.
+Ports connect local economies to national and international markets. An efficient terminal can reduce costs, ease exports, attract investment and stimulate logistics and industrial activity. These benefits, however, depend on the relationship between the port and the territory and the networks that move people, goods and information.
 
-An efficient port can reduce costs, ease exports, attract investment and stimulate logistics and industrial activity.
+Port efficiency has to be demonstrated by indicators. Waiting time to berth, vessel time in port, moves per hour and cost per container make it possible to compare operations and locate bottlenecks. Brazil has public data that can support this diagnosis and guide decisions on capacity, management and investment.
 
-Its territorial impact, however, depends on integration with roads, railways, information systems, urban planning and environmental policy.
+A port does not produce regional development automatically, since its effects depend on the hinterland, on road and rail access, on the presence of industries and services and on the capacity to integrate local firms into the chains it handles. An isolated port can move large volumes without producing proportionate change in its surroundings.
 
-Port development also has to take **externalities** into account: pollution, congestion, real-estate pressure and conflicts over the use of the territory.
+Digitalisation also influences performance. Single windows, port community systems and the integration of databases reduce rework, release times and transaction costs. At the same time, planning has to consider pollution, congestion, real-estate pressure and conflicts over the use of the territory, since these externalities fall on nearby cities and communities.
 
-## Three lessons from the literature
+## Conclusion
 
-- **Efficiency is a measure, not an adjective**: waiting time to berth, vessel time in port, moves per hour and cost per container are indicators that can be compared across ports — and Brazil publishes data that allow it.
-- **A port does not develop a region on its own**: the effect depends on what happens behind it — hinterland, land access, industry and services. "Island" ports move cargo without transforming the territory.
-- **Digitalisation matters**: single windows, port community systems and data integration cut transaction times and costs — the subject of one of the ongoing research projects linked to this series.
+Ports contribute to development when operational efficiency, land connectivity, productive integration and the management of externalities advance together. Assessing these dimensions avoids confusing the volume handled with the benefit actually absorbed by the territory.
 
 ## Further reading
 

@@ -1,7 +1,7 @@
 ---
 title: Fisheries bioeconomics
 subtitle: Fishing more does not always create more value.
-summary: Fisheries bioeconomics integrates the biological dynamics of stocks with the economic behaviour of fishers. When effort grows too much, the stock falls and each trip catches less — more boats, hours and fuel do not guarantee more production or income.
+summary: "Fisheries bioeconomics integrates the biological dynamics of stocks with the economic behaviour of fishers. When effort grows too much, the stock falls and each trip catches less: more boats, hours and fuel do not guarantee more production or income."
 lang: en
 slug: fisheries-bioeconomics
 type: serie
@@ -22,32 +22,17 @@ project: fishing-closures-brazil
 date: 2026-09-12
 ---
 
-Fisheries bioeconomics integrates biological dynamics and economic behaviour.
+Fisheries bioeconomics integrates the biological dynamics of stocks with the economic behaviour of fishers. When the stock is healthy, a given amount of effort can yield high catches. If boats, working hours, gear and fuel increase excessively, the stock shrinks and each additional unit of effort tends to catch less.
 
-When the stock is healthy, a given amount of effort can yield high catches. When effort grows excessively, the stock shrinks and each trip may catch less.
+The Gordon–Schaefer model represents this relationship through a sustainable yield curve. Catch grows with effort until it reaches the maximum sustainable yield and, beyond that point, begins to fall because the stock can no longer replace itself at the same pace. The curve helps visualise why fishing more does not guarantee a permanent increase in production.
 
-Increasing the number of boats, working hours, gear and fuel **does not guarantee** permanent growth in production or income.
+The total cost of effort is usually represented by a rising line. The difference between revenue and cost indicates the economic rent of the sector. The maximum economic yield lies to the left of the maximum sustainable yield, since it requires less effort, keeps a larger stock in the sea and produces higher net income. Under open access, however, new entrants and more effort can advance to the point where revenue and cost are equal, dissipating that rent.
 
-The analysis has to consider:
+Bioeconomic analysis relates stock, natural growth, effort, catch, costs, prices and access rules. It shows that biological, economic and social goals do not coincide automatically and that the choice of a management point distributes effects between present production, future conservation, employment and income.
 
-- the fish stock;
-- natural growth;
-- fishing effort;
-- catch;
-- costs;
-- prices;
-- income;
-- open-access conditions;
-- sustainable yield;
-- economic efficiency.
+## Conclusion
 
-The central idea is that the **largest possible catch does not necessarily coincide with the best economic or social outcome**.
-
-## Reading the chart
-
-- The bell-shaped curve is the **sustainable yield curve** (the Gordon–Schaefer model): as effort increases, catch rises up to the **maximum sustainable yield (MSY)** and then falls, because the stock can no longer replace itself.
-- The straight line is the **total cost** of effort. The sector's profit is the gap between the revenue curve and that line.
-- The **maximum economic yield (MEY)** lies *to the left* of MSY: it requires less effort, leaves a larger stock in the sea and generates more net income. Under open access, however, effort advances until revenue and cost are equal — and the rent disappears.
+The largest possible catch does not necessarily correspond to the best economic or social outcome. Responsible management seeks to keep stocks productive with a level of effort capable of sustaining income, reducing waste and preserving opportunities for future generations.
 
 ## Further reading
 

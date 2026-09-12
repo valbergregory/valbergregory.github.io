@@ -1,7 +1,7 @@
 ---
 title: Mercados multilaterais
 subtitle: Uma plataforma conecta diferentes grupos.
-summary: Plataformas multilaterais aproximam grupos que precisam uns dos outros — consumidores e vendedores, passageiros e motoristas, desenvolvedores e usuários. O valor de cada lado depende do outro, o que cria o problema do "ovo e da galinha" e justifica subsídios cruzados.
+summary: "Plataformas multilaterais aproximam grupos que precisam uns dos outros, consumidores e vendedores, passageiros e motoristas, desenvolvedores e usuários. O valor de cada lado depende do outro, o que cria o problema do \"ovo e da galinha\" e justifica subsídios cruzados."
 lang: pt-br
 type: serie
 series: economia-da-informacao-e-redes
@@ -20,20 +20,17 @@ areas:
 date: 2026-09-12
 ---
 
-Plataformas multilaterais aproximam grupos que precisam uns dos outros, como consumidores e vendedores, passageiros e motoristas, desenvolvedores e usuários.
+Plataformas multilaterais aproximam grupos que precisam uns dos outros, como consumidores e vendedores, passageiros e motoristas, anunciantes e públicos, desenvolvedores e usuários. O serviço prestado não se resume à infraestrutura tecnológica, pois a plataforma também estabelece regras, organiza encontros, reduz custos de busca e administra mecanismos de confiança.
 
-O valor percebido por um grupo depende da presença e da participação do outro. Isso produz o chamado **problema do "ovo e da galinha"**: como atrair um lado quando o outro ainda não está presente?
+O valor percebido por cada grupo depende da presença e da participação dos demais. Surge, assim, o problema conhecido como “ovo e galinha”, pois é difícil atrair compradores sem vendedores e vendedores sem compradores. Para superar esse obstáculo, a plataforma pode subsidiar, incentivar ou cobrar menos do lado que produz maior externalidade positiva para o conjunto. Em alguns casos, um grupo utiliza o serviço gratuitamente enquanto outro financia a operação.
 
-Uma estratégia frequente consiste em **subsidiar**, incentivar ou cobrar menos do grupo que gera maior externalidade positiva para a plataforma.
+A definição de quem paga e de quem recebe incentivos faz parte do desenho econômico do produto. A plataforma também precisa decidir como verificar identidades, controlar a qualidade, organizar avaliações, moderar condutas e evitar que os participantes contornem o serviço depois do primeiro contato. Essas escolhas afetam segurança, reputação, conversão e sustentabilidade financeira.
 
-A arquitetura tecnológica precisa estar articulada à **arquitetura de incentivos**. Não basta conectar usuários; é necessário equilibrar interesses, segurança, qualidade e sustentabilidade econômica.
+À medida que a plataforma cresce, torna-se igualmente importante examinar como o valor gerado é repartido. Taxas, regras de acesso, tratamento de dados e critérios de ranqueamento podem alterar a posição econômica de cada lado. O poder de mercado da plataforma, portanto, muda o equilíbrio entre eficiência da intermediação, remuneração dos participantes e liberdade de escolha.
 
-## Perguntas que o desenho de uma plataforma precisa responder
+## Conclusão
 
-- Qual lado é o "subsidiado" e qual é o "pagador"? Por quê?
-- Quem controla a qualidade e a reputação de cada lado (avaliações, verificação, moderação)?
-- Que regras impedem que os lados contornem a plataforma depois de se encontrarem?
-- Como a plataforma reparte o valor gerado — e o que acontece com esse equilíbrio quando ela ganha poder de mercado?
+O sucesso de um mercado multilateral depende da articulação entre arquitetura tecnológica e arquitetura de incentivos. Conectar grupos é apenas o início, pois a plataforma precisa sustentar confiança, qualidade e equilíbrio econômico sem converter sua posição de intermediária em dependência excessiva para os participantes.
 
 ## Para aprofundar
 

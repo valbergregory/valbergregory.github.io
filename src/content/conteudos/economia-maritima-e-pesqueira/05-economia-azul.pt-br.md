@@ -1,7 +1,7 @@
 ---
 title: Economia azul
 subtitle: Crescer sem degradar.
-summary: A Economia Azul procura compatibilizar as atividades econômicas ligadas ao mar com a conservação ambiental e o bem-estar das comunidades. O valor produzido pelos oceanos depende de ecossistemas saudáveis — a sustentabilidade é condição para a continuidade da renda, não um objetivo isolado.
+summary: A Economia Azul procura compatibilizar as atividades econômicas ligadas ao mar com a conservação ambiental e o bem-estar das comunidades. O valor produzido pelos oceanos depende de ecossistemas saudáveis, a sustentabilidade é condição para a continuidade da renda, não um objetivo isolado.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -22,19 +22,17 @@ project: fishing-closures-brazil
 date: 2026-09-12
 ---
 
-A Economia Azul procura compatibilizar atividades econômicas relacionadas ao mar com conservação ambiental e bem-estar das comunidades.
+A Economia Azul procura compatibilizar as atividades econômicas relacionadas ao mar com a conservação ambiental e o bem-estar das comunidades. Seu fundamento é econômico e ecológico, pois a renda gerada pela pesca, pelo turismo, pela navegação e por outros usos depende da manutenção de ecossistemas capazes de prestar serviços e renovar recursos.
 
-O valor econômico produzido pelos oceanos depende da manutenção de **ecossistemas saudáveis**.
+A degradação de manguezais, recifes, estuários e estoques pesqueiros reduz a produtividade e aumenta a vulnerabilidade das populações costeiras. Manguezais e estuários funcionam como áreas de reprodução e desenvolvimento de espécies de interesse comercial. Sua proteção, portanto, preserva a capacidade futura de produção e não deve ser tratada apenas como custo ambiental.
 
-A degradação dos manguezais, recifes, estuários e estoques pesqueiros compromete a própria base econômica das atividades marítimas.
+O conceito ganhou projeção internacional a partir da Conferência Rio+20 e foi incorporado a agendas como o Objetivo de Desenvolvimento Sustentável 14, dedicado à vida na água. A passagem do conceito para a política pública exige metas, indicadores e instrumentos capazes de compatibilizar usos econômicos concorrentes no espaço marinho.
 
-Crescimento econômico e preservação não devem ser tratados como objetivos isolados. A **sustentabilidade constitui uma condição** para a continuidade da geração de renda.
+Áreas marinhas protegidas, períodos de defeso e ordenamento espacial são exemplos desses instrumentos. Sua eficácia depende de dados, fiscalização e participação de quem vive do mar. Sem acompanhamento dos resultados e legitimidade social, medidas formalmente adequadas podem deslocar problemas ou impor custos desproporcionais a determinados grupos.
 
-## Do conceito à política
+## Conclusão
 
-- O termo ganhou força a partir da Conferência Rio+20 (2012) e do Objetivo de Desenvolvimento Sustentável 14 (Vida na Água), que fixa metas para pesca, poluição, acidificação e áreas protegidas.
-- Manguezais e estuários funcionam como berçários de espécies comerciais: protegê-los é investir na produtividade futura da pesca — não apenas um custo ambiental.
-- Áreas marinhas protegidas, defesos e ordenamento do espaço marinho são instrumentos que só funcionam com dados, fiscalização e participação de quem vive do mar; um dos projetos ligados a esta série mede justamente os efeitos dessas medidas no litoral brasileiro.
+A Economia Azul considera a sustentabilidade uma condição para a continuidade da renda e do trabalho ligados ao mar. Destarte, políticas consistentes precisam proteger a base ecológica, distribuir custos e benefícios com justiça e avaliar se os instrumentos adotados produzem os resultados esperados.
 
 ## Para aprofundar
 

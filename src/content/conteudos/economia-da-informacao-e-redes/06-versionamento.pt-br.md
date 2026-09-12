@@ -1,7 +1,7 @@
 ---
 title: Versionamento
 subtitle: Um produto. Diferentes níveis de valor.
-summary: Versionamento é oferecer versões diferentes do mesmo produto para públicos com necessidades e disposições a pagar distintas — variando funcionalidade, capacidade, suporte, segurança ou número de usuários — sem desenvolver produtos independentes.
+summary: Versionamento é oferecer versões diferentes do mesmo produto para públicos com necessidades e disposições a pagar distintas, variando funcionalidade, capacidade, suporte, segurança ou número de usuários, sem desenvolver produtos independentes.
 lang: pt-br
 type: serie
 series: economia-da-informacao-e-redes
@@ -19,24 +19,17 @@ areas:
 date: 2026-09-12
 ---
 
-O versionamento consiste em oferecer diferentes versões do mesmo produto para públicos com necessidades e disposições a pagar distintas.
+O versionamento consiste em oferecer configurações diferentes do mesmo produto a públicos com necessidades e disposições a pagar distintas. As versões podem variar em funcionalidade, capacidade, velocidade, suporte, segurança, número de usuários ou possibilidades de integração. A empresa utiliza uma base comum e organiza ofertas diferenciadas, sem precisar desenvolver produtos inteiramente independentes.
 
-As versões podem variar por funcionalidade, capacidade, velocidade, suporte, segurança, número de usuários ou possibilidade de integração.
+Esse modelo aparece em planos individuais, empresariais e educacionais da Adobe Creative Cloud, nas modalidades do LinkedIn, nas edições Home e Pro do Windows e nas faixas básica, profissional e empresarial de muitos serviços de software. Cada versão procura corresponder a um perfil de uso e apresentar uma diferença de valor que justifique a escolha do consumidor.
 
-A estratégia permite **segmentar consumidores** sem desenvolver produtos completamente independentes.
+Em termos econômicos, o versionamento constitui uma forma de discriminação de preços de segundo grau. Como a empresa não conhece diretamente a disposição a pagar de cada cliente, oferece um cardápio de opções e permite que o próprio usuário revele seu perfil por meio da escolha. As versões precisam ser suficientemente distintas, haja vista que a migração de clientes dispostos a pagar mais para uma oferta inferior pode comprometer a estratégia.
 
-## Exemplos
+Em certas situações, a versão mais barata resulta da limitação deliberada de um produto tecnicamente mais completo. A literatura denomina esse fenômeno de “bens danificados”, pois a empresa pode incorrer em custo para restringir funcionalidades que já existem. A estratégia protege o preço da versão superior, mas exige atenção a cláusulas de licença, limites de uso e deveres de informação ao consumidor.
 
-- **Adobe Creative Cloud**: planos individuais, empresariais e educacionais.
-- **LinkedIn**: versão gratuita, Premium Career e Sales Navigator.
-- **Microsoft Windows**: versões Home e Pro.
-- **Softwares SaaS**: planos básico, profissional e empresarial.
+## Conclusão
 
-## O que está por trás
-
-- Em termos econômicos, versionamento é **discriminação de preços de segundo grau**: a empresa não sabe quanto cada cliente vale, então oferece um "cardápio" e deixa que cada um se revele pela escolha.
-- Muitas vezes a versão barata é a versão completa **deliberadamente limitada** ("bens danificados"): custa mais criar a limitação do que não criá-la, mas ela protege o preço da versão superior.
-- O número de versões e a distância entre elas são decisões de produto com consequências jurídicas — cláusulas de licença, limites de uso e transparência ao consumidor.
+O versionamento transforma diferenças entre usuários em uma estrutura de ofertas. Quando as versões são claras, proporcionais e transparentes, a estratégia amplia o acesso e melhora a adequação do produto. Em contrapartida, quando as limitações são artificiais ou pouco compreensíveis, pode gerar frustração e questionamentos jurídicos.
 
 ## Para aprofundar
 

@@ -1,7 +1,7 @@
 ---
 title: Shipping routes
 subtitle: The sea organises global supply chains.
-summary: Most international trade depends on shipping. Distances, port capacity, fuel, voyage time, insurance and bottlenecks shape the final price of goods — and a disruption at a strategic passage affects supply chains in many countries.
+summary: Most international trade depends on shipping. Distances, port capacity, fuel, voyage time, insurance and bottlenecks shape the final price of goods, and a disruption at a strategic passage affects supply chains in many countries.
 lang: en
 slug: shipping-routes
 type: serie
@@ -21,17 +21,17 @@ project: port-network-resilience
 date: 2026-09-12
 ---
 
-A large share of international trade depends on maritime transport.
+A large share of international trade depends on maritime transport. Distance, port capacity, fuel prices, voyage time, insurance and the availability of vessels influence the final cost of goods. Shipping routes are therefore part of the world's economic infrastructure and affect firms and consumers far beyond coastal regions.
 
-Distances, port capacity, fuel prices, voyage time, insurance and logistical bottlenecks influence the final cost of goods.
+Canals and straits concentrate large flows in relatively narrow passages. Suez, Panama, Malacca, Hormuz and Bab el-Mandeb are examples of chokepoints. When one of these passages closes, loses capacity or becomes unsafe, vessels may be diverted to longer routes, with higher freight rates and longer lead times.
 
-Disruptions to routes or strategic passages can affect supply chains in many countries. That is why shipping routes are an important part of the **world's economic infrastructure**.
+The cost of transport is not only the amount paid for freight. It also includes insurance, the risk of delay, capital tied up during the voyage and the need to hold larger inventories to offset uncertainty. A localised disruption can thus produce successive effects on factories, distribution centres, exporters and consumer prices.
 
-## Chokepoints
+For countries geographically distant from the main markets, such as Brazil, these costs work as a kind of natural tariff on exports and imports. Port efficiency, logistical predictability and integration with land networks become decisive factors for competitiveness.
 
-- Canals and straits — Suez, Panama, Malacca, Hormuz, Bab el-Mandeb — concentrate enormous flows in narrow passages; when one closes or becomes unsafe, ships divert to longer routes, freight rates rise and lead times stretch.
-- The cost of transport is not only the freight rate: it includes insurance, the time capital sits idle, the risk of delay and the need to hold larger inventories.
-- For countries far from the main markets, such as Brazil, transport costs work as a "natural tariff" on exports and imports.
+## Conclusion
+
+Shipping routes organise global supply chains and transmit shocks between countries. Understanding their costs and vulnerabilities helps governments and firms plan infrastructure, inventories and logistical alternatives capable of reducing the effects of disruptions.
 
 ## Further reading
 

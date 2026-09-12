@@ -1,7 +1,7 @@
 ---
 title: Bioeconomia da pesca
 subtitle: Pescar mais nem sempre gera mais valor.
-summary: A bioeconomia da pesca integra a dinâmica biológica dos estoques ao comportamento econômico dos pescadores. Quando o esforço cresce demais, o estoque cai e cada viagem captura menos — mais barcos, horas e combustível não garantem mais produção ou renda.
+summary: A bioeconomia da pesca integra a dinâmica biológica dos estoques ao comportamento econômico dos pescadores. Quando o esforço cresce demais, o estoque cai e cada viagem captura menos, mais barcos, horas e combustível não garantem mais produção ou renda.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -21,32 +21,17 @@ project: fishing-closures-brazil
 date: 2026-09-12
 ---
 
-A bioeconomia da pesca integra dinâmica biológica e comportamento econômico.
+A bioeconomia da pesca integra a dinâmica biológica dos estoques ao comportamento econômico dos pescadores. Quando o estoque é saudável, determinada quantidade de esforço pode produzir capturas elevadas. Se barcos, horas de trabalho, equipamentos e combustível aumentam excessivamente, o estoque diminui e cada unidade adicional de esforço tende a capturar menos.
 
-Quando o estoque é saudável, uma determinada quantidade de esforço pode produzir capturas elevadas. Quando o esforço cresce excessivamente, o estoque diminui e cada viagem pode capturar menos.
+O modelo de Gordon e Schaefer representa essa relação por meio de uma curva de rendimento sustentável. A captura cresce com o esforço até alcançar o rendimento máximo sustentável e, depois desse ponto, começa a cair porque o estoque já não consegue se recompor no mesmo ritmo. A curva ajuda a visualizar por que pescar mais não garante aumento permanente da produção.
 
-O aumento do número de barcos, horas de trabalho, equipamentos e combustível **não garante** crescimento permanente da produção ou da renda.
+O custo total do esforço costuma ser representado por uma linha crescente. A diferença entre receita e custo indica a renda econômica do setor. O rendimento máximo econômico situa-se à esquerda do rendimento máximo sustentável, pois exige menos esforço, mantém um estoque maior no mar e produz maior renda líquida. Em condições de livre acesso, porém, novos participantes e mais esforço podem avançar até o ponto em que receita e custo se igualam, dissipando essa renda.
 
-A análise deve considerar:
+A análise bioeconômica relaciona estoque, crescimento natural, esforço, captura, custos, preços e regras de acesso. Ela mostra que metas biológicas, econômicas e sociais não coincidem automaticamente e que a escolha de um ponto de manejo distribui efeitos entre produção presente, conservação futura, emprego e renda.
 
-- estoque pesqueiro;
-- crescimento natural;
-- esforço de pesca;
-- captura;
-- custos;
-- preços;
-- renda;
-- condições de livre acesso;
-- rendimento sustentável;
-- eficiência econômica.
+## Conclusão
 
-A ideia central é que o **maior volume de captura possível não coincide necessariamente com o melhor resultado econômico ou social**.
-
-## Lendo o gráfico
-
-- A curva em forma de sino é a **curva de rendimento sustentável** (modelo de Gordon–Schaefer): à medida que o esforço aumenta, a captura sobe até o **rendimento máximo sustentável (RMS)** e depois cai, porque o estoque já não consegue se repor.
-- A reta é o **custo total** do esforço. O lucro do setor é a distância entre a curva de receita e essa reta.
-- O **rendimento máximo econômico (RME)** fica *à esquerda* do RMS: exige menos esforço, deixa um estoque maior no mar e gera mais renda líquida. Em livre acesso, porém, o esforço avança até o ponto em que receita e custo se igualam — a renda desaparece.
+O maior volume de captura possível não corresponde necessariamente ao melhor resultado econômico ou social. Uma gestão responsável procura manter estoques produtivos com nível de esforço capaz de sustentar renda, reduzir desperdícios e preservar oportunidades para as gerações futuras.
 
 ## Para aprofundar
 

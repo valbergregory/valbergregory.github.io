@@ -1,7 +1,7 @@
 ---
 title: Maritime economics
 subtitle: Well beyond ships.
-summary: Maritime economics covers, beyond shipping, port infrastructure, shipbuilding, logistics, fishing and aquaculture, offshore energy, technology and coastal services — activities that affect jobs, prices, exports, food security and regional development.
+summary: "Maritime economics covers, beyond transport, port infrastructure, shipbuilding, logistics, fishing and aquaculture, offshore energy, technology and coastal services: activities that affect jobs, prices, exports, food security and regional development."
 lang: en
 slug: maritime-economics-beyond-ships
 type: serie
@@ -22,25 +22,17 @@ areas:
 date: 2026-09-12
 ---
 
-Maritime economics covers a broad set of economic activities.
+Maritime economics covers a broad set of activities associated with the sea and coastal zones. Beyond transport, it includes port infrastructure, shipbuilding and ship repair, logistics, fishing, aquaculture, offshore energy, technology, monitoring and coastal services. The performance of this set affects jobs, prices, exports, food security and regional development.
 
-Beyond shipping, it includes:
+Measurement is a major difficulty. Many activities do not appear in national accounts under a single category called the "maritime sector". They are spread across transport, industry, energy, services and food production. Building integrated indicators is therefore a condition for identifying the economic contribution of the sea, comparing territories and planning investment.
 
-- port infrastructure;
-- shipbuilding and ship repair;
-- logistics;
-- fishing and aquaculture;
-- offshore energy;
-- technology and monitoring;
-- services associated with coastal zones.
+In Brazil, the expression Blue Amazon designates the extensive maritime area under national jurisdiction, estimated at about 5.7 million square kilometres. The Sectoral Plan for Marine Resources, coordinated by the Interministerial Commission for Marine Resources, organises public action related to the knowledge and use of those resources. These instruments show that the maritime agenda involves economic planning, science, defence, environmental protection and institutional coordination.
 
-The performance of these activities affects **jobs**, **prices**, **exports**, **food security** and **regional development**.
+For Alagoas and Brazil's Northeast, the subject brings together small-scale fishing, coastal tourism, ports, estuaries and the mouth of the São Francisco river. Each activity has its own needs, but all depend on the quality of infrastructure, of the environment and of the information available to guide public and private decisions.
 
-## Why measure the ocean economy
+## Conclusion
 
-- Much of this activity does not show up as a "maritime sector" in national accounts: it is spread across transport, industry, energy and services. Measuring the whole is the first step towards planning.
-- In Brazil, the Navy calls the maritime area under national jurisdiction the **Blue Amazon** — about 5.7 million km² — and the **Sectoral Plan for Marine Resources (PSRM)**, coordinated by the Interministerial Commission for Marine Resources (CIRM), organises public policy for the use of those resources.
-- For Alagoas and Brazil's Northeast, the sea ties together small-scale fishing, coastal tourism, ports and the mouth of the São Francisco river — themes that run through this series.
+Maritime economics makes it possible to see how a single space articulates sectors that are usually analysed separately. Measuring these connections is the first step towards policies capable of generating income and competitiveness without compromising ecosystems and coastal communities.
 
 ## Further reading
 

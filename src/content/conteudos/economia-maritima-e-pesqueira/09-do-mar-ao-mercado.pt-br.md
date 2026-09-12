@@ -1,7 +1,7 @@
 ---
 title: Do mar ao mercado
 subtitle: Qualidade em toda a cadeia. Peixe de valor no prato.
-summary: A cadeia do pescado não termina na captura. O valor depende da integração entre captura, desembarque, refrigeração, transporte, processamento, comercialização e consumo — e falhas na cadeia de frio geram desperdício, perda de qualidade, preços menores para o pescador e riscos à segurança alimentar.
+summary: A cadeia do pescado não termina na captura. O valor depende da integração entre captura, desembarque, refrigeração, transporte, processamento, comercialização e consumo, e falhas na cadeia de frio geram desperdício, perda de qualidade, preços menores para o pescador e riscos à segurança alimentar.
 lang: pt-br
 type: serie
 series: economia-maritima-e-pesqueira
@@ -21,29 +21,17 @@ areas:
 date: 2026-09-12
 ---
 
-A cadeia produtiva do pescado não termina com a captura.
+A cadeia produtiva do pescado não termina com a captura. O valor do produto é construído ao longo do desembarque, da refrigeração, do transporte, do processamento, da comercialização e do consumo. Uma falha em qualquer dessas etapas pode reduzir a qualidade, interromper o acesso a mercados e diminuir o preço recebido pelo pescador.
 
-O valor do produto depende da integração entre:
+O pescado está entre os alimentos mais perecíveis. Sem gelo adequado desde a embarcação, sua qualidade pode cair em poucas horas. Parte do produto pode ser descartada, enquanto outra parte chega ao mercado com qualidade inferior e é vendida por preço menor. Ambas as formas de perda comprometem renda e segurança alimentar.
 
-1. captura;
-2. desembarque;
-3. refrigeração;
-4. transporte;
-5. processamento;
-6. comercialização;
-7. consumo.
+Esses problemas atingem com maior intensidade a pesca artesanal, que muitas vezes dispõe de acesso limitado a fábricas de gelo, câmaras frias, transporte refrigerado e unidades de processamento. Investimentos nessas estruturas podem reduzir perdas físicas e econômicas, mas precisam ser organizados de acordo com o volume, a localização e as condições reais de uso pelas comunidades.
 
-Falhas na **cadeia de frio** podem provocar desperdício, perda de qualidade, redução dos preços recebidos pelos pescadores e riscos à segurança alimentar.
+Rastreabilidade, inspeção sanitária e certificação ampliam a confiança e podem abrir mercados que remuneram melhor o produto. O cumprimento dessas exigências requer registros, infraestrutura e coordenação. Colônias, cooperativas e associações podem distribuir custos e facilitar o acesso dos pequenos produtores, desde que os mecanismos de organização preservem sua autonomia e participação.
 
-Investimentos em gelo, armazenamento, transporte refrigerado, rastreabilidade e processamento podem reduzir perdas e elevar a renda dos trabalhadores da cadeia.
+## Conclusão
 
-**O valor econômico se perde quando a cadeia se rompe.**
-
-## Onde o valor escapa
-
-- O pescado é um dos alimentos mais perecíveis: sem gelo desde o barco, a qualidade cai em horas e o preço acompanha.
-- Perdas físicas (peixe descartado) e perdas de qualidade (peixe vendido por menos) atingem com mais força a pesca artesanal, que tem menos acesso a fábricas de gelo, câmaras frias e transporte refrigerado.
-- Rastreabilidade, inspeção sanitária e certificação abrem mercados que pagam mais — mas exigem organização coletiva (colônias, cooperativas, associações) para que o pequeno produtor consiga cumprir as exigências.
+O valor econômico do pescado depende da continuidade e da qualidade de toda a cadeia. Melhorar conservação, logística, organização coletiva e informação reduz desperdícios, protege o consumidor e aumenta a parcela de valor que permanece com quem trabalha na atividade.
 
 ## Para aprofundar
 

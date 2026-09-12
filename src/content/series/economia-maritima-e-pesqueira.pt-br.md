@@ -3,8 +3,8 @@ series: economia-maritima-e-pesqueira
 lang: pt-br
 slug: economia-maritima-e-pesqueira
 title: Economia Marítima e Economia Pesqueira
-tagline: O mar como infraestrutura econômica — portos, rotas, pesca, economia azul e dados.
-description: Série com dez publicações sobre Economia Marítima e Economia Pesqueira — rotas e portos, economia azul, pesca artesanal e industrial, recursos comuns, bioeconomia, cadeia do pescado e dados para uma pesca sustentável — a partir da experiência de lecionar Economia Pesqueira na Engenharia de Pesca da UFAL.
+tagline: O mar como infraestrutura econômica para portos, rotas, pesca, economia azul e sistemas de informação.
+description: Esta série reúne dez publicações sobre Economia Marítima e Economia Pesqueira. Os textos abordam rotas e portos, economia azul, pesca artesanal e industrial, recursos de uso comum, bioeconomia, cadeia produtiva do pescado e dados aplicados à sustentabilidade.
 banner: ./economia-maritima-e-pesqueira-banner.webp
 bannerAlt: 'Banner da série "Economia Marítima e Pesqueira — o mar conecta produção, trabalho e território", com navio, guindaste portuário, peixes e ondas em tons de azul-oceano e turquesa.'
 cover: ./economia-maritima-e-pesqueira-cover.webp
@@ -35,18 +35,12 @@ research:
 date: 2026-09-12
 ---
 
-A série mostra que o mar não representa apenas um espaço natural ou geográfico. Ele constitui uma infraestrutura econômica essencial, conectando produção, comércio, alimentação, energia, logística, comunidades e desenvolvimento territorial.
+O mar constitui uma infraestrutura econômica que conecta produção, comércio, alimentação, energia, logística, comunidades e desenvolvimento territorial. A Economia Marítima examina as atividades associadas aos oceanos, ao transporte, aos portos, às cadeias logísticas, aos recursos naturais e aos territórios costeiros. A Economia Pesqueira concentra-se na utilização dos recursos pesqueiros, no comportamento dos agentes, nos custos da atividade, na formação da renda, na conservação dos estoques e nos instrumentos de gestão e regulação.
 
-A **Economia Marítima** analisa atividades associadas aos oceanos, portos, transporte, infraestrutura, cadeias logísticas, recursos naturais e territórios costeiros.
+Meu interesse por esses temas ganhou forma durante o semestre letivo de 2026.1, quando tive a oportunidade de lecionar Economia Pesqueira para uma turma do curso de Engenharia de Pesca da Universidade Federal de Alagoas. Apesar de intercorrências médicas ao longo do semestre, concluímos satisfatoriamente o trabalho previsto. A convivência com os estudantes e a aproximação com pesquisadores e problemas concretos da atividade pesqueira ampliaram meu aprendizado e despertaram uma identificação duradoura com a área.
 
-A **Economia Pesqueira** investiga a utilização de recursos pesqueiros, o comportamento dos agentes, os custos da atividade, a formação da renda, a sustentabilidade dos estoques e os instrumentos de gestão e regulação.
+A partir dessa experiência, passei a desenvolver, paulatinamente, pesquisas, conteúdos didáticos, artigos científicos e propostas de extensão relacionados à Economia Marítima e à Economia Pesqueira. As publicações dialogam com estudos em andamento sobre ondas de calor marinhas e esforço de pesca, efeitos de períodos de defeso e áreas marinhas protegidas, além do desempenho dos portos brasileiros. À medida que forem concluídos, materiais da disciplina e produtos de extensão voltados às comunidades pesqueiras de Alagoas e do baixo São Francisco também serão incorporados ao site.
 
-## De onde vem esta série
+## Conclusão
 
-Em 2026.1 tive a oportunidade de lecionar Economia Pesqueira para uma turma do curso de Engenharia de Pesca da Universidade Federal de Alagoas. Apesar de algumas intercorrências médicas ao longo do semestre, o trabalho foi concluído de maneira satisfatória.
-
-A experiência proporcionou muito aprendizado, maior proximidade com estudantes, pesquisadores e temas relacionados à pesca — e despertou em mim uma verdadeira paixão pela área. A partir dela, surgiu o interesse em desenvolver, paulatinamente, pesquisas, conteúdos didáticos, artigos científicos e produtos de extensão relacionados à Economia Marítima e à Economia Pesqueira.
-
-## Pesquisas e extensão
-
-As publicações desta série dialogam com pesquisas em andamento sobre ondas de calor marinhas e esforço de pesca, sobre os efeitos de defesos e áreas marinhas protegidas e sobre portos brasileiros — todas listadas ao final da página. Os materiais didáticos da disciplina de Economia Pesqueira e produtos de extensão voltados às comunidades pesqueiras de Alagoas e do baixo São Francisco serão incorporados aqui à medida que forem concluídos.
+A série parte da convicção de que o desenvolvimento ligado ao mar depende da articulação entre conhecimento científico, eficiência econômica, proteção ambiental e participação das comunidades. Estudar essas relações é indispensável para transformar o potencial marítimo e pesqueiro em renda duradoura, segurança alimentar e desenvolvimento territorial.
