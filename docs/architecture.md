@@ -17,14 +17,16 @@ Next.js e frameworks com dependência de servidor foram descartados: não há na
 
 ## Versões
 
-| Ferramenta | Versão | Observação |
-|---|---|---|
-| Node | ≥ 22.12 (usado: 24) | `.nvmrc` = 22 |
-| Astro | 7.3.x | compilador Rust, Markdown nativo (Sätteri) |
-| TypeScript | 5.9 | compatível com `@astrojs/check` e `typescript-eslint` |
-| Vitest | 4.1 | testes de dados, sincronização e i18n |
-| ESLint | 10 | flat config + `eslint-plugin-astro` |
-| sharp | 0.35 | imagens responsivas e geração das imagens sociais |
+| Ferramenta | Versão              | Observação                                            |
+| ---------- | ------------------- | ----------------------------------------------------- |
+| Node       | ≥ 22.12 (usado: 24) | `.nvmrc` = 22                                         |
+| Astro      | 7.3.x               | compilador Rust, Markdown nativo (Sätteri)            |
+| TypeScript | 5.9                 | compatível com `@astrojs/check` e `typescript-eslint` |
+| Vitest     | 4.1                 | testes de dados, sincronização e i18n                 |
+| ESLint     | 10                  | flat config + `eslint-plugin-astro`                   |
+| sharp      | 0.35                | imagens responsivas e geração das imagens sociais     |
+| Pagefind   | 1.5                 | busca estática, índice gerado no build                |
+| pdfkit     | 0.20                | currículo em PDF gerado no build                      |
 
 ## Estrutura
 
@@ -35,7 +37,7 @@ src/
     pages/           "páginas-modelo" que recebem `lang` e são usadas pelas rotas pt-BR e EN
   content/
     pages/           textos longos em Markdown (Sobre, Ensino), um arquivo por idioma
-    updates/         diário de pesquisa em Markdown, um arquivo por idioma
+    updates/         textos semanais (seção "Textos") em Markdown, um arquivo por idioma
   content.config.ts  esquemas Zod das coleções (research, publications, outreach, updates, pages)
   data/
     research.yml     cadastro editorial das pesquisas (fonte de verdade)
@@ -49,14 +51,14 @@ src/
     github-projects.json   metadados públicos gerados por scripts/sync-github.mjs
   i18n/              rotas traduzidas e strings de interface
   layouts/           BaseLayout (head, header, main, footer)
-  lib/               carregamento de dados, JSON-LD, formatação de datas
+  lib/               carregamento de dados, JSON-LD, formatação de datas, utilitários dos textos
   pages/             rotas pt-BR (raiz) e EN (/en/)
   styles/            tokens (cores, tipografia) e estilos globais
-public/              arquivos estáticos (favicon, OG, robots, manifest, currículo PDF)
-scripts/             sync-github, check-links, check-secrets, generate-og
+public/              arquivos estáticos (favicon, OG, robots, manifest); o currículo PDF é gerado no build
+scripts/             sync-github, check-links, check-secrets, generate-og, generate-cv, set-portfolio-secret
 tests/               Vitest
 docs/                documentação e QA
-.github/workflows/   build e deploy no GitHub Pages
+.github/workflows/   deploy, CI de pull requests, lembrete do token, links externos
 ```
 
 ## Internacionalização
@@ -65,14 +67,15 @@ docs/                documentação e QA
 - Cada rota tem um componente-modelo em `src/components/pages/` que recebe `lang`; as rotas em `src/pages/` e `src/pages/en/` só o instanciam.
 - `hreflang` e `x-default` são emitidos em `Seo.astro`; o seletor de idioma aponta para a página equivalente.
 - Títulos originais dos artigos são preservados nos dois idiomas; traduções são apoio.
-- A bio em francês, alemão e italiano aparece na página Sobre com o atributo `lang` correto em cada bloco.
+- A bio em francês, alemão e italiano fica guardada em `profile.yml`, com a seção da página Sobre desligada por enquanto (`SHOW_MULTILINGUAL_BIO`).
+- Os textos da seção "Textos" existem por idioma; quando há a versão nos dois idiomas com o mesmo slug, as páginas se apontam mutuamente (`hreflang`).
 
 ## Conteúdo editorial × metadados automáticos
 
-| Origem | Conteúdo | Quem atualiza |
-|---|---|---|
-| `src/data/research.yml` | título, autoria, estágio, pergunta, métodos, achados autorizados, limitações, links | edição manual |
-| `src/generated/github-projects.json` | linguagem, tópicos, licença, release, data do último commit, descrição pública | `scripts/sync-github.mjs` (CI a cada 6 h, `repository_dispatch`, ou manualmente) |
+| Origem                               | Conteúdo                                                                            | Quem atualiza                                                                    |
+| ------------------------------------ | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `src/data/research.yml`              | título, autoria, estágio, pergunta, métodos, achados autorizados, limitações, links | edição manual                                                                    |
+| `src/generated/github-projects.json` | linguagem, tópicos, licença, release, data do último commit, descrição pública      | `scripts/sync-github.mjs` (CI a cada 6 h, `repository_dispatch`, ou manualmente) |
 
 O script nunca altera o estágio científico, resultados, autoria ou título. Repositórios privados não são consultados nem linkados; o projeto `Port-Network-Resilience` aparece apenas pelo cadastro editorial, sem URL.
 

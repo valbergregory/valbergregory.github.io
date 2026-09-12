@@ -1,0 +1,243 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Icon from '@/components/Icon.astro';
+import { route, type Lang } from '@/i18n/routes';
+import { useTranslations, type UiKey } from '@/i18n/ui';
+import { formatDate, getProfile } from '@/lib/data';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+import { getCounterpart, getPosts, postDateIso, postSlug, type Post } from '@/lib/writing';
+
+interface Props {
+  lang: Lang;
+  post: Post;
+}
+const { lang, post } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const profile = getProfile();
+const { Content } = await render(post);
+
+const slug = postSlug(post);
+const counterpart = await getCounterpart(post);
+const alternates: Partial<Record<Lang, string>> = { [lang]: route('writingItem', lang, slug) };
+if (counterpart) {
+  const other: Lang = en ? 'pt-br' : 'en';
+  alternates[other] = route('writingItem', other, slug);
+}
+
+const research = await getCollection('research');
+const project = post.data.project
+  ? research.find((r) => r.data.slug === post.data.project)
+  : undefined;
+
+const all = await getPosts(lang);
+const idx = all.findIndex((p) => p.id === post.id);
+const newer = idx > 0 ? all[idx - 1] : undefined;
+const older = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : undefined;
+
+const catKey = `category.${post.data.category}` as UiKey;
+const path = route('writingItem', lang, slug);
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('writing.title'), href: route('writing', lang) },
+  { label: post.data.title },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={post.data.title}
+  description={post.data.summary}
+  current="writing"
+  {alternates}
+  type="article"
+  publishedTime={postDateIso(post)}
+  modifiedTime={post.data.updated ? post.data.updated.toISOString().slice(0, 10) : undefined}
+  jsonLd={[
+    {
+      '@type': 'BlogPosting',
+      headline: post.data.title,
+      description: post.data.summary,
+      datePublished: postDateIso(post),
+      ...(post.data.updated ? { dateModified: post.data.updated.toISOString().slice(0, 10) } : {}),
+      inLanguage: en ? 'en' : 'pt-BR',
+      url: `https://valbergregory.github.io${path}`,
+      author: { '@id': 'https://valbergregory.github.io/#person' },
+      keywords: [t(catKey), ...post.data.tags].join(', '),
+      isAccessibleForFree: true,
+    },
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('writing.title'), path: route('writing', lang) },
+      { name: post.data.title, path },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={post.data.title} eyebrow={t(catKey)} {crumbs}>
+    <p class="post-meta">
+      <span>
+        {t('writing.published')}{' '}
+        <time datetime={postDateIso(post)}>{formatDate(post.data.date, lang)}</time>
+      </span>
+      {post.data.updated && (
+        <span>
+          · {t('writing.updated')}{' '}
+          <time datetime={post.data.updated.toISOString().slice(0, 10)}>
+            {formatDate(post.data.updated, lang)}
+          </time>
+        </span>
+      )}
+      <span>· {profile.shortName}</span>
+    </p>
+  </PageHeader>
+
+  <div class="container post-layout">
+    <article class="post-body">
+      <p class="lead summary">{post.data.summary}</p>
+      <div class="markdown prose">
+        <Content />
+      </div>
+
+      {post.data.tags.length > 0 && (
+        <ul class="tag-list tags" aria-label="Tags">
+          {post.data.tags.map((tag) => (
+            <li class="tag">{tag}</li>
+          ))}
+        </ul>
+      )}
+
+      <footer class="post-footer">
+        {project && (
+          <p>
+            <strong>{t('writing.related')}:</strong>{' '}
+            <a href={route('researchItem', lang, project.data.slug)}>{project.data.title}</a>
+          </p>
+        )}
+        {post.data.link && (
+          <p>
+            <a href={post.data.link} rel="noopener" target="_blank">
+              {t('updates.link')} <Icon name="external" size={14} />
+              <span class="visually-hidden">{t('a11y.newTab')}</span>
+            </a>
+          </p>
+        )}
+        <p>
+          <a href={post.data.linkedin ?? profile.links.linkedin} rel="noopener" target="_blank">
+            <Icon name="linkedin" size={16} /> {t('writing.linkedin')}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </p>
+        <p class="small muted">
+          {counterpart ? (
+            <a
+              href={alternates[en ? 'pt-br' : 'en']}
+              hreflang={en ? 'pt-BR' : 'en'}
+              lang={en ? 'pt-BR' : 'en'}
+            >
+              {t('writing.otherLang')}
+            </a>
+          ) : (
+            t('writing.onlyLang')
+          )}
+        </p>
+      </footer>
+
+      <nav class="post-nav" aria-label={t('writing.title')}>
+        {newer && (
+          <a class="post-nav-link" href={route('writingItem', lang, postSlug(newer))} rel="next">
+            <span class="small muted">{t('writing.next')}</span>
+            <span>{newer.data.title}</span>
+          </a>
+        )}
+        {older && (
+          <a class="post-nav-link" href={route('writingItem', lang, postSlug(older))} rel="prev">
+            <span class="small muted">{t('writing.prev')}</span>
+            <span>{older.data.title}</span>
+          </a>
+        )}
+        <a class="button subtle" href={route('writing', lang)}>
+          {t('writing.backToList')}
+        </a>
+      </nav>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: var(--space-3) 0 0;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+  .post-layout {
+    padding-block: var(--space-7);
+  }
+  .post-body {
+    max-width: 72ch;
+    margin-inline: auto;
+  }
+  .summary {
+    margin-bottom: var(--space-5);
+  }
+  .markdown :global(h2) {
+    font-size: var(--text-xl);
+    margin-top: var(--space-6);
+  }
+  .markdown :global(h3) {
+    margin-top: var(--space-5);
+  }
+  .markdown :global(blockquote) {
+    margin: var(--space-4) 0;
+    padding: var(--space-3) var(--space-4);
+    border-left: 3px solid var(--ochre);
+    background: var(--ochre-soft);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .markdown :global(img) {
+    border-radius: var(--radius);
+  }
+  .tags {
+    margin-top: var(--space-5);
+  }
+  .post-footer {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+  }
+  .post-footer p {
+    margin-bottom: var(--space-2);
+  }
+  .post-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .post-nav {
+    margin-top: var(--space-6);
+    display: grid;
+    gap: var(--space-3);
+  }
+  .post-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    background: var(--bg-elevated);
+  }
+  .post-nav-link:hover {
+    border-color: var(--border-strong);
+    color: var(--link-hover);
+  }
+  .post-nav .button {
+    justify-self: start;
+  }
+</style>

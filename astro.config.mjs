@@ -8,6 +8,11 @@ export default defineConfig({
   base: '/',
   output: 'static',
   trailingSlash: 'always',
+  // URLs antigas da seção "Atualizações" (renomeada para "Textos" em 12/09/2026).
+  redirects: {
+    '/atualizacoes/': '/textos/',
+    '/en/updates/': '/en/writing/',
+  },
   build: {
     format: 'directory',
     inlineStylesheets: 'auto',

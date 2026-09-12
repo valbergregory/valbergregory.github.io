@@ -9,6 +9,7 @@ Site: https://valbergregory.github.io (pt-BR) · https://valbergregory.github.io
 - **Astro 7** (geração estática, TypeScript), publicado no **GitHub Pages** via GitHub Actions.
 - Conteúdo em arquivos de dados e Markdown (`src/data`, `src/content`); nenhum texto científico é inferido de commits.
 - Metadados públicos dos repositórios de pesquisa (linguagem, último commit, licença, release) são sincronizados automaticamente a cada seis horas ou por `repository_dispatch`, somente para a whitelist em `src/data/github-whitelist.json`.
+- Busca interna estática (Pagefind, roda no navegador) e currículo em PDF gerado a cada build a partir dos dados.
 - Sem cookies, sem analytics, sem requisições a terceiros.
 
 ## Scripts
@@ -38,8 +39,18 @@ Leia `docs/CONTENT_GUIDE.md`. Em resumo:
 - extensão e projetos → `src/data/outreach.yml`
 - perfil, vínculos, formação e bio (pt, en, fr, de, it) → `src/data/profile.yml`
 - textos das páginas Sobre e Ensino → `src/content/pages/`
-- diário de pesquisa → `src/content/updates/`
+- textos semanais (opinião, eventos, notas de pesquisa) → `src/content/updates/` (página "Textos", RSS)
 - itens pendentes de confirmação (não publicados) → `src/data/review-needed.yml`
+
+## Automações
+
+| Workflow                    | Quando                                                  | O que faz                                                  |
+| --------------------------- | ------------------------------------------------------- | ---------------------------------------------------------- |
+| `deploy-pages.yml`          | push em `main`, `repository_dispatch`, cron 6 h, manual | verifica, constrói e publica                               |
+| `ci.yml`                    | pull requests                                           | verifica sem publicar (usado pelo Dependabot)              |
+| `token-expiry-reminder.yml` | semanal                                                 | abre uma issue 30 dias antes de o token de disparo expirar |
+| `external-links.yml`        | mensal                                                  | testa os links externos e abre issue com os quebrados      |
+| `dependabot.yml`            | semanal/mensal                                          | pull requests de atualização de dependências               |
 
 ## Documentação
 

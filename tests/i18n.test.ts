@@ -30,6 +30,21 @@ describe('i18n/routes', () => {
   });
 });
 
+describe('i18n/ui — categorias dos textos', () => {
+  it('tem rótulo para toda categoria de texto em ambos os idiomas', async () => {
+    const { parse } = await import('yaml');
+    const { readFileSync } = await import('node:fs');
+    const tax = parse(readFileSync('src/data/taxonomies.yml', 'utf8')) as {
+      updateCategories: string[];
+    };
+    for (const c of tax.updateCategories) {
+      const key = `category.${c}` as UiKey;
+      expect(ui['pt-br'][key], `pt ${c}`).toBeTruthy();
+      expect(ui.en[key], `en ${c}`).toBeTruthy();
+    }
+  });
+});
+
 describe('i18n/ui', () => {
   it('mantém as mesmas chaves em pt-br e en', () => {
     const pt = Object.keys(ui['pt-br']).sort();

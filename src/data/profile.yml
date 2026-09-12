@@ -64,8 +64,9 @@ linkedinNote:
   pt: Escrevo semanalmente no LinkedIn sobre essas áreas — economia aplicada, Jurimetria, IA no setor público, turismo, portos e pesca — em textos curtos para não especialistas.
   en: I write weekly on LinkedIn about these areas — applied economics, jurimetrics, AI in the public sector, tourism, ports and fisheries — in short pieces for non-specialists.
 
+# Gerados automaticamente no build por scripts/generate-cv.mjs (sem telefone).
 cvPdf: /valber-cv.pdf
-cvPdfDate: '2025-02'
+cvPdfEn: /valber-cv-en.pdf
 
 photo:
   alt:

@@ -12,6 +12,7 @@ import { alternates, route, type Lang } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/ui';
 import { getProfile, getGithubProjects, pick, formatDate } from '@/lib/data';
 import { personJsonLd, websiteJsonLd } from '@/lib/jsonld';
+import { getPosts, postDateIso, postSlug } from '@/lib/writing';
 
 interface Props {
   lang: Lang;
@@ -43,6 +44,8 @@ const recent = [...github.repositories]
   .filter((r) => byRepo.has(r.url.toLowerCase()))
   .sort((a, b) => (b.latestCommitAt ?? b.pushedAt).localeCompare(a.latestCommitAt ?? a.pushedAt))
   .slice(0, 5);
+
+const latestPosts = (await getPosts(lang)).slice(0, 3);
 
 const roles = [
   {
@@ -239,6 +242,35 @@ const roles = [
       )}
     </div>
   </section>
+
+  {latestPosts.length > 0 && (
+    <section class="section" aria-labelledby="writing-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="writing-title">{t('writing.recent')}</h2>
+          <p class="lead">{t('writing.lead')}</p>
+        </div>
+        <ol class="grid grid-3 latest-posts">
+          {latestPosts.map((post) => (
+            <li class="card latest-post">
+              <p class="small muted">
+                <time datetime={postDateIso(post)}>{formatDate(post.data.date, lang)}</time>
+              </p>
+              <h3>
+                <a href={route('writingItem', lang, postSlug(post))}>{post.data.title}</a>
+              </h3>
+              <p class="muted">{post.data.summary}</p>
+            </li>
+          ))}
+        </ol>
+        <p class="more">
+          <a class="button secondary" href={route('writing', lang)}>
+            {t('updates.viewAll')}
+          </a>
+        </p>
+      </div>
+    </section>
+  )}
 
   <section class="section" aria-labelledby="teaching-title">
     <div class="container two-col">
@@ -470,6 +502,18 @@ const roles = [
   }
   .recent-item h3 {
     font-size: var(--text-md);
+  }
+  .latest-posts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .latest-post h3 {
+    font-size: var(--text-md);
+    text-align: center;
+  }
+  .latest-post p {
+    margin: 0;
   }
 
   .two-col {

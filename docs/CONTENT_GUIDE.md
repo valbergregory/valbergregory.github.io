@@ -76,26 +76,32 @@ Defina `featured: true` e um `featuredOrder` único (1 = primeiro). A página in
 
 Defina `showPreliminaryFindings: false`. A lista `preliminaryFindings` pode permanecer no arquivo sem ser publicada. Quando autorizar, mude para `true`; a seção aparece com o aviso de que os resultados podem mudar.
 
-## Publicar uma notícia (diário de pesquisa)
+## Publicar um texto (seção "Textos")
 
-Crie `src/content/updates/AAAA-MM-DD-assunto.pt-br.md` (e, se quiser, a versão `.en.md`):
+A seção **Textos** (`/textos/`, em inglês `/en/writing/`) é o espaço de escrita semanal: opiniões, comentários sobre eventos, notas de pesquisa, leituras e relatos de sala de aula. Cada texto é um arquivo Markdown em `src/content/updates/`, com o nome `AAAA-MM-DD-slug.pt-br.md` (e, opcionalmente, `AAAA-MM-DD-slug.en.md` para a versão em inglês — o mesmo `slug` liga as duas versões):
 
 ```markdown
 ---
-title: Título curto
-date: 2026-09-11
+title: Título curto e específico
+date: 2026-09-19
 lang: pt-br
-category: codigo # codigo | versao | documentacao | dados | painel | texto | evento | site | publicacao
-project: slug-da-pesquisa # opcional
-summary: Uma frase para a lista e o RSS.
-link: https://... # opcional
-draft: false
+category: opiniao # opiniao | nota | leitura | aula | evento | codigo | versao | documentacao | dados | painel | texto | site | publicacao
+summary: Uma ou duas frases — aparecem na lista, na página inicial e no RSS.
+project: slug-da-pesquisa # opcional: liga o texto a uma página de pesquisa
+tags: [pix, pagamentos] # opcional
+linkedin: https://www.linkedin.com/posts/... # opcional: link do mesmo texto no LinkedIn
+link: https://... # opcional: fonte ou material externo
+draft: false # true = não publica
 ---
 
-Texto em Markdown.
+Texto em Markdown. Títulos internos com `##`. Citações com `>`.
 ```
 
-Mensagens de commit não viram notícia; a atividade automática dos repositórios aparece em uma caixa separada na página de atualizações. O RSS (`/rss.xml`) inclui as entradas em português.
+- A URL fica `/textos/<slug>/`; a data do nome do arquivo só ordena.
+- `updated:` (data) marca revisões posteriores; aparece na página do texto.
+- A página inicial mostra os três textos mais recentes; o RSS (`/rss.xml`) inclui os textos em português.
+- Sugestão de fluxo semanal: escrever aqui primeiro, publicar, depois copiar para o LinkedIn com o link de volta e preencher `linkedin:`.
+- A atividade automática dos repositórios (último commit, release) aparece ao lado, mas não é texto editorial.
 
 ## Adicionar tradução
 
@@ -108,7 +114,11 @@ Mensagens de commit não viram notícia; a atividade automática dos repositóri
 ## Atualizar fotografia e currículo
 
 - Fotografia: substitua `src/assets/valber-portrait.jpg` (retrato 3:4, pelo menos 900 × 1200 px) e `public/images/valber-portrait-square.jpg` (quadrada, para redes sociais). Rode `npm run og:generate` para regenerar as imagens sociais e os ícones, e commite os arquivos gerados em `public/`.
-- Currículo em PDF: substitua `public/valber-cv.pdf` (a URL `/valber-cv.pdf` é a mesma do site antigo) e atualize `cvPdfDate` em `profile.yml`. Não inclua telefone pessoal, endereço residencial ou documentos.
+- Currículo em PDF: **gerado automaticamente** a cada build por `scripts/generate-cv.mjs` (`/valber-cv.pdf` e `/valber-cv-en.pdf`) a partir de `profile.yml`, `research.yml`, `publications.yml` e `outreach.yml`. Para mudar o currículo, edite esses dados; para ver o resultado, `npm run cv:generate`. Nunca inclua telefone pessoal, endereço residencial ou documentos nos dados.
+
+## Busca
+
+A busca (`/busca/`) usa o Pagefind: o índice é gerado no build a partir do conteúdo de `<main>` de cada página e roda no navegador. Nada a manter; conteúdo novo entra no índice na próxima publicação.
 
 ## Perfil, vínculos e formação
 

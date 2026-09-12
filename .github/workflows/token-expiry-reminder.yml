@@ -1,0 +1,55 @@
+name: Lembrete de expiração do token de disparo
+
+# O fine-grained token PORTFOLIO_SYNC_TOKEN (gravado nos repositórios de pesquisa)
+# expira em EXPIRES_ON. Este workflow abre uma issue 30 dias antes e outra na
+# véspera, para lembrar de regenerar o token e rodar scripts/set-portfolio-secret.ps1.
+on:
+  schedule:
+    - cron: '0 12 * * 1' # segundas-feiras, 12:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  EXPIRES_ON: '2027-09-11'
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar prazo e abrir issue se necessário
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          today=$(date -u +%Y-%m-%d)
+          days_left=$(( ( $(date -ud "$EXPIRES_ON" +%s) - $(date -ud "$today" +%s) ) / 86400 ))
+          echo "Token expira em $EXPIRES_ON; faltam $days_left dias."
+          if [ "$days_left" -gt 30 ]; then
+            echo "Nada a fazer."; exit 0
+          fi
+          if [ "$days_left" -le 0 ]; then
+            title="Token PORTFOLIO_SYNC_TOKEN EXPIRADO em $EXPIRES_ON — disparo imediato parado"
+          else
+            title="Token PORTFOLIO_SYNC_TOKEN expira em $EXPIRES_ON (faltam $days_left dias)"
+          fi
+          existing=$(gh issue list --repo "$REPO" --label token --state open --json number --jq 'length')
+          if [ "$existing" != "0" ]; then
+            echo "Já existe issue aberta com o rótulo 'token'."; exit 0
+          fi
+          gh label create token --repo "$REPO" --color B45309 --description "Renovação do token de disparo" 2>/dev/null || true
+          body=$(cat <<'MD'
+          O fine-grained personal access token usado pelos repositórios de pesquisa para disparar o rebuild desta página (`repository_dispatch: portfolio-update`) está perto de expirar.
+
+          **Como renovar (10 minutos):**
+          1. GitHub → Settings → Developer settings → Fine-grained tokens → abrir o token `portfolio-sync` → **Regenerate token** (ou criar outro com acesso apenas a este repositório e permissão *Contents: Read and write*).
+          2. Na máquina local, com o `gh` autenticado, rodar `powershell -ExecutionPolicy Bypass -File scripts/set-portfolio-secret.ps1` e colar o novo token (o script valida e grava nos repositórios da whitelist).
+          3. Atualizar `EXPIRES_ON` em `.github/workflows/token-expiry-reminder.yml` com a nova data e fechar esta issue.
+
+          Enquanto o token não for renovado, o site continua sendo atualizado pelo agendamento de 6 horas; só o disparo imediato deixa de funcionar. Detalhes em `docs/PORTFOLIO_AUTOMATION.md`.
+          MD
+          )
+          gh issue create --repo "$REPO" --title "$title" --label token --body "$body"

@@ -21,7 +21,9 @@ export type RouteKey =
   | 'teaching'
   | 'outreach'
   | 'publications'
-  | 'updates'
+  | 'writing'
+  | 'writingItem'
+  | 'search'
   | 'cv'
   | 'contact';
 
@@ -33,7 +35,9 @@ export const ROUTES: Record<RouteKey, Record<Lang, string>> = {
   teaching: { 'pt-br': '/ensino/', en: '/en/teaching/' },
   outreach: { 'pt-br': '/extensao/', en: '/en/outreach/' },
   publications: { 'pt-br': '/publicacoes/', en: '/en/publications/' },
-  updates: { 'pt-br': '/atualizacoes/', en: '/en/updates/' },
+  writing: { 'pt-br': '/textos/', en: '/en/writing/' },
+  writingItem: { 'pt-br': '/textos/', en: '/en/writing/' },
+  search: { 'pt-br': '/busca/', en: '/en/search/' },
   cv: { 'pt-br': '/curriculo/', en: '/en/cv/' },
   contact: { 'pt-br': '/contato/', en: '/en/contact/' },
 };
@@ -46,6 +50,7 @@ export const NAV_ORDER: RouteKey[] = [
   'teaching',
   'outreach',
   'publications',
+  'writing',
   'cv',
   'contact',
 ];

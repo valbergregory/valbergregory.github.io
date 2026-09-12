@@ -4,14 +4,14 @@ Build verificado: `npm run build` (49 páginas), servido com `astro preview` e t
 
 ## Lighthouse (simulação padrão: móvel Moto G Power / 4G lento; desktop 10 Mbps)
 
-| Página | Perf. móvel | Perf. desktop | Acessibilidade | Boas práticas | SEO | LCP móvel | CLS |
-|---|---|---|---|---|---|---|---|
-| `/` | 99 | 100 | 100 | 100 | 100 | 1,7 s | 0 |
-| `/pesquisa/` | 100 | 99 | 100 | 100 | 100 | 1,5 s | 0–0,07 |
-| `/pesquisa/fishing-closures-brazil/` | 100 | 100 | 100 | 100 | 100 | 1,5 s | 0,02 |
-| `/publicacoes/` | 100 | 100 | 100 | 100 | 100 | 1,5 s | 0 |
-| `/en/` | 99 | 100 | 100 | 100 | 100 | 1,7 s | 0 |
-| `/en/about/` | 99 | 100 | 100 | 100 | 100 | 1,6 s | 0,02 |
+| Página                               | Perf. móvel | Perf. desktop | Acessibilidade | Boas práticas | SEO | LCP móvel | CLS    |
+| ------------------------------------ | ----------- | ------------- | -------------- | ------------- | --- | --------- | ------ |
+| `/`                                  | 99          | 100           | 100            | 100           | 100 | 1,7 s     | 0      |
+| `/pesquisa/`                         | 100         | 99            | 100            | 100           | 100 | 1,5 s     | 0–0,07 |
+| `/pesquisa/fishing-closures-brazil/` | 100         | 100           | 100            | 100           | 100 | 1,5 s     | 0,02   |
+| `/publicacoes/`                      | 100         | 100           | 100            | 100           | 100 | 1,5 s     | 0      |
+| `/en/`                               | 99          | 100           | 100            | 100           | 100 | 1,7 s     | 0      |
+| `/en/about/`                         | 99          | 100           | 100            | 100           | 100 | 1,6 s     | 0,02   |
 
 Metas do briefing (≥ 90 / ≥ 95 / ≥ 95 / ≥ 95) atendidas. TBT = 0 ms em todas as páginas.
 
@@ -49,3 +49,10 @@ As capturas completas (60 PNGs) ficam em `docs/qa/shots/`, ignoradas pelo Git.
 
 - **Chromium 153** e **WebKit 26.6** (Playwright): seis páginas em 1366 px e 375 px, sem erros de console, sem overflow; menu móvel, filtros e alternância de tema funcionam nos dois.
 - **Firefox**: o binário foi baixado, mas o ambiente de execução desta sessão bloqueou o processo (`spawn UNKNOWN`), então não foi testado automaticamente. O site usa apenas CSS e JS amplamente suportados (grid, `color-mix`, `text-wrap: balance` com degradação graciosa); recomenda-se uma conferência manual no Firefox após o deploy.
+
+## Rodada de 12/09/2026 (seção Textos, busca e currículo em PDF)
+
+- Páginas `/textos/`, `/textos/<slug>/`, `/en/writing/…`, `/busca/`, `/ensino/` e `/curriculo/` em 1440 px e 375 px: axe 0 violações, sem overflow, sem erros de console.
+- Busca (Pagefind): índice com 63 páginas em 2 idiomas; consulta "defeso" retorna 7 resultados com trechos destacados.
+- Filtro por categoria dos textos (`?categoria=publicacao`): 1 de 5 visível; redirecionamento `/atualizacoes/` → `/textos/` funcionando.
+- Currículo em PDF gerado no build (6 páginas, pt e en), sem telefone.

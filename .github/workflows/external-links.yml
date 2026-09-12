@@ -1,0 +1,50 @@
+name: Verificação mensal de links externos
+
+# Uma vez por mês, constrói o site e testa todos os links externos. Se algum
+# falhar, abre (ou atualiza) uma issue com a lista. Não bloqueia deploys.
+on:
+  schedule:
+    - cron: '30 9 3 * *' # dia 3 de cada mês, 09:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build (sem sincronização: usa o cache commitado)
+        run: npm run build
+      - name: Verificar links externos
+        id: check
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          node scripts/check-links.mjs --external --strict-external 2>&1 | tee links-report.txt
+      - name: Abrir ou atualizar issue com as falhas
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh label create links --repo "$REPO" --color 1C6B73 --description "Links externos quebrados" 2>/dev/null || true
+          report=$(grep -E "^(ERRO|AVISO)" links-report.txt | head -80 || true)
+          body=$(printf 'A verificação mensal encontrou links externos com problema (%s).\n\n```\n%s\n```\n\nCorrija os endereços em `src/data/*.yml` ou `src/content/**` e feche esta issue. Hosts que bloqueiam robôs (LinkedIn, Lattes) aparecem apenas como aviso.' "$(date -u +%Y-%m-%d)" "$report")
+          existing=$(gh issue list --repo "$REPO" --label links --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "$REPO" --body "$body"
+          else
+            gh issue create --repo "$REPO" --title "Links externos com problema ($(date -u +%Y-%m))" --label links --body "$body"
+          fi
+      - name: Falhar o job se houve erros (mantém o histórico visível)
+        if: steps.check.outcome == 'failure'
+        run: exit 1

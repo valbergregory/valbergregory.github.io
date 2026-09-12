@@ -31,6 +31,10 @@ export const STATUSES = [
 ] as const;
 
 export const UPDATE_CATEGORIES = [
+  'opiniao',
+  'nota',
+  'leitura',
+  'aula',
   'codigo',
   'versao',
   'documentacao',
@@ -172,6 +176,15 @@ const updates = defineCollection({
     summary: z.string().min(1),
     category: z.enum(UPDATE_CATEGORIES),
     link: z.url().optional(),
+    /** Slug da URL (padrão: nome do arquivo sem a data e sem o idioma). */
+    slug: z
+      .string()
+      .regex(/^[a-z0-9-]+$/)
+      .optional(),
+    /** Link do mesmo texto no LinkedIn, quando publicado lá. */
+    linkedin: z.url().optional(),
+    updated: z.coerce.date().optional(),
+    tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),
 });
