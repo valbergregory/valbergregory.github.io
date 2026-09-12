@@ -15,7 +15,3 @@
 - item: Estágio de submissão dos manuscritos
   status: nenhum submetido em 12/09/2026 (AISecDev em redação; DSGE, leite e IA/produtividade em pré-submissão)
   action: 'Atualizar `status` em research.yml para `submetido` (com periódico/evento e data) quando ocorrer.'
-
-- item: Repositório do artigo de gravidade do turismo
-  status: ainda não existe repositório público (decisão de 12/09/2026)
-  action: 'Quando publicar, adicionar `repository`, `repositoryVisibility: public` e incluir na whitelist.'
