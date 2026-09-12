@@ -30,7 +30,7 @@ These fields cannot be analysed only by the quantity produced or moved. Economic
 
 The series begins by delimiting maritime economics and moves on to global routes, ports and the blue economy. It then compares small-scale and industrial fishing, presents fisheries as a common-pool resource and discusses the bioeconomics of the sector. The final texts follow the fish to the market and show how data and information systems can support more sustainable management.
 
-Studying the economics of the sea means understanding the relationship between production, territory and natural resources. Maritime and fisheries development will be consistent when it combines efficiency, social inclusion, scientific knowledge and conservation of the environmental base that sustains these activities.
+In sum, studying the economics of the sea means understanding the relationship between production, territory and natural resources. Maritime and fisheries development will be consistent when it combines efficiency, social inclusion, scientific knowledge and conservation of the environmental base that sustains these activities.
 
 ## Further reading
 

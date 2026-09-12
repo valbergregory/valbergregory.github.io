@@ -222,7 +222,10 @@ const ui = {
     'contact.affiliation': 'Vínculos',
     'contact.note':
       'Este site é uma página pessoal acadêmica e não representa oficialmente a UFAL nem o TJAL.',
-    'footer.rights': 'Código sob licença MIT; textos sob CC BY 4.0, salvo indicação.',
+    'footer.rights':
+      'Textos, imagens, fotografias e demais conteúdos: todos os direitos reservados — não podem ser reproduzidos, copiados ou utilizados, no todo ou em parte, sem autorização expressa do autor. As fotografias estão protegidas pelo direito de imagem. Código do site sob licença MIT.',
+    'footer.opinion':
+      'Tudo o que está escrito neste site expressa exclusivamente a opinião do autor e não representa a UFAL, o TJAL nem qualquer outra instituição.',
     'footer.built':
       'Site estático gerado com Astro e publicado no GitHub Pages. Sem cookies, sem rastreamento.',
     'footer.source': 'Código-fonte do site',
@@ -463,7 +466,10 @@ const ui = {
     'contact.affiliation': 'Affiliations',
     'contact.note':
       'This is a personal academic website and does not officially represent UFAL or TJAL.',
-    'footer.rights': 'Code under the MIT licence; texts under CC BY 4.0 unless otherwise stated.',
+    'footer.rights':
+      'Texts, images, photographs and other content: all rights reserved — they may not be reproduced, copied or used, in whole or in part, without the express permission of the author. Photographs are protected by image rights. Website code under the MIT licence.',
+    'footer.opinion':
+      'Everything written on this site expresses solely the opinion of the author and does not represent UFAL, TJAL or any other institution.',
     'footer.built':
       'Static site built with Astro and published on GitHub Pages. No cookies, no tracking.',
     'footer.source': 'Website source code',

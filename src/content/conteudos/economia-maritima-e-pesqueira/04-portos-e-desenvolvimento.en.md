@@ -32,7 +32,7 @@ A port does not produce regional development automatically, since its effects de
 
 Digitalisation also influences performance. Single windows, port community systems and the integration of databases reduce rework, release times and transaction costs. At the same time, planning has to consider pollution, congestion, real-estate pressure and conflicts over the use of the territory, since these externalities fall on nearby cities and communities.
 
-Ports contribute to development when operational efficiency, land connectivity, productive integration and the management of externalities advance together. Assessing these dimensions avoids confusing the volume handled with the benefit actually absorbed by the territory.
+Therefore, ports contribute to development when operational efficiency, land connectivity, productive integration and the management of externalities advance together. Assessing these dimensions avoids confusing the volume handled with the benefit actually absorbed by the territory.
 
 ## Further reading
 

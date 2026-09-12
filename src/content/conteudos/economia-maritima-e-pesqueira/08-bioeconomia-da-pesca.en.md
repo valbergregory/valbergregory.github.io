@@ -30,7 +30,7 @@ The total cost of effort is usually represented by a rising line. The difference
 
 Bioeconomic analysis relates stock, natural growth, effort, catch, costs, prices and access rules. It shows that biological, economic and social goals do not coincide automatically and that the choice of a management point distributes effects between present production, future conservation, employment and income.
 
-The largest possible catch does not necessarily correspond to the best economic or social outcome. Responsible management seeks to keep stocks productive with a level of effort capable of sustaining income, reducing waste and preserving opportunities for future generations.
+Consequently, the largest possible catch does not necessarily correspond to the best economic or social outcome. Responsible management seeks to keep stocks productive with a level of effort capable of sustaining income, reducing waste and preserving opportunities for future generations.
 
 ## Further reading
 
