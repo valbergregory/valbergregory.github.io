@@ -28,7 +28,7 @@ const featured = research
   .slice(0, 8);
 
 const outreach = (await getCollection('outreach')).filter((o) =>
-  ['patacidada', 'smartmap-educacao', 'observatorio-digitalizacao-portuaria'].includes(o.data.slug),
+  ['patacidada', 'smartmap-educacao', 'materiais-didaticos'].includes(o.data.slug),
 );
 
 const github = getGithubProjects();
@@ -95,6 +95,19 @@ const roles = [
         <h1 id="hero-title">{profile.name}</h1>
         <p class="hero-tagline">{pick(profile.tagline, lang)}</p>
         <p class="hero-intro">{pick(profile.intro, lang)}</p>
+        <p class="hero-founder">
+          <span class="founder-lead">{pick(profile.founder.lead, lang)}</span>
+          {profile.founder.items.map((item, i) => (
+            <>
+              {i > 0 && <span class="founder-sep">{lang === 'en' ? ' and ' : ' e '}</span>}
+              <a href={item.url} rel="noopener" target="_blank" class="founder-link">
+                {item.name}
+                <span class="visually-hidden">{t('a11y.newTab')}</span>
+              </a>
+              <span class="founder-note">({pick(item.note, lang)})</span>
+            </>
+          ))}
+        </p>
         <div class="hero-actions">
           <a class="button" href={route('research', lang)}>
             {t('hero.cta.research')} <Icon name="arrow" size={18} />
@@ -235,14 +248,6 @@ const roles = [
               <span class="muted"> — {pick(o.data.kind, lang)}</span>
             </li>
           ))}
-          <li>
-            <strong>
-              {en
-                ? 'Observatory of Economics and Digital Transformation'
-                : 'Observatório de Economia e Transformação Digital'}
-            </strong>
-            <span class="muted"> — {en ? 'proposal' : 'proposta'}</span>
-          </li>
         </ul>
         <a class="button subtle" href={route('outreach', lang)}>
           {en ? 'See projects' : 'Ver projetos'} <Icon name="arrow" size={18} />
@@ -327,6 +332,30 @@ const roles = [
     max-width: 58ch;
     color: var(--text-muted);
     font-size: var(--text-md);
+  }
+  .hero-founder {
+    margin: var(--space-4) 0 0;
+    padding: var(--space-3) var(--space-4);
+    border-left: 3px solid var(--ochre);
+    background: var(--ochre-soft);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: var(--text-base);
+    line-height: 1.5;
+    max-width: 58ch;
+  }
+  .founder-lead {
+    font-weight: 600;
+    color: var(--ochre-text);
+    margin-right: 0.35em;
+  }
+  .founder-link {
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .founder-note {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    margin-left: 0.3em;
   }
   .hero-actions {
     display: flex;
@@ -473,6 +502,12 @@ const roles = [
   }
 
   @media (max-width: 56rem) {
+    .hero-founder {
+      margin-inline: auto;
+      border-left: 0;
+      border-top: 3px solid var(--ochre);
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
     .hero-inner {
       grid-template-columns: 1fr;
       gap: var(--space-6);

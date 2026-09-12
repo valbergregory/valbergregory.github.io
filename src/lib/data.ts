@@ -54,6 +54,10 @@ const profileSchema = z.object({
     orcid: z.url(),
     googleScholar: z.url().optional(),
   }),
+  founder: z.object({
+    lead: bilingual,
+    items: z.array(z.object({ name: z.string(), url: z.url(), note: bilingual })),
+  }),
   linkedinNote: bilingual,
   cvPdf: z.string(),
   cvPdfDate: z.string(),

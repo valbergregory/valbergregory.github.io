@@ -114,6 +114,10 @@ Mensagens de commit não viram notícia; a atividade automática dos repositóri
 
 Tudo em `src/data/profile.yml`: nome, posicionamento, e-mail institucional, links (GitHub, LinkedIn, Lattes, ORCID, Google Scholar), vínculos (`roles`), formação (`education`), linhas de pesquisa (`researchLines`), ferramentas (`tools`) e aprovações em concursos públicos (`publicExams`, com `place`, `role` bilíngue, `institution` e `notice`; o texto introdutório fica em `publicExamsIntro`). A lista aparece na página inicial e no currículo, ordenada pela colocação.
 
+## Destaque de fundador (hero) e startups
+
+O bloco "Fundador das startups …" do hero vem de `profile.yml › founder` (`lead` bilíngue e `items` com `name`, `url` e `note`). As startups também estão em `outreach.yml` (PataCidadã e SmartMap Educação). Não cadastre observatórios ou produtos que ainda não existem: produtos futuros só aparecem como "produtos de extensão esperados" dentro de cada pesquisa.
+
 ## Alinhamento dos textos
 
 No celular (até 56rem de largura) os textos são centralizados por regra global em `src/styles/global.css` (bloco "Celular: textos centralizados"); listas com marcadores, tabelas, formulários e fichas continuam à esquerda. No desktop, a página inicial centraliza os cabeçalhos de seção, a atuação atual e as linhas de pesquisa (`HomePage.astro`).

@@ -21,6 +21,6 @@ Algumas dessas perguntas viraram frentes permanentes de pesquisa:
 
 ## O caminho de volta
 
-Pesquisa e extensão retornam à sala de aula na forma de dados reais, estudos de caso e ferramentas. As bases construídas para os artigos — preços do leite, atracações portuárias, esforço de pesca, decisões judiciais — viram exercícios e projetos de disciplina; os pipelines em R e Python viram material de cursos de extensão em análise de dados; e os painéis produzidos pelos observatórios são pensados para que estudantes participem da construção e da manutenção.
+Pesquisa e extensão retornam à sala de aula na forma de dados reais, estudos de caso e ferramentas. As bases construídas para os artigos — preços do leite, atracações portuárias, esforço de pesca, decisões judiciais — viram exercícios e projetos de disciplina; os pipelines em R e Python viram material de cursos de extensão em análise de dados; e os painéis previstos como produtos das pesquisas são pensados para que estudantes participem da construção e da manutenção.
 
 Oriento trabalhos de conclusão de curso em temas como inteligência de negócios, governança de TI, sistemas de informação para o setor público e monitoramento de sistemas fotovoltaicos, e participo de bancas nos cursos de Sistemas de Informação e Economia.
