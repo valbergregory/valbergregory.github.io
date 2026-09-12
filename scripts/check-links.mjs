@@ -21,6 +21,9 @@ const checkExternal = process.argv.includes('--external');
 const strictExternal = process.argv.includes('--strict-external');
 
 /** Hosts que bloqueiam robôs por padrão (LinkedIn, Lattes, Google Scholar): só avisamos. */
+/** Sites irmãos publicados no mesmo domínio, mas em outro repositório. */
+const SIBLING_SITES = ['https://valbergregory.github.io/economia-da-cultura/'];
+
 const SOFT_HOSTS = new Set([
   'www.linkedin.com',
   'linkedin.com',
@@ -105,7 +108,10 @@ for (const file of htmlFiles) {
       )
         continue;
       if (/^https?:\/\//i.test(target)) {
-        if (target.startsWith('https://valbergregory.github.io')) {
+        // Outros "project sites" do mesmo usuário (ex.: /economia-da-cultura/) não
+        // fazem parte deste build: são tratados como links externos.
+        const sibling = SIBLING_SITES.some((prefix) => target.startsWith(prefix));
+        if (target.startsWith('https://valbergregory.github.io') && !sibling) {
           const local = target.replace('https://valbergregory.github.io', '') || '/';
           internalCount += 1;
           if (!(await resolveInternal(local)))
