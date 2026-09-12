@@ -15,3 +15,19 @@
 - item: Estágio de submissão dos manuscritos
   status: nenhum submetido em 12/09/2026 (AISecDev em redação; DSGE, leite e IA/produtividade em pré-submissão)
   action: 'Atualizar `status` em research.yml para `submetido` (com periódico/evento e data) quando ocorrer.'
+
+- item: Links dos posts do LinkedIn correspondentes às publicações das séries
+  status: 'não informados (12/09/2026); os botões "Comentar no LinkedIn" apontam para o perfil'
+  action: 'Preencher `linkedin:` no frontmatter de cada publicação em src/content/conteudos/ com a URL do post.'
+
+- item: Capas da série "Economia Marítima e Pesqueira"
+  status: 'capas vetoriais geradas por scripts/generate-series-covers.mjs (12/09/2026), enquanto não há imagens próprias'
+  action: 'Gravar as imagens definitivas com os mesmos nomes em src/content/conteudos/economia-maritima-e-pesqueira/ (e o banner em src/content/series/).'
+
+- item: Fotografias para a página Ensino (livro Desenvolvimento e Economia Regional, apresentação na FEAC, foto de 2012)
+  status: 'enviadas no chat em 12/09/2026, sem arquivo no disco, sem legenda/data confirmadas e com terceiros identificáveis'
+  action: 'Salvar os arquivos em uma pasta, informar legenda e data de cada foto e confirmar o consentimento das outras pessoas (ou autorizar o recorte só com o Valber).'
+
+- item: Espaço para música, cinema e resenhas
+  status: 'tipos de conteúdo `musica`, `cinema` e `leitura` criados na seção Conteúdos (12/09/2026); nada publicado; links de composições não informados'
+  action: 'Informar onde as composições estão publicadas (Spotify, YouTube, SoundCloud…) e se deseja uma linha sobre música na página Sobre.'

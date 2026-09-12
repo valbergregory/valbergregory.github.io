@@ -76,32 +76,45 @@ Defina `featured: true` e um `featuredOrder` único (1 = primeiro). A página in
 
 Defina `showPreliminaryFindings: false`. A lista `preliminaryFindings` pode permanecer no arquivo sem ser publicada. Quando autorizar, mude para `true`; a seção aparece com o aviso de que os resultados podem mudar.
 
-## Publicar um texto (seção "Textos")
+## Seção "Conteúdos e Séries Temáticas"
 
-A seção **Textos** (`/textos/`, em inglês `/en/writing/`) é o espaço de escrita semanal: opiniões, comentários sobre eventos, notas de pesquisa, leituras e relatos de sala de aula. Cada texto é um arquivo Markdown em `src/content/updates/`, com o nome `AAAA-MM-DD-slug.pt-br.md` (e, opcionalmente, `AAAA-MM-DD-slug.en.md` para a versão em inglês — o mesmo `slug` liga as duas versões):
+A seção **Conteúdos** (`/conteudos/`, em inglês `/en/content/`) reúne as séries temáticas e as publicações avulsas (notas de pesquisa, opiniões, leituras e resenhas, sala de aula, eventos, música, cinema). Duas coleções alimentam a seção:
+
+- `src/content/series/<série>.<idioma>.md` — apresentação de cada série (frontmatter com título, chamada, descrição, banner/capa, temas, áreas e pesquisas relacionadas; o corpo é o texto de apresentação, que pode conter imagens).
+- `src/content/conteudos/<série>/NN-slug.<idioma>.md` — cada publicação. Conteúdos sem série ficam em outra pasta (por exemplo `src/content/conteudos/avulsos/`) com `type` diferente de `serie`.
+
+Modelo de publicação:
 
 ```markdown
 ---
-title: Título curto e específico
-date: 2026-09-19
+title: Efeitos de rede
+subtitle: Mais usuários. Mais conexões. Mais valor. # opcional
+summary: Uma ou duas frases — aparecem no cartão, na listagem, no RSS e no compartilhamento.
 lang: pt-br
-category: opiniao # opiniao | nota | leitura | aula | evento | codigo | versao | documentacao | dados | painel | texto | site | publicacao
-summary: Uma ou duas frases — aparecem na lista, na página inicial e no RSS.
-project: slug-da-pesquisa # opcional: liga o texto a uma página de pesquisa
-tags: [pix, pagamentos] # opcional
-linkedin: https://www.linkedin.com/posts/... # opcional: link do mesmo texto no LinkedIn
-link: https://... # opcional: fonte ou material externo
-draft: false # true = não publica
+type: serie # serie | nota | opiniao | leitura | aula | evento | musica | cinema
+series: economia-da-informacao-e-redes # obrigatório quando type = serie
+order: 4 # posição na série (liga pt-BR e EN: mesma série + mesma ordem)
+slug: network-effects # opcional; padrão = nome do arquivo sem o número e o idioma
+cover: ./efeitos-de-rede.webp # imagem na mesma pasta; exige coverAlt
+coverAlt: Descrição da imagem para leitores de tela.
+tags: [Economia de Redes, Efeitos de Rede] # filtro "Tema"
+areas: [economia, sistemas-de-informacao] # filtro "Área" (ver taxonomies.yml › contentAreas)
+project: slug-da-pesquisa # opcional: liga a uma página de pesquisa
+date: 2026-09-12 # data futura = publicação agendada (entra no ar no deploy seguinte à data)
+linkedin: https://www.linkedin.com/posts/... # opcional: post correspondente no LinkedIn
+draft: false
 ---
 
-Texto em Markdown. Títulos internos com `##`. Citações com `>`.
+Texto em Markdown. Ao final, as seções `## Para aprofundar` (referências) e `## Sites para acesso`.
 ```
 
-- A URL fica `/textos/<slug>/`; a data do nome do arquivo só ordena.
-- `updated:` (data) marca revisões posteriores; aparece na página do texto.
-- A página inicial mostra os três textos mais recentes; o RSS (`/rss.xml`) inclui os textos em português.
-- Sugestão de fluxo semanal: escrever aqui primeiro, publicar, depois copiar para o LinkedIn com o link de volta e preencher `linkedin:`.
-- A atividade automática dos repositórios (último commit, release) aparece ao lado, mas não é texto editorial.
+- URL: `/conteudos/<série>/<slug>/`; em inglês `/en/content/<série-en>/<slug-en>/`. Conteúdos avulsos: `/conteudos/<tipo>/<slug>/` (`notas`, `opiniao`, `leituras`, `sala-de-aula`, `eventos`, `musica`, `cinema`).
+- O tempo de leitura é calculado a partir do texto; `updated:` marca revisões.
+- Imagens: qualquer formato (WebP é o mais leve); o build gera as versões responsivas e a imagem de compartilhamento (1200 × 630) a partir da capa. Para trocar uma capa gerada por uma imagem própria, basta gravar o arquivo com o mesmo nome na pasta da série (`scripts/generate-series-covers.mjs` regenera as capas vetoriais da série marítima).
+- Nova série: acrescentar o slug em `SERIES` (`src/content.config.ts`), criar os dois arquivos em `src/content/series/` e a pasta em `src/content/conteudos/`.
+- Agendamento: o deploy roda a cada 6 h; uma publicação com `date` futura fica fora do site até a data.
+- A página inicial mostra as séries; o RSS (`/rss.xml`) inclui as publicações em português.
+- Fluxo sugerido para o LinkedIn: publicar aqui, compartilhar com o botão do LinkedIn e preencher `linkedin:` com o link do post.
 
 ## Adicionar tradução
 

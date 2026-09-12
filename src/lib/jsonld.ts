@@ -2,7 +2,8 @@ import type { CollectionEntry } from 'astro:content';
 import { getProfile, pick, label, repoMetaFor } from './data';
 import { route, type Lang } from '@/i18n/routes';
 
-const SITE = 'https://valbergregory.github.io';
+/** Origem canônica do site (astro.config › site), sem barra final. */
+export const SITE = (import.meta.env.SITE ?? 'https://valbergregory.github.io').replace(/\/$/, '');
 
 export function personJsonLd(lang: Lang) {
   const p = getProfile();

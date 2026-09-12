@@ -1,23 +1,26 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
-import { route } from '@/i18n/routes';
-import { getPosts, postSlug } from '@/lib/writing';
+import { contentPath, getContents, getSeries } from '@/lib/contents';
 
-/** RSS dos textos em português (idioma principal do site). */
+/** RSS das publicações em português (idioma principal do site). */
 export async function GET(context: APIContext) {
   const site = context.site ?? new URL('https://valbergregory.github.io');
-  const posts = await getPosts('pt-br');
+  const series = await getSeries('pt-br');
+  const contents = await getContents('pt-br');
   return rss({
-    title: 'Valber Gregory — Textos',
+    title: 'Valber Gregory — Conteúdos e Séries Temáticas',
     description:
-      'Textos semanais de Valber Gregory Barbosa Costa Bezerra Santos sobre economia aplicada, Jurimetria, inteligência artificial no setor público, turismo, portos e pesca, além de notas sobre o andamento das pesquisas.',
+      'Publicações de Valber Gregory Barbosa Costa Bezerra Santos sobre Economia, Direito, dados e tecnologia: séries temáticas (Economia da Informação e de Redes; Economia Marítima e Pesqueira), notas de pesquisa, opiniões e leituras.',
     site,
-    items: posts.map((p) => ({
-      title: p.data.title,
-      description: p.data.summary,
-      pubDate: p.data.date,
-      link: route('writingItem', 'pt-br', postSlug(p)),
-      categories: [p.data.category, ...p.data.tags],
+    items: contents.map((c) => ({
+      title: c.data.subtitle ? `${c.data.title} — ${c.data.subtitle}` : c.data.title,
+      description: c.data.summary,
+      pubDate: c.data.date,
+      link: contentPath(
+        c,
+        series.find((s) => s.data.series === c.data.series),
+      ),
+      categories: [c.data.type, ...c.data.tags],
     })),
     customData: '<language>pt-BR</language>',
   });

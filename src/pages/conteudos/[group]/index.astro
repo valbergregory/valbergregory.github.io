@@ -1,0 +1,13 @@
+---
+import SeriesPage from '@/components/pages/SeriesPage.astro';
+import { getSeries } from '@/lib/contents';
+
+export async function getStaticPaths() {
+  const series = await getSeries('pt-br');
+  return series.map((s) => ({ params: { group: s.data.slug }, props: { series: s } }));
+}
+
+const { series } = Astro.props;
+---
+
+<SeriesPage lang="pt-br" {series} />

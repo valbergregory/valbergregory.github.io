@@ -1,0 +1,155 @@
+---
+/**
+ * Botões de compartilhamento: links de intenção (sem scripts de terceiros),
+ * cópia do link (para Instagram e outros) e compartilhamento nativo quando o
+ * navegador oferece `navigator.share`.
+ */
+import Icon from './Icon.astro';
+import type { Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+
+interface Props {
+  lang: Lang;
+  url: string;
+  title: string;
+}
+const { lang, url, title } = Astro.props;
+const t = useTranslations(lang);
+const u = encodeURIComponent(url);
+const text = encodeURIComponent(title);
+const links = [
+  {
+    name: 'linkedin' as const,
+    label: t('share.linkedin'),
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+  },
+  {
+    name: 'facebook' as const,
+    label: t('share.facebook'),
+    href: `https://www.facebook.com/sharer/sharer.php?u=${u}`,
+  },
+  {
+    name: 'whatsapp' as const,
+    label: t('share.whatsapp'),
+    href: `https://wa.me/?text=${text}%20${u}`,
+  },
+  {
+    name: 'x' as const,
+    label: t('share.x'),
+    href: `https://x.com/intent/post?text=${text}&url=${u}`,
+  },
+];
+---
+
+<div class="share" data-share data-url={url} data-title={title}>
+  <span class="share-title">{t('share.title')}</span>
+  <ul class="share-list">
+    {links.map((l) => (
+      <li>
+        <a href={l.href} rel="noopener noreferrer" target="_blank" title={l.label}>
+          <Icon name={l.name} size={18} />
+          <span class="visually-hidden">
+            {l.label} {t('a11y.newTab')}
+          </span>
+        </a>
+      </li>
+    ))}
+    <li>
+      <button type="button" data-copy title={t('share.instagram')}>
+        <Icon name="link" size={18} />
+        <span class="visually-hidden">{t('share.copy')}</span>
+      </button>
+    </li>
+    <li hidden data-native-wrap>
+      <button type="button" data-native title={t('share.native')}>
+        <Icon name="share" size={18} />
+        <span class="visually-hidden">{t('share.native')}</span>
+      </button>
+    </li>
+  </ul>
+  <span class="share-status small" role="status" aria-live="polite" data-copied>
+    {t('share.copied')}
+  </span>
+  <p class="share-hint small muted">{t('share.instagram')}</p>
+</div>
+
+<style>
+  .share {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+  }
+  .share-title {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .share-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .share-list a,
+  .share-list button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-elevated);
+    color: var(--text);
+    cursor: pointer;
+    font: inherit;
+  }
+  .share-list a:hover,
+  .share-list button:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: var(--teal-soft);
+  }
+  .share-status {
+    grid-column: 2;
+    color: var(--teal-strong);
+    font-weight: 600;
+    visibility: hidden;
+  }
+  .share-status.show {
+    visibility: visible;
+  }
+  .share-hint {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+</style>
+
+<script>
+  for (const box of document.querySelectorAll<HTMLElement>('[data-share]')) {
+    const url = box.dataset.url ?? location.href;
+    const title = box.dataset.title ?? document.title;
+    const status = box.querySelector<HTMLElement>('[data-copied]');
+    box.querySelector<HTMLButtonElement>('[data-copy]')?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+        status?.classList.add('show');
+        setTimeout(() => status?.classList.remove('show'), 2500);
+      } catch {
+        prompt('URL', url);
+      }
+    });
+    const nativeWrap = box.querySelector<HTMLElement>('[data-native-wrap]');
+    if (nativeWrap && typeof navigator.share === 'function') {
+      nativeWrap.hidden = false;
+      box.querySelector<HTMLButtonElement>('[data-native]')?.addEventListener('click', () => {
+        navigator.share({ title, url }).catch(() => {});
+      });
+    }
+  }
+</script>

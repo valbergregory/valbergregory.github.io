@@ -59,6 +59,8 @@ const profileSchema = z.object({
     items: z.array(z.object({ name: z.string(), url: z.url().optional(), note: bilingual })),
   }),
   linkedinNote: bilingual,
+  /** Descrição curta usada na assinatura dos conteúdos. */
+  authorBio: bilingual,
   cvPdf: z.string(),
   cvPdfEn: z.string(),
   photo: z.object({ alt: bilingual }),
@@ -127,7 +129,8 @@ const taxonomiesSchema = z.object({
   methods: labelMap,
   languages: labelMap,
   outputs: labelMap,
-  updateCategories: z.array(z.string()),
+  contentTypes: z.array(z.string()),
+  contentAreas: z.array(z.string()),
 });
 export type Taxonomies = z.infer<typeof taxonomiesSchema>;
 

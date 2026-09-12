@@ -119,6 +119,7 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
       'opsz' 24,
       'wght' 550;
     min-height: 2.75rem;
+    white-space: nowrap;
   }
   .brand-mark {
     display: inline-grid;
@@ -155,6 +156,7 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
     text-decoration: none;
     font-weight: 600;
     font-size: var(--text-sm);
+    white-space: nowrap;
     position: relative;
   }
   .nav-link:hover {
@@ -242,7 +244,7 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
     }
   }
 
-  @media (max-width: 60rem) {
+  @media (max-width: 68rem) {
     .nav-toggle {
       display: inline-flex;
     }

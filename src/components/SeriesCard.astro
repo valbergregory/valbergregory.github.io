@@ -1,0 +1,98 @@
+---
+/** Cartão de uma série temática (capa, título, chamada, número de publicações). */
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import type { Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { seriesPath, type Series } from '@/lib/contents';
+
+interface Props {
+  series: Series;
+  lang: Lang;
+  count: number;
+  headingLevel?: 'h2' | 'h3';
+  eager?: boolean;
+}
+const { series, lang, count, headingLevel = 'h3', eager = false } = Astro.props;
+const t = useTranslations(lang);
+const Heading = headingLevel;
+const s = series.data;
+const href = seriesPath(series);
+const image = s.banner ?? s.cover;
+const alt = s.banner ? (s.bannerAlt ?? '') : (s.coverAlt ?? '');
+---
+
+<article class:list={['card series-card', `palette-${s.palette}`]}>
+  {image && (
+    <a class="banner" href={href} tabindex="-1" aria-hidden="true">
+      <Image
+        src={image}
+        alt={alt}
+        width={960}
+        height={408}
+        widths={[480, 720, 960, 1200]}
+        sizes="(max-width: 64rem) 92vw, 560px"
+        fit="cover"
+        format="webp"
+        loading={eager ? 'eager' : 'lazy'}
+      />
+    </a>
+  )}
+  <div class="card-body">
+    <p class="eyebrow">
+      {t('contents.series.one')} · {count} {t('contents.publicationsCount')}
+    </p>
+    <Heading>
+      <a href={href}>{s.title}</a>
+    </Heading>
+    <p class="tagline">{s.tagline}</p>
+    <p class="card-actions">
+      <a class="button" href={href}>
+        {t('contents.viewSeries')} <Icon name="arrow" size={16} />
+      </a>
+    </p>
+  </div>
+</article>
+
+<style>
+  .series-card {
+    padding: 0;
+    overflow: hidden;
+  }
+  .banner {
+    display: block;
+    aspect-ratio: 40 / 17;
+    background: var(--navy);
+  }
+  .banner :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+  .eyebrow {
+    margin: 0;
+    color: var(--teal-strong);
+  }
+  .palette-ocean .eyebrow {
+    color: var(--navy);
+  }
+  .series-card h2,
+  .series-card h3 {
+    font-size: var(--text-xl);
+    line-height: var(--leading-snug);
+  }
+  .tagline {
+    margin: 0;
+    color: var(--text-muted);
+  }
+  .card-actions {
+    margin: var(--space-2) 0 0;
+  }
+</style>

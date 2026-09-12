@@ -27,6 +27,9 @@ const SOFT_HOSTS = new Set([
   'lattes.cnpq.br',
   'scholar.google.com',
   'scholar.google.com.br',
+  // Bloqueiam robôs (403) mas abrem no navegador.
+  'www.oecd.org',
+  'www.marinha.mil.br',
 ]);
 
 /** Desfaz as entidades HTML de um atributo href/src. */

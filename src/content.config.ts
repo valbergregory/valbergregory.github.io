@@ -30,20 +30,31 @@ export const STATUSES = [
   'publicado',
 ] as const;
 
-export const UPDATE_CATEGORIES = [
-  'opiniao',
+/** Séries temáticas publicadas (slug em português = id da série). */
+export const SERIES = ['economia-da-informacao-e-redes', 'economia-maritima-e-pesqueira'] as const;
+
+/** Tipos de conteúdo da seção "Conteúdos e Séries Temáticas". */
+export const CONTENT_TYPES = [
+  'serie',
   'nota',
+  'opiniao',
   'leitura',
   'aula',
-  'codigo',
-  'versao',
-  'documentacao',
-  'dados',
-  'painel',
-  'texto',
   'evento',
-  'site',
-  'publicacao',
+  'musica',
+  'cinema',
+] as const;
+
+/** Áreas de conhecimento usadas como filtro. */
+export const CONTENT_AREAS = [
+  'economia',
+  'direito',
+  'sistemas-de-informacao',
+  'dados-econometria',
+  'inovacao-publica',
+  'desenvolvimento-territorial',
+  'economia-maritima',
+  'economia-pesqueira',
 ] as const;
 
 const githubRepo = z
@@ -166,27 +177,85 @@ const outreach = defineCollection({
   }),
 });
 
-const updates = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/updates' }),
-  schema: z.object({
-    title: z.string().min(1),
-    date: z.coerce.date(),
-    lang: z.enum(['pt-br', 'en']).default('pt-br'),
-    project: z.string().optional(),
-    summary: z.string().min(1),
-    category: z.enum(UPDATE_CATEGORIES),
-    link: z.url().optional(),
-    /** Slug da URL (padrão: nome do arquivo sem a data e sem o idioma). */
-    slug: z
-      .string()
-      .regex(/^[a-z0-9-]+$/)
-      .optional(),
-    /** Link do mesmo texto no LinkedIn, quando publicado lá. */
-    linkedin: z.url().optional(),
-    updated: z.coerce.date().optional(),
-    tags: z.array(z.string()).default([]),
-    draft: z.boolean().default(false),
-  }),
+const langSchema = z.enum(['pt-br', 'en']);
+const slugSchema = z.string().regex(/^[a-z0-9-]+$/);
+
+/**
+ * Séries temáticas: um arquivo Markdown por idioma em src/content/series
+ * (apresentação da série no corpo; metadados no frontmatter).
+ */
+const series = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/series' }),
+  schema: ({ image }) =>
+    z.object({
+      series: z.enum(SERIES),
+      lang: langSchema,
+      /** Slug público neste idioma (o id da série é o slug em português). */
+      slug: slugSchema,
+      title: z.string().min(1),
+      tagline: z.string().min(1),
+      description: z.string().min(1),
+      /** Imagem larga usada no topo da série e no compartilhamento. */
+      banner: image().optional(),
+      bannerAlt: z.string().optional(),
+      /** Capa quadrada/vertical usada nos cartões da seção. */
+      cover: image().optional(),
+      coverAlt: z.string().optional(),
+      palette: z.enum(['green', 'ocean']).default('green'),
+      tags: z.array(z.string().min(1)).default([]),
+      areas: z.array(z.enum(CONTENT_AREAS)).default([]),
+      /** Slugs de pesquisas relacionadas (src/data/research.yml). */
+      research: z.array(z.string()).default([]),
+      date: z.coerce.date(),
+      updated: z.coerce.date().optional(),
+      draft: z.boolean().default(false),
+    }),
+});
+
+/**
+ * Publicações da seção "Conteúdos e Séries Temáticas": cartões de série, notas,
+ * opiniões, leituras, registros de aula e eventos. Um arquivo por idioma.
+ */
+const contents = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/conteudos' }),
+  schema: ({ image }) =>
+    z
+      .object({
+        title: z.string().min(1),
+        subtitle: z.string().optional(),
+        summary: z.string().min(1),
+        lang: langSchema,
+        type: z.enum(CONTENT_TYPES).default('nota'),
+        series: z.enum(SERIES).optional(),
+        /** Posição dentro da série (1, 2, 3…). */
+        order: z.number().int().positive().optional(),
+        /** Slug público neste idioma (padrão: nome do arquivo sem número e idioma). */
+        slug: slugSchema.optional(),
+        cover: image().optional(),
+        coverAlt: z.string().optional(),
+        tags: z.array(z.string().min(1)).default([]),
+        areas: z.array(z.enum(CONTENT_AREAS)).default([]),
+        /** Slug de pesquisa relacionada (src/data/research.yml). */
+        project: z.string().optional(),
+        date: z.coerce.date(),
+        updated: z.coerce.date().optional(),
+        author: z.string().default('Valber Gregory Barbosa Costa Bezerra Santos'),
+        /** Link do mesmo texto no LinkedIn, quando publicado lá. */
+        linkedin: z.url().optional(),
+        link: z.url().optional(),
+        draft: z.boolean().default(false),
+      })
+      .superRefine((c, ctx) => {
+        if (c.type === 'serie' && (!c.series || !c.order)) {
+          ctx.addIssue({
+            code: 'custom',
+            message: `${c.title}: tipo "serie" exige series e order`,
+          });
+        }
+        if (c.cover && !c.coverAlt) {
+          ctx.addIssue({ code: 'custom', message: `${c.title}: cover exige coverAlt` });
+        }
+      }),
 });
 
 /** Textos longos das páginas (Sobre, Ensino), em Markdown, um arquivo por idioma. */
@@ -200,4 +269,4 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { research, publications, outreach, updates, pages };
+export const collections = { research, publications, outreach, series, contents, pages };

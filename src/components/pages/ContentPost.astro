@@ -1,0 +1,380 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Icon from '@/components/Icon.astro';
+import ContentCard from '@/components/ContentCard.astro';
+import ShareButtons from '@/components/ShareButtons.astro';
+import AuthorBox from '@/components/AuthorBox.astro';
+import { route, type Lang } from '@/i18n/routes';
+import { useTranslations, type UiKey } from '@/i18n/ui';
+import { formatDate, getProfile } from '@/lib/data';
+import { breadcrumbJsonLd, SITE } from '@/lib/jsonld';
+import {
+  contentPath,
+  dateIso,
+  getContents,
+  getCounterpart,
+  getSeriesByKey,
+  getSeriesContents,
+  readingTime,
+  seriesPath,
+  type Content,
+} from '@/lib/contents';
+
+interface Props {
+  lang: Lang;
+  content: Content;
+}
+const { lang, content } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const profile = getProfile();
+const d = content.data;
+const { Content: Body } = await render(content);
+
+const series = d.series ? await getSeriesByKey(lang, d.series) : undefined;
+const siblings = d.series ? await getSeriesContents(lang, d.series) : await getContents(lang);
+const idx = siblings.findIndex((c) => c.id === content.id);
+const prev = idx > 0 ? siblings[idx - 1] : undefined;
+const next = idx >= 0 && idx < siblings.length - 1 ? siblings[idx + 1] : undefined;
+
+// Conteúdos relacionados: os demais da série (até 3) ou os mais recentes.
+const related = siblings.filter((c) => c.id !== content.id).slice(0, 3);
+
+const research = d.project
+  ? (await getCollection('research')).find((r) => r.data.slug === d.project)
+  : undefined;
+
+const path = contentPath(content, series);
+const url = `${SITE}${path}`;
+const counterpart = await getCounterpart(content);
+const other: Lang = en ? 'pt-br' : 'en';
+const alternates: Partial<Record<Lang, string>> = { [lang]: path };
+if (counterpart) {
+  const otherSeries = d.series ? await getSeriesByKey(other, d.series) : undefined;
+  alternates[other] = contentPath(counterpart, otherSeries);
+}
+
+const og = d.cover
+  ? await getImage({ src: d.cover, width: 1200, height: 630, fit: 'cover', format: 'jpg' })
+  : undefined;
+
+const typeLabel = t(`contentType.${d.type}` as UiKey);
+const eyebrow =
+  series && d.order
+    ? `${series.data.title} · ${t('contents.part').replace('{n}', String(d.order)).replace('{total}', String(siblings.length))}`
+    : typeLabel;
+const minutes = readingTime(content.body);
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('contents.title'), href: route('contents', lang) },
+  ...(series ? [{ label: series.data.title, href: seriesPath(series) }] : []),
+  { label: d.title },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={d.title}
+  description={d.summary}
+  current="contents"
+  {alternates}
+  type="article"
+  image={og?.src}
+  imageAlt={d.coverAlt}
+  publishedTime={dateIso(d.date)}
+  modifiedTime={d.updated ? dateIso(d.updated) : undefined}
+  jsonLd={[
+    {
+      '@type': 'Article',
+      headline: d.title,
+      alternativeHeadline: d.subtitle,
+      description: d.summary,
+      datePublished: dateIso(d.date),
+      ...(d.updated ? { dateModified: dateIso(d.updated) } : {}),
+      inLanguage: en ? 'en' : 'pt-BR',
+      url,
+      ...(og ? { image: `${SITE}${og.src}` } : {}),
+      author: { '@id': `${SITE}/#person`, '@type': 'Person', name: d.author },
+      keywords: d.tags.join(', '),
+      isAccessibleForFree: true,
+      ...(series
+        ? {
+            isPartOf: {
+              '@type': 'CreativeWorkSeries',
+              name: series.data.title,
+              url: `${SITE}${seriesPath(series)}`,
+            },
+            position: d.order,
+          }
+        : {}),
+    },
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('contents.title'), path: route('contents', lang) },
+      ...(series ? [{ name: series.data.title, path: seriesPath(series) }] : []),
+      { name: d.title, path },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={d.title} {eyebrow} {crumbs}>
+    {d.subtitle && <p class="lead subtitle">{d.subtitle}</p>}
+    <p class="post-meta">
+      <span>
+        {t('contents.published')} <time datetime={dateIso(d.date)}>{formatDate(d.date, lang)}</time>
+      </span>
+      {d.updated && (
+        <span>
+          · {t('contents.updated')}{' '}
+          <time datetime={dateIso(d.updated)}>{formatDate(d.updated, lang)}</time>
+        </span>
+      )}
+      <span>· {d.author}</span>
+      <span>
+        · <Icon name="clock" size={14} /> {minutes} {t('contents.readingTime')}
+      </span>
+    </p>
+  </PageHeader>
+
+  <div class="container post-layout">
+    <article class:list={['post-body', series ? `palette-${series.data.palette}` : '']}>
+      {d.cover && (
+        <figure class="cover">
+          <Image
+            src={d.cover}
+            alt={d.coverAlt ?? ''}
+            width={900}
+            height={1125}
+            widths={[480, 720, 900, 1122]}
+            sizes="(max-width: 48rem) 92vw, 640px"
+            format="webp"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </figure>
+      )}
+      <p class="lead summary">{d.summary}</p>
+      <div class="markdown prose">
+        <Body />
+      </div>
+
+      {d.tags.length > 0 && (
+        <ul class="tag-list tags" aria-label={t('contents.tags')}>
+          {d.tags.map((tag) => (
+            <li>
+              <a
+                class="tag"
+                href={`${route('contents', lang)}?tema=${encodeURIComponent(tag.toLowerCase())}`}
+              >
+                {tag}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <footer class="post-footer">
+        {research && (
+          <p>
+            <strong>{t('contents.related')}:</strong>{' '}
+            <a href={route('researchItem', lang, research.data.slug)}>{research.data.title}</a>
+          </p>
+        )}
+        {d.link && (
+          <p>
+            <a href={d.link} rel="noopener" target="_blank">
+              {t('pub.access')} <Icon name="external" size={14} />
+              <span class="visually-hidden">{t('a11y.newTab')}</span>
+            </a>
+          </p>
+        )}
+        <p>
+          <a href={d.linkedin ?? profile.links.linkedin} rel="noopener" target="_blank">
+            <Icon name="linkedin" size={16} /> {t('contents.linkedin')}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </p>
+        <ShareButtons {lang} {url} title={d.title} />
+        <AuthorBox {lang} />
+        <p class="small muted">
+          {counterpart ? (
+            <a href={alternates[other]} hreflang={en ? 'pt-BR' : 'en'} lang={en ? 'pt-BR' : 'en'}>
+              {t('contents.otherLang')}
+            </a>
+          ) : (
+            t('contents.onlyLang')
+          )}
+        </p>
+      </footer>
+
+      <nav class="post-nav" aria-label={series ? t('contents.inSeries') : t('contents.title')}>
+        {prev && (
+          <a class="post-nav-link" href={contentPath(prev, series)} rel="prev">
+            <span class="small muted">
+              {t('contents.prev')}
+              {prev.data.order
+                ? ` · ${t('contents.part').replace('{n}', String(prev.data.order)).replace('{total}', String(siblings.length))}`
+                : ''}
+            </span>
+            <span>{prev.data.title}</span>
+          </a>
+        )}
+        {next && (
+          <a class="post-nav-link" href={contentPath(next, series)} rel="next">
+            <span class="small muted">
+              {t('contents.next')}
+              {next.data.order
+                ? ` · ${t('contents.part').replace('{n}', String(next.data.order)).replace('{total}', String(siblings.length))}`
+                : ''}
+            </span>
+            <span>{next.data.title}</span>
+          </a>
+        )}
+        <p class="nav-actions">
+          {series && (
+            <a class="button secondary" href={seriesPath(series)}>
+              {t('contents.backToSeries')}
+            </a>
+          )}
+          <a class="button subtle" href={route('contents', lang)}>
+            {t('contents.backToList')}
+          </a>
+        </p>
+      </nav>
+    </article>
+
+    {related.length > 0 && (
+      <section class="related" aria-labelledby="related-title">
+        <div class="section-head">
+          <h2 id="related-title">{t('contents.relatedContents')}</h2>
+        </div>
+        <div class="grid grid-3">
+          {related.map((c) => (
+            <ContentCard content={c} {lang} {series} />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .subtitle {
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: var(--space-3) 0 0;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+  .post-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .post-layout {
+    padding-block: var(--space-7);
+    display: grid;
+    gap: var(--space-8);
+  }
+  .post-body {
+    max-width: 72ch;
+    margin-inline: auto;
+    width: 100%;
+  }
+  .cover {
+    margin: 0 auto var(--space-6);
+    max-width: 640px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+  .cover :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .summary {
+    margin-bottom: var(--space-5);
+  }
+  .markdown :global(h2) {
+    font-size: var(--text-xl);
+    margin-top: var(--space-6);
+  }
+  .markdown :global(h3) {
+    margin-top: var(--space-5);
+  }
+  .markdown :global(blockquote) {
+    margin: var(--space-4) 0;
+    padding: var(--space-3) var(--space-4);
+    border-left: 3px solid var(--ochre);
+    background: var(--ochre-soft);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .markdown :global(img) {
+    border-radius: var(--radius);
+    max-width: 100%;
+    height: auto;
+  }
+  .markdown :global(li) {
+    margin-bottom: var(--space-2);
+  }
+  .tags {
+    margin-top: var(--space-5);
+  }
+  .tags a.tag {
+    text-decoration: none;
+  }
+  .tags a.tag:hover {
+    border-color: var(--teal);
+    color: var(--teal-strong);
+  }
+  .post-footer {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+    display: grid;
+    gap: var(--space-4);
+  }
+  .post-footer p {
+    margin: 0;
+  }
+  .post-footer p a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .post-nav {
+    margin-top: var(--space-6);
+    display: grid;
+    gap: var(--space-3);
+  }
+  .post-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    background: var(--bg-elevated);
+  }
+  .post-nav-link:hover {
+    border-color: var(--border-strong);
+    color: var(--link-hover);
+  }
+  .nav-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: var(--space-2) 0 0;
+  }
+</style>
