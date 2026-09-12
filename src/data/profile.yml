@@ -150,25 +150,32 @@ education:
 researchLines:
   - key: economia-politicas-publicas
     label:
-      pt: Economia e políticas públicas
-      en: Economics and public policy
+      pt: Desenvolvimento Regional e Políticas Públicas
+      en: Regional Development and Public Policy
     blurb:
-      pt: Gasto público, educação, preços agrícolas e avaliação de políticas com dados em painel e séries temporais.
-      en: Public spending, education, agricultural prices and policy evaluation with panel and time-series data.
+      pt: Gasto público, educação, preços agrícolas e avaliação de políticas, com corte transversal em Economia Industrial e Economia Organizacional — localização e aglomeração das atividades, estrutura das firmas e desenho das organizações públicas.
+      en: Public spending, education, agricultural prices and policy evaluation, cutting across Industrial and Organisational Economics — location and agglomeration of activities, firm structure and the design of public organisations.
   - key: economia-direito-jurimetria
     label:
-      pt: Economia do Direito e Jurimetria
-      en: Law and Economics and Jurimetrics
+      pt: Análise Econômica do Direito e Jurimetria
+      en: Economic Analysis of Law and Jurimetrics
     blurb:
-      pt: Decisões judiciais como dados — danos morais, duração dos processos, precedentes e litigância.
-      en: Court decisions as data — moral damages, case duration, precedents and litigation patterns.
+      pt: Decisões judiciais como dados — danos morais, duração dos processos, precedentes, litigância e os incentivos que as regras criam.
+      en: Court decisions as data — moral damages, case duration, precedents, litigation patterns and the incentives rules create.
   - key: ia-governo-digital-seguranca
     label:
-      pt: IA, governo digital e segurança
-      en: AI, digital government and security
+      pt: Inteligência Artificial, governo digital e decisão jurídica
+      en: Artificial Intelligence, digital government and legal decision-making
     blurb:
-      pt: Adoção de inteligência artificial no setor público, produtividade, governança e controles de segurança.
-      en: AI adoption in the public sector, productivity, governance and security controls.
+      pt: Adoção de IA no setor público, produtividade, governança e controles de segurança; e o tema Inteligência Artificial, Juridicidade e Decisão Jurídica — em que condições sistemas de IA podem apoiar decisões jurídicas legítimas, auditáveis e sujeitas a supervisão humana.
+      en: AI adoption in the public sector, productivity, governance and security controls; and the theme of Artificial Intelligence, Legality and Legal Decision-Making — under which conditions AI systems can support legitimate, auditable and human-supervised legal decisions.
+  - key: economia-digital-direito-digital
+    label:
+      pt: Economia Digital e Direito Digital
+      en: Digital Economy and Digital Law
+    blurb:
+      pt: Pagamentos instantâneos (Pix), plataformas e serviços digitais, dados e proteção de dados, cibersegurança e regulação — a economia dos mercados digitais e o direito que os organiza.
+      en: Instant payments (Pix), platforms and digital services, data and data protection, cybersecurity and regulation — the economics of digital markets and the law that organises them.
   - key: economia-turismo
     label:
       pt: Economia do Turismo
