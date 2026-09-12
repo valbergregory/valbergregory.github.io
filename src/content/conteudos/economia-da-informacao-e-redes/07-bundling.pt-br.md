@@ -28,7 +28,7 @@ O modelo é especialmente atraente para bens de informação, pois a inclusão d
 
 Uma empresa com posição consolidada pode usar o pacote como barreira à entrada. O concorrente que oferece somente uma planilha, um serviço de comunicação ou outra solução específica passa a disputar espaço com um conjunto em que o produto equivalente parece não ter preço separado. Por essa razão, o bundling e a venda casada aparecem com frequência em análises de defesa da concorrência.
 
-O bundling pode reduzir custos de transação e oferecer conveniência, mas também pode reforçar ecossistemas fechados e limitar a competição de fornecedores especializados. Dessarte, sua avaliação exige considerar preço, possibilidade de escolha, integração efetiva e efeitos sobre a entrada de concorrentes.
+Assim, o bundling pode reduzir custos de transação e oferecer conveniência, mas também pode reforçar ecossistemas fechados e limitar a competição de fornecedores especializados. Dessarte, sua avaliação exige considerar preço, possibilidade de escolha, integração efetiva e efeitos sobre a entrada de concorrentes.
 
 ## Para aprofundar
 

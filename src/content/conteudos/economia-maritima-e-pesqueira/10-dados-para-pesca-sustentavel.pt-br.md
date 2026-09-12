@@ -31,7 +31,7 @@ Sinais dos sistemas AIS e VMS permitem reconstruir parte do esforço de pesca de
 
 O principal ponto cego permanece na pesca artesanal. Muitas embarcações pequenas não possuem rastreamento, e as estatísticas de desembarque são descontínuas. Programas locais de monitoramento e aplicativos construídos com as comunidades podem reduzir essa lacuna, desde que os dados dos pescadores sejam protegidos, que as finalidades de uso sejam claras e que as informações produzidas retornem em benefícios para os próprios participantes.
 
-Tecnologia, por si só, não assegura uma pesca sustentável. Os dados precisam ser confiáveis, integrados e convertidos em decisões legítimas por meio de governança, proteção de dados e participação dos pescadores. Somente essa combinação permite que informação se transforme em conservação, renda e capacidade de adaptação.
+Em síntese, tecnologia, por si só, não assegura uma pesca sustentável. Os dados precisam ser confiáveis, integrados e convertidos em decisões legítimas por meio de governança, proteção de dados e participação dos pescadores. Somente essa combinação permite que informação se transforme em conservação, renda e capacidade de adaptação.
 
 ## Para aprofundar
 

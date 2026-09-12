@@ -29,7 +29,7 @@ Deciding who pays and who receives incentives is part of the economic design of 
 
 As the platform grows, it becomes just as important to examine how the value created is shared. Fees, access rules, data handling and ranking criteria can change the economic position of each side. The platform's market power therefore shifts the balance between the efficiency of intermediation, the remuneration of participants and freedom of choice.
 
-The success of a multi-sided market depends on the articulation between technological architecture and the architecture of incentives. Connecting groups is only the beginning, since the platform has to sustain trust, quality and economic balance without turning its position as intermediary into excessive dependence for participants.
+Therefore, the success of a multi-sided market depends on the articulation between technological architecture and the architecture of incentives. Connecting groups is only the beginning, since the platform has to sustain trust, quality and economic balance without turning its position as intermediary into excessive dependence for participants.
 
 ## Further reading
 

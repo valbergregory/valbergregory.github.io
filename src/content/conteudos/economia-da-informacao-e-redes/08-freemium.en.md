@@ -28,7 +28,7 @@ A zero price produces a pull that tends to be greater than the mere saving of a 
 
 Sustainability depends on the conversion rate, on the cost of the free base and on the difference in utility between plans. Since only a share of users usually takes up the paid version, overly generous limits can raise costs without producing revenue, while severe restrictions prevent users from recognising the product's value. The design of the free plan therefore has to allow real use and, at the same time, offer legitimate reasons to upgrade.
 
-Freemium works when free access widens the market without undermining the capacity to fund the service. The balance depends on controlled costs, transparent communication and a progression of value that respects the user instead of turning artificial limitations into pressure to buy.
+In short, freemium works when free access widens the market without undermining the capacity to fund the service. The balance depends on controlled costs, transparent communication and a progression of value that respects the user instead of turning artificial limitations into pressure to buy.
 
 ## Further reading
 

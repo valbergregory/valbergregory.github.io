@@ -30,7 +30,7 @@ In Brazil, the expression Blue Amazon designates the extensive maritime area und
 
 For Alagoas and Brazil's Northeast, the subject brings together small-scale fishing, coastal tourism, ports, estuaries and the mouth of the São Francisco river. Each activity has its own needs, but all depend on the quality of infrastructure, of the environment and of the information available to guide public and private decisions.
 
-Maritime economics makes it possible to see how a single space articulates sectors that are usually analysed separately. Measuring these connections is the first step towards policies capable of generating income and competitiveness without compromising ecosystems and coastal communities.
+In this way, maritime economics makes it possible to see how a single space articulates sectors that are usually analysed separately. Measuring these connections is the first step towards policies capable of generating income and competitiveness without compromising ecosystems and coastal communities.
 
 ## Further reading
 

@@ -30,7 +30,7 @@ These problems hit small-scale fishing hardest, since it often has limited acces
 
 Traceability, sanitary inspection and certification build trust and can open markets that pay better for the product. Meeting these requirements demands records, infrastructure and coordination. Fishers' guilds, cooperatives and associations can spread costs and ease access for small producers, provided that the organisational mechanisms preserve their autonomy and participation.
 
-The economic value of fish depends on the continuity and quality of the whole chain. Improving preservation, logistics, collective organisation and information reduces waste, protects the consumer and increases the share of value that stays with those who work in the activity.
+In this way, the economic value of fish depends on the continuity and quality of the whole chain. Improving preservation, logistics, collective organisation and information reduces waste, protects the consumer and increases the share of value that stays with those who work in the activity.
 
 ## Further reading
 

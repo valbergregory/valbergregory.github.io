@@ -27,7 +27,7 @@ O principal desafio de uma plataforma nova é alcançar massa crítica. Antes de
 
 Os mesmos efeitos que geram valor podem elevar custos de troca e produzir aprisionamento tecnológico. Deixar uma rede pode significar perder contatos, reputação, histórico ou compatibilidade com outros usuários. Essa dinâmica favorece a concentração e torna a interoperabilidade uma questão relevante para a política concorrencial, pois a comunicação entre redes pode reduzir a dependência de um único fornecedor.
 
-Efeitos de rede são centrais para explicar o crescimento, a concentração e a permanência dos usuários em mercados digitais. Seu estudo permite distinguir o valor criado pela expansão da rede dos riscos decorrentes de dependência, custos de troca e redução da concorrência.
+Em síntese, efeitos de rede são centrais para explicar o crescimento, a concentração e a permanência dos usuários em mercados digitais. Seu estudo permite distinguir o valor criado pela expansão da rede dos riscos decorrentes de dependência, custos de troca e redução da concorrência.
 
 ## Para aprofundar
 

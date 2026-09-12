@@ -64,4 +64,4 @@ Leia `docs/CONTENT_GUIDE.md`. Em resumo:
 
 ## Licença
 
-Código sob [MIT](LICENSE). Textos do site sob [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), salvo indicação. Fotografia e currículo: todos os direitos reservados.
+Código sob [MIT](LICENSE). Textos, imagens, fotografias, currículo e demais conteúdos: todos os direitos reservados — não podem ser reproduzidos ou utilizados sem autorização expressa do autor; as fotografias estão protegidas pelo direito de imagem. Tudo o que está escrito expressa exclusivamente a opinião do autor.

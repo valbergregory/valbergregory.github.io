@@ -30,7 +30,7 @@ O conceito ganhou projeção internacional a partir da Conferência Rio+20 e foi
 
 Áreas marinhas protegidas, períodos de defeso e ordenamento espacial são exemplos desses instrumentos. Sua eficácia depende de dados, fiscalização e participação de quem vive do mar. Sem acompanhamento dos resultados e legitimidade social, medidas formalmente adequadas podem deslocar problemas ou impor custos desproporcionais a determinados grupos.
 
-A Economia Azul considera a sustentabilidade uma condição para a continuidade da renda e do trabalho ligados ao mar. Destarte, políticas consistentes precisam proteger a base ecológica, distribuir custos e benefícios com justiça e avaliar se os instrumentos adotados produzem os resultados esperados.
+Assim, a Economia Azul considera a sustentabilidade uma condição para a continuidade da renda e do trabalho ligados ao mar. Destarte, políticas consistentes precisam proteger a base ecológica, distribuir custos e benefícios com justiça e avaliar se os instrumentos adotados produzem os resultados esperados.
 
 ## Para aprofundar
 

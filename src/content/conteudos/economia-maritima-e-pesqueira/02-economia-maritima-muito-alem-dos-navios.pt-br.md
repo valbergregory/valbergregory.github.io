@@ -29,7 +29,7 @@ No Brasil, a expressão Amazônia Azul designa a extensa área marítima sob jur
 
 Para Alagoas e o Nordeste, o tema reúne pesca artesanal, turismo costeiro, portos, estuários e a foz do rio São Francisco. Cada atividade possui necessidades próprias, mas todas dependem da qualidade da infraestrutura, do ambiente e das informações disponíveis para orientar decisões públicas e privadas.
 
-A Economia Marítima permite enxergar como um mesmo espaço articula setores que costumam ser analisados separadamente. Medir essas conexões é o primeiro passo para formular políticas capazes de gerar renda e competitividade sem comprometer os ecossistemas e as comunidades costeiras.
+Desse modo, a Economia Marítima permite enxergar como um mesmo espaço articula setores que costumam ser analisados separadamente. Medir essas conexões é o primeiro passo para formular políticas capazes de gerar renda e competitividade sem comprometer os ecossistemas e as comunidades costeiras.
 
 ## Para aprofundar
 

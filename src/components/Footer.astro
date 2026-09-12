@@ -85,7 +85,10 @@ const year = buildDate.getUTCFullYear();
 
     <div class="footer-col footer-meta">
       <p class="small muted">{t('footer.built')}</p>
-      <p class="small muted">{t('footer.rights')}</p>
+      <p class="small muted">{t('footer.opinion')}</p>
+      <p class="small muted">
+        © {new Date().getFullYear()} {profile.name}. {t('footer.rights')}
+      </p>
       <p class="small muted">
         <a
           href="https://github.com/valbergregory/valbergregory.github.io"
