@@ -29,8 +29,6 @@ O custo total do esforço costuma ser representado por uma linha crescente. A di
 
 A análise bioeconômica relaciona estoque, crescimento natural, esforço, captura, custos, preços e regras de acesso. Ela mostra que metas biológicas, econômicas e sociais não coincidem automaticamente e que a escolha de um ponto de manejo distribui efeitos entre produção presente, conservação futura, emprego e renda.
 
-## Conclusão
-
 O maior volume de captura possível não corresponde necessariamente ao melhor resultado econômico ou social. Uma gestão responsável procura manter estoques produtivos com nível de esforço capaz de sustentar renda, reduzir desperdícios e preservar oportunidades para as gerações futuras.
 
 ## Para aprofundar

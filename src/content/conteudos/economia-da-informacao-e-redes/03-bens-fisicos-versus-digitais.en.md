@@ -28,8 +28,6 @@ This structure limits the usefulness of pricing the product solely by the cost o
 
 Non-rivalry also turns exclusion into a decision built into the system's architecture. Authentication, licences, digital rights management and usage restrictions define who can access the product and under which conditions. In the opposite direction, the same non-rivalry sustains free software, open data and Creative Commons licences, since sharing does not reduce the stock of information available.
 
-## Conclusion
-
 The economic difference between physical and digital goods explains why information markets develop their own forms of pricing, access and distribution. For those who design systems, understanding this structure is essential to choosing coherent business models and access rules proportionate to the value and the rights involved.
 
 ## Further reading

@@ -29,8 +29,6 @@ The cost of transport is not only the amount paid for freight. It also includes 
 
 For countries geographically distant from the main markets, such as Brazil, these costs work as a kind of natural tariff on exports and imports. Port efficiency, logistical predictability and integration with land networks become decisive factors for competitiveness.
 
-## Conclusion
-
 Shipping routes organise global supply chains and transmit shocks between countries. Understanding their costs and vulnerabilities helps governments and firms plan infrastructure, inventories and logistical alternatives capable of reducing the effects of disruptions.
 
 ## Further reading

@@ -30,8 +30,6 @@ O risco moral aparece depois do contrato, quando uma parte pode alterar seu comp
 
 Sinalização e triagem constituem respostas às assimetrias informacionais. Diplomas, certificações, garantias, avaliações e históricos fornecem sinais sobre características que não são diretamente observáveis. Sistemas de Informação ampliam essa capacidade ao organizar registros, facilitar verificações e produzir indicadores. A mesma tecnologia, contudo, pode concentrar dados em poucos agentes e ampliar a desigualdade informacional, especialmente quando critérios automatizados não são transparentes.
 
-## Conclusão
-
 A informação possui valor econômico porque modifica escolhas e resultados. Destarte, sistemas bem concebidos podem reduzir incertezas e melhorar decisões, desde que a ampliação da capacidade informacional venha acompanhada de transparência, proteção de dados e critérios de uso compatíveis com os direitos dos envolvidos.
 
 ## Para aprofundar

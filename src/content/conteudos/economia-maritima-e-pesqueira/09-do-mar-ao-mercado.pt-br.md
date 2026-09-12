@@ -29,8 +29,6 @@ Esses problemas atingem com maior intensidade a pesca artesanal, que muitas veze
 
 Rastreabilidade, inspeção sanitária e certificação ampliam a confiança e podem abrir mercados que remuneram melhor o produto. O cumprimento dessas exigências requer registros, infraestrutura e coordenação. Colônias, cooperativas e associações podem distribuir custos e facilitar o acesso dos pequenos produtores, desde que os mecanismos de organização preservem sua autonomia e participação.
 
-## Conclusão
-
 O valor econômico do pescado depende da continuidade e da qualidade de toda a cadeia. Melhorar conservação, logística, organização coletiva e informação reduz desperdícios, protege o consumidor e aumenta a parcela de valor que permanece com quem trabalha na atividade.
 
 ## Para aprofundar

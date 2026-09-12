@@ -28,8 +28,6 @@ In economic terms, versioning is a form of second-degree price discrimination. S
 
 In certain situations the cheaper version results from deliberately limiting a technically more complete product. The literature calls this phenomenon "damaged goods", since the firm may incur costs to restrict features that already exist. The strategy protects the price of the premium version, but it requires attention to licence clauses, usage limits and duties to inform the consumer.
 
-## Conclusion
-
 Versioning turns differences between users into a structure of offers. When versions are clear, proportionate and transparent, the strategy widens access and improves the fit of the product. When limitations are artificial or hard to understand, on the other hand, it can generate frustration and legal challenges.
 
 ## Further reading

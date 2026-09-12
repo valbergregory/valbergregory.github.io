@@ -27,8 +27,6 @@ Essa estrutura limita a utilidade de precificar o produto apenas pelo custo de p
 
 A não rivalidade também transforma a exclusão em uma decisão incorporada à arquitetura do sistema. Autenticação, licenças, gestão de direitos digitais e restrições de uso definem quem pode acessar o produto e em quais condições. Em sentido diverso, a mesma não rivalidade sustenta o software livre, os dados abertos e as licenças Creative Commons, pois o compartilhamento não reduz o estoque de informação disponível.
 
-## Conclusão
-
 A diferença econômica entre bens físicos e digitais explica por que mercados de informação desenvolvem formas próprias de preço, acesso e distribuição. Para quem projeta sistemas, compreender essa estrutura é essencial para escolher modelos de negócio coerentes e regras de acesso proporcionais ao valor e aos direitos envolvidos.
 
 ## Para aprofundar

@@ -30,8 +30,6 @@ Hardin popularizou esse problema como “tragédia dos comuns”, mas a literatu
 
 Na pesca, períodos de defeso, cotas, licenças, áreas protegidas, fiscalização, monitoramento e gestão compartilhada procuram alinhar o esforço à capacidade de renovação dos estoques. No Brasil, o defeso combina proibição temporária da captura de determinadas espécies com proteção de renda para pescadores artesanais elegíveis. Avaliar seus efeitos sobre estoques e renda continua sendo uma questão empírica relevante.
 
-## Conclusão
-
 A pesca sustentável depende de instituições que convertam a interdependência entre usuários em regras legítimas e verificáveis. O desafio não consiste apenas em limitar capturas, mas em construir uma governança que preserve os estoques e distribua de forma justa os custos da conservação.
 
 ## Para aprofundar

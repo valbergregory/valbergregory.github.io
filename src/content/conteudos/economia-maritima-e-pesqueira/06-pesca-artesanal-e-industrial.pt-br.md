@@ -30,8 +30,6 @@ O Registro Geral da Atividade Pesqueira funciona como requisito de acesso a pol�
 
 A pesca artesanal responde por parte expressiva da produção desembarcada no Nordeste e sustenta numerosos postos de trabalho, mas permanece menos coberta por estatísticas. Essa lacuna dificulta estimar renda, produtividade e dependência territorial. Aplicar uma única regra a agentes com escalas, custos e tecnologias diferentes pode distribuir de forma desigual tanto os benefícios quanto os encargos da regulação.
 
-## Conclusão
-
 Políticas pesqueiras precisam reconhecer as diferenças entre pesca artesanal e industrial. Dessarte, a regulação será mais efetiva quando combinar critérios ambientais comuns com instrumentos proporcionais à escala produtiva, à capacidade econômica e à importância social de cada segmento.
 
 ## Para aprofundar

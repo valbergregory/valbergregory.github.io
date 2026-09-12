@@ -28,8 +28,6 @@ A definição de quem paga e de quem recebe incentivos faz parte do desenho econ
 
 À medida que a plataforma cresce, torna-se igualmente importante examinar como o valor gerado é repartido. Taxas, regras de acesso, tratamento de dados e critérios de ranqueamento podem alterar a posição econômica de cada lado. O poder de mercado da plataforma, portanto, muda o equilíbrio entre eficiência da intermediação, remuneração dos participantes e liberdade de escolha.
 
-## Conclusão
-
 O sucesso de um mercado multilateral depende da articulação entre arquitetura tecnológica e arquitetura de incentivos. Conectar grupos é apenas o início, pois a plataforma precisa sustentar confiança, qualidade e equilíbrio econômico sem converter sua posição de intermediária em dependência excessiva para os participantes.
 
 ## Para aprofundar

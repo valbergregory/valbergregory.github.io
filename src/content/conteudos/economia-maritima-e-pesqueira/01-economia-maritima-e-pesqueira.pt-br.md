@@ -29,8 +29,6 @@ Esses campos não podem ser analisados apenas pela quantidade produzida ou movim
 
 A série começa pela delimitação da Economia Marítima e avança pelas rotas globais, pelos portos e pela Economia Azul. Em seguida, compara a pesca artesanal e a industrial, apresenta a pesca como recurso de uso comum e discute a bioeconomia do setor. Os textos finais acompanham o pescado até o mercado e mostram como dados e Sistemas de Informação podem apoiar uma gestão mais sustentável.
 
-## Conclusão
-
 Estudar a economia do mar significa compreender a relação entre produção, território e recursos naturais. O desenvolvimento marítimo e pesqueiro será consistente quando combinar eficiência, inclusão social, conhecimento científico e conservação da base ambiental que sustenta essas atividades.
 
 ## Para aprofundar

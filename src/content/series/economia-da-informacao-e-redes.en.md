@@ -39,6 +39,4 @@ The topics also lend themselves to empirical investigation. Graph theory and soc
 
 ![Panel "Models in the digital economy": dynamic pricing (real-time price adjustment driven by supply, demand and algorithms); demand forecasting with time series (ARIMA, LSTM) for resource and infrastructure management; and data valuation and impact assessment with econometric analysis (difference-in-differences, regression discontinuity and data valuation) to measure efficiency and technology adoption.](./modelos-economia-digital.webp)
 
-## Conclusion
-
 Understanding the economics of information and networks makes it possible to evaluate digital products as systems of incentives, and not merely as sets of features. This perspective helps professionals and students reach decisions that are technically consistent, economically sustainable and legally responsible.

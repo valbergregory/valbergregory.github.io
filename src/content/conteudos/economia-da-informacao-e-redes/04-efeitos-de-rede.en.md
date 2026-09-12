@@ -28,8 +28,6 @@ The main challenge for a new platform is to reach critical mass. Before that poi
 
 The same effects that create value can raise switching costs and produce technological lock-in. Leaving a network can mean losing contacts, reputation, history or compatibility with other users. This dynamic favours concentration and makes interoperability a relevant issue for competition policy, since communication between networks can reduce dependence on a single supplier.
 
-## Conclusion
-
 Network effects are central to explaining growth, concentration and user retention in digital markets. Studying them makes it possible to distinguish the value created by the expansion of the network from the risks that stem from dependence, switching costs and reduced competition.
 
 ## Further reading

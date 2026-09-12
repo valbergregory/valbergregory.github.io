@@ -28,8 +28,6 @@ O custo do transporte não corresponde apenas ao valor pago pelo frete. Também 
 
 Para países geograficamente distantes dos grandes mercados, como o Brasil, esses custos funcionam como uma espécie de tarifa natural sobre exportações e importações. Eficiência portuária, previsibilidade logística e integração com redes terrestres tornam-se fatores decisivos para a competitividade.
 
-## Conclusão
-
 Rotas marítimas organizam cadeias produtivas globais e transmitem choques entre países. Compreender seus custos e vulnerabilidades ajuda governos e empresas a planejar infraestrutura, estoques e alternativas logísticas capazes de reduzir os efeitos de interrupções.
 
 ## Para aprofundar
