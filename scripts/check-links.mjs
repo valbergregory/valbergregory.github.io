@@ -20,8 +20,24 @@ const dist = path.join(root, 'dist');
 const checkExternal = process.argv.includes('--external');
 const strictExternal = process.argv.includes('--strict-external');
 
-/** Hosts que bloqueiam robôs por padrão: só avisamos. */
-const SOFT_HOSTS = new Set(['www.linkedin.com', 'linkedin.com', 'lattes.cnpq.br']);
+/** Hosts que bloqueiam robôs por padrão (LinkedIn, Lattes, Google Scholar): só avisamos. */
+const SOFT_HOSTS = new Set([
+  'www.linkedin.com',
+  'linkedin.com',
+  'lattes.cnpq.br',
+  'scholar.google.com',
+  'scholar.google.com.br',
+]);
+
+/** Desfaz as entidades HTML de um atributo href/src. */
+function unescapeHtml(value) {
+  return value
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+}
 
 async function walk(dir) {
   const out = [];
@@ -70,7 +86,7 @@ for (const file of htmlFiles) {
   const rel = path.relative(dist, file).replace(/\\/g, '/');
 
   for (const match of html.matchAll(attrRe)) {
-    const raw = match[1].trim();
+    const raw = unescapeHtml(match[1].trim());
     // srcset: pega cada URL
     const targets =
       raw.includes(',') && /\s\d+[wx]/.test(raw)
@@ -118,6 +134,16 @@ if (checkExternal) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 15000);
     try {
+      // DOI: basta o resolvedor responder com redirecionamento; o destino
+      // (site da revista) é responsabilidade do editor e pode ter TLS inválido.
+      if (new URL(url).hostname === 'doi.org') {
+        const r = await fetch(url, {
+          method: 'HEAD',
+          redirect: 'manual',
+          signal: controller.signal,
+        });
+        return r.status >= 300 && r.status < 400 ? 200 : r.status;
+      }
       let res = await fetch(url, {
         method: 'HEAD',
         redirect: 'follow',
