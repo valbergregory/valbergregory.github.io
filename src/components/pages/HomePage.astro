@@ -6,6 +6,7 @@ import Icon from '@/components/Icon.astro';
 import NetworkDecor from '@/components/NetworkDecor.astro';
 import ResearchCard from '@/components/ResearchCard.astro';
 import RepoMeta from '@/components/RepoMeta.astro';
+import ExamsList from '@/components/ExamsList.astro';
 import portrait from '@/assets/valber-portrait.jpg';
 import { alternates, route, type Lang } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/ui';
@@ -250,6 +251,16 @@ const roles = [
     </div>
   </section>
 
+  <section class="section exams-section" aria-labelledby="exams-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="exams-title">{t('exams.title')}</h2>
+        <p class="lead">{pick(profile.publicExamsIntro, lang)}</p>
+      </div>
+      <ExamsList {lang} compact />
+    </div>
+  </section>
+
   <section class="section closing" aria-labelledby="closing-title">
     <div class="container closing-inner">
       <h2 id="closing-title">{t('home.closing')}</h2>
@@ -262,6 +273,21 @@ const roles = [
 </BaseLayout>
 
 <style>
+  /* Seções centralizadas (pedido de 12/09/2026): cabeçalhos, atuação e linhas de pesquisa. */
+  .section .section-head {
+    text-align: center;
+    margin-inline: auto;
+  }
+  .section .section-head .lead {
+    margin-inline: auto;
+  }
+  .roles .role,
+  .lines .line {
+    text-align: center;
+  }
+  .more {
+    text-align: center;
+  }
   .hero {
     position: relative;
     overflow: hidden;
@@ -340,13 +366,21 @@ const roles = [
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-4) var(--space-6);
   }
   .line {
+    flex: 1 1 18rem;
+    max-width: calc((100% - 2 * var(--space-6)) / 3);
     border-top: 2px solid var(--teal);
     padding-top: var(--space-3);
+  }
+  @media (max-width: 56rem) {
+    .line {
+      max-width: 100%;
+    }
   }
   .line.transversal {
     border-top-color: var(--ochre);
@@ -390,9 +424,23 @@ const roles = [
   }
   .two-col h2 {
     font-size: var(--text-xl);
+    text-align: center;
+  }
+  .two-col > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .two-col .prose {
+    margin-inline: auto;
   }
   .outreach-list {
     margin-bottom: var(--space-4);
+    align-items: center;
+  }
+  .exams-section .lead {
+    max-width: 72ch;
   }
 
   .closing {
@@ -418,7 +466,7 @@ const roles = [
       padding-block: var(--space-7);
     }
     .hero-photo {
-      justify-self: start;
+      justify-self: center;
       order: -1;
       width: min(60%, 18rem);
     }

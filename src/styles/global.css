@@ -443,6 +443,82 @@ th {
 }
 
 /* ------------------------------------------------------------------
+   Celular: textos centralizados (pedido de 12/09/2026).
+   Listas com marcadores, tabelas, formulários e definições continuam
+   alinhados à esquerda para não perder a leitura.
+   ------------------------------------------------------------------ */
+@media (max-width: 56rem) {
+  main,
+  .site-footer {
+    text-align: center;
+  }
+  main h1,
+  main h2,
+  main h3,
+  main h4 {
+    text-align: center;
+  }
+  .prose,
+  .lead,
+  .section-head,
+  .notice {
+    margin-inline: auto;
+  }
+  .card,
+  .grid > * {
+    align-items: center;
+    text-align: center;
+  }
+  .card .tag-list,
+  .card .chip-list,
+  .tag-list,
+  .chip-list,
+  .link-list,
+  .hero-actions,
+  .actions,
+  .card-foot,
+  .card-top,
+  .head-meta,
+  .download,
+  .toc,
+  .pub-links {
+    justify-content: center;
+  }
+  .link-list {
+    align-items: center;
+  }
+  .definition {
+    text-align: center;
+  }
+  /* Exceções: conteúdo que precisa de alinhamento à esquerda. */
+  main
+    ul:not(.tag-list):not(.chip-list):not(.link-list):not(.plain):not(.footer-links):not(
+      .footer-nav
+    ),
+  main ol:not(.exams):not(.entries):not(.events):not(.recent):not(.timeline),
+  main table,
+  main form,
+  main .filters,
+  main .table-wrap,
+  main .repo-meta,
+  main .exam,
+  main .entry,
+  main .events li,
+  main .pub {
+    text-align: left;
+  }
+  main .exam,
+  main .entry,
+  main .pub {
+    align-items: flex-start;
+  }
+  .site-footer .footer-links,
+  .site-footer .footer-nav {
+    align-items: center;
+  }
+}
+
+/* ------------------------------------------------------------------
    Movimento reduzido
    ------------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {

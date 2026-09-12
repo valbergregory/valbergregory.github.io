@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import Icon from '@/components/Icon.astro';
+import ExamsList from '@/components/ExamsList.astro';
 import { alternates, route, type Lang } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/ui';
 import { getProfile, pick } from '@/lib/data';
@@ -167,6 +168,12 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
       </ul>
     </section>
 
+    <section aria-labelledby="exams-title">
+      <h2 id="exams-title">{t('exams.title')}</h2>
+      <p class="prose">{pick(profile.publicExamsIntro, lang)}</p>
+      <ExamsList {lang} columns={2} />
+    </section>
+
     <section aria-labelledby="links-title">
       <h2 id="links-title">{t('cv.links')}</h2>
       <ul class="link-list">
@@ -179,6 +186,12 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
         <li>
           <a href={profile.links.lattes} rel="me noopener" target="_blank">
             <Icon name="lattes" /> {en ? 'Lattes CV' : 'Currículo Lattes'}{' '}
+            <span class="visually-hidden">{t('a11y.newTab')}</span>
+          </a>
+        </li>
+        <li>
+          <a href={profile.links.googleScholar} rel="me noopener" target="_blank">
+            <Icon name="scholar" /> Google Scholar{' '}
             <span class="visually-hidden">{t('a11y.newTab')}</span>
           </a>
         </li>

@@ -35,7 +35,13 @@ export function personJsonLd(lang: Lang) {
     ],
     knowsAbout: p.researchLines.map((l) => pick(l.label, lang)),
     knowsLanguage: ['pt-BR', 'en', 'fr', 'it', 'de', 'es'],
-    sameAs: [p.links.orcid, p.links.lattes, p.links.github, p.links.linkedin],
+    sameAs: [
+      p.links.orcid,
+      p.links.lattes,
+      p.links.github,
+      p.links.linkedin,
+      p.links.googleScholar,
+    ].filter(Boolean),
   };
 }
 

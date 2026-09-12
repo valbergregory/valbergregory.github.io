@@ -9,26 +9,26 @@ Regra geral: **não invente**. Estágios, títulos, autores e resultados só ent
 1. Abra `src/data/research.yml` e copie um bloco existente.
 2. Preencha os campos (todos validados no build por `src/content.config.ts`):
 
-| Campo | O que é |
-|---|---|
-| `slug` | identificador estável em minúsculas e hífens; vira a URL `/pesquisa/<slug>/` |
-| `title` | título original do trabalho (não traduza) |
-| `alternativeTitle` + `titlePending: true` | segundo título candidato, quando a escolha não foi feita |
-| `titleProvisional: true` | mostra o aviso "título provisório" |
-| `authors` | lista de nomes completos, na ordem de autoria |
-| `track` | uma das áreas de `taxonomies.yml` |
-| `subtrack` | opcional, `{pt, en}` |
-| `status` | `estruturacao`, `em-desenvolvimento`, `redacao`, `pre-submissao`, `submetido` ou `publicado` |
-| `summary`, `researchQuestion`, `motivation` | textos `{pt, en}` |
-| `dataSources`, `methods`, `limitations`, `implications`, `extensionProducts` | listas `{pt: [...], en: [...]}` |
-| `methodTags` | chaves de `taxonomies.yml › methods` (alimentam o filtro) |
-| `showPreliminaryFindings` + `preliminaryFindings` | ver "Ocultar achados preliminares" |
-| `repository` / `repositoryVisibility` | URL do GitHub só quando `public`; `private` ou `none` exigem `repository: null` |
-| `languages`, `outputTypes`, `codeAvailable`, `dataAvailable` | alimentam os filtros |
-| `featured` + `featuredOrder` | ver "Destacar um projeto" |
-| `allowAutomaticMetadata` | `true` só para repositórios públicos que estejam na whitelist |
-| `lastEditorialReview` | data `AAAA-MM-DD` da última revisão do texto |
-| `materials` | lista opcional de `{label: {pt, en}, url}` |
+| Campo                                                                        | O que é                                                                                      |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `slug`                                                                       | identificador estável em minúsculas e hífens; vira a URL `/pesquisa/<slug>/`                 |
+| `title`                                                                      | título original do trabalho (não traduza)                                                    |
+| `alternativeTitle` + `titlePending: true`                                    | segundo título candidato, quando a escolha não foi feita                                     |
+| `titleProvisional: true`                                                     | mostra o aviso "título provisório"                                                           |
+| `authors`                                                                    | lista de nomes completos, na ordem de autoria                                                |
+| `track`                                                                      | uma das áreas de `taxonomies.yml`                                                            |
+| `subtrack`                                                                   | opcional, `{pt, en}`                                                                         |
+| `status`                                                                     | `estruturacao`, `em-desenvolvimento`, `redacao`, `pre-submissao`, `submetido` ou `publicado` |
+| `summary`, `researchQuestion`, `motivation`                                  | textos `{pt, en}`                                                                            |
+| `dataSources`, `methods`, `limitations`, `implications`, `extensionProducts` | listas `{pt: [...], en: [...]}`                                                              |
+| `methodTags`                                                                 | chaves de `taxonomies.yml › methods` (alimentam o filtro)                                    |
+| `showPreliminaryFindings` + `preliminaryFindings`                            | ver "Ocultar achados preliminares"                                                           |
+| `repository` / `repositoryVisibility`                                        | URL do GitHub só quando `public`; `private` ou `none` exigem `repository: null`              |
+| `languages`, `outputTypes`, `codeAvailable`, `dataAvailable`                 | alimentam os filtros                                                                         |
+| `featured` + `featuredOrder`                                                 | ver "Destacar um projeto"                                                                    |
+| `allowAutomaticMetadata`                                                     | `true` só para repositórios públicos que estejam na whitelist                                |
+| `lastEditorialReview`                                                        | data `AAAA-MM-DD` da última revisão do texto                                                 |
+| `materials`                                                                  | lista opcional de `{label: {pt, en}, url}`                                                   |
 
 3. Se o repositório for público e você quiser metadados automáticos, adicione `owner/repo` em `src/data/github-whitelist.json`.
 4. `npm test` verifica as regras (whitelist, repositório privado sem URL, etc.).
@@ -43,7 +43,7 @@ Adicione um bloco em `src/data/publications.yml`:
 
 ```yaml
 - id: identificador-unico
-  type: article        # article | chapter | presented | abstract
+  type: article # article | chapter | presented | abstract
   title: 'Título exato'
   authors: [Nome Completo 1, Nome Completo 2]
   venue: Nome do periódico
@@ -85,10 +85,10 @@ Crie `src/content/updates/AAAA-MM-DD-assunto.pt-br.md` (e, se quiser, a versão 
 title: Título curto
 date: 2026-09-11
 lang: pt-br
-category: codigo   # codigo | versao | documentacao | dados | painel | texto | evento | site | publicacao
-project: slug-da-pesquisa   # opcional
+category: codigo # codigo | versao | documentacao | dados | painel | texto | evento | site | publicacao
+project: slug-da-pesquisa # opcional
 summary: Uma frase para a lista e o RSS.
-link: https://...           # opcional
+link: https://... # opcional
 draft: false
 ---
 
@@ -112,7 +112,11 @@ Mensagens de commit não viram notícia; a atividade automática dos repositóri
 
 ## Perfil, vínculos e formação
 
-Tudo em `src/data/profile.yml`: nome, posicionamento, e-mail institucional, links (GitHub, LinkedIn, Lattes, ORCID; Google Scholar quando existir), vínculos (`roles`), formação (`education`), linhas de pesquisa (`researchLines`) e ferramentas (`tools`).
+Tudo em `src/data/profile.yml`: nome, posicionamento, e-mail institucional, links (GitHub, LinkedIn, Lattes, ORCID, Google Scholar), vínculos (`roles`), formação (`education`), linhas de pesquisa (`researchLines`), ferramentas (`tools`) e aprovações em concursos públicos (`publicExams`, com `place`, `role` bilíngue, `institution` e `notice`; o texto introdutório fica em `publicExamsIntro`). A lista aparece na página inicial e no currículo, ordenada pela colocação.
+
+## Alinhamento dos textos
+
+No celular (até 56rem de largura) os textos são centralizados por regra global em `src/styles/global.css` (bloco "Celular: textos centralizados"); listas com marcadores, tabelas, formulários e fichas continuam à esquerda. No desktop, a página inicial centraliza os cabeçalhos de seção, a atuação atual e as linhas de pesquisa (`HomePage.astro`).
 
 ## Vocabulários
 

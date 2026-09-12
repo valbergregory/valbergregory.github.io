@@ -48,6 +48,10 @@ const ui = {
       'Metadados públicos dos repositórios de pesquisa, atualizados automaticamente. Atividade de código não é medida de qualidade científica.',
     'home.teaching': 'Ensino',
     'home.outreach': 'Extensão e projetos aplicados',
+    'exams.title': 'Concursos públicos',
+    'exams.place': 'lugar',
+    'exams.notice': 'Edital',
+    'exams.cv': 'Ver no currículo',
     'home.closing': 'Diálogo e colaboração',
     'home.closing.text':
       'Tenho interesse em colaboração acadêmica, orientação e diálogo com estudantes, projetos interdisciplinares e parcerias institucionais que usem dados públicos para responder a perguntas concretas.',
@@ -231,6 +235,10 @@ const ui = {
       'Public metadata from research repositories, refreshed automatically. Code activity is not a measure of scientific quality.',
     'home.teaching': 'Teaching',
     'home.outreach': 'Outreach and applied projects',
+    'exams.title': 'Public service examinations',
+    'exams.place': 'place',
+    'exams.notice': 'Call',
+    'exams.cv': 'See in the CV',
     'home.closing': 'Dialogue and collaboration',
     'home.closing.text':
       'I welcome academic collaboration, student supervision and dialogue, interdisciplinary projects and institutional partnerships that use public data to answer concrete questions.',
