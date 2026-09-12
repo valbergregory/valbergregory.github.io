@@ -21,7 +21,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Build (sem sincronização: usa o cache commitado)
+      - name: "Build (sem sincronização; usa o cache commitado)"
         run: npm run build
       - name: Verificar links externos
         id: check
