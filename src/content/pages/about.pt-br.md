@@ -15,6 +15,10 @@ Em 2014 ingressei no Tribunal de Justiça de Alagoas como Analista Judiciário n
 
 Em paralelo, concluí o doutorado em Economia na UFPB, com uma tese sobre tecnologia da informação e comunicação na economia da educação, e em 2023 tomei posse como professor efetivo da UFAL, na Unidade Educacional Penedo, lotado no curso de Sistemas de Informação. Antes disso, entre 2019 e 2021, fui professor substituto no curso de Turismo da mesma unidade.
 
+## Um pé no mundo dos concursos públicos
+
+Os dois vínculos atuais vieram de concursos, e concursos são uma parte permanente da minha trajetória: fui aprovado em oito seleções para carreiras de economista, professor, analista judiciário e procurador municipal — três delas em primeiro lugar, entre elas a do cargo de professor efetivo da UFAL e a de economista da CBTU. Continuo acompanhando editais, bancas e o desenho das carreiras públicas, e essa experiência, como candidato e como servidor, alimenta o interesse por avaliação, gestão e políticas de pessoal no setor público. A lista completa está no [currículo](/curriculo/#exams-title).
+
 ## A aproximação com Sistemas de Informação
 
 Lecionar para futuros profissionais de tecnologia mudou o modo como faço pesquisa. Passei a tratar dados públicos como infraestrutura — coisas que precisam de pipelines reproduzíveis, documentação e versionamento — e a desenhar projetos que produzem, além do artigo, um painel, uma base aberta ou uma ferramenta que alguém possa usar. R, Python, SQL e análise espacial deixaram de ser apenas meios de estimação e viraram parte do objeto de estudo: como sistemas de informação transformam a administração pública e o Judiciário.

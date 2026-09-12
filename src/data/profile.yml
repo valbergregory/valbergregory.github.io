@@ -32,7 +32,7 @@ links:
   linkedin: https://www.linkedin.com/in/valber-gregory-49013744
   lattes: http://lattes.cnpq.br/9400489411252847
   orcid: https://orcid.org/0000-0003-1504-8923
-  # googleScholar: não confirmado — ver review-needed.yml
+  googleScholar: https://scholar.google.com.br/citations?user=5ncbRzQAAAAJ&hl=pt-BR
 
 cvPdf: /valber-cv.pdf
 cvPdfDate: '2025-02'
@@ -269,3 +269,67 @@ bio:
         artificiale e la trasformazione digitale nel settore pubblico, l'economia del turismo, l'economia
         marittima e l'economia della pesca — sempre con dati pubblici, metodi riproducibili e l'obiettivo
         che i risultati tornino in aula, nelle attività di terza missione e a chi prende le decisioni.
+
+# Aprovações em concursos públicos (informadas pelo titular em 12/09/2026; conferem com o Lattes).
+publicExamsIntro:
+  pt: >-
+    Concursos públicos fazem parte da minha trajetória — como candidato e, hoje, como servidor.
+    Fui aprovado em oito seleções para carreiras de economista, professor, analista judiciário e
+    procurador municipal, três delas em primeiro lugar. Mantenho um pé nesse mundo: acompanho
+    editais, bancas e o desenho das carreiras públicas, e isso alimenta o interesse por avaliação,
+    gestão e políticas de pessoal no setor público.
+  en: >-
+    Public service examinations (concursos públicos) are part of my trajectory — as a candidate
+    and, today, as a civil servant. I passed eight competitive selections for economist, professor,
+    judicial analyst and municipal attorney positions, three of them in first place. I keep a foot
+    in that world: I follow calls, examination boards and the design of public careers, which feeds
+    my interest in evaluation, management and personnel policy in the public sector.
+publicExams:
+  - place: 1
+    role:
+      pt: Economista
+      en: Economist
+    institution: CBTU — Companhia Brasileira de Trens Urbanos
+    notice: Edital n. 1/2014
+  - place: 1
+    role:
+      pt: Professor Efetivo (40h) — Gestão, Economia e Contabilidade para Sistemas de Informação
+      en: Tenured Professor (40h) — Management, Economics and Accounting for Information Systems
+    institution: UFAL — Universidade Federal de Alagoas
+    notice: Edital n. 77/2021
+  - place: 1
+    role:
+      pt: Professor Substituto
+      en: Substitute Lecturer
+    institution: UFAL — Polo Arapiraca/Penedo
+    notice: Edital n. 45/2018
+  - place: 3
+    role:
+      pt: Economista
+      en: Economist
+    institution: UFAL — Universidade Federal de Alagoas
+    notice: Edital n. 136/2011
+  - place: 3
+    role:
+      pt: Analista Judiciário, área especializada em Economia
+      en: Judicial Analyst, Economics
+    institution: TJAL — Tribunal de Justiça de Alagoas
+    notice: Edital n. 24/2012
+  - place: 5
+    role:
+      pt: Economista
+      en: Economist
+    institution: CONAB — Companhia Nacional de Abastecimento
+    notice: Edital n. 1/2014
+  - place: 11
+    role:
+      pt: Analista de Processos Organizacionais
+      en: Organisational Process Analyst
+    institution: Algás S/A
+    notice: Edital n. 1/2014
+  - place: 30
+    role:
+      pt: Procurador Municipal
+      en: Municipal Attorney
+    institution: Prefeitura de Rio Largo (AL)
+    notice: Edital n. 1/2010

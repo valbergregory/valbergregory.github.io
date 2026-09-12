@@ -1,0 +1,108 @@
+---
+/**
+ * Aprovações em concursos públicos (dados em profile.yml › publicExams).
+ * Ordenadas pela colocação; a posição é texto, não só número, para leitores de tela.
+ */
+import type { Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getProfile, pick } from '@/lib/data';
+
+interface Props {
+  lang: Lang;
+  compact?: boolean;
+  /** Número máximo de colunas em telas largas (2 em páginas de leitura, 3 na inicial). */
+  columns?: 2 | 3;
+}
+const { lang, compact = false, columns = 3 } = Astro.props;
+const t = useTranslations(lang);
+const profile = getProfile();
+const en = lang === 'en';
+const exams = [...profile.publicExams].sort((a, b) => a.place - b.place);
+const ordinal = (n: number) =>
+  en ? `${n}${n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th'}` : `${n}º`;
+---
+
+<ol
+  class:list={['exams', { compact }]}
+  style={`--cols: ${columns}; --basis: ${columns === 2 ? '15rem' : '20rem'}`}
+>
+  {exams.map((e) => (
+    <li class="exam">
+      <span class="place" aria-label={`${ordinal(e.place)} ${t('exams.place')}`}>
+        <strong>{ordinal(e.place)}</strong>
+        <span class="place-label">{t('exams.place')}</span>
+      </span>
+      <span class="exam-body">
+        <span class="exam-role">{pick(e.role, lang)}</span>
+        <span class="exam-meta small muted">
+          {e.institution} · {e.notice}
+        </span>
+      </span>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .exams {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3) var(--space-5);
+  }
+  .exam {
+    flex: 1 1 var(--basis, 20rem);
+    max-width: calc((100% - (var(--cols, 3) - 1) * var(--space-5)) / var(--cols, 3));
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .place {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 3.25rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    background: var(--navy-soft);
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .place strong {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    font-variation-settings:
+      'opsz' 24,
+      'wght' 600;
+  }
+  .place-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+  }
+  .exam-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+  .exam-role {
+    font-weight: 600;
+  }
+  .compact .exam {
+    padding: var(--space-2) var(--space-3);
+  }
+  @media (max-width: 56rem) {
+    .exam {
+      max-width: 100%;
+    }
+  }
+</style>

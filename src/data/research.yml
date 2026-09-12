@@ -474,7 +474,7 @@
   methods:
     pt:
       - Benchmark de modelos de linguagem com e sem recuperação de contexto
-      - "Avaliação em sete dimensões: correção jurídica, fundamentação, atualização normativa, citações, alucinações, consistência e estabilidade"
+      - 'Avaliação em sete dimensões: correção jurídica, fundamentação, atualização normativa, citações, alucinações, consistência e estabilidade'
     en:
       - Benchmark of language models with and without retrieval-augmented generation
       - Assessment across seven dimensions - legal correctness, reasoning, normative currency, citations, hallucinations, consistency and stability
@@ -536,7 +536,7 @@
   showPreliminaryFindings: false
   limitations:
     pt:
-      - "Fase inicial: apenas sondagens de dados foram realizadas."
+      - 'Fase inicial: apenas sondagens de dados foram realizadas.'
       - Padrões estatísticos não equivalem a conduta ilícita; qualquer uso exige supervisão humana e devido processo.
     en:
       - Early stage - only data probes have been carried out.
@@ -639,7 +639,7 @@
     pt: Qual é o papel da distância, da conectividade aérea e da competitividade de preços na demanda internacional de turismo para o Brasil?
     en: What is the role of distance, air connectivity and price competitiveness in international tourism demand for Brazil?
   motivation:
-    pt: "O interesse pela área foi fortalecido ao trabalhar temas de Turismo nas aulas de graduação em Penedo. A pergunta prática é simples — o que mais pesa na chegada de turistas estrangeiros: estar longe, ter poucos voos ou ser caro? — e a resposta orienta promoção internacional e política aérea."
+    pt: 'O interesse pela área foi fortalecido ao trabalhar temas de Turismo nas aulas de graduação em Penedo. A pergunta prática é simples — o que mais pesa na chegada de turistas estrangeiros: estar longe, ter poucos voos ou ser caro? — e a resposta orienta promoção internacional e política aérea.'
     en: Interest in the topic grew while teaching Tourism-related subjects in undergraduate courses in Penedo. The practical question is simple - what weighs most on foreign arrivals - being far away, having few flights or being expensive? - and the answer guides international promotion and aviation policy.
   dataSources:
     pt:

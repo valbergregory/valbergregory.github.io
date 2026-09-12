@@ -84,6 +84,15 @@ const profileSchema = z.object({
     }),
   ),
   tools: z.array(z.string()),
+  publicExamsIntro: bilingual,
+  publicExams: z.array(
+    z.object({
+      place: z.number().int().positive(),
+      role: bilingual,
+      institution: z.string(),
+      notice: z.string(),
+    }),
+  ),
   bio: z.record(
     z.string(),
     z.object({ lang: z.string(), label: z.string(), paragraphs: z.array(z.string()) }),

@@ -15,6 +15,10 @@ In 2014 I joined the Alagoas State Court of Justice (TJAL) as a Judicial Analyst
 
 In parallel, I completed a PhD in Economics at UFPB, with a thesis on information and communication technology in the economics of education, and in 2023 I became a tenured professor at UFAL, Penedo Educational Unit, in the Information Systems programme. Before that, between 2019 and 2021, I was a substitute lecturer in the Tourism programme of the same unit.
 
+## A foot in the world of public service examinations
+
+Both of my current positions came through competitive public examinations (concursos), and they are a permanent part of my trajectory: I passed eight selections for economist, professor, judicial analyst and municipal attorney positions — three of them in first place, including the tenured professorship at UFAL and the economist post at CBTU. I still follow calls, examination boards and the design of public careers, and that experience, as a candidate and as a civil servant, feeds my interest in evaluation, management and personnel policy in the public sector. The full list is in the [CV](/en/cv/#exams-title).
+
 ## The turn towards Information Systems
 
 Teaching future technology professionals changed how I do research. I began treating public data as infrastructure — something that needs reproducible pipelines, documentation and version control — and designing projects that produce, beyond the paper, a dashboard, an open dataset or a tool someone can use. R, Python, SQL and spatial analysis stopped being merely estimation tools and became part of the object of study: how information systems transform public administration and the judiciary.
