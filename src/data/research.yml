@@ -13,8 +13,6 @@
 # ---------------------------------------------------------------------------
 - slug: gasto-publico-educacao-dsge
   title: 'Gasto Público em Educação, Salários Regionais e Dinâmica Fiscal no Brasil: Evidências em Painel e um DSGE Fiscal com Capital Humano'
-  alternativeTitle: 'A Austeridade Educacional se Autofinancia? Efeito Laffer Dinâmico do Gasto Público em Educação num DSGE Fiscal com Capital Humano'
-  titlePending: true
   authors:
     - Valber Gregory Barbosa Costa Bezerra Santos
   track: economia-politicas-publicas
@@ -30,10 +28,10 @@
     en: Education cuts are often defended as immediate fiscal adjustment, yet education spending builds human capital that raises wages and the tax base in the future. Measuring this dynamic return helps assess whether educational austerity pays for itself or costs more than it saves.
   dataSources:
     pt:
-      - Dados em painel de unidades subnacionais brasileiras (gasto em educação, salários regionais e arrecadação)
+      - Painel das 27 unidades da federação (gasto em educação, salários regionais e arrecadação)
       - Parâmetros calibrados para a economia brasileira no modelo DSGE
     en:
-      - Panel data for Brazilian subnational units (education spending, regional wages and tax revenue)
+      - Panel of the 27 Brazilian states (education spending, regional wages and tax revenue)
       - Parameters calibrated to the Brazilian economy in the DSGE model
   methods:
     pt:
@@ -47,10 +45,8 @@
   limitations:
     pt:
       - O modelo depende de calibração; os resultados quantitativos são sensíveis aos parâmetros de formação de capital humano.
-      - A escolha entre o título principal e o alternativo ainda não foi definida.
     en:
       - The model relies on calibration; quantitative results are sensitive to the human-capital formation parameters.
-      - The choice between the main and the alternative title has not been made yet.
   implications:
     pt:
       - Avaliação de regras fiscais e de pisos constitucionais para a educação.
@@ -71,7 +67,7 @@
   dataAvailable: false
   featured: false
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-09-12'
 
 - slug: transmissao-precos-leite
   title: Transmissão de Preços do Leite ao Produtor entre Regiões Brasileiras
@@ -279,7 +275,6 @@
 
 - slug: gatekeeping-the-quantum
   title: "Gatekeeping the Quantum: How Brazil's Superior Court of Justice Reviews Moral-Damages Awards"
-  titleProvisional: true
   authors:
     - Valber Gregory Barbosa Costa Bezerra Santos
   track: economia-direito-jurimetria
@@ -309,10 +304,8 @@
   showPreliminaryFindings: false
   limitations:
     pt:
-      - Título provisório, ainda sujeito a confirmação.
       - O protocolo de anotação das decisões ainda está em validação.
     en:
-      - Provisional title, still subject to confirmation.
       - The decision annotation protocol is still under validation.
   implications:
     pt:
@@ -332,7 +325,7 @@
   dataAvailable: false
   featured: false
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-09-12'
 
 - slug: geography-of-judicial-delay
   title: 'The Geography of Judicial Delay: Spatial Inequality and Procedural Trajectories in Brazil'
@@ -660,10 +653,10 @@
   limitations:
     pt:
       - Manuscrito em desenvolvimento; a redação dos resultados ainda não foi concluída.
-      - O repositório remoto ainda não foi confirmado.
+      - O código será publicado em repositório próprio quando o manuscrito estiver fechado.
     en:
       - Manuscript in development; the write-up of results is not complete.
-      - The remote repository has not been confirmed yet.
+      - The code will be published in its own repository once the manuscript is complete.
   implications:
     pt:
       - Promoção internacional, malha aérea, conectividade e competitividade.
@@ -689,7 +682,7 @@
   featured: true
   featuredOrder: 8
   allowAutomaticMetadata: false
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-09-12'
 
 # ---------------------------------------------------------------------------
 # 6.5 Economia Marítima e Portos
