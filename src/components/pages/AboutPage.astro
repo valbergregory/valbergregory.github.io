@@ -23,12 +23,15 @@ const entry = (await getCollection('pages')).find(
 if (!entry) throw new Error(`Conteúdo "about" não encontrado para ${lang}`);
 const { Content } = await render(entry);
 
-// Ordem de exibição das bios: idioma da página primeiro, depois os demais.
+// Bios em outros idiomas (profile.yml › bio): desligadas em 12/09/2026 a pedido do
+// titular, até haver materiais e certificações de idiomas. Para reativar, mude para true.
+const SHOW_MULTILINGUAL_BIO = false;
 const primary = en ? 'en' : 'pt';
-const order = [primary, ...['pt', 'en', 'fr', 'de', 'it'].filter((k) => k !== primary)];
-const bios = order.map((k) => ({ key: k, ...profile.bio[k]! }));
-const primaryBio = bios[0]!;
-const otherBios = bios.slice(1);
+const otherBios = SHOW_MULTILINGUAL_BIO
+  ? ['pt', 'en', 'fr', 'de', 'it']
+      .filter((k) => k !== primary)
+      .map((k) => ({ key: k, ...profile.bio[k]! }))
+  : [];
 
 const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t('about.title') }];
 ---
@@ -53,11 +56,6 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
 
   <div class="container about-layout">
     <div class="about-main">
-      <section class="bio-primary" aria-label={en ? 'Short introduction' : 'Apresentação'}>
-        {primaryBio.paragraphs.map((para) => (
-          <p class="lead">{para}</p>
-        ))}
-      </section>
       <div class="markdown prose">
         <Content />
       </div>
@@ -115,23 +113,25 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
     </aside>
   </div>
 
-  <section class="section languages" aria-labelledby="langs-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="langs-title">{t('about.languages')}</h2>
+  {otherBios.length > 0 && (
+    <section class="section languages" aria-labelledby="langs-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="langs-title">{t('about.languages')}</h2>
+        </div>
+        <div class="grid grid-2">
+          {otherBios.map((bio) => (
+            <section class="card bio-card" lang={bio.lang} aria-label={bio.label}>
+              <h3>{bio.label}</h3>
+              {bio.paragraphs.map((para) => (
+                <p>{para}</p>
+              ))}
+            </section>
+          ))}
+        </div>
       </div>
-      <div class="grid grid-2">
-        {otherBios.map((bio) => (
-          <section class="card bio-card" lang={bio.lang} aria-label={bio.label}>
-            <h3>{bio.label}</h3>
-            {bio.paragraphs.map((para) => (
-              <p>{para}</p>
-            ))}
-          </section>
-        ))}
-      </div>
-    </div>
-  </section>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
@@ -141,12 +141,6 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
     gap: var(--space-7);
     padding-block: var(--space-7);
     align-items: start;
-  }
-  .bio-primary {
-    margin-bottom: var(--space-6);
-  }
-  .bio-primary .lead {
-    margin-bottom: var(--space-4);
   }
   .markdown :global(h2) {
     font-size: var(--text-xl);

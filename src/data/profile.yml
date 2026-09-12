@@ -128,13 +128,13 @@ education:
       pt: 'Dissertação sobre localização geográfica e efeitos aglomerativos da indústria no Nordeste (1995–2005). Bolsista CAPES.'
       en: 'Dissertation on industrial location and agglomeration effects in Northeast Brazil (1995–2005). CAPES scholarship.'
   - degree:
-      pt: Pós-graduação lato sensu em Direito 4.0 — Direito Digital, Proteção de Dados e Cibersegurança
-      en: Graduate certificate in Law 4.0 — Digital Law, Data Protection and Cybersecurity
-    institution: PUC-Campinas em conjunto com PUC-PR
+      pt: Especialização (pós-graduação lato sensu) em Direito 4.0 — Direito Digital, Proteção de Dados e Cibersegurança
+      en: Graduate specialisation in Law 4.0 — Digital Law, Data Protection and Cybersecurity
+    institution: PUC-Campinas, com dupla certificação em conjunto com a PUC-PR
     years: 2025–2026
     note:
-      pt: Concluída em julho de 2026.
-      en: Completed in July 2026.
+      pt: 360 horas; concluída em 28 de julho de 2026 (declaração de conclusão emitida em agosto de 2026). Ementa com LGPD, privacy by design, ISO 27001/27002/27701, direito penal informático e gestão de segurança da informação.
+      en: 360 hours; completed on 28 July 2026 (completion declaration issued in August 2026). Syllabus including the LGPD, privacy by design, ISO 27001/27002/27701, cybercrime law and information-security management.
   - degree:
       pt: MBA em Poder Judiciário
       en: MBA in Judicial Administration
@@ -218,6 +218,7 @@ tools:
   - R (tidyverse, fixest, targets, renv)
   - Python (pandas, scikit-learn, uv)
   - SQL, DuckDB, PostgreSQL/PostGIS
+  - Spark e processamento de Big Data (curso CNJ/UFPR)
   - Econometria de painel e séries temporais
   - Inferência causal (diferenças-em-diferenças, estudos de eventos, PPML)
   - Análise espacial e geoprocessamento (sf, H3)
