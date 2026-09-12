@@ -24,7 +24,8 @@ interface Props {
     | 'calendar'
     | 'code'
     | 'tag'
-    | 'check';
+    | 'check'
+    | 'search';
   label?: string;
   class?: string;
   size?: number;
@@ -60,6 +61,8 @@ const paths: Record<Props['name'], string> = {
   code: 'M8.7 6.3 3 12l5.7 5.7 1.4-1.4L5.8 12l4.3-4.3-1.4-1.4zm6.6 0-1.4 1.4 4.3 4.3-4.3 4.3 1.4 1.4L21 12l-5.7-5.7z',
   tag: 'M2 3h9l11 11-9 9L2 12V3zm4 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z',
   check: 'M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z',
+  search:
+    'M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z',
 };
 ---
 

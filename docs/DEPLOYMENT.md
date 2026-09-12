@@ -12,11 +12,18 @@ Se a fonte do Pages ainda estiver em "Deploy from a branch", o workflow falha no
 ## Fluxo
 
 1. `git push origin main` (ou os outros gatilhos descritos em `PORTFOLIO_AUTOMATION.md`).
-2. Job `build`: instala, sincroniza metadados, lint, typecheck, testes, build, verificação de links e de segredos, upload do artefato.
+2. Job `build`: instala, sincroniza metadados, lint, typecheck, testes, build (gera o currículo em PDF, o site e o índice de busca do Pagefind), verificação de links e de segredos, upload do artefato.
 3. Job `deploy`: publica o artefato no Pages e expõe a URL.
 4. Acompanhe em https://github.com/valbergregory/valbergregory.github.io/actions.
 
 Duração típica: 2–3 minutos.
+
+## Outros workflows
+
+- `ci.yml` — mesmas verificações em pull requests (inclusive os do Dependabot), sem deploy.
+- `token-expiry-reminder.yml` — toda segunda-feira compara a data com `EXPIRES_ON` (11/09/2027) e abre uma issue com rótulo `token` quando faltam 30 dias. Ao renovar o token, atualize `EXPIRES_ON`.
+- `external-links.yml` — no dia 3 de cada mês constrói o site e testa os links externos; falhas viram uma issue com rótulo `links`.
+- `.github/dependabot.yml` — atualizações de npm (semanal, agrupadas) e de actions (mensal).
 
 ## Secrets
 

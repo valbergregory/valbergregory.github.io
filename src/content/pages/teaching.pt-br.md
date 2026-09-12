@@ -24,4 +24,8 @@ Algumas dessas perguntas viraram frentes permanentes de pesquisa:
 
 Pesquisa e extensão retornam à sala de aula na forma de dados reais, estudos de caso e ferramentas. As bases construídas para os artigos — preços do leite, atracações portuárias, esforço de pesca, decisões judiciais — viram exercícios e projetos de disciplina; os pipelines em R e Python viram material de cursos de extensão em análise de dados; e os painéis previstos como produtos das pesquisas são pensados para que estudantes participem da construção e da manutenção.
 
-Oriento trabalhos de conclusão de curso em temas como inteligência de negócios, governança de TI, sistemas de informação para o setor público e monitoramento de sistemas fotovoltaicos, e participo de bancas nos cursos de Sistemas de Informação e Economia.
+## Orientação
+
+Oriento trabalhos de conclusão de curso e projetos de iniciação no curso de Sistemas de Informação e participo de bancas nos cursos de Sistemas de Informação e Economia. Temas já orientados ou em orientação incluem inteligência de negócios (BI) na gestão da saúde e no controle de estoque, redes sociais no ensino-aprendizagem, inclusão digital no ensino fundamental, sustentabilidade e TI verde, governança de TI e transformação digital em empresas de software, monitoramento de sistemas fotovoltaicos com sensores de baixo custo, sistemas contábeis e inteligência artificial e o direito ao julgamento justo.
+
+Acolho propostas alinhadas às linhas de pesquisa deste site — dados públicos e sistemas de apoio à decisão para o setor público, Jurimetria e governo digital, economia digital e proteção de dados, turismo, portos e pesca — e também temas próprios do estudante, desde que tenham uma pergunta clara e dados acessíveis. Para propor um trabalho, escreva para o [e-mail institucional](/contato/) com o tema, a pergunta que pretende responder e as fontes de dados que imagina usar; a partir daí definimos juntos o recorte e o cronograma.

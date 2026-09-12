@@ -4,7 +4,7 @@
 #
 # Confirmados em 11/09/2026 (removidos): fotografia definitiva; ausência de
 # perfil no Google Scholar; e-mail público institucional; manutenção do
-# currículo em PDF atual (substituir quando houver versão sem telefone).
+# currículo em PDF — resolvido em 12/09/2026: gerado no build a partir dos dados, sem telefone.
 # Disparo imediato ATIVADO em 12/09/2026: secret PORTFOLIO_SYNC_TOKEN gravado
 # nos 11 repositórios e repository_dispatch verificado de ponta a ponta
 # (token expira em 11/09/2027 — renovar e rodar scripts/set-portfolio-secret.ps1).

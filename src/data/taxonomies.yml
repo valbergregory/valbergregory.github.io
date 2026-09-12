@@ -147,6 +147,10 @@ outputs:
     en: Software / pipeline
 
 updateCategories:
+  - opiniao
+  - nota
+  - leitura
+  - aula
   - codigo
   - versao
   - documentacao

@@ -60,7 +60,7 @@ const profileSchema = z.object({
   }),
   linkedinNote: bilingual,
   cvPdf: z.string(),
-  cvPdfDate: z.string(),
+  cvPdfEn: z.string(),
   photo: z.object({ alt: bilingual }),
   roles: z.array(
     z.object({

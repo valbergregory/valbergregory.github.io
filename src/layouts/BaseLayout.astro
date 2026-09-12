@@ -93,7 +93,7 @@ const alternatePath = alternates?.[otherLang];
       {t('skip')}
     </a>
     <Header {lang} {current} {alternatePath} />
-    <main id="main" tabindex="-1">
+    <main id="main" tabindex="-1" data-pagefind-body>
       <slot />
     </main>
     <Footer {lang} />

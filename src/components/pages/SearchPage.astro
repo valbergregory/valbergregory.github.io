@@ -1,0 +1,127 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t('search.title') }];
+
+// Textos da interface do Pagefind (self-hosted, gerado no build em /pagefind/).
+const uiStrings = en
+  ? {}
+  : {
+      placeholder: 'Buscar',
+      clear_search: 'Limpar',
+      load_more: 'Carregar mais resultados',
+      search_label: 'Buscar neste site',
+      filters_label: 'Filtros',
+      zero_results: 'Nenhum resultado para [SEARCH_TERM]',
+      many_results: '[COUNT] resultados para [SEARCH_TERM]',
+      one_result: '[COUNT] resultado para [SEARCH_TERM]',
+      alt_search: 'Nenhum resultado para [SEARCH_TERM]. Mostrando resultados para [DIFFERENT_TERM]',
+      search_suggestion: 'Nenhum resultado para [SEARCH_TERM]. Tente uma destas buscas:',
+      searching: 'Buscando [SEARCH_TERM]…',
+    };
+---
+
+<BaseLayout
+  {lang}
+  title={t('search.title')}
+  description={t('search.lead')}
+  current="search"
+  alternates={alternates('search')}
+  noindex
+  jsonLd={[
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('search.title'), path: route('search', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('search.title')} lead={t('search.lead')} {crumbs} />
+
+  <div class="container search-layout" data-pagefind-ignore>
+    <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+    <div id="search" data-lang={en ? 'en' : 'pt-br'} data-strings={JSON.stringify(uiStrings)}></div>
+    <noscript>
+      <p class="notice">{t('search.noscript')}</p>
+    </noscript>
+    <p class="small muted sitemap">
+      <a href="/sitemap-index.xml">Sitemap</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .search-layout {
+    padding-block: var(--space-7);
+    max-width: 72ch;
+  }
+  .search-layout .sitemap {
+    margin-top: var(--space-6);
+  }
+  /* Integra a interface do Pagefind ao sistema de design. */
+  .search-layout .pagefind-ui {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: var(--navy);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: var(--bg-elevated);
+    --pagefind-ui-border: var(--border-strong);
+    --pagefind-ui-tag: var(--bg-muted);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: var(--radius);
+    --pagefind-ui-font: var(--font-sans);
+  }
+  .search-layout .pagefind-ui__search-input {
+    min-height: 3rem;
+    font-size: var(--text-base);
+    font-weight: 400;
+  }
+  .search-layout .pagefind-ui__result-title a {
+    color: var(--link);
+  }
+  .search-layout .pagefind-ui__result-excerpt mark {
+    background: var(--ochre-soft);
+    color: inherit;
+  }
+  .search-layout .pagefind-ui__button {
+    min-height: 2.75rem;
+    border-radius: var(--radius);
+  }
+</style>
+
+<script>
+  // A biblioteca é gerada pelo Pagefind no build (dist/pagefind/); em `astro dev`
+  // ela não existe, e a página apenas informa isso.
+  const host = document.getElementById('search');
+  if (host) {
+    const strings = JSON.parse(host.dataset.strings || '{}');
+    const s = document.createElement('script');
+    s.src = '/pagefind/pagefind-ui.js';
+    s.onload = () => {
+      // @ts-expect-error PagefindUI é global, definido pelo script carregado acima.
+      new PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+        excerptLength: 30,
+        translations: strings,
+        autofocus: true,
+      });
+    };
+    s.onerror = () => {
+      host.textContent =
+        host.dataset.lang === 'en'
+          ? 'Search index not available in this environment (it is built during deployment).'
+          : 'Índice de busca indisponível neste ambiente (ele é gerado no deploy).';
+    };
+    document.head.appendChild(s);
+  }
+</script>

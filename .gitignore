@@ -20,3 +20,7 @@ Thumbs.db
 # só as versões leves em JPEG são versionadas
 docs/qa/shots/
 docs/qa/*.png
+
+# currículo em PDF gerado no build (scripts/generate-cv.mjs)
+public/valber-cv.pdf
+public/valber-cv-en.pdf

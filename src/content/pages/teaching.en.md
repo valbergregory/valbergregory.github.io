@@ -24,4 +24,8 @@ Some of these questions became permanent research fronts:
 
 Research and outreach return to the classroom as real data, case studies and tools. The datasets built for the papers — milk prices, port calls, fishing effort, court decisions — become exercises and course projects; the R and Python pipelines become material for outreach courses on data analysis; and the dashboards planned as research outputs are designed so that students take part in building and maintaining them.
 
-I supervise final-year projects on topics such as business intelligence, IT governance, information systems for the public sector and the monitoring of photovoltaic systems, and I serve on examination boards in the Information Systems and Economics programmes.
+## Supervision
+
+I supervise final-year projects and undergraduate research in the Information Systems programme and serve on examination boards in the Information Systems and Economics programmes. Topics supervised so far include business intelligence (BI) in health management and inventory control, social networks in teaching and learning, digital inclusion in lower secondary education, sustainability and green IT, IT governance and digital transformation in software companies, low-cost sensor monitoring of photovoltaic systems, accounting systems, and artificial intelligence and the right to a fair trial.
+
+I welcome proposals aligned with the research lines on this site — public data and decision-support systems for the public sector, jurimetrics and digital government, the digital economy and data protection, tourism, ports and fisheries — as well as students' own topics, provided they have a clear question and accessible data. To propose a project, write to my [institutional e-mail](/en/contact/) with the topic, the question you intend to answer and the data sources you have in mind; from there we define the scope and the schedule together.

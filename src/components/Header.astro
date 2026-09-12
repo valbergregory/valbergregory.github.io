@@ -64,6 +64,14 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
       </ul>
       <div class="nav-tools">
         <a
+          class="search-link"
+          href={route('search', lang)}
+          aria-label={t('nav.search')}
+          title={t('nav.search')}
+        >
+          <Icon name="search" />
+        </a>
+        <a
           class="lang-switch"
           href={otherPath}
           hreflang={otherLang === 'en' ? 'en' : 'pt-BR'}
@@ -173,6 +181,7 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
     padding-left: var(--space-3);
     border-left: 1px solid var(--border);
   }
+  .search-link,
   .lang-switch,
   .theme-toggle {
     display: inline-flex;
@@ -191,6 +200,7 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
     text-decoration: none;
     cursor: pointer;
   }
+  .search-link:hover,
   .lang-switch:hover,
   .theme-toggle:hover {
     color: var(--text);

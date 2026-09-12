@@ -54,8 +54,16 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
 >
   <PageHeader {lang} title={t('cv.title')} eyebrow={profile.name} {crumbs}>
     <p class="download">
-      <a class="button" href={profile.cvPdf} download>
+      <a class="button" href={en ? profile.cvPdfEn : profile.cvPdf} download>
         <Icon name="download" /> {t('cv.download')}
+      </a>
+      <a
+        class="button subtle"
+        href={en ? profile.cvPdf : profile.cvPdfEn}
+        download
+        hreflang={en ? 'pt-BR' : 'en'}
+      >
+        {t('cv.download.en')}
       </a>
       <span class="small muted">{t('cv.download.note')}</span>
     </p>
