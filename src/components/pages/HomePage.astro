@@ -28,7 +28,9 @@ const featured = research
   .slice(0, 8);
 
 const outreach = (await getCollection('outreach')).filter((o) =>
-  ['patacidada', 'smartmap-educacao', 'materiais-didaticos'].includes(o.data.slug),
+  ['patacidada', 'smartmap-educacao', 'liquidajus', 'portajus', 'materiais-didaticos'].includes(
+    o.data.slug,
+  ),
 );
 
 const github = getGithubProjects();
@@ -46,8 +48,8 @@ const roles = [
   {
     title: 'Universidade Federal de Alagoas',
     text: en
-      ? 'Professor in the Information Systems programme at the Penedo Educational Unit; teaching in Tourism and Fisheries Engineering.'
-      : 'Professor do curso de Sistemas de Informação na Unidade Educacional Penedo; aulas também em Turismo e Engenharia de Pesca.',
+      ? 'Professor in the Information Systems programme at the Arapiraca Campus/Penedo Educational Unit; teaching in Tourism and Fisheries Engineering.'
+      : 'Professor do curso de Sistemas de Informação no Campus Arapiraca/Unidade Educacional Penedo; aulas também em Turismo e Engenharia de Pesca.',
   },
   {
     title: 'Tribunal de Justiça de Alagoas',
@@ -96,14 +98,26 @@ const roles = [
         <p class="hero-tagline">{pick(profile.tagline, lang)}</p>
         <p class="hero-intro">{pick(profile.intro, lang)}</p>
         <p class="hero-founder">
-          <span class="founder-lead">{pick(profile.founder.lead, lang)}</span>
+          <span class="founder-lead">{pick(profile.founder.lead, lang)}</span>{' '}
           {profile.founder.items.map((item, i) => (
             <>
-              {i > 0 && <span class="founder-sep">{lang === 'en' ? ' and ' : ' e '}</span>}
-              <a href={item.url} rel="noopener" target="_blank" class="founder-link">
-                {item.name}
-                <span class="visually-hidden">{t('a11y.newTab')}</span>
-              </a>
+              {i > 0 && (
+                <span class="founder-sep">
+                  {i === profile.founder.items.length - 1
+                    ? lang === 'en'
+                      ? ' and '
+                      : ' e '
+                    : ', '}
+                </span>
+              )}
+              {item.url ? (
+                <a href={item.url} rel="noopener" target="_blank" class="founder-link">
+                  {item.name}
+                  <span class="visually-hidden"> {t('a11y.newTab')}</span>
+                </a>
+              ) : (
+                <span class="founder-link">{item.name}</span>
+              )}{' '}
               <span class="founder-note">({pick(item.note, lang)})</span>
             </>
           ))}
