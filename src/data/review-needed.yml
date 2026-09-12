@@ -5,6 +5,9 @@
 # Confirmados em 11/09/2026 (removidos): fotografia definitiva; ausência de
 # perfil no Google Scholar; e-mail público institucional; manutenção do
 # currículo em PDF atual (substituir quando houver versão sem telefone).
+# Disparo imediato ATIVADO em 12/09/2026: secret PORTFOLIO_SYNC_TOKEN gravado
+# nos 11 repositórios e repository_dispatch verificado de ponta a ponta
+# (token expira em 11/09/2027 — renovar e rodar scripts/set-portfolio-secret.ps1).
 
 - item: Título definitivo do artigo sobre gasto público em educação (DSGE)
   status: 'dois títulos candidatos em research.yml (titlePending: true)'
@@ -29,7 +32,3 @@
 - item: Unidade do painel do artigo DSGE
   status: 'o briefing menciona "painel municipal"; o repositório descreve painel das 27 UF'
   action: 'Confirmar e ajustar `dataSources` em research.yml.'
-
-- item: Disparo imediato (repository_dispatch) nos repositórios rastreados
-  status: 'workflow notify-portfolio.yml INSTALADO nos 11 repositórios em 11/09/2026; falta o secret PORTFOLIO_SYNC_TOKEN (sem ele o workflow termina sem erro e o agendamento de 6 h cobre a atualização)'
-  action: 'Criar o fine-grained token (só o repo do site, Contents: read/write) e rodar scripts/set-portfolio-secret.ps1 — ver docs/PORTFOLIO_AUTOMATION.md.'

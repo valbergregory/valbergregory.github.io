@@ -54,9 +54,9 @@ Em cada execução: `npm ci` → sincronização (com `secrets.GITHUB_TOKEN`, au
 
 ## Disparo imediato
 
-**Estado em 11/09/2026:** o workflow `notify-portfolio.yml` está **instalado nos 11 repositórios rastreados** (commit direto na branch padrão de cada um, via API; os clones locais precisam de `git pull` para receber o arquivo). Sem o secret ele termina sem erro com a mensagem "PORTFOLIO_SYNC_TOKEN não configurado", e o agendamento de seis horas segue cobrindo a atualização. O evento `repository_dispatch` já foi testado no repositório do site e reconstrói a página normalmente.
+**Estado em 12/09/2026: ATIVO.** O workflow `notify-portfolio.yml` está instalado nos 11 repositórios rastreados (commit direto na branch padrão de cada um, via API; os clones locais precisam de `git pull` para receber o arquivo) e o secret `PORTFOLIO_SYNC_TOKEN` foi gravado em todos. O fluxo foi verificado de ponta a ponta: uma execução do workflow em `aisecdev-tjs-2026` disparou o `repository_dispatch` e o site foi reconstruído e publicado. O token expira em **11/09/2027** — ao renovar, basta repetir os passos abaixo.
 
-Para ativar o disparo, falta apenas o token — um passo que só o proprietário pode fazer:
+Passos para (re)configurar o token — só o proprietário pode fazê-los:
 
 1. Crie um **fine-grained personal access token** em GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens:
    - _Repository access_: **Only select repositories** → `valbergregory/valbergregory.github.io` (apenas este);
