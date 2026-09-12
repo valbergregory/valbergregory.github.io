@@ -2,31 +2,59 @@
 key: about
 lang: pt-br
 title: Sobre
-description: Trajetória de Valber Gregory — formação em Direito e Economia, atuação simultânea na UFAL e no TJAL, aproximação com Sistemas de Informação e agenda de pesquisa em dados, instituições e políticas públicas.
+description: Trajetória de Valber Gregory — formação em Direito e Economia, atuação na UFAL e no TJAL, concursos públicos, aproximação com Sistemas de Informação e as frentes de pesquisa que nasceram da sala de aula.
 ---
 
-## Duas formações, uma pergunta
+## Duas formações e uma pergunta
 
-Estudei Direito e Economia ao mesmo tempo, em Maceió. A combinação não foi um plano de carreira: foi a constatação de que as perguntas que me interessavam — por que uma regra produz um resultado e não outro, quanto custa uma decisão pública, quem ganha e quem perde com ela — não cabiam inteiras em nenhuma das duas áreas. Advoguei entre 2010 e 2014, principalmente em matéria tributária e administrativa, e nesse período fiz o mestrado em Economia Aplicada na UFAL, estudando a localização da indústria no Nordeste.
+Estudei Direito e Economia simultaneamente, em Maceió. Essa combinação surgiu tanto de um plano de carreira quanto de um desejo que me acompanhava desde jovem. Eu queria compreender as origens da pobreza, como o mundo funcionava e de que maneira as instituições, as leis e as escolhas econômicas influenciavam a vida das pessoas.
+
+A dupla formação ajudou muito a transformar essas inquietações em perguntas mais concretas e a buscar respostas de maneira contínua. O mundo é formado por aspectos econômicos, jurídicos, sociais, políticos e tecnológicos que se relacionam e não podem ser compreendidos isoladamente. O diálogo entre o Direito e a Economia permitiu que eu observasse os mesmos problemas sob perspectivas diferentes e formulasse questões mais próximas da realidade.
+
+Essas perguntas ainda me inquietam. Diuturnamente, por meio do trabalho, do ensino, da pesquisa e da formação continuada, procuro avançar um pouco mais em suas respostas. Busco compreender por que determinada regra produz um resultado e não outro, quanto custa uma decisão pública, quem é beneficiado ou prejudicado por ela e como o conhecimento pode contribuir para enfrentar problemas concretos da sociedade.
+
+Entre 2010 e 2014, advoguei principalmente nas áreas tributária e administrativa. Nesse mesmo período, concluí o mestrado em Economia Aplicada na UFAL, no qual estudei a localização da indústria no Nordeste.
 
 ## Universidade e sistema de Justiça
 
-Em 2014 ingressei no Tribunal de Justiça de Alagoas como Analista Judiciário na área de Economia. Ali elaborei pareceres técnicos, estimativas de impacto orçamentário e perícias em processos administrativos e, desde 2023, assessoro juízes de primeira e segunda entrâncias. O trabalho no Tribunal é uma fonte constante de perguntas de pesquisa: como se forma o valor de uma indenização, por que processos parecidos demoram tempos tão diferentes, o que muda quando um tribunal adota uma ferramenta de inteligência artificial.
+Em 2014, ingressei no Tribunal de Justiça de Alagoas como analista judiciário na área de Economia. Desde então, elaborei pareceres técnicos, estimativas de impacto orçamentário e perícias em processos administrativos. A partir de 2023, passei também a assessorar magistrados de primeira e segunda entrância.
 
-Em paralelo, concluí o doutorado em Economia na UFPB, com uma tese sobre tecnologia da informação e comunicação na economia da educação, e em 2023 tomei posse como professor efetivo da UFAL, na Unidade Educacional Penedo, lotado no curso de Sistemas de Informação. Antes disso, entre 2019 e 2021, fui professor substituto no curso de Turismo da mesma unidade.
+O trabalho no Tribunal constitui uma fonte permanente de perguntas de pesquisa. Entre elas estão a formação do valor das indenizações, as razões pelas quais processos semelhantes apresentam tempos de tramitação tão diferentes e os efeitos da adoção de ferramentas de inteligência artificial pelos tribunais.
 
-## Um pé no mundo dos concursos públicos
+Paralelamente, concluí o doutorado em Economia na UFPB, com uma tese sobre tecnologia da informação e comunicação na economia da educação. Em 2023, tomei posse como professor efetivo da UFAL, na Unidade Educacional de Penedo, com lotação no curso de Sistemas de Informação. Antes disso, entre 2019 e 2021, fui professor substituto no curso de Turismo da mesma unidade.
 
-Os dois vínculos atuais vieram de concursos, e os concursos públicos fazem parte da minha trajetória, tanto como candidato quanto como servidor. Fui aprovado em oito seleções para os cargos de economista, professor, analista judiciário e procurador municipal — três delas em primeiro lugar, entre elas a de professor efetivo da UFAL e a de economista da CBTU — e fui habilitado no Exame Nacional da Magistratura (ENAM). Ainda participo de concursos e acompanho editais, bancas examinadoras e a estruturação das carreiras, o que mantém vivo o interesse por avaliação, gestão e políticas de pessoal no setor público. A lista completa está no [currículo](/curriculo/#exams-title).
+## Minha trajetória nos concursos públicos
+
+Meus dois vínculos profissionais atuais foram conquistados por meio de concursos públicos, que fazem parte da minha trajetória tanto como candidato quanto como servidor. Fui aprovado em oito seleções para os cargos de economista, professor, analista judiciário e procurador municipal. Em três delas, alcancei o primeiro lugar, incluindo os concursos para professor efetivo da UFAL e economista da CBTU. Também fui habilitado no Exame Nacional da Magistratura, o ENAM. A lista completa está no [currículo](/curriculo/#exams-title).
+
+Continuo participando de concursos e acompanhando editais, bancas examinadoras e a estruturação das carreiras públicas. Essa proximidade mantém vivo meu interesse por avaliação, gestão e políticas de pessoal no setor público.
 
 ## A aproximação com Sistemas de Informação
 
-Lecionar para futuros profissionais de tecnologia mudou o modo como faço pesquisa. Passei a tratar dados públicos como infraestrutura — coisas que precisam de pipelines reproduzíveis, documentação e versionamento — e a desenhar projetos que produzem, além do artigo, um painel, uma base aberta ou uma ferramenta que alguém possa usar. R, Python, SQL e análise espacial deixaram de ser apenas meios de estimação e viraram parte do objeto de estudo: como sistemas de informação transformam a administração pública e o Judiciário.
+Lecionar para futuros profissionais de tecnologia transformou a maneira como desenvolvo minhas pesquisas. Passei a compreender os dados públicos como parte de uma infraestrutura que exige processos reproduzíveis, documentação adequada e controle de versões. Também comecei a estruturar projetos capazes de produzir, além de artigos científicos, painéis, bases abertas e ferramentas que possam ser efetivamente utilizadas.
 
-## Da sala de aula a novas frentes
+R, Python, SQL, Spark, Big Data e análise espacial deixaram de representar apenas um conjunto de instrumentos técnicos e passaram a integrar também meus objetos de estudo. Tenho procurado ampliar continuamente minha formação nessas tecnologias, combinando o aprendizado teórico com sua aplicação em pesquisas econômicas, projetos acadêmicos e análises relacionadas ao Poder Judiciário e à administração pública.
 
-As disciplinas de graduação abriram frentes que eu não tinha planejado. Trabalhar temas de Turismo em Penedo — cidade histórica às margens do São Francisco — despertou o interesse pela demanda internacional de turismo e pelo desenvolvimento territorial. Lecionar Economia Pesqueira para a Engenharia de Pesca, em 2026, levou a um programa de pesquisa sobre ondas de calor marinhas, defesos e áreas marinhas protegidas, com dados de rastreamento de embarcações. E o ensino de temas ligados ao Direito, à Economia e à tecnologia alimenta os projetos de Jurimetria, inteligência artificial e governo digital.
+Como parte desse processo de formação continuada, concluí o curso Processamento de Big Data em R e Python, promovido pelo Conselho Nacional de Justiça e pela Universidade Federal do Paraná. A formação envolveu arquitetura e processamento de grandes volumes de dados, SQL em ambientes de Big Data e aplicações de R, Python e Spark.
 
-## O que orienta o trabalho
+Quanto mais me aproximo dessas áreas, mais me interesso por suas possibilidades e reconheço a necessidade de continuar estudando. Esse envolvimento crescente com tecnologia, proteção de dados, inteligência artificial e transformação digital também motivou a realização da especialização em Direito 4.0, com ênfase em Direito Digital, Proteção de Dados e Cibersegurança (360 horas), pela PUC-Campinas, com dupla certificação em conjunto com a PUC-PR, concluída em julho de 2026.
 
-Três compromissos atravessam tudo o que faço: usar dados públicos sempre que possível, com atenção à sua cobertura e às suas falhas; documentar o método para que outra pessoa possa reproduzir o resultado; e devolver o que a pesquisa produz — em forma de aula, painel, boletim ou parecer — para quem precisa decidir. Também escrevo semanalmente no [LinkedIn](https://www.linkedin.com/in/valber-gregory-49013744) sobre essas áreas — economia aplicada, Jurimetria, IA no setor público, turismo, portos e pesca — em textos curtos pensados para quem não é especialista. Muitos dos projetos descritos neste site estão em andamento. Os resultados podem mudar após novas validações, e este site é atualizado para refletir isso.
+## Da sala de aula a novas frentes de pesquisa
+
+As disciplinas de graduação abriram caminhos que eu não havia planejado inicialmente e pelos quais tenho me interessado cada vez mais. Tive a oportunidade de lecionar no curso de Turismo em Penedo. Essa experiência despertou meu interesse pela demanda turística internacional e pela contribuição do turismo para o desenvolvimento territorial.
+
+Em 2026, lecionei Economia Pesqueira para o curso de Engenharia de Pesca. Essa experiência fez com que eu me aproximasse e me apaixonasse pelas áreas de Economia Pesqueira e Economia Marítima. Passei a investigar como a análise econômica pode contribuir para compreender e fortalecer a cadeia produtiva da pesca, desde a captura e a produção até o beneficiamento, a distribuição, a comercialização e o consumo.
+
+Esse campo permite examinar a geração de trabalho e renda, a organização dos mercados, a infraestrutura portuária, a sustentabilidade dos recursos naturais e os efeitos das políticas públicas sobre pescadores, comunidades e empresas. Também ajuda a compreender como a atividade pesqueira pode estimular o desenvolvimento regional, fortalecer economias locais e ampliar as oportunidades nos territórios costeiros e ribeirinhos.
+
+Essas questões deram origem a uma frente permanente de estudos e pesquisas sobre cadeias produtivas, ondas de calor marinhas, períodos de defeso, áreas marinhas protegidas e deslocamento do esforço pesqueiro, com o uso de dados econômicos, ambientais e de rastreamento de embarcações.
+
+Ao mesmo tempo, o ensino de disciplinas que articulam Direito, Economia e tecnologia amplia continuamente meus interesses e alimenta meus projetos nas áreas de Jurimetria, inteligência artificial, transformação digital e governo digital. Essas experiências reforçam minha convicção de que a formação acadêmica não se encerra com a obtenção de títulos, mas se desenvolve continuamente a partir das perguntas que surgem na pesquisa, na sala de aula e na atuação profissional.
+
+## O que orienta meu trabalho
+
+Três compromissos orientam tudo o que faço. O primeiro é utilizar dados públicos sempre que possível, com atenção à sua cobertura, qualidade e às limitações existentes. O segundo é documentar os métodos empregados, permitindo que outras pessoas possam reproduzir os resultados. O terceiro é devolver à sociedade o conhecimento produzido, seja por meio de aulas, painéis, boletins, pareceres ou ferramentas de apoio à decisão.
+
+Também escrevo semanalmente no [LinkedIn](https://www.linkedin.com/in/valber-gregory-49013744) sobre economia aplicada, Jurimetria, inteligência artificial no setor público, turismo, portos e pesca. Os textos são curtos e elaborados especialmente para leitores que não são especialistas nessas áreas.
+
+Muitos dos projetos apresentados neste site ainda estão em desenvolvimento. Seus resultados poderão ser modificados após novas análises e validações. Por essa razão, o conteúdo é atualizado periodicamente para refletir o avanço das pesquisas.

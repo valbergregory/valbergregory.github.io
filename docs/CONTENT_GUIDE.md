@@ -102,7 +102,7 @@ Mensagens de commit não viram notícia; a atividade automática dos repositóri
 - Strings de interface: `src/i18n/ui.ts` (as chaves precisam existir em `pt-br` e `en`; há teste para isso).
 - Textos longos: `src/content/pages/<chave>.<idioma>.md`.
 - Dados: todo campo `{pt, en}`.
-- Bio em outros idiomas: `profile.yml › bio` (fr, de, it). Para acrescentar um idioma, adicione um bloco com `lang`, `label` e `paragraphs`; a página Sobre o exibe automaticamente com o atributo `lang` correto.
+- Bio em outros idiomas: `profile.yml › bio` (pt, en, fr, de, it) continua no arquivo, mas a seção está **desligada** na página Sobre desde 12/09/2026 (`SHOW_MULTILINGUAL_BIO = false` em `src/components/pages/AboutPage.astro`). Para reativar, mude para `true`; para acrescentar um idioma, adicione um bloco com `lang`, `label` e `paragraphs`.
 - Novo idioma completo do site: exige novas rotas em `src/i18n/routes.ts`, pasta em `src/pages/` e strings em `ui.ts` — não está previsto.
 
 ## Atualizar fotografia e currículo
