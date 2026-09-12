@@ -78,7 +78,7 @@ Defina `showPreliminaryFindings: false`. A lista `preliminaryFindings` pode perm
 
 ## Seção "Conteúdos e Séries Temáticas"
 
-A seção **Conteúdos** (`/conteudos/`, em inglês `/en/content/`) reúne as séries temáticas e as publicações avulsas (notas de pesquisa, opiniões, leituras e resenhas, sala de aula, eventos, música, cinema). Duas coleções alimentam a seção:
+A seção **Conteúdos** (`/conteudos/`, em inglês `/en/content/`) reúne as séries temáticas e as publicações avulsas (notas de pesquisa, opiniões, leituras, sala de aula, eventos). Duas coleções alimentam a seção:
 
 - `src/content/series/<série>.<idioma>.md` — apresentação de cada série (frontmatter com título, chamada, descrição, banner/capa, temas, áreas e pesquisas relacionadas; o corpo é o texto de apresentação, que pode conter imagens).
 - `src/content/conteudos/<série>/NN-slug.<idioma>.md` — cada publicação. Conteúdos sem série ficam em outra pasta (por exemplo `src/content/conteudos/avulsos/`) com `type` diferente de `serie`.
@@ -91,7 +91,7 @@ title: Efeitos de rede
 subtitle: Mais usuários. Mais conexões. Mais valor. # opcional
 summary: Uma ou duas frases — aparecem no cartão, na listagem, no RSS e no compartilhamento.
 lang: pt-br
-type: serie # serie | nota | opiniao | leitura | aula | evento | musica | cinema
+type: serie # serie | nota | opiniao | leitura | aula | evento
 series: economia-da-informacao-e-redes # obrigatório quando type = serie
 order: 4 # posição na série (liga pt-BR e EN: mesma série + mesma ordem)
 slug: network-effects # opcional; padrão = nome do arquivo sem o número e o idioma
@@ -108,7 +108,7 @@ draft: false
 Texto em Markdown. Ao final, as seções `## Para aprofundar` (referências) e `## Sites para acesso`.
 ```
 
-- URL: `/conteudos/<série>/<slug>/`; em inglês `/en/content/<série-en>/<slug-en>/`. Conteúdos avulsos: `/conteudos/<tipo>/<slug>/` (`notas`, `opiniao`, `leituras`, `sala-de-aula`, `eventos`, `musica`, `cinema`).
+- URL: `/conteudos/<série>/<slug>/`; em inglês `/en/content/<série-en>/<slug-en>/`. Conteúdos avulsos: `/conteudos/<tipo>/<slug>/` (`notas`, `opiniao`, `leituras`, `sala-de-aula`, `eventos`). Música, poemas, crítica de livros e cinema ficam no site pessoal de cultura (repositório `economia-da-cultura`)..
 - O tempo de leitura é calculado a partir do texto; `updated:` marca revisões.
 - Imagens: qualquer formato (WebP é o mais leve); o build gera as versões responsivas e a imagem de compartilhamento (1200 × 630) a partir da capa. Para trocar uma capa gerada por uma imagem própria, basta gravar o arquivo com o mesmo nome na pasta da série (`scripts/generate-series-covers.mjs` regenera as capas vetoriais da série marítima).
 - Nova série: acrescentar o slug em `SERIES` (`src/content.config.ts`), criar os dois arquivos em `src/content/series/` e a pasta em `src/content/conteudos/`.

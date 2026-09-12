@@ -15,8 +15,6 @@ export const TYPE_SLUGS: Record<ContentType, Record<Lang, string>> = {
   leitura: { 'pt-br': 'leituras', en: 'reading' },
   aula: { 'pt-br': 'sala-de-aula', en: 'classroom' },
   evento: { 'pt-br': 'eventos', en: 'events' },
-  musica: { 'pt-br': 'musica', en: 'music' },
-  cinema: { 'pt-br': 'cinema', en: 'film' },
 };
 
 /** Nome do arquivo sem extensão, sem o número de ordem e sem o sufixo de idioma. */

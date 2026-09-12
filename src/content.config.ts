@@ -41,8 +41,6 @@ export const CONTENT_TYPES = [
   'leitura',
   'aula',
   'evento',
-  'musica',
-  'cinema',
 ] as const;
 
 /** Áreas de conhecimento usadas como filtro. */
