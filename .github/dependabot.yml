@@ -9,6 +9,10 @@ updates:
       time: '07:00'
       timezone: America/Maceio
     open-pull-requests-limit: 5
+    ignore:
+      # TypeScript 6+ ainda não é aceito pelos peers de @astrojs/check e typescript-eslint.
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
     groups:
       astro:
         patterns: ['astro', '@astrojs/*']
