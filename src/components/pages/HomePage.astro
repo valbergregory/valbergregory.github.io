@@ -265,6 +265,13 @@ const roles = [
     <div class="container closing-inner">
       <h2 id="closing-title">{t('home.closing')}</h2>
       <p class="lead">{t('home.closing.text')}</p>
+      <p class="lead linkedin-note">
+        {pick(profile.linkedinNote, lang)}{' '}
+        <a href={profile.links.linkedin} rel="me noopener" target="_blank">
+          {en ? 'Follow on LinkedIn' : 'Acompanhe no LinkedIn'}
+          <span class="visually-hidden">{t('a11y.newTab')}</span>
+        </a>
+      </p>
       <a class="button" href={route('contact', lang)}>
         {t('home.closing.cta')}
       </a>
@@ -456,6 +463,12 @@ const roles = [
     gap: var(--space-4);
   }
   .closing h2 {
+    margin: 0;
+  }
+  .closing .linkedin-note {
+    margin: 0;
+  }
+  .closing .linkedin-note {
     margin: 0;
   }
 

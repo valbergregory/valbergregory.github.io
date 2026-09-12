@@ -54,6 +54,7 @@ const profileSchema = z.object({
     orcid: z.url(),
     googleScholar: z.url().optional(),
   }),
+  linkedinNote: bilingual,
   cvPdf: z.string(),
   cvPdfDate: z.string(),
   photo: z.object({ alt: bilingual }),
