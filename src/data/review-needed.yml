@@ -8,27 +8,14 @@
 # Disparo imediato ATIVADO em 12/09/2026: secret PORTFOLIO_SYNC_TOKEN gravado
 # nos 11 repositórios e repository_dispatch verificado de ponta a ponta
 # (token expira em 11/09/2027 — renovar e rodar scripts/set-portfolio-secret.ps1).
+# Decididos em 12/09/2026: título único do DSGE (principal); "Gatekeeping the Quantum"
+# confirmado; painel do DSGE = 27 UF; nenhum manuscrito submetido até a data;
+# artigo de turismo sem repositório público por enquanto.
 
-- item: Título definitivo do artigo sobre gasto público em educação (DSGE)
-  status: 'dois títulos candidatos em research.yml (titlePending: true)'
-  action: 'Escolher e remover `alternativeTitle` ou marcar `titlePending: false`.'
-
-- item: 'Título do artigo "Gatekeeping the Quantum"'
-  status: 'provisório (titleProvisional: true)'
-  action: Confirmar o título e remover a marcação.
-
-- item: Estágio de submissão do artigo sobre adoção de IA sem controles de segurança (27 TJs)
-  status: manuscrito em redação; alvo AISecDev 2026 não confirmado
-  action: 'Atualizar `status` em research.yml quando houver submissão ou aceite.'
-
-- item: Estágio de submissão dos artigos DSGE, leite e IA/produtividade
-  status: marcados como pré-submissão
-  action: 'Atualizar para `submetido` com a data e o periódico/evento quando ocorrer.'
+- item: Estágio de submissão dos manuscritos
+  status: nenhum submetido em 12/09/2026 (AISecDev em redação; DSGE, leite e IA/produtividade em pré-submissão)
+  action: 'Atualizar `status` em research.yml para `submetido` (com periódico/evento e data) quando ocorrer.'
 
 - item: Repositório do artigo de gravidade do turismo
-  status: repositório remoto não confirmado
-  action: 'Adicionar `repository` e incluir na whitelist quando o repositório for público.'
-
-- item: Unidade do painel do artigo DSGE
-  status: 'o briefing menciona "painel municipal"; o repositório descreve painel das 27 UF'
-  action: 'Confirmar e ajustar `dataSources` em research.yml.'
+  status: ainda não existe repositório público (decisão de 12/09/2026)
+  action: 'Quando publicar, adicionar `repository`, `repositoryVisibility: public` e incluir na whitelist.'
