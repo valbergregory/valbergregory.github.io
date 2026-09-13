@@ -83,7 +83,7 @@ jobs:
         run: npm run check:compliance
 
       - name: Upload do artefato
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
