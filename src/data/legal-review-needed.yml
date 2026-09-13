@@ -1,0 +1,154 @@
+# Pendências de revisão factual/jurídica do site (auditoria preventiva de 13/09/2026).
+#
+# Nada daqui é publicado. Cada item registra uma alegação que o site NÃO afirma
+# enquanto `status: pending`, o texto neutro usado no lugar (`publicFallback`),
+# a prova necessária e a providência do titular. Ao resolver, mude `status`
+# para `verified` (e ajuste o dado correspondente) ou `rejected`, e atualize
+# `lastReviewed`. A estrutura é validada em tests/legal-review.test.ts.
+#
+# Esta lista não é parecer jurídico e não substitui consulta à Comissão de
+# Ética/SeCI-CGU, ao NIT/UFAL, à CPPD/CIADD ou ao setor competente do TJAL.
+
+- id: regime-funcional-ufal
+  claim: Regime de trabalho na UFAL (40 h com dedicação exclusiva, 40 h sem DE ou outro).
+  publicFallback: O site não informa regime de trabalho.
+  requiredEvidence: Portaria de nomeação/regime e assentamento funcional (SIGRH/SIAPE).
+  ownerAction: Conferir a portaria; não publicar o regime; revisar compatibilidade das demais atividades com o regime real.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: classe-nivel-docente
+  claim: Classe e nível atuais na carreira do Magistério Superior ("Professor Adjunto", nível).
+  publicFallback: '"Professor do Magistério Superior" (sem classe/nível) em profile.yml, currículo e PDF.'
+  requiredEvidence: Portaria de progressão/promoção vigente ou consulta ao assentamento funcional.
+  ownerAction: Informar classe e nível com a portaria; só então reintroduzir "(Adjunto)" em profile.yml › roles[0].title.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: intersticios-progressao
+  claim: Datas de exercício e de cada interstício para progressão (regra de transição da Resolução CONSUNI/UFAL 119/2025).
+  publicFallback: Não publicado.
+  requiredEvidence: Portarias de progressão e simulação escrita da CPPD/CIADD nos dois regimes (norma anterior × 119/2025).
+  ownerAction: Solicitar simulação escrita à CPPD/CIADD antes de optar pelo regime; guardar no manifesto privado (data/private/).
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: datas-tjal
+  claim: Ingresso no TJAL em 2014 e início do assessoramento a magistrados em 2023 (profile.yml › roles[1]).
+  publicFallback: Datas mantidas como constam do Lattes; sem função comissionada nomeada nem número de portaria.
+  requiredEvidence: Portarias de posse/exercício e de designação para assessoria.
+  ownerAction: Conferir as portarias; se divergirem do Lattes, corrigir profile.yml, Sobre e currículo.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: natureza-juridica-projetos
+  claim: Natureza jurídica de PataCidadã, SmartMap Educação, PortaJus e LiquidaJus (pessoa jurídica constituída? participação societária? gerência/administração? remuneração? clientes públicos?).
+  publicFallback: 'Projetos apresentados com `nature: under-review`, sem afirmar "independente", "sem vínculo" ou "propriedade exclusiva"; papel descrito como informado pelo titular ("fundador…"), sem maquiagem.'
+  requiredEvidence: Contrato social/estatuto ou declaração de inexistência de pessoa jurídica; descrição das tarefas efetivas; cadastros (CNPJ, MEI, Centelha).
+  ownerAction: Mapear cada projeto e, havendo pessoa jurídica ou gerência, consultar formalmente a Comissão de Ética/SeCI-CGU (Lei 8.112/1990, art. 117, X; Lei 12.813/2013) antes de qualquer divulgação comercial.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: recursos-institucionais-projetos
+  claim: Nenhum dos quatro projetos usou infraestrutura, jornada, dados, equipe, discentes, bolsas ou projeto registrado da UFAL ou do TJAL.
+  publicFallback: 'Campo `resourcesUsed: under-review` em independent-projects.yml; nada afirmado na interface.'
+  requiredEvidence: Declaração do titular por projeto, com datas, locais e equipamentos usados; registros PROPEP/PROEX se houver.
+  ownerAction: Preencher o inventário de origem de cada projeto; se houver contribuição institucional, encaminhar ao NIT/UFAL (Resolução CONSUNI 107/2022).
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: titularidade-pi-projetos
+  claim: Titularidade da propriedade intelectual dos softwares PataCidadã, SmartMap Educação, PortaJus e LiquidaJus.
+  publicFallback: '`ipStatus: under-review` em independent-projects.yml; sem afirmação de titularidade.'
+  requiredEvidence: Análise do NIT/UFAL ou registro de programa de computador (INPI) em nome verificado.
+  ownerAction: 'Consultar o NIT/UFAL com o inventário de origem; só depois marcar `ipStatus: independent` ou `shared`/`institutional`.'
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: relacao-tjal-legaltechs
+  claim: PortaJus e LiquidaJus não utilizam informação interna, sigilosa ou casos não públicos do TJAL e não aparentam ferramenta oficial.
+  publicFallback: 'Aviso "não é sistema oficial da UFAL nem do TJAL" nos projetos; a parte "não utiliza informação interna" NÃO é afirmada enquanto pendente.'
+  requiredEvidence: Declaração do titular sobre fontes de dados e ambientes usados; se houver conexão material, manifestação do setor competente do TJAL; exame da Resolução CNJ 615/2025 para soluções de IA voltadas ao Judiciário.
+  ownerAction: Documentar fontes de dados dos dois sistemas; consultar o TJAL quando houver conexão material.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: registros-propep-proex
+  claim: Projetos de pesquisa registrados na PROPEP e ações de extensão registradas na PROEX/SIGAA.
+  publicFallback: 'extension.yml vazio; página "Extensão universitária" declara que nenhuma ação registrada foi informada; pesquisas em research.yml apresentadas como "em andamento", sem afirmar registro.'
+  requiredEvidence: Número/cadastro público no SIGAA ou certidão da PROPEP/PROEX.
+  ownerAction: Informar os registros existentes (id público, órgão emissor, data, URL pública); registrar antes da execução quando a norma exigir.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: extensao-reparo-tecnologico
+  claim: O artigo "Grupo Reparo Tecnológico" (Extensão em Debate, 2025) corresponde a ação de extensão registrada com participação do titular.
+  publicFallback: Listado apenas como publicação (publications.yml); não listado em "Extensão universitária".
+  requiredEvidence: Registro da ação na PROEX/SIGAA e certificado de participação/coordenação.
+  ownerAction: Se houver registro, adicionar a extension.yml com institutionalRegistration preenchido.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: autorizacao-imagem-mosaico
+  claim: As pessoas retratadas no mosaico src/assets/valber-mosaico.webp (três painéis com cinco terceiros identificáveis) autorizaram o uso de imagem.
+  publicFallback: Mosaico retirado da página Ensino (substituído pelo retrato do próprio titular); arquivo mantido no repositório, mas bloqueado pelo registro src/data/images.yml e por tests/images.test.ts.
+  requiredEvidence: Termo de autorização/cessão de uso de imagem de cada pessoa (guardar em data/private/ e referenciar por consentRecordPrivateId).
+  ownerAction: Obter e arquivar as autorizações; então marcar consentVerified true em images.yml e restaurar a imagem em TeachingPage.astro. Alternativa - recortar o mosaico para os painéis só com o titular.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: email-projetos-independentes
+  claim: Canal de contato próprio (não institucional) para os projetos independentes.
+  publicFallback: 'Campo `independentProjectEmail` vazio em profile.yml e não renderizado; a página de projetos independentes não convida a propostas pelo e-mail da UFAL.'
+  requiredEvidence: Endereço de e-mail pessoal/profissional informado pelo titular.
+  ownerAction: Informar o endereço; preencher profile.yml › independentProjectEmail.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: relacao-institucional-conteudos
+  claim: Relação de cada publicação da seção Conteúdos com atividades de ensino/pesquisa/extensão da UFAL.
+  publicFallback: '`institutionalRelation: none` nos 19 textos (divulgação pessoal, sem vínculo a projeto registrado); texto de apresentação sem "produzidos a partir da atuação como professor da UFAL".'
+  requiredEvidence: Indicação da disciplina/projeto correspondente, quando houver.
+  ownerAction: Reclassificar para `teaching`/`research` apenas onde puder apontar a disciplina ou o projeto.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: area-conhecimento-unidade
+  claim: Área de conhecimento da Unidade Acadêmica reconhecida para fins do item 2.9.1 (sítio eletrônico especializado) e escopo editorial correspondente.
+  publicFallback: 'Escopo editorial declarado em /politica-editorial/ (Sistemas de Informação, ciência de dados aplicada, economia aplicada, transformação digital) com nota "eventual enquadramento depende de avaliação institucional".'
+  requiredEvidence: Confirmação escrita da Unidade/CIADD/CPPD de que a seção e o plano editorial atendem ao item.
+  ownerAction: Submeter o escopo e o plano editorial ao órgão avaliador antes do protocolo de progressão.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: calendario-letivo
+  claim: Semanas letivas dos semestres em avaliação (base do calendário editorial semanal).
+  publicFallback: src/data/editorial-calendar.yml vazio; nenhuma data futura inventada.
+  requiredEvidence: Calendário acadêmico oficial da UFAL para os semestres avaliados.
+  ownerAction: Preencher editorial-calendar.yml com as semanas letivas reais; publicar conteúdo real em cada semana.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: materiais-didaticos-titularidade
+  claim: Titularidade e licença dos materiais didáticos produzidos para as disciplinas (apostilas, slides, séries de textos).
+  publicFallback: Mencionados na página Ensino como "em uso nas disciplinas; publicação gradual", sem licença declarada.
+  requiredEvidence: Análise do NIT/UFAL quanto a material produzido no exercício da docência; decisão documentada do titular sobre licença.
+  ownerAction: Definir licença por decisão documentada antes de publicar os materiais.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: colegiado-nde
+  claim: Membro titular do Colegiado e do NDE do curso de Sistemas de Informação (Grupo 5 da Resolução 119/2025).
+  publicFallback: Afirmado no site conforme informado pelo titular; sem número de portaria.
+  requiredEvidence: Portarias de designação (guardar em data/private/).
+  ownerAction: Arquivar as portarias no manifesto privado e referenciar em academic-activity.yml › privateEvidenceId.
+  status: pending
+  lastReviewed: 2026-09-13
+
+- id: consultas-formais
+  claim: Consultas formais realizadas à Comissão de Ética/SeCI-CGU, ao NIT/UFAL e, se aplicável, ao TJAL sobre os projetos.
+  publicFallback: Não mencionado no site.
+  requiredEvidence: Protocolos/respostas das consultas.
+  ownerAction: Realizar as consultas descrevendo a estrutura societária e as tarefas efetivas; arquivar em data/private/.
+  status: pending
+  lastReviewed: 2026-09-13

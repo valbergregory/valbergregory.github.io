@@ -20,6 +20,13 @@ areas:
   - sistemas-de-informacao
   - inovacao-publica
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Decisões econômicas dependem das informações disponíveis para consumidores, empresas e governos. Quando uma das partes conhece aspectos relevantes que a outra não consegue observar, preços e contratos podem deixar de refletir adequadamente a qualidade, o risco ou o comportamento envolvido na transação. Surgem, então, problemas de confiança e escolhas que seriam diferentes se a informação fosse distribuída de forma mais equilibrada.

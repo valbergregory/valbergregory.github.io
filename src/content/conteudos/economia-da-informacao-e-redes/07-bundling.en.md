@@ -19,6 +19,13 @@ areas:
   - direito
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Digital economics, economics of information and information systems
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Bundling is the joint offer of products or services in a single package. The price of the set is usually lower than the sum of the components bought separately, which raises the perceived value for consumers with different preferences. Common examples include Microsoft 365, streaming bundles, combinations of domain, hosting, e-mail and digital certificate, and ecosystems that bring together storage, productivity and communication.

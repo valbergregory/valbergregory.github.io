@@ -21,6 +21,13 @@ areas:
   - sistemas-de-informacao
 project: adocao-ia-judiciario-seguranca
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Efeitos de rede, economias de escala, controle de dados e custos marginais reduzidos podem favorecer elevada concentração nos mercados digitais. Em certos segmentos, poucas plataformas passam a intermediar parcela expressiva das relações entre usuários, empresas e anunciantes. A posição alcançada permite definir regras de acesso, ordenar informações e influenciar as condições de concorrência dentro do próprio ambiente digital.

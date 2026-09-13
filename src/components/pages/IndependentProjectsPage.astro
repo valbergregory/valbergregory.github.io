@@ -1,0 +1,110 @@
+---
+/**
+ * Projetos independentes ou ainda não classificados (independent-projects.yml).
+ * Rota secundária, visualmente separada, sem insígnia institucional e sem convite
+ * a propostas pelo e-mail institucional (Etapas 2.3, 4 e 6 da auditoria).
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import InstitutionalNotice from '@/components/InstitutionalNotice.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getProfile } from '@/lib/data';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+import { getIndependentProjects } from '@/lib/projects';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const profile = getProfile();
+const projects = await getIndependentProjects();
+const research = await getCollection('research');
+const researchTitle = (slug?: string) => research.find((r) => r.data.slug === slug)?.data.title;
+// Canal próprio: só renderizado quando o titular informar um endereço (nunca o institucional).
+const ownEmail =
+  profile.independentProjectEmail && profile.independentProjectEmail !== profile.email
+    ? profile.independentProjectEmail
+    : '';
+
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('independent.title') },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={t('independent.title')}
+  description={t('independent.lead')}
+  current="independent"
+  alternates={alternates('independent')}
+  jsonLd={[
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('independent.title'), path: route('independent', lang) },
+    ]),
+  ]}
+>
+  <div class="independent-wrap">
+    <PageHeader {lang} title={t('independent.title')} lead={t('independent.lead')} {crumbs} />
+
+    <div class="container page-body" data-independent-projects>
+      <InstitutionalNotice {lang} />
+      <p class="prose intro">{t('independent.intro')}</p>
+
+      <ul class="projects">
+        {projects.map((p) => (
+          <ProjectCard {lang} project={p} researchTitle={researchTitle(p.data.research)} />
+        ))}
+      </ul>
+
+      <p class="notice contact-note">
+        {ownEmail ? (
+          <>
+            {t('independent.contactAvailable')}:{' '}
+            <a href={`mailto:${ownEmail}`}>
+              <Icon name="mail" size={14} /> {ownEmail}
+            </a>
+          </>
+        ) : (
+          t('independent.contact')
+        )}
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Área visualmente separada das seções institucionais: faixa neutra em ocre. */
+  .independent-wrap {
+    border-top: 6px solid var(--ochre);
+  }
+  .page-body {
+    padding-block: var(--space-7);
+    display: grid;
+    gap: var(--space-5);
+  }
+  .intro {
+    margin: 0;
+  }
+  .projects {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-5);
+  }
+  .contact-note {
+    margin: 0;
+  }
+  .contact-note a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+</style>

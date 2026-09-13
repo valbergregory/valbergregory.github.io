@@ -10,7 +10,8 @@ Site: https://valbergregory.github.io (pt-BR) · https://valbergregory.github.io
 - Conteúdo em arquivos de dados e Markdown (`src/data`, `src/content`); nenhum texto científico é inferido de commits.
 - Metadados públicos dos repositórios de pesquisa (linguagem, último commit, licença, release) são sincronizados automaticamente a cada seis horas ou por `repository_dispatch`, somente para a whitelist em `src/data/github-whitelist.json`.
 - Busca interna estática (Pagefind, roda no navegador) e currículo em PDF gerado a cada build a partir dos dados.
-- Sem cookies, sem analytics, sem requisições a terceiros.
+- Sem conta, formulário, analytics próprio ou publicidade; a preferência de tema fica no `localStorage` do visitante; busca local. Detalhes em `/privacidade/`.
+- **Site pessoal de natureza acadêmica:** o conteúdo não constitui manifestação, serviço ou chancela da UFAL ou do TJAL (ver `/avisos-legais/`). Extensão universitária (`src/data/extension.yml`) só com registro institucional; projetos independentes (`src/data/independent-projects.yml`) em rota secundária, com classificação de vínculo e titularidade indicada projeto a projeto.
 
 ## Scripts
 
@@ -23,7 +24,10 @@ Site: https://valbergregory.github.io (pt-BR) · https://valbergregory.github.io
 | `npm test`                                 | Vitest (dados, sincronização, i18n)                                                              |
 | `npm run build`                            | gera `dist/`                                                                                     |
 | `npm run check:links`                      | verifica links internos do build (`-- --external` inclui externos)                               |
-| `npm run check:secrets`                    | garante que nenhum token ou dado privado entrou no código ou no build                            |
+| `npm run check:secrets`                    | garante que nenhum token, CPF ou arquivo do manifesto privado entrou no código ou no build       |
+| `npm run check:compliance`                 | verifica no build os avisos institucionais, a separação de projetos, a CSP e o manifesto privado |
+| `npm run report:semester -- 2026.2`        | relatório público do sítio especializado em `dist/relatorios/` (CSV, JSON, HTML)                 |
+| `npm run ledger:sync`                      | registra novas publicações no ledger de primeira publicação (nunca altera datas existentes)      |
 | `npm run og:generate`                      | regenera imagens sociais e ícones                                                                |
 | `scripts/set-portfolio-secret.ps1` / `.sh` | grava o secret `PORTFOLIO_SYNC_TOKEN` nos repositórios rastreados (pede o token de forma oculta) |
 | `npm run preview`                          | serve `dist/` localmente                                                                         |
@@ -36,11 +40,16 @@ Leia `docs/CONTENT_GUIDE.md`. Em resumo:
 
 - pesquisas → `src/data/research.yml`
 - publicações → `src/data/publications.yml`
-- extensão e projetos → `src/data/outreach.yml`
+- extensão universitária registrada → `src/data/extension.yml`; projetos independentes/em revisão → `src/data/independent-projects.yml`
+- atuação acadêmica (grupos da Resolução CONSUNI/UFAL 119/2025) → `src/data/academic-activity.yml`
+- calendário editorial (semanas letivas) → `src/data/editorial-calendar.yml`
+- registro de imagens com pessoas → `src/data/images.yml`
+- avisos legais, privacidade e política editorial → `src/content/pages/legal|privacy|editorial.*.md`
 - perfil, vínculos, formação e bio (pt, en, fr, de, it) → `src/data/profile.yml`
 - textos das páginas Sobre e Ensino → `src/content/pages/`
 - séries temáticas e publicações (notas, opiniões, leituras…) → `src/content/series/` e `src/content/conteudos/` (página "Conteúdos", RSS)
-- itens pendentes de confirmação (não publicados) → `src/data/review-needed.yml`
+- itens pendentes de confirmação (não publicados) → `src/data/review-needed.yml` (conteúdo) e `src/data/legal-review-needed.yml` (fatos funcionais, vínculos, propriedade intelectual, imagens)
+- provas documentais do titular (portarias, certificados, termos) → `data/private/` (ignorado pelo Git; ver `data/README.md`)
 
 ## Automações
 
@@ -62,6 +71,6 @@ Leia `docs/CONTENT_GUIDE.md`. Em resumo:
 - `docs/examples/notify-portfolio.yml` — workflow para os repositórios rastreados
 - `docs/qa/` — relatório de verificação (acessibilidade, desempenho, capturas)
 
-## Licença
+## Licença e avisos
 
-Código sob [MIT](LICENSE). Textos, imagens, fotografias, currículo e demais conteúdos: todos os direitos reservados — não podem ser reproduzidos ou utilizados sem autorização expressa do autor; as fotografias estão protegidas pelo direito de imagem. Tudo o que está escrito expressa exclusivamente a opinião do autor.
+Código sob [MIT](LICENSE) (`CITATION.cff` descreve como citar). Textos, dados próprios, imagens, fotografias, currículo e demais conteúdos: todos os direitos reservados — não podem ser reproduzidos ou utilizados sem autorização expressa do autor; nenhuma licença Creative Commons foi aplicada; as fotografias estão protegidas pelo direito de imagem. Tudo o que está escrito expressa exclusivamente a opinião do autor e não representa a UFAL, o TJAL nem qualquer outra instituição. Nada aqui é parecer jurídico nem garantia de conformidade em procedimento institucional.

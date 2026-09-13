@@ -79,6 +79,9 @@ jobs:
       - name: Verificar ausência de segredos no build
         run: npm run check:secrets -- --dist-only
 
+      - name: Verificar conformidade (avisos, separação de projetos, CSP, manifesto privado)
+        run: npm run check:compliance
+
       - name: Upload do artefato
         uses: actions/upload-pages-artifact@v3
         with:

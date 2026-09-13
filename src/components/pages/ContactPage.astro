@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import Icon from '@/components/Icon.astro';
+import InstitutionalNotice from '@/components/InstitutionalNotice.astro';
 import { alternates, route, type Lang } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/ui';
 import { getProfile, pick } from '@/lib/data';
@@ -57,9 +58,10 @@ const topics = en
       </p>
       <p class="small muted">
         {en
-          ? 'Please mention the subject (research, supervision, project) in the message title.'
-          : 'Indique o assunto (pesquisa, orientação, projeto) no título da mensagem.'}
+          ? 'Please mention the subject (research, supervision, teaching) in the message title.'
+          : 'Indique o assunto (pesquisa, orientação, ensino) no título da mensagem.'}
       </p>
+      <p class="small muted">{t('contact.independent')}</p>
     </section>
 
     <section class="card contact-card" aria-labelledby="profiles-title">
@@ -109,6 +111,7 @@ const topics = en
         ))}
       </ul>
       <p class="small muted">{pick(profile.location, lang)}</p>
+      <InstitutionalNotice {lang} />
     </section>
 
     <section class="topics" aria-labelledby="topics-title">
@@ -118,7 +121,10 @@ const topics = en
           <li>{topic}</li>
         ))}
       </ul>
-      <p class="notice info">{t('contact.note')}</p>
+      <p class="notice info">
+        {t('contact.note')} <a href={route('legal', lang)}>{t('nav.legal')}</a> ·{' '}
+        <a href={route('privacy', lang)}>{t('nav.privacy')}</a>
+      </p>
     </section>
   </div>
 </BaseLayout>

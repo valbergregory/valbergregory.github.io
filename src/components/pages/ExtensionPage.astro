@@ -1,0 +1,98 @@
+---
+/**
+ * Extensão universitária: SOMENTE ações registradas/aprovadas na UFAL (extension.yml).
+ * Iniciativas sem registro ficam em /projetos-independentes/ (Etapa 1.3 da auditoria).
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import InstitutionalNotice from '@/components/InstitutionalNotice.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+import { getExtension } from '@/lib/projects';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const actions = await getExtension();
+const research = await getCollection('research');
+const researchTitle = (slug?: string) => research.find((r) => r.data.slug === slug)?.data.title;
+
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('outreach.title') },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={t('outreach.title')}
+  description={t('extension.lead')}
+  current="outreach"
+  alternates={alternates('outreach')}
+  jsonLd={[
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('outreach.title'), path: route('outreach', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('outreach.title')} lead={t('extension.lead')} {crumbs} />
+
+  <div class="container page-body">
+    <InstitutionalNotice {lang} />
+    <p class="prose intro">{t('extension.criteria')}</p>
+
+    {actions.length > 0 ? (
+      <ul class="projects">
+        {actions.map((a) => (
+          <ProjectCard {lang} project={a} researchTitle={researchTitle(a.data.research)} />
+        ))}
+      </ul>
+    ) : (
+      <div class="card empty">
+        <p class="prose">{t('extension.none')}</p>
+        <p class="links">
+          <a class="button secondary" href={route('independent', lang)}>
+            {t('extension.seeIndependent')} <Icon name="arrow" size={16} />
+          </a>
+          <a class="button subtle" href={route('research', lang)}>
+            {t('extension.seeResearch')} <Icon name="arrow" size={16} />
+          </a>
+        </p>
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-body {
+    padding-block: var(--space-7);
+    display: grid;
+    gap: var(--space-5);
+  }
+  .intro {
+    margin: 0;
+  }
+  .projects {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-5);
+  }
+  .empty .prose {
+    margin: 0;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0;
+  }
+</style>

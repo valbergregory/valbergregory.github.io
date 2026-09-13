@@ -21,6 +21,13 @@ areas:
   - dados-econometria
 project: marine-heatwaves-fishing-effort
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A gestão pesqueira depende de informações confiáveis sobre estoques, capturas, esforço, localização, condições oceanográficas, clima, preços e características socioeconômicas das comunidades. Quando esses dados são fragmentados, descontínuos ou inacessíveis, torna-se difícil definir regras, fiscalizar seu cumprimento e avaliar seus resultados.

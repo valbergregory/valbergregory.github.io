@@ -19,6 +19,13 @@ areas:
   - sistemas-de-informacao
   - dados-econometria
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Digital economics, economics of information and information systems
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Information economics studies how data and knowledge influence decisions, markets, contracts and forms of productive organisation. Its starting point is simple: economic agents rarely have the same information, at the same time and of the same quality. That difference affects prices, negotiations, expectations and the distribution of power among consumers, firms and governments.

@@ -21,6 +21,13 @@ areas:
   - inovacao-publica
 project: port-digitalization-observatory
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Os portos conectam economias locais aos mercados nacionais e internacionais. Um terminal eficiente pode reduzir custos, facilitar exportações, atrair investimentos e estimular atividades logísticas e industriais. Esses benefícios, entretanto, dependem da relação do porto com o território e com as redes que transportam pessoas, mercadorias e informações.

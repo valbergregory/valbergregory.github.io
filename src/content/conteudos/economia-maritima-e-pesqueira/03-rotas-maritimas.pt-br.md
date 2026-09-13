@@ -18,6 +18,13 @@ areas:
   - economia-maritima
 project: port-network-resilience
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Grande parte do comércio internacional depende do transporte marítimo. Distância, capacidade portuária, preço dos combustíveis, tempo de viagem, seguro e disponibilidade de navios influenciam o custo final dos produtos. Por isso, as rotas marítimas integram a infraestrutura econômica mundial e afetam empresas e consumidores muito além das regiões costeiras.

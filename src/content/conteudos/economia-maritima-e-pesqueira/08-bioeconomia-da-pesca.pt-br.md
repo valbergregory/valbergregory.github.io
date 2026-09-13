@@ -19,6 +19,13 @@ areas:
   - dados-econometria
 project: fishing-closures-brazil
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A bioeconomia da pesca integra a dinâmica biológica dos estoques ao comportamento econômico dos pescadores. Quando o estoque é saudável, determinada quantidade de esforço pode produzir capturas elevadas. Se barcos, horas de trabalho, equipamentos e combustível aumentam excessivamente, o estoque diminui e cada unidade adicional de esforço tende a capturar menos.

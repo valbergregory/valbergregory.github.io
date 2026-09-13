@@ -19,6 +19,13 @@ areas:
   - economia-pesqueira
   - desenvolvimento-territorial
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A cadeia produtiva do pescado não termina com a captura. O valor do produto é construído ao longo do desembarque, da refrigeração, do transporte, do processamento, da comercialização e do consumo. Uma falha em qualquer dessas etapas pode reduzir a qualidade, interromper o acesso a mercados e diminuir o preço recebido pelo pescador.

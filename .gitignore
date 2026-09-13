@@ -24,3 +24,7 @@ docs/qa/*.png
 # currículo em PDF gerado no build (scripts/generate-cv.mjs)
 public/valber-cv.pdf
 public/valber-cv-en.pdf
+
+# manifesto privado de evidências do titular (portarias, certificados, termos):
+# nunca versionado, nunca empacotado (ver data/README.md)
+data/private/

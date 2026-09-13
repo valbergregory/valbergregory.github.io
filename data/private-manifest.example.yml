@@ -1,0 +1,23 @@
+# Modelo do manifesto privado — copie para data/private/manifest.yml (ignorado pelo Git).
+# Não coloque aqui dados sensíveis: este arquivo de exemplo É versionado.
+
+records:
+  - id: portarias-colegiado-nde
+    kind: portaria
+    description: Portarias de designação para o Colegiado e o NDE do curso de Sistemas de Informação
+    files: [] # ex.: docs/portaria-colegiado-2024.pdf
+    issuedBy: ''
+    issuedOn: null
+    validUntil: null
+  - id: sigaa-turmas
+    kind: relatorio
+    description: Relatórios de turmas ministradas por semestre (SIGAA)
+    files: []
+  - id: atas-tcc
+    kind: ata
+    description: Atas/declarações de orientação e bancas de TCC
+    files: []
+  - id: consentimento-mosaico
+    kind: autorizacao-imagem
+    description: Termos de autorização de uso de imagem das pessoas do mosaico da página Ensino
+    files: []

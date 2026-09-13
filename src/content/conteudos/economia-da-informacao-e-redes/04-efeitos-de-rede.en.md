@@ -18,6 +18,13 @@ areas:
   - economia
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Digital economics, economics of information and information systems
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Network effects occur when the value of a product or service changes as the number of participants grows. In direct effects, each new user widens the possibilities of interaction for the others, as happens in messaging apps and communication networks. In indirect or cross-side effects, the growth of one group attracts participants from another. A mobility platform, for example, becomes more attractive to drivers when it gathers more passengers and more useful to passengers when the supply of drivers grows.

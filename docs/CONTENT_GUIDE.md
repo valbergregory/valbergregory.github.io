@@ -2,7 +2,17 @@
 
 Todo o conteúdo do site vive em arquivos de texto versionados. Nenhuma alteração exige mexer em componentes. Depois de editar, rode `npm run build` (ou `npm run dev` para ver ao vivo) e faça commit; o GitHub Actions publica.
 
-Regra geral: **não invente**. Estágios, títulos, autores e resultados só entram quando confirmados. O que estiver pendente vai para `src/data/review-needed.yml`, que não é publicado.
+Regra geral: **não invente**. Estágios, títulos, autores e resultados só entram quando confirmados. O que estiver pendente vai para `src/data/review-needed.yml` (conteúdo) ou `src/data/legal-review-needed.yml` (fatos funcionais, vínculos, propriedade intelectual, imagens — auditoria de 13/09/2026); nenhum dos dois é publicado.
+
+Regras transversais da auditoria preventiva (13/09/2026):
+
+- o site é pessoal e acadêmico: nunca use logomarca, brasão ou identidade visual da UFAL/TJAL, nem apresente algo como "oficial";
+- **extensão universitária** só entra em `src/data/extension.yml` com registro público (PROEX/SIGAA); o resto vai para `src/data/independent-projects.yml`;
+- **projetos independentes** ficam em `nature: under-review` até haver documentação de vínculo, recursos e titularidade; o site então mostra "classificação institucional em revisão" e nunca afirma independência;
+- o e-mail institucional serve a ensino, pesquisa e extensão; propostas sobre projetos independentes só por `profile.yml › independentProjectEmail` (vazio = nada é exibido);
+- nunca afirme que algo "gera pontos": use "possível enquadramento", "sujeito à avaliação da CIADD/CPPD";
+- `firstPublishedAt` de uma publicação nunca muda (ledger `src/data/first-published.json`); datas não são redistribuídas para simular continuidade;
+- fotografias com terceiros exigem `consentVerified: true` em `src/data/images.yml` (com o id do termo no manifesto privado, ver `data/README.md`).
 
 ## Adicionar uma pesquisa
 
@@ -63,10 +73,23 @@ Para capítulos use `bookTitle`, `editors`, `publisher`, `place`, `isbn`. Só ca
 
 Em `research.yml` e `publications.yml`, `authors` é uma lista de nomes completos na ordem de autoria. Não use abreviações nem "et al." quando os nomes forem conhecidos.
 
-## Adicionar um produto de extensão
+## Extensão universitária e projetos independentes
 
-- Produto esperado de uma pesquisa: acrescente em `extensionProducts` do projeto.
-- Projeto ou observatório com existência própria: adicione um bloco em `src/data/outreach.yml` (`slug`, `name`, `kind`, `status`, `summary`, `role`, `links`, `research` opcional, `tracks`). Apresentação institucional: sem preços nem linguagem comercial.
+Dois arquivos com o mesmo esquema (`src/content.config.ts › projectSchema`):
+
+- `src/data/extension.yml` — **somente** ações de extensão registradas/aprovadas na UFAL. Exige `nature: institutional-extension`, `relationshipToUfal: extension` e `institutionalRegistration` com `publicId`, `issuer` e `date` (o build falha sem isso). Página: `/extensao/`.
+- `src/data/independent-projects.yml` — iniciativas privadas ou ainda não classificadas. Página secundária `/projetos-independentes/`, fora do menu principal.
+
+Campos de cada projeto: `slug`, `name`, `kind`, `status`, `summary`, `role`, `period` (opcional), `url`, `repository`, `links`, `research` (opcional), `tracks`, `nature` (`institutional-research | institutional-extension | teaching | independent | under-review`), `relationshipToUfal` e `relationshipToTjal` (`none | teaching | research | extension | under-review`), `institutionalRegistration` (`publicId`, `issuer`, `date`, `publicUrl`) ou `null`, `resourcesUsed` (`under-review | none-declared | declared`), `ipStatus` (`institutional | shared | independent | under-review`), `commercialStatus` (`none | precommercial | commercial | unknown`), `disclaimer` (`{pt, en}` ou `null`), `evidencePublic` (lista de `{label, url}`).
+
+Regras:
+
+- faltando prova, use `nature: under-review`, `ipStatus: under-review`, `resourcesUsed: under-review`, `commercialStatus: unknown` — a interface mostra "classificação institucional em revisão" e o aviso de que não é sistema oficial;
+- `nature: independent` só passa no esquema com todos os campos definitivos e `evidencePublic` não vazio; só então aparece a declaração "Projeto independente, sem vínculo…";
+- item em revisão não pode ter `disclaimer` próprio;
+- sem preços, projeções comerciais, convite a propostas ou e-mail institucional (`tests/projects.test.ts` e `scripts/check-compliance.mjs`).
+
+Produto esperado de uma pesquisa (painel, base, boletim): continue em `extensionProducts` do projeto em `research.yml` — o rótulo público é "produtos aplicados previstos (possível extensão, sujeita a registro)".
 
 ## Destacar um projeto
 
@@ -103,6 +126,17 @@ project: slug-da-pesquisa # opcional: liga a uma página de pesquisa
 date: 2026-09-12 # data futura = publicação agendada (entra no ar no deploy seguinte à data)
 linkedin: https://www.linkedin.com/posts/... # opcional: post correspondente no LinkedIn
 draft: false
+# --- rastreabilidade editorial (obrigatória; auditoria de 13/09/2026) ---
+firstPublishedAt: 2026-09-12 # imutável depois de lançada (ledger src/data/first-published.json)
+updatedAt: 2026-10-01 # opcional: última atualização substantiva
+semester: '2026.2' # YYYY.1 (jan–jun) | YYYY.2 (jul–dez), pela data de primeira publicação
+contentNature: scientific-outreach # scientific-outreach | academic | teaching | opinion | work-in-progress
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none # none | teaching | research | extension | under-review
+reviewStatus: editorial # editorial | peer-reviewed | preprint | not-peer-reviewed
+sources: [] # fontes principais; vazio = "ver seção Para aprofundar"
+license: all-rights-reserved
+# doi, issn, studentCoauthors, dataEthics, conflictDisclosure: opcionais
 ---
 
 Texto em Markdown. Ao final, as seções `## Para aprofundar` (referências) e `## Sites para acesso`.
@@ -115,6 +149,23 @@ Texto em Markdown. Ao final, as seções `## Para aprofundar` (referências) e `
 - Agendamento: o deploy roda a cada 6 h; uma publicação com `date` futura fica fora do site até a data.
 - A página inicial mostra as séries; o RSS (`/rss.xml`) inclui as publicações em português.
 - Fluxo sugerido para o LinkedIn: publicar aqui, compartilhar com o botão do LinkedIn e preencher `linkedin:` com o link do post.
+- Depois de criar uma publicação, rode `npm run ledger:sync` para registrar a data de primeira publicação no ledger (o teste `dates.test.ts` avisa quando falta e **falha** se `firstPublishedAt` de um texto já registrado mudar).
+- `contentNature: work-in-progress` mostra o aviso "Trabalho em andamento, versão de <data>"; `areas` com `direito` mostra o aviso de conteúdo educacional/não consultoria.
+
+## Divulgação científica (sítio especializado) e relatório semestral
+
+- `/divulgacao-cientifica/` (EN `/en/science-outreach/`) é o arquivo editorial: escopo declarado em `/politica-editorial/`, séries e um arquivo por semestre (`/divulgacao-cientifica/2026-2/`) com só o que foi efetivamente publicado, URL canônica, data real e semana ISO.
+- `src/data/editorial-calendar.yml` guarda as semanas letivas oficiais (vazio por padrão; nunca invente datas). Sem calendário, as semanas são contadas como semanas ISO.
+- `npm run report:semester -- 2026.2` gera `dist/relatorios/2026-2.{csv,json,html}` com título, URL, datas, commit SHA, natureza, área, relação institucional, licença, fontes, semanas cobertas e lacunas — sem pontuação e sem dados pessoais.
+- `/atuacao-academica/` lê `src/data/academic-activity.yml` (cinco grupos do Anexo 5 da Resolução 119/2025). Cada item precisa de `fit` com "possível enquadramento", `evidence` e `evidenceStatus`; provas privadas ficam no manifesto (`data/README.md`) e são referenciadas por `privateEvidenceId`.
+
+## Páginas de conformidade
+
+`src/content/pages/legal|privacy|editorial.<idioma>.md` (avisos legais, privacidade, política editorial), com `lastReviewed` obrigatório. O aviso curto "Site pessoal de natureza acadêmica…" (`InstitutionalNotice.astro`) aparece perto das afiliações e dos projetos; `scripts/check-compliance.mjs` falha se ele sumir de alguma dessas páginas.
+
+## Imagens com pessoas
+
+Toda fotografia em `src/assets/` e `public/images/` precisa de registro em `src/data/images.yml` (`creator`, `source`, `license`, `peopleIdentifiable`, `subjects`, `consentVerified`, `consentRecordPrivateId`, `officialSource`). Foto com terceiros identificáveis e `consentVerified: false` não pode ser referenciada por nada que entre no build (`tests/images.test.ts`).
 
 ## Adicionar tradução
 

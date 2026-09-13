@@ -19,6 +19,13 @@ areas:
   - sistemas-de-informacao
   - direito
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Digital economics, economics of information and information systems
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Multi-sided platforms bring together groups that need one another, such as consumers and sellers, passengers and drivers, advertisers and audiences, developers and users. The service provided is not limited to technological infrastructure, since the platform also sets rules, organises matches, reduces search costs and manages trust mechanisms.

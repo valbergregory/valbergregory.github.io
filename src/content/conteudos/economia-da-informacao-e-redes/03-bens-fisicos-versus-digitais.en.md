@@ -18,6 +18,13 @@ areas:
   - economia
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Digital economics, economics of information and information systems
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A physical good is normally rival: when one person uses a given resource, it may no longer be available to someone else. Many digital goods behave differently. A piece of software, a file, a video or an e-book can be reproduced and used simultaneously by many people without the access of one of them reducing, in itself, the availability for the others.

@@ -1,0 +1,17 @@
+---
+import SemesterArchivePage from '@/components/pages/SemesterArchivePage.astro';
+import { getContents } from '@/lib/contents';
+import { semesterSlug, sortSemestersDesc } from '@/lib/semesters';
+
+export async function getStaticPaths() {
+  const contents = await getContents('en');
+  return sortSemestersDesc(contents.map((c) => c.data.semester)).map((sem) => ({
+    params: { semester: semesterSlug(sem) },
+    props: { semester: sem },
+  }));
+}
+
+const { semester } = Astro.props;
+---
+
+<SemesterArchivePage lang="en" {semester} />

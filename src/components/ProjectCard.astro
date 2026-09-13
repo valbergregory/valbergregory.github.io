@@ -1,0 +1,168 @@
+---
+/**
+ * Cartão de projeto (extensão registrada ou projeto independente/em revisão).
+ * Exibe SEMPRE o status verificável de natureza, vínculo, registro, recursos,
+ * propriedade intelectual e caráter comercial — ou "em revisão" — e o texto
+ * padrão da natureza (nunca a declaração de independência para item em revisão).
+ */
+import Icon from './Icon.astro';
+import { route, type Lang } from '@/i18n/routes';
+import { useTranslations, type UiKey } from '@/i18n/ui';
+import { formatDate, label, pick } from '@/lib/data';
+import { isLegalProject, projectNoticeKey, type Project } from '@/lib/projects';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+  researchTitle?: string;
+  /** Nível do título do cartão (h2 na página de listagem). */
+  headingLevel?: 'h2' | 'h3';
+}
+const { lang, project, researchTitle, headingLevel = 'h2' } = Astro.props;
+const t = useTranslations(lang);
+const p = project.data;
+const Heading = headingLevel;
+const reg = p.institutionalRegistration;
+const notice = p.disclaimer ? pick(p.disclaimer, lang) : t(projectNoticeKey(p.nature));
+const noticeKind = p.nature === 'under-review' ? 'under-review' : p.nature;
+---
+
+<li class="card project" id={p.slug} data-project-nature={p.nature}>
+  <div class="project-head">
+    <p class="eyebrow">{pick(p.kind, lang)}</p>
+    <Heading>{pick(p.name, lang)}</Heading>
+  </div>
+  <p class="prose">{pick(p.summary, lang)}</p>
+
+  <p class="notice project-notice" data-notice={noticeKind}>
+    {notice}
+  </p>
+  {isLegalProject(p) && (
+    <p class="notice info" data-notice="legal">
+      {t('notice.legal')}
+    </p>
+  )}
+
+  <dl class="definition">
+    <dt>{t('outreach.status')}</dt>
+    <dd>{pick(p.status, lang)}</dd>
+    <dt>{t('project.role')}</dt>
+    <dd>{pick(p.role, lang)}</dd>
+    {p.period && (
+      <>
+        <dt>{t('project.period')}</dt>
+        <dd>{p.period}</dd>
+      </>
+    )}
+    <dt>{t('project.nature')}</dt>
+    <dd>{t(`project.nature.${p.nature}` as UiKey)}</dd>
+    <dt>{t('project.relationUfal')}</dt>
+    <dd>{t(`project.relation.${p.relationshipToUfal}` as UiKey)}</dd>
+    <dt>{t('project.relationTjal')}</dt>
+    <dd>{t(`project.relation.${p.relationshipToTjal}` as UiKey)}</dd>
+    <dt>{t('project.registration')}</dt>
+    <dd>
+      {reg ? (
+        <>
+          {reg.publicId} · {reg.issuer} · {formatDate(reg.date, lang)}
+          {reg.publicUrl && (
+            <>
+              {' '}
+              ·{' '}
+              <a href={reg.publicUrl} rel="noopener" target="_blank">
+                {t('pub.access')} <Icon name="external" size={14} />
+                <span class="visually-hidden">{t('a11y.newTab')}</span>
+              </a>
+            </>
+          )}
+        </>
+      ) : (
+        t('project.registration.none')
+      )}
+    </dd>
+    <dt>{t('project.resources')}</dt>
+    <dd>{t(`project.resources.${p.resourcesUsed}` as UiKey)}</dd>
+    <dt>{t('project.ip')}</dt>
+    <dd>{t(`project.ip.${p.ipStatus}` as UiKey)}</dd>
+    <dt>{t('project.commercial')}</dt>
+    <dd>{t(`project.commercial.${p.commercialStatus}` as UiKey)}</dd>
+    {p.tracks.length > 0 && (
+      <>
+        <dt>{t('research.track')}</dt>
+        <dd>{p.tracks.map((tr) => label('tracks', tr, lang)).join(' · ')}</dd>
+      </>
+    )}
+    {p.research && researchTitle && (
+      <>
+        <dt>{t('contents.related')}</dt>
+        <dd>
+          <a href={route('researchItem', lang, p.research)}>{researchTitle}</a>
+        </dd>
+      </>
+    )}
+    <dt>{t('project.evidence')}</dt>
+    <dd>
+      {p.evidencePublic.length > 0 ? (
+        <ul class="plain">
+          {p.evidencePublic.map((e) => (
+            <li>
+              <a href={e.url} rel="noopener" target="_blank">
+                {e.label} <Icon name="external" size={14} />
+                <span class="visually-hidden">{t('a11y.newTab')}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        t('project.evidence.none')
+      )}
+    </dd>
+    {p.links.length > 0 && (
+      <>
+        <dt>{t('outreach.links')}</dt>
+        <dd>
+          <ul class="plain">
+            {p.links.map((l) => (
+              <li>
+                <a href={l.url} rel="noopener" target="_blank">
+                  {l.label} <Icon name="external" size={14} />
+                  <span class="visually-hidden">{t('a11y.newTab')}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </dd>
+      </>
+    )}
+  </dl>
+</li>
+
+<style>
+  .project h2,
+  .project h3 {
+    font-size: var(--text-xl);
+    margin: 0;
+  }
+  .project-head .eyebrow {
+    margin-bottom: var(--space-1);
+  }
+  .project .prose {
+    margin: 0;
+  }
+  .project-notice {
+    margin: 0;
+  }
+  .plain {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+  }
+  .plain a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+</style>

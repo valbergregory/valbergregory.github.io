@@ -20,6 +20,13 @@ areas:
   - direito
 project: fishing-closures-brazil
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Os estoques pesqueiros são exemplos clássicos de recursos de uso comum. A exclusão de usuários pode ser difícil ou custosa, enquanto o peixe capturado por um agente deixa de estar disponível para os demais. Essa combinação cria uma interdependência que não aparece com a mesma intensidade em bens privados convencionais.

@@ -19,6 +19,13 @@ areas:
   - economia-maritima
 project: port-network-resilience
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Maritime and fisheries economics
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A large share of international trade depends on maritime transport. Distance, port capacity, fuel prices, voyage time, insurance and the availability of vessels influence the final cost of goods. Shipping routes are therefore part of the world's economic infrastructure and affect firms and consumers far beyond coastal regions.

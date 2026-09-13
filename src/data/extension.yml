@@ -1,0 +1,39 @@
+# Extensão universitária: SOMENTE ações comprovadamente registradas/aprovadas na UFAL
+# (PROEX/SIGAA ou Unidade Acadêmica), com registro público informado.
+#
+# Mesmo esquema de independent-projects.yml (src/content.config.ts › projectSchema),
+# com `nature: institutional-extension` obrigatória e institutionalRegistration
+# (publicId, issuer, date, publicUrl opcional) preenchido — o build falha sem isso.
+#
+# Em 13/09/2026 nenhuma ação registrada foi informada pelo titular; a lista fica vazia
+# e a página /extensao/ explica o critério (ver legal-review-needed.yml ›
+# registros-propep-proex e extensao-reparo-tecnologico).
+#
+# Modelo de item:
+# - slug: exemplo-acao
+#   name: Nome da ação
+#   kind: { pt: Projeto de extensão, en: Outreach project }
+#   status: { pt: Em andamento, en: Ongoing }
+#   summary: { pt: ..., en: ... }
+#   role: { pt: Coordenador, en: Coordinator }
+#   url: null
+#   repository: null
+#   links: []
+#   tracks: []
+#   nature: institutional-extension
+#   relationshipToUfal: extension
+#   relationshipToTjal: none
+#   institutionalRegistration:
+#     publicId: 'PJ000-2026'        # número público não sensível
+#     issuer: PROEX/UFAL
+#     date: 2026-01-01
+#     publicUrl: https://sigaa.ufal.br/...   # opcional
+#   resourcesUsed: declared
+#   ipStatus: institutional
+#   commercialStatus: none
+#   disclaimer: null
+#   evidencePublic:
+#     - label: Cadastro no SIGAA
+#       url: https://sigaa.ufal.br/...
+
+[]

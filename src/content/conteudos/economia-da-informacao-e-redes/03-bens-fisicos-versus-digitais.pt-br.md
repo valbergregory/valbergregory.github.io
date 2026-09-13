@@ -17,6 +17,13 @@ areas:
   - economia
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Um bem físico normalmente é rival, pois, quando uma pessoa utiliza determinado recurso, ele pode deixar de estar disponível para outra. Muitos bens digitais apresentam comportamento diferente. Um software, arquivo, vídeo ou livro eletrônico pode ser reproduzido e utilizado simultaneamente por diversas pessoas sem que o acesso de uma delas reduza, por si só, a disponibilidade para as demais.

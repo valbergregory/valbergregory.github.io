@@ -46,6 +46,18 @@ const alternatePath = alternates?.[otherLang];
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    {
+      /* CSP restritiva via <meta> (GitHub Pages não permite cabeçalhos HTTP próprios;
+         frame-ancestors e report-uri só funcionam em cabeçalho). Só em produção: a
+         barra de ferramentas do Astro em desenvolvimento injeta scripts inline. */
+      import.meta.env.PROD && (
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+        />
+      )
+    }
     <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0f151f" media="(prefers-color-scheme: dark)" />
     <meta name="author" content="Valber Gregory Barbosa Costa Bezerra Santos" />
@@ -74,19 +86,8 @@ const alternatePath = alternates?.[otherLang];
       {publishedTime}
       {modifiedTime}
     />
-    <script is:inline>
-      // Aplica o tema salvo antes da primeira pintura para evitar flash.
-      (function () {
-        try {
-          const saved = localStorage.getItem('theme');
-          if (saved === 'dark' || saved === 'light') {
-            document.documentElement.dataset.theme = saved;
-          }
-        } catch {
-          /* sem armazenamento local: usa a preferência do sistema */
-        }
-      })();
-    </script>
+    <!-- Tema salvo aplicado antes da primeira pintura (script externo, compatível com a CSP). -->
+    <script is:inline src="/theme-init.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">

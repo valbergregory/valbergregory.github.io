@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHeader from '@/components/PageHeader.astro';
+import InstitutionalNotice from '@/components/InstitutionalNotice.astro';
 import portrait from '@/assets/valber-portrait.jpg';
 import { alternates, route, type Lang } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/ui';
@@ -73,6 +74,18 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
         />
       </figure>
       <dl class="definition side-facts">
+        <dt>{t('contact.affiliation')}</dt>
+        <dd>
+          <ul class="plain affiliations">
+            {profile.roles.slice(0, 2).map((r) => (
+              <li>
+                <strong>{r.org}</strong>
+                <br />
+                <span class="small muted">{pick(r.title, lang)}</span>
+              </li>
+            ))}
+          </ul>
+        </dd>
         <dt>{en ? 'Location' : 'Localização'}</dt>
         <dd>{pick(profile.location, lang)}</dd>
         <dt>{t('contact.email')}</dt>
@@ -109,6 +122,11 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
             </li>
           </ul>
         </dd>
+        <dt>{t('nav.independent')}</dt>
+        <dd>
+          <a href={route('independent', lang)}>{t('independent.title')}</a>
+          <span class="small muted"> — {t('project.nature.under-review').toLowerCase()}</span>
+        </dd>
         {profile.links.cultura && (
           <>
             <dt>{en ? 'Beyond academia' : 'Fora da academia'}</dt>
@@ -130,6 +148,7 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
           </>
         )}
       </dl>
+      <InstitutionalNotice {lang} />
     </aside>
   </div>
 
@@ -199,6 +218,10 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2) var(--space-4);
+  }
+  .affiliations {
+    display: grid;
+    gap: var(--space-2);
   }
   .languages {
     border-top: 1px solid var(--border);

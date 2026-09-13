@@ -20,12 +20,17 @@ tagline:
 intro:
   pt: >-
     Atuo na interface entre Economia, Direito, Sistemas de Informação e Administração Pública,
-    desenvolvendo pesquisas empíricas, projetos tecnológicos e iniciativas de extensão baseadas em dados.
+    desenvolvendo pesquisas empíricas e projetos aplicados baseados em dados públicos.
   en: >-
     I work at the interface between Economics, Law, Information Systems and Public Administration,
-    developing empirical research, technology projects and data-driven outreach initiatives.
+    developing empirical research and applied projects based on public data.
 
+# E-mail institucional: uso restrito a ensino, pesquisa e extensão.
 email: valber.santos@penedo.ufal.br
+# Canal próprio para os projetos independentes (Etapa 4 da auditoria de 13/09/2026).
+# Vazio = não renderizado; a página de projetos independentes não convida a propostas
+# pelo e-mail institucional. Não inventar endereço.
+independentProjectEmail: ''
 
 links:
   github: https://github.com/valbergregory
@@ -36,30 +41,9 @@ links:
   # Site pessoal de cultura e entretenimento (repositório economia-da-cultura).
   cultura: https://valbergregory.github.io/economia-da-cultura/
 
-# Destaque do hero (pedido de 12/09/2026): fundador das startups.
-founder:
-  lead:
-    pt: Fundador das startups e legaltechs
-    en: Founder of the startups and legaltechs
-  items:
-    - name: PataCidadã
-      url: https://patacidada.com.br/
-      note:
-        pt: proteção animal
-        en: animal protection
-    - name: SmartMap Educação
-      url: https://smartmap-educacao.vercel.app/
-      note:
-        pt: concorrendo ao Programa Centelha
-        en: competing in the Centelha programme
-    - name: PortaJus
-      note:
-        pt: acesso à Justiça, em desenvolvimento
-        en: access to justice, in development
-    - name: LiquidaJus
-      note:
-        pt: liquidação de sentenças, em desenvolvimento
-        en: judgment liquidation, in development
+# O destaque "Fundador das startups e legaltechs" foi retirado do hero em 13/09/2026
+# (auditoria preventiva): os projetos vivem em src/data/independent-projects.yml e na
+# rota secundária /projetos-independentes/, sem insígnia institucional.
 
 # Nota sobre a escrita regular no LinkedIn (informada em 12/09/2026).
 linkedinNote:
@@ -92,9 +76,10 @@ roles:
     unit:
       pt: Campus Arapiraca, Unidade Educacional Penedo — curso de Sistemas de Informação
       en: Arapiraca Campus, Penedo Educational Unit — Information Systems programme
+    # Classe/nível omitidos até confirmação por portaria (legal-review-needed.yml › classe-nivel-docente).
     title:
-      pt: Professor do Magistério Superior (Adjunto)
-      en: Assistant Professor (Professor Adjunto)
+      pt: Professor do Magistério Superior
+      en: Professor (federal higher-education career, Magistério Superior)
     since: '2023'
     detail:
       pt: Membro titular do Colegiado e membro do Núcleo Docente Estruturante do curso de Sistemas de Informação. Professor substituto no curso de Turismo entre 2019 e 2021.

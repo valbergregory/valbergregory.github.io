@@ -21,6 +21,13 @@ areas:
   - sistemas-de-informacao
   - inovacao-publica
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Digital economics, economics of information and information systems
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Economic decisions depend on the information available to consumers, firms and governments. When one party knows relevant aspects that the other cannot observe, prices and contracts may fail to reflect adequately the quality, the risk or the behaviour involved in the transaction. Problems of trust then arise, along with choices that would be different if information were more evenly distributed.

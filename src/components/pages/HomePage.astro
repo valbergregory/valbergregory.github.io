@@ -13,6 +13,7 @@ import { useTranslations } from '@/i18n/ui';
 import { getProfile, getGithubProjects, pick, formatDate } from '@/lib/data';
 import { personJsonLd, websiteJsonLd } from '@/lib/jsonld';
 import SeriesCard from '@/components/SeriesCard.astro';
+import InstitutionalNotice from '@/components/InstitutionalNotice.astro';
 import { getContents, getSeries } from '@/lib/contents';
 
 interface Props {
@@ -29,12 +30,6 @@ const featured = research
   .sort((a, b) => (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99))
   .slice(0, 8);
 
-const outreach = (await getCollection('outreach')).filter((o) =>
-  ['patacidada', 'smartmap-educacao', 'liquidajus', 'portajus', 'materiais-didaticos'].includes(
-    o.data.slug,
-  ),
-);
-
 const github = getGithubProjects();
 const byRepo = new Map(
   research
@@ -49,6 +44,11 @@ const recent = [...github.repositories]
 const series = await getSeries(lang);
 const contents = await getContents(lang);
 const seriesCount = (key: string) => contents.filter((c) => c.data.series === key).length;
+
+// Apresentação acadêmica sóbria (Etapa 2.1 da auditoria de 13/09/2026).
+const heroLead = en
+  ? 'Professor at the Federal University of Alagoas, economist and researcher in information systems, applied data science and digital transformation.'
+  : 'Professor da Universidade Federal de Alagoas, economista e pesquisador em sistemas de informação, ciência de dados aplicada e transformação digital.';
 
 const roles = [
   {
@@ -72,9 +72,7 @@ const roles = [
       : 'Formação em Direito e Economia, mestrado em Economia Aplicada e doutorado em Economia; advogado entre 2010 e 2014; economista registrado no CORECON/AL.',
   },
   {
-    title: en
-      ? 'Research, teaching, innovation and outreach'
-      : 'Pesquisa, ensino, inovação e extensão',
+    title: en ? 'Research, teaching and applied projects' : 'Pesquisa, ensino e projetos aplicados',
     text: en
       ? 'Empirical projects with public data that return to the classroom as tools, dashboards and open datasets.'
       : 'Projetos empíricos com dados públicos que voltam para a sala de aula como ferramentas, painéis e bases abertas.',
@@ -99,35 +97,10 @@ const roles = [
     <NetworkDecor class="hero-decor" />
     <div class="container hero-inner">
       <div class="hero-text">
-        <p class="eyebrow">{pick(profile.positioning, lang)}</p>
+        <p class="eyebrow">{pick(profile.tagline, lang)}</p>
         <h1 id="hero-title">{profile.name}</h1>
-        <p class="hero-tagline">{pick(profile.tagline, lang)}</p>
+        <p class="hero-tagline">{heroLead}</p>
         <p class="hero-intro">{pick(profile.intro, lang)}</p>
-        <p class="hero-founder">
-          <span class="founder-lead">{pick(profile.founder.lead, lang)}</span>{' '}
-          {profile.founder.items.map((item, i) => (
-            <>
-              {i > 0 && (
-                <span class="founder-sep">
-                  {i === profile.founder.items.length - 1
-                    ? lang === 'en'
-                      ? ' and '
-                      : ' e '
-                    : ', '}
-                </span>
-              )}
-              {item.url ? (
-                <a href={item.url} rel="noopener" target="_blank" class="founder-link">
-                  {item.name}
-                  <span class="visually-hidden"> {t('a11y.newTab')}</span>
-                </a>
-              ) : (
-                <span class="founder-link">{item.name}</span>
-              )}{' '}
-              <span class="founder-note">({pick(item.note, lang)})</span>
-            </>
-          ))}
-        </p>
         <div class="hero-actions">
           <a class="button" href={route('research', lang)}>
             {t('hero.cta.research')} <Icon name="arrow" size={18} />
@@ -169,6 +142,7 @@ const roles = [
           </li>
         ))}
       </ul>
+      <InstitutionalNotice {lang} class="roles-notice" />
     </div>
   </section>
 
@@ -281,17 +255,10 @@ const roles = [
         </a>
       </div>
       <div>
-        <h2 id="outreach-title">{t('home.outreach')}</h2>
-        <ul class="link-list outreach-list">
-          {outreach.map((o) => (
-            <li>
-              <strong>{pick(o.data.name, lang)}</strong>
-              <span class="muted"> — {pick(o.data.kind, lang)}</span>
-            </li>
-          ))}
-        </ul>
-        <a class="button subtle" href={route('outreach', lang)}>
-          {en ? 'See projects' : 'Ver projetos'} <Icon name="arrow" size={18} />
+        <h2 id="science-title">{t('home.science')}</h2>
+        <p class="prose">{t('home.science.text')}</p>
+        <a class="button subtle" href={route('scienceOutreach', lang)}>
+          {t('nav.scienceOutreach')} <Icon name="arrow" size={18} />
         </a>
       </div>
     </div>
@@ -304,6 +271,16 @@ const roles = [
         <p class="lead">{pick(profile.publicExamsIntro, lang)}</p>
       </div>
       <ExamsList {lang} compact />
+    </div>
+  </section>
+
+  <section class="section independent" aria-labelledby="independent-title">
+    <div class="container independent-inner">
+      <h2 id="independent-title">{t('home.independent')}</h2>
+      <p class="small muted">{t('home.independent.text')}</p>
+      <a class="button subtle" href={route('independent', lang)}>
+        {t('nav.independent')} <Icon name="arrow" size={16} />
+      </a>
     </div>
   </section>
 
@@ -374,30 +351,6 @@ const roles = [
     color: var(--text-muted);
     font-size: var(--text-md);
   }
-  .hero-founder {
-    margin: var(--space-4) 0 0;
-    padding: var(--space-3) var(--space-4);
-    border-left: 3px solid var(--ochre);
-    background: var(--ochre-soft);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    font-size: var(--text-base);
-    line-height: 1.5;
-    max-width: 58ch;
-  }
-  .founder-lead {
-    font-weight: 600;
-    color: var(--ochre-text);
-    margin-right: 0.35em;
-  }
-  .founder-link {
-    font-weight: 700;
-    color: var(--navy);
-  }
-  .founder-note {
-    color: var(--text-muted);
-    font-size: var(--text-sm);
-    margin-left: 0.3em;
-  }
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -428,6 +381,29 @@ const roles = [
     }
   }
 
+  :global(.roles-notice) {
+    margin-top: var(--space-5);
+    text-align: left;
+  }
+  .independent {
+    border-top: 1px dashed var(--border-strong);
+    background: var(--bg);
+  }
+  .independent-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-3);
+  }
+  .independent h2 {
+    font-size: var(--text-lg);
+    margin: 0;
+  }
+  .independent p {
+    margin: 0;
+    max-width: 60ch;
+  }
   .roles {
     list-style: none;
     padding: 0;
@@ -520,10 +496,6 @@ const roles = [
   .two-col .prose {
     margin-inline: auto;
   }
-  .outreach-list {
-    margin-bottom: var(--space-4);
-    align-items: center;
-  }
   .exams-section .lead {
     max-width: 72ch;
   }
@@ -551,12 +523,6 @@ const roles = [
   }
 
   @media (max-width: 56rem) {
-    .hero-founder {
-      margin-inline: auto;
-      border-left: 0;
-      border-top: 3px solid var(--ochre);
-      border-radius: 0 0 var(--radius) var(--radius);
-    }
     .hero-inner {
       grid-template-columns: 1fr;
       gap: var(--space-6);

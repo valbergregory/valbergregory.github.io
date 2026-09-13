@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-import { NAV_ORDER, ROUTES, route, type Lang, type RouteKey } from '@/i18n/routes';
+import { NAV_ORDER, NAV_PARENT, ROUTES, route, type Lang, type RouteKey } from '@/i18n/routes';
 import { useTranslations, type UiKey } from '@/i18n/ui';
 
 interface Props {
@@ -16,6 +16,7 @@ const t = useTranslations(lang);
 const otherLang: Lang = lang === 'en' ? 'pt-br' : 'en';
 const otherPath = alternatePath ?? ROUTES.home[otherLang];
 const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
+const activeKey = NAV_PARENT[current] ?? current;
 ---
 
 <header class="site-header">
@@ -48,7 +49,7 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
     <nav id="site-nav" class="site-nav" aria-label={t('nav.label')} data-nav>
       <ul class="nav-list">
         {NAV_ORDER.map((key) => {
-          const isCurrent = key === current || (key === 'research' && current === 'researchItem');
+          const isCurrent = key === activeKey;
           return (
             <li>
               <a
@@ -137,7 +138,7 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
   .site-nav {
     display: flex;
     align-items: center;
-    gap: var(--space-5);
+    gap: var(--space-3);
   }
   .nav-list {
     display: flex;
@@ -146,16 +147,18 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
     margin: 0;
     padding: 0;
   }
+  /* Nove itens (auditoria de 13/09/2026) precisam caber no contêiner de 72rem:
+     fonte xs e padding menor no desktop; no menu móvel voltam ao tamanho normal. */
   .nav-link {
     display: inline-flex;
     align-items: center;
     min-height: 2.75rem;
-    padding: 0 0.7rem;
+    padding: 0 0.5rem;
     border-radius: var(--radius);
     color: var(--text-muted);
     text-decoration: none;
     font-weight: 600;
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     white-space: nowrap;
     position: relative;
   }
@@ -169,8 +172,8 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
   .nav-link.active::after {
     content: '';
     position: absolute;
-    left: 0.7rem;
-    right: 0.7rem;
+    left: 0.5rem;
+    right: 0.5rem;
     bottom: 0.35rem;
     height: 2px;
     background: var(--teal);
@@ -179,8 +182,8 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
   .nav-tools {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    padding-left: var(--space-3);
+    gap: var(--space-1);
+    padding-left: var(--space-2);
     border-left: 1px solid var(--border);
   }
   .search-link,
@@ -244,6 +247,13 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
     }
   }
 
+  /* Entre o menu móvel e o contêiner cheio, só a marca "VG" para liberar espaço. */
+  @media (min-width: 68.01rem) and (max-width: 78rem) {
+    .brand-name {
+      display: none;
+    }
+  }
+
   @media (max-width: 68rem) {
     .nav-toggle {
       display: inline-flex;
@@ -273,6 +283,7 @@ const navKey = (k: RouteKey) => `nav.${k}` as UiKey;
       width: 100%;
       min-height: 3rem;
       padding: 0 var(--space-3);
+      font-size: var(--text-sm);
     }
     .nav-link.active::after {
       left: var(--space-3);

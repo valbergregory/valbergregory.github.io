@@ -46,7 +46,10 @@ const profileSchema = z.object({
   positioning: bilingual,
   tagline: bilingual,
   intro: bilingual,
+  /** E-mail institucional: uso restrito a ensino, pesquisa e extensão. */
   email: z.email(),
+  /** Canal próprio para projetos independentes; vazio = não renderizado. Nunca inventar. */
+  independentProjectEmail: z.union([z.literal(''), z.email()]).default(''),
   links: z.object({
     github: z.url(),
     linkedin: z.url(),
@@ -54,10 +57,6 @@ const profileSchema = z.object({
     orcid: z.url(),
     googleScholar: z.url().optional(),
     cultura: z.url().optional(),
-  }),
-  founder: z.object({
-    lead: bilingual,
-    items: z.array(z.object({ name: z.string(), url: z.url().optional(), note: bilingual })),
   }),
   linkedinNote: bilingual,
   /** Descrição curta usada na assinatura dos conteúdos. */

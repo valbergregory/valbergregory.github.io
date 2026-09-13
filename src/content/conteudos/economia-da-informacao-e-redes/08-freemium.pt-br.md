@@ -17,6 +17,13 @@ areas:
   - economia
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 O modelo freemium combina uma versão básica gratuita com planos pagos que oferecem recursos adicionais. O acesso sem cobrança reduz a barreira de entrada, amplia a base de usuários e pode ajudar uma plataforma a alcançar massa crítica. A gratuidade, contudo, integra uma estratégia de segmentação e precisa ser sustentada por receitas provenientes de assinaturas, publicidade ou outras fontes compatíveis com o serviço.

@@ -22,6 +22,13 @@ areas:
   - sistemas-de-informacao
 project: adocao-ia-judiciario-seguranca
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Digital economics, economics of information and information systems
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Network effects, economies of scale, control over data and reduced marginal costs can favour high concentration in digital markets. In certain segments, a few platforms come to intermediate a significant share of the relationships between users, firms and advertisers. The position reached allows them to set access rules, order information and influence the conditions of competition within the digital environment itself.

@@ -17,6 +17,13 @@ areas:
   - economia
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Os efeitos de rede ocorrem quando o valor de um produto ou serviço se altera conforme aumenta o número de participantes. Nos efeitos diretos, cada novo usuário amplia as possibilidades de interação dos demais, como acontece em aplicativos de mensagens e redes de comunicação. Nos efeitos indiretos ou cruzados, o crescimento de um grupo atrai participantes de outro. Uma plataforma de mobilidade, por exemplo, torna-se mais atraente para motoristas quando reúne mais passageiros e mais útil para passageiros quando aumenta a oferta de motoristas.

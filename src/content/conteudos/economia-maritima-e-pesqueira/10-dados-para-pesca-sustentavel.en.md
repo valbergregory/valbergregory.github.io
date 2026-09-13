@@ -22,6 +22,13 @@ areas:
   - dados-econometria
 project: marine-heatwaves-fishing-effort
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Maritime and fisheries economics
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Fisheries management depends on reliable information about stocks, catches, effort, location, oceanographic conditions, climate, prices and the socio-economic characteristics of communities. When these data are fragmented, discontinuous or inaccessible, it becomes hard to set rules, enforce them and evaluate their results.

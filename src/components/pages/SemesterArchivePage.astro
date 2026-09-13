@@ -1,0 +1,151 @@
+---
+/**
+ * Arquivo de um semestre: só publicações efetivamente lançadas, com URL canônica,
+ * data de primeira publicação, semana ISO, natureza e área. Semanas letivas só
+ * aparecem se o titular tiver preenchido src/data/editorial-calendar.yml.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import { route, type Lang } from '@/i18n/routes';
+import { useTranslations, type UiKey } from '@/i18n/ui';
+import { formatDate } from '@/lib/data';
+import { breadcrumbJsonLd, SITE } from '@/lib/jsonld';
+import { contentPath, dateIso, getContents, getSeries } from '@/lib/contents';
+import { getEditorialCalendar } from '@/lib/calendar';
+import { isoWeek, semesterLabel, semesterSlug } from '@/lib/semesters';
+
+interface Props {
+  lang: Lang;
+  semester: string;
+}
+const { lang, semester } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const series = await getSeries(lang);
+const items = (await getContents(lang))
+  .filter((c) => c.data.semester === semester)
+  .sort((a, b) => a.data.firstPublishedAt.getTime() - b.data.firstPublishedAt.getTime());
+const seriesOf = (key?: string) => series.find((s) => s.data.series === key);
+const weeks = new Map<string, number>();
+for (const c of items) {
+  const w = isoWeek(c.data.firstPublishedAt);
+  weeks.set(w, (weeks.get(w) ?? 0) + 1);
+}
+const calendar = getEditorialCalendar().semesters.find((s) => s.semester === semester);
+const slug = semesterSlug(semester);
+const title = `${t('science.semester')} ${semesterLabel(semester, lang)}`;
+const otherLang: Lang = en ? 'pt-br' : 'en';
+const alternates = {
+  [lang]: route('scienceOutreachSemester', lang, slug),
+  [otherLang]: route('scienceOutreachSemester', otherLang, slug),
+};
+
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('nav.scienceOutreach'), href: route('scienceOutreach', lang) },
+  { label: title },
+];
+---
+
+<BaseLayout
+  {lang}
+  {title}
+  description={`${t('science.archive')} — ${title}: ${items.length} ${t('science.pieces')}.`}
+  current="scienceOutreachSemester"
+  {alternates}
+  jsonLd={[
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('nav.scienceOutreach'), path: route('scienceOutreach', lang) },
+      { name: title, path: route('scienceOutreachSemester', lang, slug) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} {title} eyebrow={t('science.archive')} {crumbs}>
+    <p class="post-meta muted">
+      {items.length} {t('science.pieces')} · {weeks.size} {t('science.weeks')}
+      {calendar ? ` · ${calendar.source}` : ''}
+    </p>
+    <p class="small muted archive-note" data-notice="science-archive">
+      {t('science.note')}
+    </p>
+  </PageHeader>
+
+  <div class="container page-body">
+    {!calendar && <p class="small muted">{t('science.calendarEmpty')}</p>}
+    {items.length === 0 ? (
+      <p class="muted">{t('science.noSemester')}</p>
+    ) : (
+      <div class="table-wrap">
+        <table class="archive-table">
+          <thead>
+            <tr>
+              <th scope="col">{t('science.firstPublished')}</th>
+              <th scope="col">{en ? 'ISO week' : 'Semana ISO'}</th>
+              <th scope="col">{en ? 'Title' : 'Título'}</th>
+              <th scope="col">{t('contents.meta.nature')}</th>
+              <th scope="col">{t('contents.meta.area')}</th>
+              <th scope="col">{t('science.canonical')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.map((c) => {
+              const path = contentPath(c, seriesOf(c.data.series));
+              return (
+                <tr>
+                  <td>
+                    <time datetime={dateIso(c.data.firstPublishedAt)}>
+                      {formatDate(c.data.firstPublishedAt, lang)}
+                    </time>
+                  </td>
+                  <td>{isoWeek(c.data.firstPublishedAt)}</td>
+                  <td>
+                    <a href={path}>{c.data.title}</a>
+                  </td>
+                  <td>{t(`contentNature.${c.data.contentNature}` as UiKey)}</td>
+                  <td>{c.data.knowledgeArea}</td>
+                  <td class="url">
+                    <code>{`${SITE}${path}`}</code>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    )}
+    <p>
+      <a class="button subtle" href={route('scienceOutreach', lang)}>
+        {t('science.allSemesters')}
+      </a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .post-meta,
+  .archive-note {
+    margin: var(--space-3) 0 0;
+  }
+  .page-body {
+    padding-block: var(--space-7);
+    display: grid;
+    gap: var(--space-5);
+  }
+  .archive-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+  .archive-table th,
+  .archive-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--border);
+  }
+  .archive-table .url code {
+    font-size: var(--text-xs);
+    overflow-wrap: anywhere;
+  }
+</style>

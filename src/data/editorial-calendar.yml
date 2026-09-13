@@ -1,0 +1,20 @@
+# Calendário editorial semanal do sítio especializado (/divulgacao-cientifica/).
+#
+# Preencher SOMENTE com as semanas letivas do calendário acadêmico oficial da UFAL
+# (legal-review-needed.yml › calendario-letivo). Vazio = nenhuma semana planejada;
+# o relatório semestral (npm run report:semester) então usa semanas ISO como
+# referência e assinala que o calendário letivo não foi informado.
+#
+# Nunca redistribuir datas de publicações já lançadas para "encaixar" nas semanas:
+# firstPublishedAt é imutável (tests/dates.test.ts) e a verdade histórica prevalece.
+#
+# Modelo:
+# semesters:
+#   - semester: '2026.2'
+#     source: 'Calendário Acadêmico UFAL 2026 (Resolução/Portaria …)'
+#     weeks:
+#       - start: 2026-09-14   # segunda-feira da semana letiva
+#         end: 2026-09-18
+#         planned: 'Título provisório (opcional)'
+
+semesters: []

@@ -44,4 +44,11 @@ export default defineConfig({
     responsiveStyles: true,
   },
   compressHTML: 'jsx',
+  vite: {
+    build: {
+      // Nunca embutir scripts pequenos como <script type="module"> inline: a CSP
+      // (BaseLayout.astro) só permite script-src 'self'. Imagens pequenas viram arquivos.
+      assetsInlineLimit: 0,
+    },
+  },
 });

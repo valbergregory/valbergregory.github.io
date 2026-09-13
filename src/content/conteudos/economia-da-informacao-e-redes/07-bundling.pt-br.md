@@ -18,6 +18,13 @@ areas:
   - direito
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Bundling é a oferta conjunta de produtos ou serviços em um único pacote. O preço do conjunto costuma ser inferior à soma dos componentes adquiridos separadamente, o que amplia a percepção de valor para consumidores com preferências distintas. Exemplos frequentes incluem o Microsoft 365, pacotes de serviços de transmissão, combinações de domínio, hospedagem, correio eletrônico e certificado digital, além de ecossistemas que reúnem armazenamento, produtividade e comunicação.
