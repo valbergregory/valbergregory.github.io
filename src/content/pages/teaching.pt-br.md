@@ -22,7 +22,11 @@ Algumas dessas perguntas viraram frentes permanentes de pesquisa:
 
 ## O caminho de volta
 
-Pesquisa e extensão retornam à sala de aula na forma de dados reais, estudos de caso e ferramentas. As bases construídas para os artigos — preços do leite, atracações portuárias, esforço de pesca, decisões judiciais — viram exercícios e projetos de disciplina; os pipelines em R e Python viram material de cursos de extensão em análise de dados; e os painéis previstos como produtos das pesquisas são pensados para que estudantes participem da construção e da manutenção.
+Pesquisa e projetos aplicados retornam à sala de aula na forma de dados reais, estudos de caso e ferramentas. As bases construídas para os artigos — preços do leite, atracações portuárias, esforço de pesca, decisões judiciais — viram exercícios e projetos de disciplina; os pipelines em R e Python viram material de oficinas e cursos de análise de dados; e os painéis previstos como produtos das pesquisas são pensados para que estudantes participem da construção e da manutenção.
+
+## Materiais didáticos
+
+Apostilas, slides e séries de textos didáticos produzidos para as disciplinas de Economia, Informação Contábil, Direito Aplicado à Informática e Economia Pesqueira, além de oficinas de análise de dados com R, estão em uso nas turmas e serão publicados à medida que forem revisados — com a licença definida antes da publicação.
 
 ## Orientação
 

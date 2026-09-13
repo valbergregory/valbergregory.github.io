@@ -1,0 +1,126 @@
+---
+/**
+ * Página de conformidade (avisos legais, privacidade, política editorial): texto em
+ * Markdown de src/content/pages/<key>.<lang>.md, com data da última revisão.
+ */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import { alternates, route, type Lang, type RouteKey } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { formatDate, isoDate } from '@/lib/data';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+
+interface Props {
+  lang: Lang;
+  pageKey: 'legal' | 'privacy' | 'editorial';
+}
+const { lang, pageKey } = Astro.props;
+const t = useTranslations(lang);
+const routeKey: RouteKey = pageKey;
+
+const entry = (await getCollection('pages')).find(
+  (e) => e.data.key === pageKey && e.data.lang === lang,
+);
+if (!entry) throw new Error(`Conteúdo "${pageKey}" não encontrado para ${lang}`);
+if (!entry.data.lastReviewed) throw new Error(`Página "${pageKey}" (${lang}) sem lastReviewed`);
+const { Content } = await render(entry);
+
+const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: entry.data.title }];
+---
+
+<BaseLayout
+  {lang}
+  title={entry.data.title}
+  description={entry.data.description}
+  current={routeKey}
+  alternates={alternates(routeKey)}
+  modifiedTime={isoDate(entry.data.lastReviewed)}
+  jsonLd={[
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: entry.data.title, path: route(routeKey, lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={entry.data.title} lead={entry.data.description} {crumbs}>
+    <p class="small muted reviewed">
+      {t('legal.lastReviewed')}:{' '}
+      <time datetime={isoDate(entry.data.lastReviewed)}>
+        {formatDate(entry.data.lastReviewed, lang)}
+      </time>
+    </p>
+  </PageHeader>
+
+  <div class="container legal-layout" data-legal-page={pageKey}>
+    <div class="markdown prose">
+      <Content />
+    </div>
+    <nav class="legal-nav" aria-label={t('nav.legal')}>
+      <ul class="plain">
+        {(['legal', 'privacy', 'editorial'] as const).map((k) => (
+          <li>
+            <a href={route(k, lang)} aria-current={k === pageKey ? 'page' : undefined}>
+              {t(`nav.${k}`)}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</BaseLayout>
+
+<style>
+  .reviewed {
+    margin: var(--space-3) 0 0;
+  }
+  .legal-layout {
+    padding-block: var(--space-7);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    gap: var(--space-7);
+    align-items: start;
+  }
+  .markdown :global(h2) {
+    font-size: var(--text-xl);
+    margin-top: var(--space-6);
+  }
+  .markdown :global(h2:first-child) {
+    margin-top: 0;
+  }
+  .markdown :global(li) {
+    margin-bottom: var(--space-2);
+  }
+  .legal-nav {
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-4));
+    border-left: 2px solid var(--border);
+    padding-left: var(--space-4);
+  }
+  .plain {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .plain a[aria-current='page'] {
+    font-weight: 700;
+    color: var(--navy);
+  }
+  @media (max-width: 56rem) {
+    .legal-layout {
+      grid-template-columns: 1fr;
+    }
+    .legal-nav {
+      position: static;
+      border-left: 0;
+      padding-left: 0;
+    }
+    .plain {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-4);
+    }
+  }
+</style>

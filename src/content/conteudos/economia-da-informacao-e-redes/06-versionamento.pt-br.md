@@ -17,6 +17,13 @@ areas:
   - economia
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 O versionamento consiste em oferecer configurações diferentes do mesmo produto a públicos com necessidades e disposições a pagar distintas. As versões podem variar em funcionalidade, capacidade, velocidade, suporte, segurança, número de usuários ou possibilidades de integração. A empresa utiliza uma base comum e organiza ofertas diferenciadas, sem precisar desenvolver produtos inteiramente independentes.

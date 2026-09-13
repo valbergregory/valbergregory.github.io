@@ -1,0 +1,269 @@
+---
+/**
+ * Atuação acadêmica organizada pelos cinco grupos do Anexo 5 da Resolução
+ * CONSUNI/UFAL 119/2025. Só fatos comprovados; cada item aponta para evidência
+ * pública e usa "possível enquadramento", nunca "pontos garantidos" (Etapa 5.9).
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import InstitutionalNotice from '@/components/InstitutionalNotice.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang, type RouteKey } from '@/i18n/routes';
+import { useTranslations, type UiKey } from '@/i18n/ui';
+import { label, pick } from '@/lib/data';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+import { getAcademicActivity } from '@/lib/academic';
+import { getContents } from '@/lib/contents';
+import { getExtension } from '@/lib/projects';
+import { semesterLabel, semesterSlug, sortSemestersDesc } from '@/lib/semesters';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const en = lang === 'en';
+const activity = getAcademicActivity();
+
+const publications = (await getCollection('publications'))
+  .filter((p) => p.data.doi || p.data.isbn)
+  .sort((a, b) => b.data.year - a.data.year);
+const research = (await getCollection('research')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title, en ? 'en' : 'pt-BR'),
+);
+const repositories = research.filter(
+  (r) => r.data.repositoryVisibility === 'public' && r.data.repository,
+);
+const extension = await getExtension();
+const contents = await getContents(lang);
+const semesters = sortSemestersDesc(contents.map((c) => c.data.semester));
+
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('academic.title') },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={t('academic.title')}
+  description={t('academic.lead')}
+  current="academic"
+  alternates={alternates('academic')}
+  jsonLd={[
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('academic.title'), path: route('academic', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('academic.title')} lead={t('academic.lead')} {crumbs} />
+
+  <div class="container page-body">
+    <InstitutionalNotice {lang} />
+    <p class="notice" data-notice="academic-index">
+      {t('academic.note')}
+    </p>
+
+    {activity.groups
+      .sort((a, b) => a.number - b.number)
+      .map((g) => (
+        <section class="group" aria-labelledby={`group-${g.number}`}>
+          <h2 id={`group-${g.number}`}>
+            <span class="eyebrow">
+              {t('academic.group')} {g.number}
+            </span>
+            {pick(g.title, lang)}
+          </h2>
+
+          <ul class="items">
+            {g.items.map((item) => (
+              <li class="card item" id={item.id}>
+                <h3>{pick(item.label, lang)}</h3>
+                {item.detail && <p class="prose">{pick(item.detail, lang)}</p>}
+                <dl class="definition">
+                  <dt>{t('academic.fit')}</dt>
+                  <dd>{pick(item.fit, lang)}</dd>
+                  <dt>{t('academic.evidenceStatus')}</dt>
+                  <dd>{t(`academic.evidenceStatus.${item.evidenceStatus}` as UiKey)}</dd>
+                  {item.evidence.length > 0 && (
+                    <>
+                      <dt>{t('academic.evidence')}</dt>
+                      <dd>
+                        <ul class="plain">
+                          {item.evidence.map((e) =>
+                            e.url ? (
+                              <li>
+                                <a href={e.url} rel="noopener" target="_blank">
+                                  {e.label} <Icon name="external" size={14} />
+                                  <span class="visually-hidden">{t('a11y.newTab')}</span>
+                                </a>
+                              </li>
+                            ) : (
+                              <li>
+                                <a href={route(e.path as RouteKey, lang)}>{e.label}</a>
+                              </li>
+                            ),
+                          )}
+                        </ul>
+                      </dd>
+                    </>
+                  )}
+                </dl>
+              </li>
+            ))}
+
+            {g.dynamic.includes('publications') && (
+              <li class="card item">
+                <h3>{t('academic.dynamic.publications')}</h3>
+                <ul class="list">
+                  {publications.map((p) => (
+                    <li>
+                      {p.data.title} ({p.data.year}) —{' '}
+                      {p.data.doi ? (
+                        <a href={`https://doi.org/${p.data.doi}`} rel="noopener" target="_blank">
+                          DOI {p.data.doi}
+                          <span class="visually-hidden">{t('a11y.newTab')}</span>
+                        </a>
+                      ) : (
+                        `ISBN ${p.data.isbn}`
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                <p class="small muted">
+                  <a href={route('publications', lang)}>{t('nav.publications')}</a>
+                </p>
+              </li>
+            )}
+
+            {g.dynamic.includes('site-archive') && (
+              <li class="card item">
+                <h3>{t('academic.dynamic.site-archive')}</h3>
+                <ul class="list">
+                  {semesters.map((s) => (
+                    <li>
+                      <a href={route('scienceOutreachSemester', lang, semesterSlug(s))}>
+                        {t('science.semester')} {semesterLabel(s, lang)}
+                      </a>{' '}
+                      — {contents.filter((c) => c.data.semester === s).length} {t('science.pieces')}
+                    </li>
+                  ))}
+                </ul>
+                <p class="small muted" data-notice="science-archive">
+                  {t('science.note')}
+                </p>
+              </li>
+            )}
+
+            {g.dynamic.includes('public-repositories') && (
+              <li class="card item">
+                <h3>{t('academic.dynamic.public-repositories')}</h3>
+                <ul class="list">
+                  {repositories.map((r) => (
+                    <li>
+                      <a href={route('researchItem', lang, r.data.slug)}>{r.data.title}</a> —{' '}
+                      <a href={r.data.repository!} rel="noopener" target="_blank">
+                        GitHub <span class="visually-hidden">{t('a11y.newTab')}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <p class="small muted">
+                  {en
+                    ? 'Possible fit as software/product only for activities officially registered/approved by the academic unit; none reported so far.'
+                    : 'Possível enquadramento como software/produto apenas para atividade oficialmente registrada/aprovada pela Unidade; nenhuma informada até o momento.'}
+                </p>
+              </li>
+            )}
+
+            {g.dynamic.includes('research') && (
+              <li class="card item">
+                <h3>{t('academic.dynamic.research')}</h3>
+                <ul class="list">
+                  {research.map((r) => (
+                    <li>
+                      <a href={route('researchItem', lang, r.data.slug)}>{r.data.title}</a>{' '}
+                      <span class="muted">— {label('statuses', r.data.status, lang)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            )}
+
+            {g.dynamic.includes('extension') && (
+              <li class="card item">
+                <h3>{t('academic.dynamic.extension')}</h3>
+                {extension.length > 0 ? (
+                  <ul class="list">
+                    {extension.map((e) => (
+                      <li>
+                        <a href={`${route('outreach', lang)}#${e.data.slug}`}>
+                          {pick(e.data.name, lang)}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p class="prose muted">{t('extension.none')}</p>
+                )}
+              </li>
+            )}
+          </ul>
+        </section>
+      ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-body {
+    padding-block: var(--space-7);
+    display: grid;
+    gap: var(--space-7);
+  }
+  .group h2 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .group .eyebrow {
+    margin: 0;
+  }
+  .items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .item h3 {
+    font-size: var(--text-md);
+    margin: 0;
+  }
+  .item .prose {
+    margin: 0;
+  }
+  .list {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+  .list li {
+    margin-bottom: var(--space-2);
+  }
+  .plain {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+  }
+  .plain a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+</style>

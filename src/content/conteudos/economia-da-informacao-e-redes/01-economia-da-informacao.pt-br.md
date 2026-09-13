@@ -18,6 +18,13 @@ areas:
   - sistemas-de-informacao
   - dados-econometria
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A Economia da Informação estuda como os dados e o conhecimento influenciam decisões, mercados, contratos e formas de organização produtiva. Seu ponto de partida é simples, pois agentes econômicos raramente dispõem das mesmas informações, no mesmo momento e com a mesma qualidade. Essa diferença afeta preços, negociações, expectativas e a distribuição do poder entre consumidores, empresas e governos.

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Gera o currículo em PDF (pt-BR e EN) a partir dos dados do site:
- * profile.yml, research.yml, publications.yml e outreach.yml.
+ * profile.yml, research.yml, publications.yml e independent-projects.yml.
  *
  * Saídas: public/valber-cv.pdf (pt-BR) e public/valber-cv-en.pdf (EN).
  * Roda antes do build (npm run build) e do dev. Não inclui telefone, endereço
@@ -20,7 +20,7 @@ const read = async (rel) => parseYaml(await readFile(path.join(root, rel), 'utf8
 const profile = await read('src/data/profile.yml');
 const research = await read('src/data/research.yml');
 const publications = await read('src/data/publications.yml');
-const outreach = await read('src/data/outreach.yml');
+const independent = (await read('src/data/independent-projects.yml')) ?? [];
 const taxonomies = await read('src/data/taxonomies.yml');
 
 const SITE = 'https://valbergregory.github.io';
@@ -43,7 +43,11 @@ const L = {
     research: 'Pesquisas em andamento',
     publications: 'Publicações',
     exams: 'Concursos públicos',
-    projects: 'Startups e projetos aplicados',
+    projects: 'Projetos independentes (classificação institucional em revisão)',
+    projectsNote:
+      'Classificação institucional em revisão: vínculo, registro e titularidade ainda não documentados. Não são sistemas oficiais da UFAL nem do TJAL.',
+    notice:
+      'Currículo pessoal de natureza acadêmica. Não constitui manifestação, serviço ou chancela da UFAL ou do TJAL; os vínculos são citados apenas para identificação profissional.',
     tools: 'Métodos e ferramentas',
     links: 'Links',
     current: 'atual',
@@ -66,7 +70,11 @@ const L = {
     research: 'Research in progress',
     publications: 'Publications',
     exams: 'Public service examinations',
-    projects: 'Startups and applied projects',
+    projects: 'Independent projects (institutional classification under review)',
+    projectsNote:
+      'Institutional classification under review: affiliation, registration and ownership not yet documented. Not official systems of UFAL or TJAL.',
+    notice:
+      'Personal academic CV. It is not a statement, service or endorsement of UFAL or TJAL; employment ties are cited for professional identification only.',
     tools: 'Methods and tools',
     links: 'Links',
     current: 'present',
@@ -86,11 +94,11 @@ const ordinal = (n, k) =>
 const summaryText = {
   pt: [
     'Professor da Universidade Federal de Alagoas (Campus Arapiraca/Unidade Educacional Penedo, curso de Sistemas de Informação) desde 2023 e Analista Judiciário, área de Economia, no Tribunal de Justiça de Alagoas desde 2014, onde também atua como assessor judicial. Economista registrado no CORECON/AL, com formação em Direito e Economia, mestrado em Economia Aplicada (UFAL) e doutorado em Economia (UFPB). Advogado entre 2010 e 2014.',
-    'Pesquisa em desenvolvimento regional e políticas públicas, Análise Econômica do Direito e Jurimetria, inteligência artificial no setor público, economia digital, turismo, economia marítima e pesqueira, com dados públicos e métodos reproduzíveis em R, Python e SQL. Fundador das startups PataCidadã e SmartMap Educação e das legaltechs LiquidaJus e PortaJus (em desenvolvimento).',
+    'Pesquisa em desenvolvimento regional e políticas públicas, Análise Econômica do Direito e Jurimetria, inteligência artificial no setor público, economia digital, turismo, economia marítima e pesqueira, com dados públicos e métodos reproduzíveis em R, Python e SQL.',
   ],
   en: [
     'Professor at the Federal University of Alagoas (Arapiraca Campus/Penedo Educational Unit, Information Systems programme) since 2023 and Judicial Analyst in Economics at the Alagoas State Court of Justice since 2014, where he also serves as judicial adviser. Registered economist (CORECON/AL) with degrees in Law and Economics, an MSc in Applied Economics (UFAL) and a PhD in Economics (UFPB). Practised law from 2010 to 2014.',
-    'Research on regional development and public policy, economic analysis of law and jurimetrics, artificial intelligence in the public sector, the digital economy, tourism, maritime and fisheries economics, with public data and reproducible methods in R, Python and SQL. Founder of the startups PataCidadã and SmartMap Educação and of the legaltechs LiquidaJus and PortaJus (in development).',
+    'Research on regional development and public policy, economic analysis of law and jurimetrics, artificial intelligence in the public sector, the digital economy, tourism, maritime and fisheries economics, with public data and reproducible methods in R, Python and SQL.',
   ],
 };
 
@@ -175,8 +183,10 @@ function buildPdf(k) {
     doc.moveDown(0.3);
   }
 
-  // Atuação
+  // Atuação (com aviso institucional junto às afiliações)
   section(t.positions);
+  doc.font(bodyFont).fontSize(8.5).fillColor(MUTED).text(t.notice, { width: W });
+  doc.moveDown(0.4);
   for (const r of profile.roles) {
     item(
       `${pick(r.title, k)} — ${r.org}`,
@@ -251,9 +261,11 @@ function buildPdf(k) {
     );
   }
 
-  // Startups e projetos
+  // Projetos independentes (separados da atuação institucional; sem preços nem convite comercial)
   section(t.projects);
-  for (const o of outreach) {
+  para(t.projectsNote);
+  doc.moveDown(0.3);
+  for (const o of independent) {
     const links = (o.links ?? [])
       .map((l) => l.url.replace('https://', '').replace(/\/$/, ''))
       .join(' · ');

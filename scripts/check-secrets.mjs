@@ -5,6 +5,7 @@
  *
  * Uso: node scripts/check-secrets.mjs [--dist-only]
  */
+import { createHash } from 'node:crypto';
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -24,7 +25,13 @@ const PATTERNS = [
     name: 'Repositório privado exposto',
     re: /github\.com\/valbergregory\/Port-Network-Resilience/i,
   },
-  { name: 'Telefone celular (formato +55)', re: /\+55\s?\(?\d{2}\)?\s?9\d{4}-?\d{4}/ },
+  { name: 'Telefone celular (formato +55)', re: /\+55\s?\(?\d{2}\)?\s?9\d{4}-?\d{4}/ },
+  // Dados funcionais/pessoais que nunca devem ser publicados (auditoria de 13/09/2026).
+  { name: 'CPF formatado', re: /\b\d{3}\.\d{3}\.\d{3}-\d{2}\b/ },
+  {
+    name: 'Referência a arquivo do manifesto privado',
+    re: /data\/private\/[\w.-]+\.(ya?ml|pdf|json|csv|docx?)\b/,
+  },
 ];
 
 const SKIP_DIRS = new Set(['node_modules', '.git', '.astro', 'dist']);
@@ -80,6 +87,48 @@ for (const dir of targets) {
     scanned += 1;
     for (const p of PATTERNS) {
       if (p.re.test(text)) findings.push(`${path.relative(root, file)}: ${p.name}`);
+    }
+  }
+}
+
+// Manifesto privado (data/private/, ignorado pelo Git): nenhum arquivo dele pode ter
+// sido copiado para o build ou para o código, em qualquer nome.
+async function walkAll(dir, files = []) {
+  let entries = [];
+  try {
+    entries = await readdir(dir, { withFileTypes: true });
+  } catch {
+    return files;
+  }
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) await walkAll(full, files);
+    else files.push(full);
+  }
+  return files;
+}
+const privateFiles = await walkAll(path.join(root, 'data', 'private'));
+if (privateFiles.length > 0) {
+  const hashes = new Map();
+  for (const f of privateFiles) {
+    hashes.set(
+      createHash('sha256')
+        .update(await readFile(f))
+        .digest('hex'),
+      f,
+    );
+  }
+  const publicDirs = distOnly ? ['dist'] : ['dist', 'src', 'public', 'docs', 'scripts'];
+  for (const d of publicDirs) {
+    for (const f of await walkAll(path.join(root, d))) {
+      const h = createHash('sha256')
+        .update(await readFile(f))
+        .digest('hex');
+      if (hashes.has(h)) {
+        findings.push(
+          `${path.relative(root, f)}: cópia de ${path.relative(root, hashes.get(h))} (manifesto privado)`,
+        );
+      }
     }
   }
 }

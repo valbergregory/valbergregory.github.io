@@ -20,6 +20,13 @@ areas:
   - economia-pesqueira
   - desenvolvimento-territorial
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Maritime and fisheries economics
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 The seafood production chain does not end with the catch. The value of the product is built through landing, refrigeration, transport, processing, marketing and consumption. A failure at any of these stages can reduce quality, interrupt access to markets and lower the price received by the fisher.

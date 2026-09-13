@@ -18,6 +18,13 @@ areas:
   - sistemas-de-informacao
   - direito
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Digital, Economia da Informação e Sistemas de Informação
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Plataformas multilaterais aproximam grupos que precisam uns dos outros, como consumidores e vendedores, passageiros e motoristas, anunciantes e públicos, desenvolvedores e usuários. O serviço prestado não se resume à infraestrutura tecnológica, pois a plataforma também estabelece regras, organiza encontros, reduz custos de busca e administra mecanismos de confiança.

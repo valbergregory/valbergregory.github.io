@@ -19,6 +19,13 @@ areas:
   - economia-pesqueira
   - desenvolvimento-territorial
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A Economia Marítima e a Economia Pesqueira estudam atividades que utilizam o mar e seus recursos como base produtiva, logística e social. O tema abrange transporte, portos, pesca, processamento, infraestrutura, energia, comércio, ciência, monitoramento ambiental e modos de vida de comunidades costeiras e tradicionais.

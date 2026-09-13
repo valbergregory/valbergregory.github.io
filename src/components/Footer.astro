@@ -76,6 +76,12 @@ const year = buildDate.getUTCFullYear();
           <a href={route('search', lang)}>{t('nav.search')}</a>
         </li>
         <li>
+          <a href={route('academic', lang)}>{t('footer.academic')}</a>
+        </li>
+        <li class="secondary">
+          <a href={route('independent', lang)}>{t('footer.independent')}</a>
+        </li>
+        <li>
           <a href="/rss.xml">
             <Icon name="rss" /> RSS
           </a>
@@ -84,8 +90,15 @@ const year = buildDate.getUTCFullYear();
     </div>
 
     <div class="footer-col footer-meta">
-      <p class="small muted">{t('footer.built')}</p>
+      <p class="small muted" data-notice="institutional">
+        {t('notice.institutional')}
+      </p>
       <p class="small muted">{t('footer.opinion')}</p>
+      <p class="small muted">
+        {t('footer.built')} <a href={route('privacy', lang)}>{t('footer.privacy')}</a> ·{' '}
+        <a href={route('legal', lang)}>{t('footer.legal')}</a> ·{' '}
+        <a href={route('editorial', lang)}>{t('footer.editorial')}</a>
+      </p>
       <p class="small muted">
         © {new Date().getFullYear()} {profile.name}. {t('footer.rights')}
       </p>
@@ -149,6 +162,11 @@ const year = buildDate.getUTCFullYear();
   }
   .footer-meta p {
     margin-bottom: var(--space-2);
+  }
+  .footer-nav .secondary {
+    margin-top: var(--space-2);
+    padding-top: var(--space-2);
+    border-top: 1px dashed var(--border);
   }
   @media (max-width: 52rem) {
     .footer-inner {

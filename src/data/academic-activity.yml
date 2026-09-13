@@ -1,0 +1,157 @@
+# Atuação acadêmica organizada pelos cinco grupos do Anexo 5 da Resolução CONSUNI/UFAL
+# 119/2025 (nomes dos grupos conferidos no PDF oficial em 13/09/2026).
+#
+# Regras:
+# - só fatos já publicados no site e informados pelo titular; nada de pontuação;
+# - cada item aponta para evidência PÚBLICA (evidence) e, quando a prova principal é
+#   privada (portaria, certificado), para o id no manifesto privado (privateEvidenceId,
+#   ver data/README.md) — o id é um rótulo, não um documento;
+# - `fit` descreve o possível enquadramento em linguagem condicional: a avaliação cabe
+#   à CIADD/CPPD; o site é índice de evidências, não substituto do registro oficial;
+# - listas dinâmicas (publicações com DOI, pesquisas em andamento, arquivo do sítio)
+#   são geradas pela página a partir de publications.yml, research.yml e src/content.
+#
+# `evidenceStatus`: public | private-only | pending
+
+groups:
+  - key: ensino
+    number: 1
+    title:
+      pt: Atividades de Ensino
+      en: Teaching activities
+    items:
+      - id: disciplinas-si
+        label:
+          pt: Disciplinas ministradas no curso de Sistemas de Informação (UFAL, Unidade Educacional Penedo)
+          en: Courses taught in the Information Systems programme (UFAL, Penedo Educational Unit)
+        detail:
+          pt: Introdução à Economia; Informação Contábil aplicada à Gestão; Introdução à Administração; Direito Aplicado à Informática; Direito Digital; Economia Digital; Gestão de Pequenas Empresas e Startups; Inglês Instrumental; Gestão de Equipes e Liderança.
+          en: Introduction to Economics; Accounting Information for Management; Introduction to Management; Law Applied to Computing; Digital Law; Digital Economy; Small Business and Startup Management; English for Specific Purposes; Team Management and Leadership.
+        fit:
+          pt: Possível enquadramento no Grupo 1 (carga horária semanal de aulas), sujeito à comprovação no SIGAA e à avaliação da CIADD/CPPD.
+          en: Possible fit under Group 1 (weekly teaching load), subject to SIGAA records and CIADD/CPPD assessment.
+        evidence:
+          - label: Página Ensino
+            path: teaching
+          - label: Currículo Lattes
+            url: http://lattes.cnpq.br/9400489411252847
+        evidenceStatus: private-only
+        privateEvidenceId: sigaa-turmas
+      - id: disciplinas-outros-cursos
+        label:
+          pt: Disciplinas em outros cursos da unidade (Turismo; Engenharia de Pesca)
+          en: Courses in other programmes of the unit (Tourism; Fisheries Engineering)
+        detail:
+          pt: Gestão da Qualidade em Turismo; Economia Pesqueira (2026).
+          en: Quality Management in Tourism; Fisheries Economics (2026).
+        fit:
+          pt: Possível enquadramento no Grupo 1, sujeito à comprovação no SIGAA.
+          en: Possible fit under Group 1, subject to SIGAA records.
+        evidence:
+          - label: Página Ensino
+            path: teaching
+        evidenceStatus: private-only
+        privateEvidenceId: sigaa-turmas
+      - id: orientacao-bancas
+        label:
+          pt: Orientação de trabalhos de conclusão de curso e participação em bancas
+          en: Supervision of final-year projects and examination boards
+        detail:
+          pt: Orientações e bancas nos cursos de Sistemas de Informação e Economia (temas listados na página Ensino).
+          en: Supervision and boards in the Information Systems and Economics programmes (topics listed on the Teaching page).
+        fit:
+          pt: Possível enquadramento no Grupo 1, mediante declarações/atas de defesa.
+          en: Possible fit under Group 1, subject to defence records.
+        evidence:
+          - label: Página Ensino
+            path: teaching
+          - label: Currículo Lattes
+            url: http://lattes.cnpq.br/9400489411252847
+        evidenceStatus: private-only
+        privateEvidenceId: atas-tcc
+  - key: producao-intelectual
+    number: 2
+    title:
+      pt: Produção Intelectual
+      en: Intellectual production
+    dynamic: [publications, site-archive, public-repositories]
+    items:
+      - id: sitio-especializado
+        label:
+          pt: Sítio eletrônico especializado — arquivo de divulgação científica deste site
+          en: Specialised website — this site's science-outreach archive
+        detail:
+          pt: 'Item 2.9.1 do Anexo 5: "Divulgação de informações na área de conhecimento da Unidade Acadêmica em sítio eletrônico especializado, com atividade continuada todas as semanas dos semestres em avaliação". O arquivo por semestre registra apenas publicações efetivamente lançadas, com data real e URL estável.'
+          en: 'Item 2.9.1 of Annex 5: dissemination of information in the academic unit''s field on a specialised website, with continuous weekly activity during the semesters under evaluation. The per-semester archive lists only pieces actually published, with real dates and stable URLs.'
+        fit:
+          pt: Possível enquadramento no Grupo 2 (item 2.9.1), sujeito a avaliação institucional. Este arquivo registra atividade editorial; escopo e continuidade semanal ainda a confirmar com a Unidade/CIADD/CPPD.
+          en: Possible fit under Group 2 (item 2.9.1), subject to institutional assessment. This archive records editorial activity; scope and weekly continuity still to be confirmed with the Unit/CIADD/CPPD.
+        evidence:
+          - label: Divulgação científica
+            path: scienceOutreach
+          - label: Política editorial
+            path: editorial
+        evidenceStatus: public
+  - key: pesquisa-inovacao
+    number: 3
+    title:
+      pt: Atividades de Pesquisa e de Inovação
+      en: Research and innovation activities
+    dynamic: [research]
+    items:
+      - id: projetos-registro
+        label:
+          pt: Registro institucional dos projetos de pesquisa
+          en: Institutional registration of research projects
+        detail:
+          pt: Os projetos listados em Pesquisa estão em andamento. Nenhum registro na PROPEP foi informado até 13/09/2026; sem registro, não há afirmação de "projeto institucional".
+          en: The projects listed under Research are ongoing. No PROPEP registration had been reported as of 13 September 2026; without registration, no "institutional project" claim is made.
+        fit:
+          pt: Possível enquadramento no Grupo 3 condicionado ao registro prévio na PROPEP.
+          en: Possible fit under Group 3 conditional on prior PROPEP registration.
+        evidence:
+          - label: Pesquisa
+            path: research
+        evidenceStatus: pending
+  - key: extensao
+    number: 4
+    title:
+      pt: Atividades de Extensão
+      en: Outreach (university extension) activities
+    dynamic: [extension]
+    items:
+      - id: extensao-registro
+        label:
+          pt: Ações de extensão registradas
+          en: Registered outreach actions
+        detail:
+          pt: Nenhuma ação registrada na PROEX/SIGAA foi informada até 13/09/2026. Iniciativas não classificadas aparecem em Projetos independentes, sem afirmação de extensão.
+          en: No action registered with PROEX/SIGAA had been reported as of 13 September 2026. Unclassified initiatives appear under Independent projects, with no outreach claim.
+        fit:
+          pt: Possível enquadramento no Grupo 4 apenas para ações registradas antes da execução.
+          en: Possible fit under Group 4 only for actions registered before execution.
+        evidence:
+          - label: Extensão universitária
+            path: outreach
+        evidenceStatus: pending
+  - key: gestao-representacao
+    number: 5
+    title:
+      pt: Atividades de Gestão, Representação e outras Atividades Administrativas
+      en: Management, representation and other administrative activities
+    items:
+      - id: colegiado-nde
+        label:
+          pt: Membro titular do Colegiado e do Núcleo Docente Estruturante do curso de Sistemas de Informação
+          en: Member of the programme board and of the curriculum core group (NDE) of the Information Systems programme
+        detail:
+          pt: Conforme informado pelo titular; portarias de designação a arquivar no manifesto privado.
+          en: As reported by the site owner; appointment orders to be filed in the private manifest.
+        fit:
+          pt: Possível enquadramento no Grupo 5, mediante portarias e período comprovado.
+          en: Possible fit under Group 5, subject to appointment orders and proven period.
+        evidence:
+          - label: Página Ensino
+            path: teaching
+        evidenceStatus: private-only
+        privateEvidenceId: portarias-colegiado-nde

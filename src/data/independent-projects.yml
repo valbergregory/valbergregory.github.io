@@ -1,7 +1,19 @@
-# Extensão e projetos aplicados. Apresentação institucional, sem preços,
-# projeções comerciais ou linguagem empresarial. Só entram informações públicas.
+# Projetos independentes ou AINDA NÃO CLASSIFICADOS (migrados de outreach.yml em 13/09/2026).
+#
+# Regras (src/content.config.ts › projectSchema):
+# - `nature: independent` só pode ser usado com ipStatus, relationshipToUfal/Tjal e
+#   resourcesUsed preenchidos com valores definitivos e evidencePublic não vazio;
+# - `nature: institutional-*` exige institutionalRegistration (publicId, issuer, date);
+# - enquanto faltarem provas, use under-review / unknown. A interface renderiza
+#   "classificação institucional em revisão" e NUNCA a declaração de independência.
+# - Apresentação sem preços, projeções comerciais ou convite a propostas pelo e-mail
+#   institucional. Só entram informações públicas.
+#
+# Pendências correspondentes: src/data/legal-review-needed.yml (natureza-juridica-projetos,
+# recursos-institucionais-projetos, titularidade-pi-projetos, relacao-tjal-legaltechs).
 
 - slug: patacidada
+  order: 1
   name: PataCidadã
   kind:
     pt: Startup — plataforma gratuita de proteção animal
@@ -15,14 +27,28 @@
   role:
     pt: Fundador, desenho do produto e desenvolvimento
     en: Founder, product design and development
+  url: https://patacidada.com.br/
+  repository: null
   links:
     - label: patacidada.com.br
       url: https://patacidada.com.br/
     - label: app.patacidada.com.br
       url: https://app.patacidada.com.br/
   tracks: [ia-governo-digital-seguranca]
+  nature: under-review
+  relationshipToUfal: under-review
+  relationshipToTjal: under-review
+  institutionalRegistration: null
+  resourcesUsed: under-review
+  ipStatus: under-review
+  commercialStatus: unknown
+  disclaimer: null
+  evidencePublic:
+    - label: patacidada.com.br
+      url: https://patacidada.com.br/
 
 - slug: smartmap-educacao
+  order: 2
   name: SmartMap Educação
   kind:
     pt: Startup — inteligência territorial para a educação municipal
@@ -36,12 +62,26 @@
   role:
     pt: Fundador, coordenação técnica e desenvolvimento
     en: Founder, technical coordination and development
+  url: https://smartmap-educacao.vercel.app/
+  repository: null
   links:
     - label: smartmap-educacao.vercel.app
       url: https://smartmap-educacao.vercel.app/
   tracks: [economia-politicas-publicas, ia-governo-digital-seguranca]
+  nature: under-review
+  relationshipToUfal: under-review
+  relationshipToTjal: under-review
+  institutionalRegistration: null
+  resourcesUsed: under-review
+  ipStatus: under-review
+  commercialStatus: unknown
+  disclaimer: null
+  evidencePublic:
+    - label: smartmap-educacao.vercel.app
+      url: https://smartmap-educacao.vercel.app/
 
 - slug: liquidajus
+  order: 3
   name: LiquidaJus
   kind:
     pt: Legaltech — liquidação de sentenças (em desenvolvimento)
@@ -55,10 +95,22 @@
   role:
     pt: Fundador e desenvolvedor
     en: Founder and developer
+  url: null
+  repository: null
   links: []
   tracks: [economia-direito-jurimetria, ia-governo-digital-seguranca]
+  nature: under-review
+  relationshipToUfal: under-review
+  relationshipToTjal: under-review
+  institutionalRegistration: null
+  resourcesUsed: under-review
+  ipStatus: under-review
+  commercialStatus: unknown
+  disclaimer: null
+  evidencePublic: []
 
 - slug: portajus
+  order: 4
   name: PortaJus
   kind:
     pt: Legaltech — acesso à Justiça (em desenvolvimento)
@@ -72,24 +124,16 @@
   role:
     pt: Fundador e desenvolvedor
     en: Founder and developer
+  url: null
+  repository: null
   links: []
   tracks: [economia-direito-jurimetria, ia-governo-digital-seguranca]
-
-- slug: materiais-didaticos
-  name:
-    pt: Materiais didáticos e painéis públicos
-    en: Teaching materials and public dashboards
-  kind:
-    pt: Recursos educacionais
-    en: Educational resources
-  status:
-    pt: Em uso nas disciplinas; publicação gradual
-    en: In use in courses; gradual publication
-  summary:
-    pt: Apostilas, slides e séries de textos didáticos produzidos para as disciplinas de Economia, Informação Contábil, Direito Aplicado à Informática e Economia Pesqueira, além de cursos de extensão em análise de dados com R. Os materiais serão publicados à medida que forem revisados.
-    en: Handouts, slides and series of teaching texts produced for the courses in Economics, Accounting Information, Law Applied to Computing and Fisheries Economics, plus outreach courses on data analysis with R. Materials will be published as they are reviewed.
-  role:
-    pt: Autor
-    en: Author
-  links: []
-  tracks: [economia-politicas-publicas, economia-pesqueira]
+  nature: under-review
+  relationshipToUfal: under-review
+  relationshipToTjal: under-review
+  institutionalRegistration: null
+  resourcesUsed: under-review
+  ipStatus: under-review
+  commercialStatus: unknown
+  disclaimer: null
+  evidencePublic: []

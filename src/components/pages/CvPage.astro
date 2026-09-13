@@ -4,10 +4,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import Icon from '@/components/Icon.astro';
 import ExamsList from '@/components/ExamsList.astro';
+import InstitutionalNotice from '@/components/InstitutionalNotice.astro';
 import { alternates, route, type Lang } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/ui';
 import { getProfile, pick } from '@/lib/data';
 import { breadcrumbJsonLd, personJsonLd } from '@/lib/jsonld';
+import { getIndependentProjects } from '@/lib/projects';
 
 interface Props {
   lang: Lang;
@@ -20,18 +22,16 @@ const profile = getProfile();
 const featured = (await getCollection('research'))
   .filter((r) => r.data.featured)
   .sort((a, b) => (a.data.featuredOrder ?? 99) - (b.data.featuredOrder ?? 99));
-const outreach = (await getCollection('outreach')).filter((o) =>
-  ['patacidada', 'smartmap-educacao', 'liquidajus', 'portajus'].includes(o.data.slug),
-);
+const independent = await getIndependentProjects();
 
 const summary = en
   ? [
       'Professor at the Federal University of Alagoas (Penedo Educational Unit, Information Systems programme) since 2023 and Judicial Analyst in Economics at the Alagoas State Court of Justice since 2014, where I also serve as judicial adviser. Registered economist (CORECON/AL) with degrees in Law and Economics, an MSc in Applied Economics (UFAL) and a PhD in Economics (UFPB).',
-      'Research in applied economics, jurimetrics, AI adoption in the public sector, tourism economics and maritime and fisheries economics, with public data and reproducible methods in R, Python and SQL. Teaching in Information Systems, Tourism and Fisheries Engineering; supervision of final-year projects; founder of the startups PataCidadã and SmartMap Educação and of the legaltechs LiquidaJus and PortaJus (in development); applied projects derived from research.',
+      'Research in applied economics, jurimetrics, AI adoption in the public sector, tourism economics and maritime and fisheries economics, with public data and reproducible methods in R, Python and SQL. Teaching in Information Systems, Tourism and Fisheries Engineering; supervision of final-year projects; applied projects derived from research.',
     ]
   : [
       'Professor da Universidade Federal de Alagoas (Unidade Educacional Penedo, curso de Sistemas de Informação) desde 2023 e Analista Judiciário, área de Economia, no Tribunal de Justiça de Alagoas desde 2014, onde também atuo como assessor judicial. Economista registrado no CORECON/AL, com formação em Direito e Economia, mestrado em Economia Aplicada (UFAL) e doutorado em Economia (UFPB).',
-      'Pesquisa em Economia Aplicada, Jurimetria, adoção de IA no setor público, economia do turismo e economia marítima e pesqueira, com dados públicos e métodos reproduzíveis em R, Python e SQL. Docência em Sistemas de Informação, Turismo e Engenharia de Pesca; orientação de trabalhos de conclusão; fundador das startups PataCidadã e SmartMap Educação e das legaltechs LiquidaJus e PortaJus (em desenvolvimento); projetos aplicados derivados das pesquisas.',
+      'Pesquisa em Economia Aplicada, Jurimetria, adoção de IA no setor público, economia do turismo e economia marítima e pesqueira, com dados públicos e métodos reproduzíveis em R, Python e SQL. Docência em Sistemas de Informação, Turismo e Engenharia de Pesca; orientação de trabalhos de conclusão; projetos aplicados derivados das pesquisas.',
     ];
 
 const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t('cv.title') }];
@@ -79,6 +79,7 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
 
     <section aria-labelledby="pos-title">
       <h2 id="pos-title">{t('cv.positions')}</h2>
+      <InstitutionalNotice {lang} class="cv-notice" />
       <ul class="timeline">
         {profile.roles.map((r) => (
           <li>
@@ -167,9 +168,16 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
             <a href={route('researchItem', lang, r.data.slug)}>{r.data.title}</a>
           </li>
         ))}
-        {outreach.map((o) => (
+      </ul>
+    </section>
+
+    <section aria-labelledby="indep-title">
+      <h2 id="indep-title">{t('cv.independent')}</h2>
+      <p class="small muted">{t('notice.underReview')}</p>
+      <ul class="two-col-list">
+        {independent.map((o) => (
           <li>
-            <a href={`${route('outreach', lang)}#${o.data.slug}`}>{pick(o.data.name, lang)}</a>
+            <a href={`${route('independent', lang)}#${o.data.slug}`}>{pick(o.data.name, lang)}</a>
             <span class="muted"> — {pick(o.data.kind, lang)}</span>
           </li>
         ))}
@@ -242,6 +250,9 @@ const crumbs = [{ label: t('nav.home'), href: route('home', lang) }, { label: t(
     font-size: var(--text-xl);
     border-bottom: 1px solid var(--border);
     padding-bottom: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+  :global(.cv-notice) {
     margin-bottom: var(--space-4);
   }
   .timeline {

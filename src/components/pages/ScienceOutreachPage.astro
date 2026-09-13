@@ -1,0 +1,162 @@
+---
+/**
+ * Sítio especializado (Etapa 5 da auditoria de 13/09/2026): escopo editorial,
+ * séries e arquivo por semestre com apenas publicações efetivamente lançadas.
+ * Não promete enquadramento no item 2.9.1 da Resolução CONSUNI/UFAL 119/2025.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import InstitutionalNotice from '@/components/InstitutionalNotice.astro';
+import SeriesCard from '@/components/SeriesCard.astro';
+import Icon from '@/components/Icon.astro';
+import { alternates, route, type Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getProfile } from '@/lib/data';
+import { breadcrumbJsonLd, SITE } from '@/lib/jsonld';
+import { getContents, getSeries } from '@/lib/contents';
+import { getEditorialCalendar } from '@/lib/calendar';
+import { isoWeek, semesterLabel, semesterSlug, sortSemestersDesc } from '@/lib/semesters';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const profile = getProfile();
+const series = await getSeries(lang);
+const contents = await getContents(lang);
+const calendar = getEditorialCalendar();
+const seriesCount = (key: string) => contents.filter((c) => c.data.series === key).length;
+
+const semesters = sortSemestersDesc(contents.map((c) => c.data.semester)).map((sem) => {
+  const items = contents.filter((c) => c.data.semester === sem);
+  const weeks = new Set(items.map((c) => isoWeek(c.data.firstPublishedAt)));
+  return { sem, count: items.length, weeks: weeks.size };
+});
+
+const crumbs = [
+  { label: t('nav.home'), href: route('home', lang) },
+  { label: t('nav.scienceOutreach') },
+];
+---
+
+<BaseLayout
+  {lang}
+  title={t('nav.scienceOutreach')}
+  description={t('science.lead')}
+  current="scienceOutreach"
+  alternates={alternates('scienceOutreach')}
+  jsonLd={[
+    {
+      '@type': 'CollectionPage',
+      name: `${profile.shortName} — ${t('nav.scienceOutreach')}`,
+      url: `${SITE}${route('scienceOutreach', lang)}`,
+      inLanguage: lang === 'en' ? 'en' : 'pt-BR',
+      author: { '@id': `${SITE}/#person` },
+    },
+    breadcrumbJsonLd([
+      { name: t('nav.home'), path: route('home', lang) },
+      { name: t('nav.scienceOutreach'), path: route('scienceOutreach', lang) },
+    ]),
+  ]}
+>
+  <PageHeader {lang} title={t('nav.scienceOutreach')} lead={t('science.lead')} {crumbs}>
+    <p class="small muted archive-note" data-notice="science-archive">
+      {t('science.note')}
+    </p>
+  </PageHeader>
+
+  <div class="container page-body">
+    <InstitutionalNotice {lang} />
+
+    <section class="scope card" aria-labelledby="scope-title">
+      <h2 id="scope-title">{t('science.scope')}</h2>
+      <p class="prose">{t('science.scope.text')}</p>
+      <p class="links">
+        <a class="button subtle" href={route('editorial', lang)}>
+          {t('science.policy')} <Icon name="arrow" size={16} />
+        </a>
+        <a class="button subtle" href={route('contents', lang)}>
+          {t('science.browse')} <Icon name="arrow" size={16} />
+        </a>
+      </p>
+    </section>
+
+    <section aria-labelledby="archive-title" class="archive">
+      <div class="section-head">
+        <h2 id="archive-title">{t('science.archive')}</h2>
+        {calendar.semesters.length === 0 && <p class="small muted">{t('science.calendarEmpty')}</p>}
+      </div>
+      {semesters.length > 0 ? (
+        <ul class="semesters">
+          {semesters.map((s) => (
+            <li class="card semester">
+              <h3>
+                <a href={route('scienceOutreachSemester', lang, semesterSlug(s.sem))}>
+                  {t('science.semester')} {semesterLabel(s.sem, lang)}
+                </a>
+              </h3>
+              <p class="muted">
+                {s.count} {t('science.pieces')} · {s.weeks} {t('science.weeks')}
+              </p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="muted">{t('contents.none')}</p>
+      )}
+    </section>
+
+    {series.length > 0 && (
+      <section aria-labelledby="series-title">
+        <div class="section-head">
+          <h2 id="series-title">{t('contents.series')}</h2>
+        </div>
+        <div class="grid grid-2">
+          {series.map((s) => (
+            <SeriesCard series={s} {lang} count={seriesCount(s.data.series)} />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .archive-note {
+    margin: var(--space-3) 0 0;
+  }
+  .page-body {
+    padding-block: var(--space-7);
+    display: grid;
+    gap: var(--space-7);
+  }
+  .scope h2 {
+    font-size: var(--text-lg);
+    margin: 0;
+  }
+  .scope .prose {
+    margin: 0;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0;
+  }
+  .semesters {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: var(--space-4);
+  }
+  .semester h3 {
+    font-size: var(--text-md);
+    margin: 0;
+  }
+  .semester p {
+    margin: 0;
+  }
+</style>

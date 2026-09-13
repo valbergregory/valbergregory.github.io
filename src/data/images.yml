@@ -1,0 +1,47 @@
+# Registro das imagens com pessoas identificáveis (Etapa 7 da auditoria de 13/09/2026).
+#
+# O build não publica foto com pessoa identificável quando consentVerified for false,
+# salvo imagem de fonte oficial com licença/base de uso documentada (officialSource).
+# tests/images.test.ts falha se um arquivo com peopleIdentifiable: true e
+# consentVerified: false for referenciado em src/ ou public/.
+#
+# consentRecordPrivateId aponta para o registro no manifesto privado (data/private/),
+# nunca para o documento em si.
+
+images:
+  - file: src/assets/valber-portrait.jpg
+    creator: 'Fornecida pelo titular (retrato próprio)'
+    source: 'Acervo pessoal'
+    license: 'Todos os direitos reservados'
+    peopleIdentifiable: true
+    subjects: [titular]
+    consentVerified: true # o próprio titular
+    consentRecordPrivateId: null
+    officialSource: false
+  - file: src/assets/valber-portrait-original.jpg
+    creator: 'Fornecida pelo titular (retrato próprio, original)'
+    source: 'Acervo pessoal'
+    license: 'Todos os direitos reservados'
+    peopleIdentifiable: true
+    subjects: [titular]
+    consentVerified: true
+    consentRecordPrivateId: null
+    officialSource: false
+  - file: public/images/valber-portrait-square.jpg
+    creator: 'Fornecida pelo titular (retrato próprio, recorte quadrado)'
+    source: 'Acervo pessoal'
+    license: 'Todos os direitos reservados'
+    peopleIdentifiable: true
+    subjects: [titular]
+    consentVerified: true
+    consentRecordPrivateId: null
+    officialSource: false
+  - file: src/assets/valber-mosaico.webp
+    creator: 'Mosaico montado em 12/09/2026 a partir de fotografias do acervo pessoal e de um retrato gerado por IA'
+    source: 'Acervo pessoal'
+    license: 'Todos os direitos reservados'
+    peopleIdentifiable: true
+    subjects: [titular, terceiros] # cinco terceiros identificáveis em três painéis
+    consentVerified: false # sem termo de autorização arquivado (legal-review-needed.yml › autorizacao-imagem-mosaico)
+    consentRecordPrivateId: null
+    officialSource: false

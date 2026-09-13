@@ -25,5 +25,5 @@
   action: 'Gravar as imagens definitivas com os mesmos nomes em src/content/conteudos/economia-maritima-e-pesqueira/ (e o banner em src/content/series/).'
 
 - item: Fotografias da página Ensino
-  status: 'mosaico publicado em 12/09/2026 (src/assets/valber-mosaico.webp) por decisão do Valber; inclui um retrato gerado por IA e pessoas não identificadas'
-  action: 'Se quiser legendas com nomes/datas ou trocar o retrato por foto real, informar.'
+  status: 'mosaico RETIRADO em 13/09/2026 (auditoria): terceiros identificáveis sem termo de autorização arquivado; página usa o retrato do titular'
+  action: 'Ver src/data/legal-review-needed.yml › autorizacao-imagem-mosaico e src/data/images.yml (consentVerified).'

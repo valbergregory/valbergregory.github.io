@@ -20,6 +20,13 @@ areas:
   - economia-maritima
   - desenvolvimento-territorial
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Maritime and fisheries economics
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Maritime economics covers a broad set of activities associated with the sea and coastal zones. Beyond transport, it includes port infrastructure, shipbuilding and ship repair, logistics, fishing, aquaculture, offshore energy, technology, monitoring and coastal services. The performance of this set affects jobs, prices, exports, food security and regional development.

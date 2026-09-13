@@ -22,7 +22,11 @@ Some of these questions became permanent research fronts:
 
 ## The way back
 
-Research and outreach return to the classroom as real data, case studies and tools. The datasets built for the papers — milk prices, port calls, fishing effort, court decisions — become exercises and course projects; the R and Python pipelines become material for outreach courses on data analysis; and the dashboards planned as research outputs are designed so that students take part in building and maintaining them.
+Research and applied projects return to the classroom as real data, case studies and tools. The datasets built for the papers — milk prices, port calls, fishing effort, court decisions — become exercises and course projects; the R and Python pipelines become material for data-analysis workshops and courses; and the dashboards planned as research outputs are designed so that students take part in building and maintaining them.
+
+## Teaching materials
+
+Handouts, slides and series of teaching texts produced for the courses in Economics, Accounting Information, Law Applied to Computing and Fisheries Economics, plus data-analysis workshops with R, are in use in class and will be published as they are reviewed — with the licence defined before publication.
 
 ## Supervision
 

@@ -21,6 +21,13 @@ areas:
   - desenvolvimento-territorial
   - direito
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Maritime and fisheries economics
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Small-scale (artisanal) fishing and industrial fishing have distinct economic structures. The former usually shows greater dependence on the territory, the use of smaller boats, family or community organisation and a significant role in local income and food security. The latter operates at larger scale, with more capital, technology, storage capacity and extensive logistics chains.

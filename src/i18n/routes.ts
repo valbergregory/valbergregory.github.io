@@ -26,7 +26,14 @@ export type RouteKey =
   | 'contentsItem'
   | 'search'
   | 'cv'
-  | 'contact';
+  | 'contact'
+  | 'independent'
+  | 'scienceOutreach'
+  | 'scienceOutreachSemester'
+  | 'academic'
+  | 'legal'
+  | 'privacy'
+  | 'editorial';
 
 export const ROUTES: Record<RouteKey, Record<Lang, string>> = {
   home: { 'pt-br': '/', en: '/en/' },
@@ -42,20 +49,43 @@ export const ROUTES: Record<RouteKey, Record<Lang, string>> = {
   search: { 'pt-br': '/busca/', en: '/en/search/' },
   cv: { 'pt-br': '/curriculo/', en: '/en/cv/' },
   contact: { 'pt-br': '/contato/', en: '/en/contact/' },
+  /** Rota secundária, fora da navegação institucional principal. */
+  independent: { 'pt-br': '/projetos-independentes/', en: '/en/independent-projects/' },
+  /** Sítio especializado: arquivo editorial por semestre (Etapa 5). */
+  scienceOutreach: { 'pt-br': '/divulgacao-cientifica/', en: '/en/science-outreach/' },
+  scienceOutreachSemester: { 'pt-br': '/divulgacao-cientifica/', en: '/en/science-outreach/' },
+  academic: { 'pt-br': '/atuacao-academica/', en: '/en/academic-activity/' },
+  legal: { 'pt-br': '/avisos-legais/', en: '/en/legal-notice/' },
+  privacy: { 'pt-br': '/privacidade/', en: '/en/privacy/' },
+  editorial: { 'pt-br': '/politica-editorial/', en: '/en/editorial-policy/' },
 };
 
-/** Itens da navegação principal, na ordem de exibição. */
+/**
+ * Itens da navegação principal, na ordem de exibição (Etapa 2 da auditoria de
+ * 13/09/2026): Início, Sobre, Ensino, Pesquisa, Extensão universitária, Produção
+ * intelectual, Divulgação científica, Currículo, Contato. "Projetos independentes"
+ * fica em área secundária (rodapé e páginas), não entre os itens institucionais.
+ */
 export const NAV_ORDER: RouteKey[] = [
   'home',
   'about',
-  'research',
   'teaching',
+  'research',
   'outreach',
   'publications',
-  'contents',
+  'scienceOutreach',
   'cv',
   'contact',
 ];
+
+/** Item de navegação a destacar para cada rota (subpáginas apontam para a seção). */
+export const NAV_PARENT: Partial<Record<RouteKey, RouteKey>> = {
+  researchItem: 'research',
+  contents: 'scienceOutreach',
+  contentsSeries: 'scienceOutreach',
+  contentsItem: 'scienceOutreach',
+  scienceOutreachSemester: 'scienceOutreach',
+};
 
 export function route(key: RouteKey, lang: Lang, slug?: string): string {
   const base = ROUTES[key][lang];

@@ -23,6 +23,9 @@ const en = lang === 'en';
 
 const meta = p.allowAutomaticMetadata ? repoMetaFor(p.repository) : undefined;
 const findings = p.showPreliminaryFindings ? pickList(p.preliminaryFindings, lang) : [];
+// Pesquisas sobre Direito/Judiciário recebem o aviso de conteúdo jurídico (Etapa 6.3).
+const legalTrack =
+  p.track === 'economia-direito-jurimetria' || p.track === 'ia-governo-digital-seguranca';
 const related = (await getCollection('research'))
   .filter((r) => r.data.track === p.track && r.data.slug !== p.slug)
   .slice(0, 3);
@@ -82,6 +85,11 @@ const lists: { key: string; title: string; items: string[] }[] = [
   <div class="container detail-layout">
     <article class="detail-main">
       <p class="notice info">{t('research.disclaimer')}</p>
+      {legalTrack && (
+        <p class="notice info" data-notice="legal">
+          {t('notice.legal')}
+        </p>
+      )}
 
       <section aria-labelledby="q-title">
         <h2 id="q-title">{t('research.question')}</h2>
@@ -110,7 +118,9 @@ const lists: { key: string; title: string; items: string[] }[] = [
       {findings.length > 0 && (
         <section aria-labelledby="f-title" class="findings">
           <h2 id="f-title">{t('research.findings')}</h2>
-          <p class="notice">{t('research.findings.note')}</p>
+          <p class="notice" data-notice="wip">
+            {t('research.findings.note').replace('{date}', formatDate(p.lastEditorialReview, lang))}
+          </p>
           <ul class="prose">
             {findings.map((item) => (
               <li>{item}</li>

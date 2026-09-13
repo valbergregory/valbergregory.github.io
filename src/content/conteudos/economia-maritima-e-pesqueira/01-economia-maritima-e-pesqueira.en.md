@@ -20,6 +20,13 @@ areas:
   - economia-pesqueira
   - desenvolvimento-territorial
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Maritime and fisheries economics
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Maritime economics and fisheries economics study activities that use the sea and its resources as a productive, logistical and social base. The subject covers transport, ports, fishing, processing, infrastructure, energy, trade, science, environmental monitoring and the ways of life of coastal and traditional communities.

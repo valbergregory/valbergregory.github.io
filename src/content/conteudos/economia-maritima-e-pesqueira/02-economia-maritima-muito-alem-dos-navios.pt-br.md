@@ -19,6 +19,13 @@ areas:
   - economia-maritima
   - desenvolvimento-territorial
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A Economia Marítima abrange um conjunto amplo de atividades associadas ao mar e às zonas costeiras. Além do transporte, inclui infraestrutura portuária, construção e manutenção naval, logística, pesca, aquicultura, energia offshore, tecnologia, monitoramento e serviços costeiros. O desempenho desse conjunto afeta empregos, preços, exportações, segurança alimentar e desenvolvimento regional.

@@ -1,0 +1,37 @@
+---
+/**
+ * Aviso institucional curto (Etapa 3 da auditoria de 13/09/2026). Exibido perto das
+ * afiliações e dos projetos — não só no rodapé. `data-notice` é lido por
+ * scripts/check-compliance.mjs para garantir a presença nas duas línguas.
+ */
+import type { Lang } from '@/i18n/routes';
+import { route } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+
+interface Props {
+  lang: Lang;
+  /** `short` (uma frase) ou `long` (parágrafo completo dos avisos legais). */
+  variant?: 'short' | 'long';
+  /** Mostra o link para a página de avisos legais. */
+  link?: boolean;
+  class?: string;
+}
+const { lang, variant = 'short', link = true, class: className } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<p class:list={['notice', 'info', 'institutional-notice', className]} data-notice="institutional">
+  {variant === 'long' ? t('notice.institutional.long') : t('notice.institutional')}
+  {link && (
+    <>
+      {' '}
+      <a href={route('legal', lang)}>{t('nav.legal')}</a>.
+    </>
+  )}
+</p>
+
+<style>
+  .institutional-notice {
+    margin: 0;
+  }
+</style>

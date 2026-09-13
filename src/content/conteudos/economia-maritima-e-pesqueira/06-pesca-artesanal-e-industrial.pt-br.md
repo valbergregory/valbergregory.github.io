@@ -20,6 +20,13 @@ areas:
   - desenvolvimento-territorial
   - direito
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A pesca artesanal e a pesca industrial possuem estruturas econômicas distintas. A primeira costuma apresentar maior dependência do território, uso de embarcações menores, organização familiar ou comunitária e participação relevante na geração de renda e na segurança alimentar local. A segunda opera em maior escala, com mais capital, tecnologia, capacidade de armazenamento e cadeias logísticas extensas.

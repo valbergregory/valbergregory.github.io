@@ -66,6 +66,12 @@ const crumbs = [
   <PageHeader {lang} title={t('contents.title')} lead={t('contents.call')} {crumbs}>
     <p class="intro">{t('contents.lead')}</p>
     <p class="rss">
+      <a href={route('scienceOutreach', lang)}>
+        <Icon name="arrow" size={16} /> {t('science.archive')}
+      </a>
+      <span class="muted">·</span>
+      <a href={route('editorial', lang)}>{t('nav.editorial')}</a>
+      <span class="muted">·</span>
       <a href="/rss.xml">
         <Icon name="rss" size={16} /> {t('contents.rss')}
       </a>

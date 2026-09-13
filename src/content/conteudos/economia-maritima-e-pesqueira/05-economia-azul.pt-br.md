@@ -20,6 +20,13 @@ areas:
   - economia-pesqueira
 project: fishing-closures-brazil
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Economia Marítima e Economia Pesqueira
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 A Economia Azul procura compatibilizar as atividades econômicas relacionadas ao mar com a conservação ambiental e o bem-estar das comunidades. Seu fundamento é econômico e ecológico, pois a renda gerada pela pesca, pelo turismo, pela navegação e por outros usos depende da manutenção de ecossistemas capazes de prestar serviços e renovar recursos.

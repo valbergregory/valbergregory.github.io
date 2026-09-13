@@ -21,6 +21,13 @@ areas:
   - direito
 project: fishing-closures-brazil
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Maritime and fisheries economics
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Fish stocks are classic examples of common-pool resources. Excluding users can be difficult or costly, while the fish caught by one agent are no longer available to the others. This combination creates an interdependence that does not appear with the same intensity in conventional private goods.

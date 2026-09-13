@@ -80,6 +80,17 @@ docs/                documentação e QA
 
 O script nunca altera o estágio científico, resultados, autoria ou título. Repositórios privados não são consultados nem linkados; o projeto `Port-Network-Resilience` aparece apenas pelo cadastro editorial, sem URL.
 
+## Conformidade preventiva (13/09/2026)
+
+Auditoria preventiva de conformidade, comunicação institucional e organização de evidências (documento em `Downloads/auditoria-site-ufal-claude-code.md`, fora do repositório). Decisões de arquitetura:
+
+- **Separação de esferas em dados distintos:** `extension.yml` (só extensão registrada) × `independent-projects.yml` (privado/em revisão) × `research.yml` (pesquisa) × `pages/teaching` (ensino). O esquema `projectSchema` impede `institutional-*` sem registro e `independent` sem provas.
+- **Rotas:** `/extensao/`, `/projetos-independentes/` (secundária, fora do menu), `/divulgacao-cientifica/` (+ `/<semestre>/`), `/atuacao-academica/`, `/avisos-legais/`, `/privacidade/`, `/politica-editorial/` e equivalentes em `/en/`. Menu: Início, Sobre, Ensino, Pesquisa, Extensão universitária, Produção intelectual, Divulgação científica, Currículo, Contato.
+- **Avisos contextuais** por componente (`InstitutionalNotice.astro`; `data-notice="legal|wip|under-review|independent"`), verificados no HTML gerado por `scripts/check-compliance.mjs`.
+- **Rastreabilidade editorial:** frontmatter com `firstPublishedAt` imutável (ledger `src/data/first-published.json`), `semester`, `contentNature`, `institutionalRelation`, `reviewStatus`, `license`; relatório semestral por `scripts/report-semester.mjs`.
+- **Manifesto privado:** `data/private/` ignorado pelo Git; `check-secrets` e `check-compliance` comparam hashes para garantir que nada dele entre em `dist/`.
+- **CSP via `<meta>`** (`BaseLayout.astro`, só em produção): `script-src 'self' 'wasm-unsafe-eval'` (Pagefind usa WebAssembly), `style-src 'self' 'unsafe-inline'` (Astro inclui `<style>` no head), `connect-src 'self'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`. Para isso o script de tema saiu do inline (`public/theme-init.js`) e `vite.build.assetsInlineLimit = 0` impede scripts `<script type="module">` inline. **Limite do GitHub Pages:** não há cabeçalhos HTTP personalizados, logo `frame-ancestors`, `report-uri`/`report-to` e `Strict-Transport-Security` não podem ser definidos pelo aplicativo; `<meta name="referrer" content="strict-origin-when-cross-origin">` cobre o referenciador.
+
 ## Desempenho e privacidade
 
 - CSS crítico inline por página (`inlineStylesheets: 'auto'`); fontes variáveis self-hosted com `font-display: swap`.

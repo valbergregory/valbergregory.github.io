@@ -34,14 +34,31 @@ export const STATUSES = [
 export const SERIES = ['economia-da-informacao-e-redes', 'economia-maritima-e-pesqueira'] as const;
 
 /** Tipos de conteúdo da seção "Conteúdos e Séries Temáticas". */
-export const CONTENT_TYPES = [
-  'serie',
-  'nota',
-  'opiniao',
-  'leitura',
-  'aula',
-  'evento',
+export const CONTENT_TYPES = ['serie', 'nota', 'opiniao', 'leitura', 'aula', 'evento'] as const;
+
+/** Natureza editorial de cada publicação (Etapa 5 da auditoria de 13/09/2026). */
+export const CONTENT_NATURES = [
+  'scientific-outreach',
+  'academic',
+  'teaching',
+  'opinion',
+  'work-in-progress',
 ] as const;
+export const REVIEW_STATUSES = [
+  'editorial',
+  'peer-reviewed',
+  'preprint',
+  'not-peer-reviewed',
+] as const;
+export const CONTENT_INSTITUTIONAL_RELATIONS = [
+  'none',
+  'teaching',
+  'research',
+  'extension',
+  'under-review',
+] as const;
+/** Semestre no formato YYYY.1 | YYYY.2. */
+export const SEMESTER_RE = /^\d{4}\.[12]$/;
 
 /** Áreas de conhecimento usadas como filtro. */
 export const CONTENT_AREAS = [
@@ -62,7 +79,7 @@ const githubRepo = z
 /** Parser genérico: YAML com lista de objetos, `id` derivado do campo indicado. */
 function yamlList(idField: string) {
   return (text: string) => {
-    const data = parseYaml(text) as Record<string, unknown>[];
+    const data = (parseYaml(text) ?? []) as Record<string, unknown>[];
     return data.map((entry) => ({ id: String(entry[idField]), ...entry }));
   };
 }
@@ -160,18 +177,118 @@ const publications = defineCollection({
   }),
 });
 
-const outreach = defineCollection({
-  loader: file('src/data/outreach.yml', { parser: yamlList('slug') }),
-  schema: z.object({
-    slug: z.string(),
+/* ------------------------------------------------------------------ */
+/* Projetos (extensão registrada × independentes/em revisão)            */
+/* ------------------------------------------------------------------ */
+
+export const PROJECT_NATURES = [
+  'institutional-research',
+  'institutional-extension',
+  'teaching',
+  'independent',
+  'under-review',
+] as const;
+export const INSTITUTIONAL_RELATIONS = [
+  'none',
+  'teaching',
+  'research',
+  'extension',
+  'under-review',
+] as const;
+export const IP_STATUSES = ['institutional', 'shared', 'independent', 'under-review'] as const;
+export const COMMERCIAL_STATUSES = ['none', 'precommercial', 'commercial', 'unknown'] as const;
+export const RESOURCES_USED = ['under-review', 'none-declared', 'declared'] as const;
+
+const institutionalRegistration = z.object({
+  /** Número/cadastro público não sensível (ex.: código do SIGAA). */
+  publicId: z.string().min(1),
+  issuer: z.string().min(1),
+  date: z.coerce.date(),
+  publicUrl: z.url().optional(),
+});
+
+const projectSchema = z
+  .object({
+    slug: z.string().regex(/^[a-z0-9-]+$/),
+    /** Ordem de exibição (o loader devolve por id; sem `order`, ordem alfabética). */
+    order: z.number().int().positive().optional(),
     name: z.union([z.string(), bilingual]),
     kind: bilingual,
     status: bilingual,
     summary: bilingual,
     role: bilingual,
+    period: z.string().optional(),
+    url: z.url().nullable().default(null),
+    repository: githubRepo.nullable().default(null),
     links: z.array(z.object({ label: z.string(), url: z.url() })).default([]),
     research: z.string().optional(),
     tracks: z.array(z.enum(TRACKS)).default([]),
+    nature: z.enum(PROJECT_NATURES),
+    relationshipToUfal: z.enum(INSTITUTIONAL_RELATIONS),
+    relationshipToTjal: z.enum(INSTITUTIONAL_RELATIONS),
+    institutionalRegistration: institutionalRegistration.nullable().default(null),
+    resourcesUsed: z.enum(RESOURCES_USED),
+    ipStatus: z.enum(IP_STATUSES),
+    commercialStatus: z.enum(COMMERCIAL_STATUSES),
+    /** Declaração específica; se ausente, a interface usa o texto padrão da natureza. */
+    disclaimer: bilingual.nullable().default(null),
+    evidencePublic: z.array(z.object({ label: z.string(), url: z.url() })).default([]),
+  })
+  .superRefine((p, ctx) => {
+    const institutional = p.nature.startsWith('institutional-');
+    if (institutional && !p.institutionalRegistration) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `${p.slug}: nature "${p.nature}" exige institutionalRegistration (publicId, issuer, date)`,
+      });
+    }
+    if (p.nature === 'institutional-extension' && p.relationshipToUfal !== 'extension') {
+      ctx.addIssue({
+        code: 'custom',
+        message: `${p.slug}: extensão institucional exige relationshipToUfal: extension`,
+      });
+    }
+    if (p.nature === 'institutional-research' && p.relationshipToUfal !== 'research') {
+      ctx.addIssue({
+        code: 'custom',
+        message: `${p.slug}: pesquisa institucional exige relationshipToUfal: research`,
+      });
+    }
+    if (p.nature === 'independent') {
+      const pending =
+        p.ipStatus === 'under-review' ||
+        p.relationshipToUfal === 'under-review' ||
+        p.relationshipToTjal === 'under-review' ||
+        p.resourcesUsed === 'under-review' ||
+        p.commercialStatus === 'unknown';
+      if (pending || p.evidencePublic.length === 0) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `${p.slug}: nature "independent" exige ipStatus, vínculos, recursos e status comercial definidos e evidencePublic não vazio`,
+        });
+      }
+    }
+    if (p.nature === 'under-review' && p.disclaimer) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `${p.slug}: projeto em revisão não pode ter declaração própria (use o texto padrão)`,
+      });
+    }
+  });
+
+/** Extensão universitária: só ações registradas/aprovadas (extension.yml). */
+const extension = defineCollection({
+  loader: file('src/data/extension.yml', { parser: yamlList('slug') }),
+  schema: projectSchema.refine((p) => p.nature === 'institutional-extension', {
+    message: 'extension.yml aceita apenas nature: institutional-extension',
+  }),
+});
+
+/** Projetos independentes ou ainda não classificados (independent-projects.yml). */
+const independentProjects = defineCollection({
+  loader: file('src/data/independent-projects.yml', { parser: yamlList('slug') }),
+  schema: projectSchema.refine((p) => p.nature !== 'institutional-extension', {
+    message: 'ações de extensão registradas devem ficar em extension.yml',
   }),
 });
 
@@ -242,8 +359,38 @@ const contents = defineCollection({
         linkedin: z.url().optional(),
         link: z.url().optional(),
         draft: z.boolean().default(false),
+        /* --- Rastreabilidade editorial (imutável: tests/dates.test.ts) --- */
+        /** Data da primeira publicação; nunca alterada depois de lançada. */
+        firstPublishedAt: z.coerce.date(),
+        updatedAt: z.coerce.date().optional(),
+        /** Semestre letivo de referência (YYYY.1 | YYYY.2). */
+        semester: z.string().regex(SEMESTER_RE),
+        contentNature: z.enum(CONTENT_NATURES).default('scientific-outreach'),
+        knowledgeArea: z.string().min(1),
+        institutionalRelation: z.enum(CONTENT_INSTITUTIONAL_RELATIONS).default('none'),
+        reviewStatus: z.enum(REVIEW_STATUSES).default('editorial'),
+        /** Fontes principais (as referências completas ficam no corpo, em "Para aprofundar"). */
+        sources: z.array(z.string().min(1)).default([]),
+        doi: z.string().optional(),
+        issn: z.string().optional(),
+        license: z.string().default('all-rights-reserved'),
+        studentCoauthors: z.array(z.string().min(1)).default([]),
+        dataEthics: z.string().optional(),
+        conflictDisclosure: z.string().optional(),
       })
       .superRefine((c, ctx) => {
+        if (c.firstPublishedAt.getTime() > c.date.getTime()) {
+          ctx.addIssue({
+            code: 'custom',
+            message: `${c.title}: firstPublishedAt não pode ser posterior a date`,
+          });
+        }
+        if (c.updatedAt && c.updatedAt.getTime() < c.firstPublishedAt.getTime()) {
+          ctx.addIssue({
+            code: 'custom',
+            message: `${c.title}: updatedAt anterior a firstPublishedAt`,
+          });
+        }
         if (c.type === 'serie' && (!c.series || !c.order)) {
           ctx.addIssue({
             code: 'custom',
@@ -260,11 +407,29 @@ const contents = defineCollection({
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
   schema: z.object({
-    key: z.enum(['about', 'teaching', 'outreach-intro', 'cv-summary']),
+    key: z.enum([
+      'about',
+      'teaching',
+      'outreach-intro',
+      'cv-summary',
+      'legal',
+      'privacy',
+      'editorial',
+    ]),
+    /** Data da última revisão do texto (obrigatória nas páginas de conformidade). */
+    lastReviewed: z.coerce.date().optional(),
     lang: z.enum(['pt-br', 'en']),
     title: z.string().min(1),
     description: z.string().min(1),
   }),
 });
 
-export const collections = { research, publications, outreach, series, contents, pages };
+export const collections = {
+  research,
+  publications,
+  extension,
+  independentProjects,
+  series,
+  contents,
+  pages,
+};

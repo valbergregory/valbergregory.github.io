@@ -18,6 +18,13 @@ areas:
   - economia
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Digital economics, economics of information and information systems
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Versioning consists of offering different configurations of the same product to audiences with different needs and willingness to pay. Versions can vary in features, capacity, speed, support, security, number of users or integration options. The firm uses a common base and organises differentiated offers without having to develop entirely separate products.

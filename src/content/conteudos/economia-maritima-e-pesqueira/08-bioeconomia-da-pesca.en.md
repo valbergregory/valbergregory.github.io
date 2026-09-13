@@ -20,6 +20,13 @@ areas:
   - dados-econometria
 project: fishing-closures-brazil
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Maritime and fisheries economics
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 Fisheries bioeconomics integrates the biological dynamics of stocks with the economic behaviour of fishers. When the stock is healthy, a given amount of effort can yield high catches. If boats, working hours, gear and fuel increase excessively, the stock shrinks and each additional unit of effort tends to catch less.

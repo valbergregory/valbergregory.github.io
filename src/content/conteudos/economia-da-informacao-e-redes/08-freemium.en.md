@@ -18,6 +18,13 @@ areas:
   - economia
   - sistemas-de-informacao
 date: 2026-09-12
+firstPublishedAt: 2026-09-12
+semester: '2026.2'
+contentNature: scientific-outreach
+knowledgeArea: Digital economics, economics of information and information systems
+institutionalRelation: none
+reviewStatus: editorial
+license: all-rights-reserved
 ---
 
 The freemium model combines a free basic version with paid plans that offer additional features. Free access lowers the entry barrier, widens the user base and can help a platform reach critical mass. Free access, however, is part of a segmentation strategy and needs to be sustained by revenue from subscriptions, advertising or other sources compatible with the service.
