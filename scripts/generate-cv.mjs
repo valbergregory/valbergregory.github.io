@@ -24,6 +24,29 @@ const independent = (await read('src/data/independent-projects.yml')) ?? [];
 const taxonomies = await read('src/data/taxonomies.yml');
 
 const SITE = 'https://valbergregory.github.io';
+
+/**
+ * As fontes padrão do PDFKit (Helvetica/Times) só cobrem o Latim-1. Títulos com
+ * trechos em grego (ex.: o resumo da ANPTUR 2024) são transliterados para o
+ * PDF; no site, a fonte Source Sans 3 renderiza o grego normalmente.
+ */
+const GREEK = {
+  α: 'a', ά: 'á', β: 'v', γ: 'g', δ: 'd', ε: 'e', έ: 'é', ζ: 'z', η: 'i', ή: 'í', θ: 'th',
+  ι: 'i', ί: 'í', ϊ: 'i', ΐ: 'í', κ: 'k', λ: 'l', μ: 'm', ν: 'n', ξ: 'x', ο: 'o', ό: 'ó',
+  π: 'p', ρ: 'r', σ: 's', ς: 's', τ: 't', υ: 'y', ύ: 'ý', ϋ: 'y', ΰ: 'ý', φ: 'f', χ: 'ch',
+  ψ: 'ps', ω: 'o', ώ: 'ó',
+};
+const latinize = (text) =>
+  typeof text === 'string'
+    ? text
+        // ditongos αυ/ευ/ου → au/eu/ou (transliteração clássica, como em "Eudaimonia")
+        .replace(/([αεοάέόΑΕΟΆΈΌ])([υύ])/g, (_, v, u) => `${v}${u === 'ύ' ? 'ú' : 'u'}`)
+        .replace(/[\u0370-\u03ff]/g, (ch) => {
+          const lower = ch.toLowerCase();
+          const out = GREEK[lower] ?? '?';
+          return ch === lower ? out : out[0].toUpperCase() + out.slice(1);
+        })
+    : text;
 const NAVY = '#14284b';
 const TEAL = '#1c6b73';
 const OCHRE = '#a8782a';
@@ -151,9 +174,9 @@ function buildPdf(k) {
       .text(text, { lineGap: 2, ...opts });
   const item = (title, meta, note) => {
     if (doc.y > doc.page.height - 100) doc.addPage();
-    doc.font(boldFont).fontSize(10).fillColor(TEXT).text(title, { lineGap: 1 });
-    if (meta) doc.font(bodyFont).fontSize(9.5).fillColor(MUTED).text(meta, { lineGap: 1 });
-    if (note) doc.font(bodyFont).fontSize(9.5).fillColor(TEXT).text(note, { lineGap: 1 });
+    doc.font(boldFont).fontSize(10).fillColor(TEXT).text(latinize(title), { lineGap: 1 });
+    if (meta) doc.font(bodyFont).fontSize(9.5).fillColor(MUTED).text(latinize(meta), { lineGap: 1 });
+    if (note) doc.font(bodyFont).fontSize(9.5).fillColor(TEXT).text(latinize(note), { lineGap: 1 });
     doc.moveDown(0.45);
   };
 
