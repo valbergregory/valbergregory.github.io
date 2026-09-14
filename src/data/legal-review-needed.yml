@@ -13,17 +13,17 @@
   claim: Regime de trabalho na UFAL (40 h com dedicação exclusiva, 40 h sem DE ou outro).
   publicFallback: O site não informa regime de trabalho.
   requiredEvidence: Portaria de nomeação/regime e assentamento funcional (SIGRH/SIAPE).
-  ownerAction: Conferir a portaria; não publicar o regime; revisar compatibilidade das demais atividades com o regime real.
+  ownerAction: 'Regime informado verbalmente pelo titular em 14/09/2026 e anotado no manifesto privado; falta a portaria/assentamento. Não publicar o regime; revisar compatibilidade das demais atividades.'
   status: pending
-  lastReviewed: 2026-09-13
+  lastReviewed: 2026-09-14
 
 - id: classe-nivel-docente
   claim: Classe e nível atuais na carreira do Magistério Superior ("Professor Adjunto", nível).
   publicFallback: '"Professor do Magistério Superior" (sem classe/nível) em profile.yml, currículo e PDF.'
   requiredEvidence: Portaria de progressão/promoção vigente ou consulta ao assentamento funcional.
-  ownerAction: Informar classe e nível com a portaria; só então reintroduzir "(Adjunto)" em profile.yml › roles[0].title.
+  ownerAction: 'Classe/nível atuais informados pelo titular em 14/09/2026 (manifesto privado), com mudança de classe prevista pela reestruturação da carreira (Lei 15.141/2025); o site mantém a denominação neutra "Professor do Magistério Superior" até a portaria da nova classe.'
   status: pending
-  lastReviewed: 2026-09-13
+  lastReviewed: 2026-09-14
 
 - id: intersticios-progressao
   claim: Datas de exercício e de cada interstício para progressão (regra de transição da Resolução CONSUNI/UFAL 119/2025).
@@ -35,11 +35,11 @@
 
 - id: datas-tjal
   claim: Ingresso no TJAL em 2014 e início do assessoramento a magistrados em 2023 (profile.yml › roles[1]).
-  publicFallback: Datas mantidas como constam do Lattes; sem função comissionada nomeada nem número de portaria.
-  requiredEvidence: Portarias de posse/exercício e de designação para assessoria.
-  ownerAction: Conferir as portarias; se divergirem do Lattes, corrigir profile.yml, Sobre e currículo.
+  publicFallback: 'Ano de ingresso (2014) confirmado pelo titular em 14/09/2026 — data exata no manifesto privado; o "2012" de registros antigos é o ano do edital do concurso (n. 24/2012), não do ingresso. Início do assessoramento (2023) ainda sem portaria.'
+  requiredEvidence: Portarias de posse/exercício (ingresso) e de designação para assessoria (2023 e designações posteriores).
+  ownerAction: Arquivar as portarias no manifesto privado; se a designação para assessoria divergir de 2023, corrigir profile.yml, Sobre e currículo.
   status: pending
-  lastReviewed: 2026-09-13
+  lastReviewed: 2026-09-14
 
 - id: natureza-juridica-projetos
   claim: Natureza jurídica de PataCidadã, SmartMap Educação, PortaJus e LiquidaJus (pessoa jurídica constituída? participação societária? gerência/administração? remuneração? clientes públicos?).
@@ -82,12 +82,12 @@
   lastReviewed: 2026-09-13
 
 - id: extensao-reparo-tecnologico
-  claim: O artigo "Grupo Reparo Tecnológico" (Extensão em Debate, 2025) corresponde a ação de extensão registrada com participação do titular.
-  publicFallback: Listado apenas como publicação (publications.yml); não listado em "Extensão universitária".
-  requiredEvidence: Registro da ação na PROEX/SIGAA e certificado de participação/coordenação.
-  ownerAction: Se houver registro, adicionar a extension.yml com institutionalRegistration preenchido.
+  claim: O texto "Grupo Reparo Tecnológico" (Extensão em Debate, v. 14, n. 23, 2025) corresponde a ação de extensão registrada com participação do titular.
+  publicFallback: 'Página do periódico conferida em 14/09/2026: resumo expandido na edição especial da Semana de Extensão e Cultura (SEMAEXC 2024); iniciativa iniciada em outubro de 2023 no curso de Sistemas de Informação. Reclassificado em publications.yml como resumo (type: abstract), não artigo; não listado em "Extensão universitária" enquanto não houver registro.'
+  requiredEvidence: Registro da ação na PROEX/SIGAA (número público, data) e certificado de participação/coordenação; papel do titular na ação (coordenador? colaborador?).
+  ownerAction: Localizar o registro no SIGAA (aba Extensão) ou pedir à PROEX; se existir, adicionar a extension.yml com institutionalRegistration preenchido e o papel real.
   status: pending
-  lastReviewed: 2026-09-13
+  lastReviewed: 2026-09-14
 
 - id: autorizacao-imagem-mosaico
   claim: As pessoas retratadas no mosaico src/assets/valber-mosaico.webp (três painéis com cinco terceiros identificáveis) autorizaram o uso de imagem.

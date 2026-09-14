@@ -71,8 +71,10 @@
   language: pt
   track: economia-politicas-publicas
 
+# Página do periódico conferida em 14/09/2026: seção "Resumo expandido", edição especial da
+# Semana de Extensão e Cultura (SEMAEXC 2024). Classificado como resumo, não como artigo.
 - id: extensao-em-debate-2025-reparo-tecnologico
-  type: article
+  type: abstract
   title: 'Grupo Reparo Tecnológico: manutenção e oferta de cursos de manutenção de computadores'
   authors:
     - Waldsson Sacramento dos Santos
@@ -84,13 +86,13 @@
   venueShort: Extensão em Debate (UFAL)
   volume: 'v. 14, n. 23'
   year: 2025
+  note:
+    pt: Resumo expandido sobre iniciativa do curso de Sistemas de Informação (UFAL Penedo), publicado na edição especial da Semana de Extensão e Cultura da UFAL (SEMAEXC 2024), v. 14, n. 23. Registro da ação na PROEX/SIGAA ainda não informado.
+    en: Expanded abstract on an initiative of the Information Systems programme (UFAL Penedo), published in the special issue of the UFAL Extension and Culture Week (SEMAEXC 2024), v. 14, no. 23. PROEX/SIGAA registration of the action not yet reported.
   url: https://periodicos.ufal.br/extensaoemdebate/article/view/18725
   pdf: https://periodicos.ufal.br/extensaoemdebate/article/view/18725/12826
   language: pt
   track: extensao
-  note:
-    pt: Relato de projeto de extensão do curso de Sistemas de Informação (UFAL Penedo).
-    en: Report on an outreach project of the Information Systems programme (UFAL Penedo).
 
 - id: edufal-2018-localizacao-geografica
   type: chapter
