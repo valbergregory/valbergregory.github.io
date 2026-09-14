@@ -59,7 +59,7 @@ const crumbs = [
 
       <ul class="projects">
         {projects.map((p) => (
-          <ProjectCard {lang} project={p} researchTitle={researchTitle(p.data.research)} />
+          <ProjectCard {lang} project={p} researchTitle={researchTitle(p.data.research)} variant="brief" />
         ))}
       </ul>
 

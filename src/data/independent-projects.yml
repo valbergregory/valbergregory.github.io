@@ -4,8 +4,10 @@
 # - `nature: independent` só pode ser usado com ipStatus, relationshipToUfal/Tjal e
 #   resourcesUsed preenchidos com valores definitivos e evidencePublic não vazio;
 # - `nature: institutional-*` exige institutionalRegistration (publicId, issuer, date);
-# - enquanto faltarem provas, use under-review / unknown. A interface renderiza
-#   "classificação institucional em revisão" e NUNCA a declaração de independência.
+# - enquanto faltarem provas, use under-review / unknown. Desde 14/09/2026, por decisão
+#   do titular, a página de projetos independentes mostra só situação, papel e acesso
+#   público (ProjectCard variant="brief"); os campos de classificação continuam aqui
+#   como registro interno e são validados pelo esquema.
 # - Apresentação sem preços, projeções comerciais ou convite a propostas pelo e-mail
 #   institucional. Só entram informações públicas.
 #
@@ -25,8 +27,8 @@
     pt: Startup fundada em Alagoas. Plataforma gratuita de proteção animal que reúne registro de animais perdidos e encontrados, canais de denúncia, resgates, adoção e um perfil público para organizações de proteção animal, com um painel de indicadores para a gestão pública.
     en: Startup founded in Alagoas. Free animal-protection platform that brings together lost-and-found reports, reporting channels, rescues, adoption and a public profile for animal-protection organisations, with an indicator dashboard for public management.
   role:
-    pt: Fundador, desenho do produto e desenvolvimento
-    en: Founder, product design and development
+    pt: Fundador e sócio-investidor
+    en: Founder and investing partner
   url: https://patacidada.com.br/
   repository: null
   links:
@@ -54,14 +56,14 @@
     pt: Startup — inteligência territorial para a educação municipal
     en: Startup — territorial intelligence for municipal education
   status:
-    pt: Protótipo funcional em modo de demonstração com dados públicos; concorrendo ao Programa Centelha
-    en: Working prototype in demonstration mode with public data; competing in the Centelha programme
+    pt: Protótipo em desenvolvimento
+    en: Prototype under development
   summary:
     pt: Startup fundada em Alagoas. Plataforma de apoio à decisão para secretarias municipais de educação, que organiza dados públicos (matrículas, IDEB, orçamento) em mapas, indicadores e simuladores. O modo de demonstração usa dados abertos do município de Penedo.
     en: Startup founded in Alagoas. Decision-support platform for municipal education departments that organises public data (enrolment, IDEB, budget) into maps, indicators and simulators. The demonstration mode uses open data from the municipality of Penedo.
   role:
-    pt: Fundador, coordenação técnica e desenvolvimento
-    en: Founder, technical coordination and development
+    pt: Fundador e sócio-investidor
+    en: Founder and investing partner
   url: https://smartmap-educacao.vercel.app/
   repository: null
   links:
@@ -84,17 +86,17 @@
   order: 3
   name: LiquidaJus
   kind:
-    pt: Legaltech — liquidação de sentenças (em desenvolvimento)
-    en: Legaltech — judgment liquidation (in development)
+    pt: Legaltech — liquidação de sentenças
+    en: Legaltech — judgment liquidation
   status:
-    pt: Em desenvolvimento; sem versão pública
-    en: In development; no public release
+    pt: Protótipo em desenvolvimento
+    en: Prototype under development
   summary:
     pt: Sistema para liquidação de sentenças judiciais que lê os autos em PDF, extrai os comandos condenatórios com revisão humana obrigatória e calcula os valores com um motor determinístico baseado em índices oficiais, produzindo memória de cálculo auditável, com trilha de revisão e tratamento de dados pessoais conforme a LGPD.
     en: System for liquidating court judgments that reads case files in PDF, extracts the operative provisions with mandatory human review and computes amounts with a deterministic engine based on official indices, producing an auditable calculation memory with a review trail and LGPD-compliant handling of personal data.
   role:
-    pt: Fundador e desenvolvedor
-    en: Founder and developer
+    pt: Fundador e sócio-investidor
+    en: Founder and investing partner
   url: null
   repository: null
   links: []
@@ -113,17 +115,17 @@
   order: 4
   name: PortaJus
   kind:
-    pt: Legaltech — acesso à Justiça (em desenvolvimento)
-    en: Legaltech — access to justice (in development)
+    pt: Legaltech — acesso à Justiça
+    en: Legaltech — access to justice
   status:
-    pt: Protótipo funcional em ambiente de demonstração; sem versão pública
-    en: Working prototype in a demonstration environment; no public release
+    pt: Protótipo em desenvolvimento
+    en: Prototype under development
   summary:
     pt: Plataforma que ajuda o cidadão e o microempreendedor a estruturar uma demanda nos casos em que a lei dispensa advogado (Juizados Especiais), com motor jurídico determinístico e versionado, documentos com verificação de integridade, guias de custas e acessibilidade (WCAG 2.2 AA, modo totem).
     en: Platform that helps citizens and micro-entrepreneurs structure a claim in cases where the law does not require a lawyer (small-claims courts), with a deterministic, versioned legal engine, integrity-checked documents, court-fee guides and accessibility (WCAG 2.2 AA, kiosk mode).
   role:
-    pt: Fundador e desenvolvedor
-    en: Founder and developer
+    pt: Fundador e sócio-investidor
+    en: Founder and investing partner
   url: null
   repository: null
   links: []

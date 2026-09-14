@@ -304,9 +304,9 @@ const ui = {
     'project.period': 'Período',
     'independent.title': 'Projetos independentes',
     'independent.lead':
-      'Iniciativas do autor apresentadas fora da atuação institucional. Nenhuma delas é sistema oficial da UFAL ou do TJAL. A classificação de vínculo, registro e titularidade de cada uma está indicada projeto a projeto.',
+      'Iniciativas do autor apresentadas fora da atuação institucional. Nenhuma delas é sistema oficial da UFAL ou do TJAL.',
     'independent.intro':
-      'Esta área é separada das seções institucionais do site e não usa insígnia, brasão ou identidade visual da UFAL ou do TJAL. Enquanto a documentação de cada projeto estiver em revisão, o site não afirma independência, propriedade exclusiva ou ausência de vínculo — apenas registra o que já é público. Apresentação sem preços nem projeções comerciais.',
+      'Esta área é separada das seções institucionais do site e não usa insígnia, brasão ou identidade visual da UFAL ou do TJAL. Apresentação sem preços nem projeções comerciais.',
     'independent.contact':
       'Não há, nesta página, canal de contato para propostas relacionadas a estes projetos. O e-mail institucional destina-se apenas a ensino, pesquisa e extensão.',
     'independent.contactAvailable': 'Contato para os projetos independentes',
@@ -390,7 +390,7 @@ const ui = {
     'license.all-rights-reserved': 'Todos os direitos reservados',
     'home.independent': 'Projetos independentes',
     'home.independent.text':
-      'Iniciativas do autor fora da atuação institucional, apresentadas em página própria com a classificação de vínculo e titularidade indicada projeto a projeto.',
+      'Iniciativas do autor fora da atuação institucional, apresentadas em página própria.',
     'home.science.text':
       'Arquivo editorial por semestre com os textos de divulgação, séries temáticas e a política editorial.',
     'cv.independent': 'Projetos independentes (classificação institucional em revisão)',
@@ -704,9 +704,9 @@ const ui = {
     'project.period': 'Period',
     'independent.title': 'Independent projects',
     'independent.lead':
-      "Initiatives of the author presented outside his institutional roles. None of them is an official system of UFAL or TJAL. Each project's classification of affiliation, registration and ownership is stated individually.",
+      'Initiatives of the author presented outside his institutional roles. None of them is an official system of UFAL or TJAL.',
     'independent.intro':
-      'This area is separate from the institutional sections of the site and does not use any insignia, coat of arms or visual identity of UFAL or TJAL. While the documentation of each project is under review, the site does not claim independence, exclusive ownership or absence of ties — it only records what is already public. No prices or commercial projections.',
+      'This area is separate from the institutional sections of the site and does not use any insignia, coat of arms or visual identity of UFAL or TJAL. No prices or commercial projections.',
     'independent.contact':
       'This page has no contact channel for proposals related to these projects. The institutional e-mail is for teaching, research and outreach only.',
     'independent.contactAvailable': 'Contact for the independent projects',
@@ -790,7 +790,7 @@ const ui = {
     'license.all-rights-reserved': 'All rights reserved',
     'home.independent': 'Independent projects',
     'home.independent.text':
-      "Initiatives of the author outside his institutional roles, presented on their own page with each project's affiliation and ownership classification.",
+      'Initiatives of the author outside his institutional roles, presented on their own page.',
     'home.science.text':
       'Editorial archive by semester with the outreach pieces, thematic series and the editorial policy.',
     'cv.independent': 'Independent projects (institutional classification under review)',
