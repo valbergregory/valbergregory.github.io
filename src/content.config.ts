@@ -214,6 +214,8 @@ const projectSchema = z
     order: z.number().int().positive().optional(),
     name: z.union([z.string(), bilingual]),
     kind: bilingual,
+    /** Descrição curta e neutra para o cartão da página inicial (sem "startup"/"legaltech"). */
+    tagline: bilingual.optional(),
     status: bilingual,
     summary: bilingual,
     role: bilingual,

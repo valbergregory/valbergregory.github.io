@@ -15,6 +15,7 @@ import { personJsonLd, websiteJsonLd } from '@/lib/jsonld';
 import SeriesCard from '@/components/SeriesCard.astro';
 import InstitutionalNotice from '@/components/InstitutionalNotice.astro';
 import { getContents, getSeries } from '@/lib/contents';
+import { getIndependentProjects } from '@/lib/projects';
 
 interface Props {
   lang: Lang;
@@ -31,6 +32,7 @@ const featured = research
   .slice(0, 8);
 
 const github = getGithubProjects();
+const independent = await getIndependentProjects();
 const byRepo = new Map(
   research
     .filter((r) => r.data.repository && r.data.allowAutomaticMetadata)
@@ -278,6 +280,31 @@ const roles = [
     <div class="container independent-inner">
       <h2 id="independent-title">{t('home.independent')}</h2>
       <p class="small muted">{t('home.independent.text')}</p>
+      <ul class="independent-grid" aria-label={t('home.independent')}>
+        {independent.map((p) => (
+          <li class="card independent-card">
+            {p.data.tagline && <p class="eyebrow">{pick(p.data.tagline, lang)}</p>}
+            <h3>
+              <a href={`${route('independent', lang)}#${p.data.slug}`}>{pick(p.data.name, lang)}</a>
+            </h3>
+            <p class="small muted">
+              {pick(p.data.status, lang)} · {pick(p.data.role, lang)}
+            </p>
+            {p.data.links.length > 0 && (
+              <ul class="independent-links small">
+                {p.data.links.map((l) => (
+                  <li>
+                    <a href={l.url} rel="noopener" target="_blank">
+                      {l.label} <Icon name="external" size={14} />
+                      <span class="visually-hidden">{t('a11y.newTab')}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
       <a class="button subtle" href={route('independent', lang)}>
         {t('nav.independent')} <Icon name="arrow" size={16} />
       </a>
@@ -403,6 +430,47 @@ const roles = [
   .independent p {
     margin: 0;
     max-width: 60ch;
+  }
+  .independent-grid {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-3) 0 var(--space-2);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: var(--space-4);
+    text-align: left;
+  }
+  .independent-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .independent-card .eyebrow {
+    margin: 0;
+  }
+  .independent-card h3 {
+    font-size: var(--text-lg);
+    margin: 0;
+  }
+  .independent-card h3 a {
+    text-decoration: none;
+  }
+  .independent-card h3 a:hover {
+    text-decoration: underline;
+  }
+  .independent-links {
+    list-style: none;
+    padding: 0;
+    margin: auto 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+  }
+  .independent-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
   }
   .roles {
     list-style: none;
