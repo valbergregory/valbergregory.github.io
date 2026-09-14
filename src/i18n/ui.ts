@@ -390,7 +390,7 @@ const ui = {
     'license.all-rights-reserved': 'Todos os direitos reservados',
     'home.independent': 'Projetos independentes',
     'home.independent.text':
-      'Iniciativas do autor fora da atuação institucional, apresentadas em página própria.',
+      'Iniciativas do autor fora da atuação institucional. Nenhuma delas é sistema oficial da UFAL ou do TJAL.',
     'home.science.text':
       'Arquivo editorial por semestre com os textos de divulgação, séries temáticas e a política editorial.',
     'cv.independent': 'Projetos independentes (classificação institucional em revisão)',
@@ -790,7 +790,7 @@ const ui = {
     'license.all-rights-reserved': 'All rights reserved',
     'home.independent': 'Independent projects',
     'home.independent.text':
-      'Initiatives of the author outside his institutional roles, presented on their own page.',
+      'Initiatives of the author outside his institutional roles. None of them is an official system of UFAL or TJAL.',
     'home.science.text':
       'Editorial archive by semester with the outreach pieces, thematic series and the editorial policy.',
     'cv.independent': 'Independent projects (institutional classification under review)',

@@ -20,6 +20,9 @@
   kind:
     pt: Startup — plataforma gratuita de proteção animal
     en: Startup — free animal-protection platform
+  tagline:
+    pt: Plataforma gratuita de proteção animal
+    en: Free animal-protection platform
   status:
     pt: Em fase final de aprimoramento para lançamento
     en: Final refinement phase before launch
@@ -55,6 +58,9 @@
   kind:
     pt: Startup — inteligência territorial para a educação municipal
     en: Startup — territorial intelligence for municipal education
+  tagline:
+    pt: Inteligência territorial para a educação municipal
+    en: Territorial intelligence for municipal education
   status:
     pt: Protótipo em desenvolvimento
     en: Prototype under development
@@ -88,6 +94,9 @@
   kind:
     pt: Legaltech — liquidação de sentenças
     en: Legaltech — judgment liquidation
+  tagline:
+    pt: Liquidação de sentenças com memória de cálculo auditável
+    en: Judgment liquidation with an auditable calculation memory
   status:
     pt: Protótipo em desenvolvimento
     en: Prototype under development
@@ -117,6 +126,9 @@
   kind:
     pt: Legaltech — acesso à Justiça
     en: Legaltech — access to justice
+  tagline:
+    pt: Acesso à Justiça nos Juizados Especiais
+    en: Access to justice in small-claims courts
   status:
     pt: Protótipo em desenvolvimento
     en: Prototype under development
