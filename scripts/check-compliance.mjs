@@ -11,6 +11,9 @@
  *  4. a página de projetos independentes não convida a propostas pelo e-mail
  *     institucional e não usa linguagem comercial;
  *  5. a declaração de independência só aparece em cartões com nature="independent";
+ *     na extensão registrada, item em revisão traz o aviso; na página de projetos
+ *     independentes (cartão resumido, decisão do titular em 14/09/2026) não há
+ *     aviso nem classificação institucional;
  *  6. nenhum script inline sem src (a CSP só permite script-src 'self');
  *  7. conteúdo jurídico e pesquisas em andamento têm avisos contextuais;
  *  8. nada do manifesto privado (data/private/) entrou no build.
@@ -149,22 +152,35 @@ for (const p of ['projetos-independentes', 'en/independent-projects']) {
   }
 }
 
-// 5. declaração de independência só em cartões confirmados; item em revisão sempre com o aviso
+// 5. declaração de independência só em cartões confirmados (variante completa);
+//    na extensão registrada, item em revisão sempre com o aviso; nos projetos
+//    independentes (cartão resumido) nem aviso nem classificação institucional.
 const independentPhrase = [
   'Projeto independente, sem vínculo',
   'Independent project, with no affiliation',
 ];
+const classificationLabels = ['Relação com a UFAL', 'Relationship with UFAL'];
+const briefPages = new Set(['projetos-independentes', 'en/independent-projects']);
 for (const p of ['projetos-independentes', 'en/independent-projects', 'extensao', 'en/outreach']) {
   const html = await page(p);
   const confirmed = (html.match(/data-project-nature="independent"/g) ?? []).length;
   const declared = independentPhrase.reduce((n, s) => n + (html.split(s).length - 1), 0);
+  const reviewNotices = (html.match(/data-notice="under-review"/g) ?? []).length;
+  if (briefPages.has(p)) {
+    if (declared > 0) fail(`/${p}: cartão resumido não deve declarar independência`);
+    if (reviewNotices > 0) fail(`/${p}: cartão resumido não deve exibir aviso "em revisão"`);
+    for (const label of classificationLabels) {
+      if (mainOf(html).includes(label))
+        fail(`/${p}: classificação institucional ("${label}") no cartão resumido`);
+    }
+    continue;
+  }
   if (declared !== confirmed) {
     fail(
       `/${p}: ${declared} declaração(ões) de independência para ${confirmed} projeto(s) confirmado(s)`,
     );
   }
   const underReview = (html.match(/data-project-nature="under-review"/g) ?? []).length;
-  const reviewNotices = (html.match(/data-notice="under-review"/g) ?? []).length;
   if (underReview !== reviewNotices) {
     fail(`/${p}: ${underReview} projeto(s) em revisão, ${reviewNotices} aviso(s) "em revisão"`);
   }
