@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="LiquidaJus">
+  <rect x="22.5" y="9" width="3" height="30" rx="1.5" fill="#16284a"/>
+  <circle cx="24" cy="8" r="3" fill="#c9a227"/>
+  <rect x="9" y="12" width="30" height="2.6" rx="1.3" fill="#16284a"/>
+  <path d="M14 13.5 L9.5 23 H18.5 Z" fill="#c9a227" opacity="0.9"/>
+  <path d="M34 13.5 L29.5 23 H38.5 Z" fill="#c9a227" opacity="0.9"/>
+  <path d="M9.5 23 a4.5 2 0 0 0 9 0" stroke="#16284a" stroke-width="1.4" fill="none"/>
+  <path d="M29.5 23 a4.5 2 0 0 0 9 0" stroke="#16284a" stroke-width="1.4" fill="none"/>
+  <rect x="16" y="38.5" width="16" height="3" rx="1.5" fill="#16284a"/>
+  <rect x="19" y="33" width="10" height="6" rx="1" fill="#16284a"/>
+</svg>

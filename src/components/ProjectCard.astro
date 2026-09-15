@@ -6,7 +6,9 @@
  * texto padrão da natureza. `variant="brief"` (projetos independentes, decisão
  * do titular em 14/09/2026) mostra só situação, papel e acesso público.
  */
+import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
+import { PROJECT_LOGOS } from '@/lib/project-logos';
 import { route, type Lang } from '@/i18n/routes';
 import { useTranslations, type UiKey } from '@/i18n/ui';
 import { formatDate, label, pick } from '@/lib/data';
@@ -29,12 +31,16 @@ const Heading = headingLevel;
 const reg = p.institutionalRegistration;
 const notice = p.disclaimer ? pick(p.disclaimer, lang) : t(projectNoticeKey(p.nature));
 const noticeKind = p.nature === 'under-review' ? 'under-review' : p.nature;
+const logo = PROJECT_LOGOS[p.slug];
 ---
 
 <li class="card project" id={p.slug} data-project-nature={p.nature}>
   <div class="project-head">
-    <p class="eyebrow">{pick(p.kind, lang)}</p>
-    <Heading>{pick(p.name, lang)}</Heading>
+    {logo && <Image class="project-logo" src={logo} alt="" width={64} height={64} loading="lazy" />}
+    <div>
+      <p class="eyebrow">{pick(p.kind, lang)}</p>
+      <Heading>{pick(p.name, lang)}</Heading>
+    </div>
   </div>
   <p class="prose">{pick(p.summary, lang)}</p>
 
@@ -43,7 +49,7 @@ const noticeKind = p.nature === 'under-review' ? 'under-review' : p.nature;
       {notice}
     </p>
   )}
-  {isLegalProject(p) && (
+  {full && isLegalProject(p) && (
     <p class="notice info" data-notice="legal">
       {t('notice.legal')}
     </p>
@@ -157,8 +163,30 @@ const noticeKind = p.nature === 'under-review' ? 'under-review' : p.nature;
     font-size: var(--text-xl);
     margin: 0;
   }
+  .project-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
   .project-head .eyebrow {
     margin-bottom: var(--space-1);
+  }
+  .project-logo {
+    flex: none;
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    border-radius: 22%;
+  }
+  :global(:root[data-theme='dark']) .project-logo {
+    background: #fff;
+    padding: 0.35rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .project-logo {
+      background: #fff;
+      padding: 0.35rem;
+    }
   }
   .project .prose {
     margin: 0;

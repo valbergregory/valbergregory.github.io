@@ -45,3 +45,12 @@ images:
     consentVerified: false # sem termo de autorização arquivado (legal-review-needed.yml › autorizacao-imagem-mosaico)
     consentRecordPrivateId: null
     officialSource: false
+  - file: src/assets/projetos/patacidada.png
+    creator: 'Ícone oficial do PataCidadã (marca do projeto do titular); fundo branco removido em 14/09/2026'
+    source: 'Acervo do projeto (Software - Redepatas/design/marca/icone_app.png)'
+    license: 'Todos os direitos reservados (marca do titular)'
+    peopleIdentifiable: false
+    subjects: []
+    consentVerified: true # não há pessoa retratada
+    consentRecordPrivateId: null
+    officialSource: false
