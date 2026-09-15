@@ -55,7 +55,7 @@ const ui = {
     'exams.cv': 'Ver no currículo',
     'home.closing': 'Diálogo e colaboração',
     'home.closing.text':
-      'Tenho interesse em colaboração acadêmica, orientação e diálogo com estudantes, projetos interdisciplinares e parcerias institucionais que usem dados públicos para responder a perguntas concretas.',
+      'Tenho interesse em colaboração acadêmica, projetos interdisciplinares e parcerias institucionais que usem dados públicos para responder a perguntas concretas.',
     'home.closing.cta': 'Contato institucional',
     'research.title': 'Pesquisa',
     'research.lead':
@@ -455,7 +455,7 @@ const ui = {
     'exams.cv': 'See in the CV',
     'home.closing': 'Dialogue and collaboration',
     'home.closing.text':
-      'I welcome academic collaboration, student supervision and dialogue, interdisciplinary projects and institutional partnerships that use public data to answer concrete questions.',
+      'I welcome academic collaboration, interdisciplinary projects and institutional partnerships that use public data to answer concrete questions.',
     'home.closing.cta': 'Institutional contact',
     'research.title': 'Research',
     'research.lead':
