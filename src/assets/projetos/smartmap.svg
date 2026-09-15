@@ -1,8 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="SmartMap Educação">
-  <rect width="64" height="64" rx="14" fill="#1e3a8a"/>
-  <g transform="translate(12 12) scale(1.6667)" fill="none" stroke="#93bbfd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/>
-    <circle cx="12" cy="8" r="2"/>
-    <path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/>
+  <!-- Reprodução vetorial do símbolo oficial (pino de localização sobre mapa dobrado), enviado pelo titular em 15/09/2026. -->
+  <g fill="none" stroke="#1b3fe6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- mapa dobrado -->
+    <path d="M19.5 37.5 H44.5 a3 3 0 0 1 2.8 2 L52 52.5 a2.5 2.5 0 0 1 -2.4 3.3 H14.4 A2.5 2.5 0 0 1 12 52.5 L16.7 39.5 a3 3 0 0 1 2.8 -2 Z"/>
+    <path d="M27 38 L22 46 L28.5 55.5"/>
+    <path d="M45 40 L38.5 48 L42 55.5"/>
   </g>
+  <!-- pino (preenchido de branco para cobrir a borda superior do mapa) -->
+  <path d="M32 44.5 C25.5 36.5 21 31 21 24.5 a11 11 0 0 1 22 0 C43 31 38.5 36.5 32 44.5 Z" fill="#ffffff" stroke="#1b3fe6" stroke-width="3.2" stroke-linejoin="round"/>
+  <circle cx="32" cy="24.5" r="4.2" fill="none" stroke="#1b3fe6" stroke-width="3.2"/>
 </svg>
