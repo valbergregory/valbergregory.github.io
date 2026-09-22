@@ -131,8 +131,10 @@ groups:
           pt: Possível enquadramento no Grupo 4 apenas para ações registradas antes da execução.
           en: Possible fit under Group 4 only for actions registered before execution.
         evidence:
-          - label: Extensão universitária
-            path: outreach
+          # Seção Extensão fora do ar desde 22/09/2026; ao reativar, voltar para
+          # label: Extensão universitária / path: outreach
+          - label: Projetos independentes
+            path: independent
         evidenceStatus: pending
   - key: gestao-representacao
     number: 5

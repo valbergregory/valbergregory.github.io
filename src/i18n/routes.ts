@@ -71,7 +71,8 @@ export const NAV_ORDER: RouteKey[] = [
   'about',
   'teaching',
   'research',
-  'outreach',
+  // 'outreach' — Extensão universitária FORA DO AR desde 22/09/2026 (pedido do Valber;
+  // páginas em src/pages/_extensao.astro e en/_outreach.astro — tirar o "_" e voltar este item).
   'publications',
   'scienceOutreach',
   'cv',
