@@ -8,9 +8,9 @@
   color-scheme: light;
 
   /* Superfícies */
-  --bg: #faf8f4;
+  --bg: #fdfdfb;
   --bg-elevated: #ffffff;
-  --bg-muted: #f1eee7;
+  --bg-muted: #f4f3ef;
   --bg-inverse: #14284b;
 
   /* Texto */
@@ -34,7 +34,7 @@
   --link: var(--navy);
   --link-hover: var(--teal);
   --accent: var(--teal);
-  --border: #d8d3c8;
+  --border: #dedbd3;
   --border-strong: #b9b2a3;
   --focus: #b45309;
   --focus-ring: 0 0 0 3px var(--bg), 0 0 0 6px var(--focus);
