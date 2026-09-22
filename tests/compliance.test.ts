@@ -72,13 +72,13 @@ describe('navegação', () => {
       'about',
       'teaching',
       'research',
-      'outreach',
       'publications',
       'scienceOutreach',
       'cv',
       'contact',
     ]);
     expect(NAV_ORDER).not.toContain('independent');
+    expect(NAV_ORDER).not.toContain('outreach'); // seção suspensa em 22/09/2026
     expect(ROUTES.independent['pt-br']).toBe('/projetos-independentes/');
     expect(ROUTES.legal.en).toBe('/en/legal-notice/');
   });

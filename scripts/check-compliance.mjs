@@ -69,7 +69,6 @@ const noticePages = [
   'contato',
   'curriculo',
   'projetos-independentes',
-  'extensao',
   'atuacao-academica',
   'divulgacao-cientifica',
   'en',
@@ -77,7 +76,6 @@ const noticePages = [
   'en/contact',
   'en/cv',
   'en/independent-projects',
-  'en/outreach',
   'en/academic-activity',
   'en/science-outreach',
 ];
@@ -161,7 +159,8 @@ const independentPhrase = [
 ];
 const classificationLabels = ['Relação com a UFAL', 'Relationship with UFAL'];
 const briefPages = new Set(['projetos-independentes', 'en/independent-projects']);
-for (const p of ['projetos-independentes', 'en/independent-projects', 'extensao', 'en/outreach']) {
+// 'extensao' e 'en/outreach' fora do ar desde 22/09/2026 — recolocar ao reativar a seção.
+for (const p of ['projetos-independentes', 'en/independent-projects']) {
   const html = await page(p);
   const confirmed = (html.match(/data-project-nature="independent"/g) ?? []).length;
   const declared = independentPhrase.reduce((n, s) => n + (html.split(s).length - 1), 0);
