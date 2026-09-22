@@ -47,6 +47,10 @@ const crumbs = [
   <div class="container page-body">
     <InstitutionalNotice {lang} />
     <p class="prose intro">{t('extension.criteria')}</p>
+    <p class="prose intro">
+      {t('extension.followUfal')}{' '}
+      <a href="https://ufal.br/ufal/extensao" rel="noopener">{t('extension.followUfalLink')}</a>.
+    </p>
 
     {actions.length > 0 ? (
       <ul class="projects">

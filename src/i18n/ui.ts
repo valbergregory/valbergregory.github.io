@@ -316,6 +316,8 @@ const ui = {
       'Só entram aqui ações com registro institucional informado: número público, órgão emissor e data. Iniciativas sem registro — mesmo derivadas da pesquisa ou do ensino — ficam em Projetos independentes ou nos produtos previstos das pesquisas, sem a designação de extensão.',
     'extension.none':
       'Nenhuma ação de extensão registrada foi informada até a última revisão deste site. Assim que houver registro, a ação será listada com o identificador público.',
+    'extension.followUfal': 'A extensão universitária pode ser acompanhada no site da UFAL:',
+    'extension.followUfalLink': 'Extensão e Cultura — UFAL',
     'extension.seeIndependent': 'Ver projetos independentes (classificação em revisão)',
     'extension.seeResearch': 'Ver produtos aplicados previstos nas pesquisas',
     'science.lead':
@@ -716,6 +718,8 @@ const ui = {
       'Only actions with a reported institutional registration are listed here: public number, issuing body and date. Initiatives without registration — even those derived from research or teaching — remain under Independent projects or among the planned products of research, without the outreach designation.',
     'extension.none':
       'No registered outreach action had been reported as of the last revision of this site. As soon as a registration exists, the action will be listed with its public identifier.',
+    'extension.followUfal': 'UFAL outreach (extension) activities can be followed on the university website:',
+    'extension.followUfalLink': 'Extensão e Cultura — UFAL (in Portuguese)',
     'extension.seeIndependent': 'See independent projects (classification under review)',
     'extension.seeResearch': 'See planned applied products of the research projects',
     'science.lead':
