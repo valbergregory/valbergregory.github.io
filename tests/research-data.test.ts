@@ -22,8 +22,8 @@ const whitelist = JSON.parse(readFileSync('src/data/github-whitelist.json', 'utf
 const PRIVATE_REPO = 'Port-Network-Resilience';
 
 describe('research.yml', () => {
-  it('tem 16 projetos com slugs únicos', () => {
-    expect(research).toHaveLength(16);
+  it('tem 19 projetos com slugs únicos', () => {
+    expect(research).toHaveLength(19);
     const slugs = research.map((p) => p.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
   });

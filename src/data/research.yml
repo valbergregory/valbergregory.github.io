@@ -209,6 +209,125 @@
   allowAutomaticMetadata: true
   lastEditorialReview: '2026-09-12'
 
+# Artigos derivados da tese de doutorado (PPGE/UFPB, 2023), em pré-submissão (22/09/2026).
+# Resultados NÃO são divulgados aqui (avaliação cega); repositório de replicação ainda privado.
+- slug: proinfo-integrado-laboratorios
+  title: 'Laboratórios de informática e desempenho escolar no Brasil: uma reavaliação do ProInfo Integrado'
+  alternativeTitle: 'Computer laboratories and school achievement in Brazil: a reassessment of ProInfo Integrado'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-politicas-publicas
+  status: pre-submissao
+  summary:
+    pt: A instalação de laboratórios de informática pelo ProInfo Integrado, que chegou a cerca de 89,5 mil escolas públicas entre 2007 e 2019, elevou o desempenho escolar? Artigo derivado da tese de doutorado, que reavalia o programa com diferenças em diferenças escalonadas e discute a sensibilidade desse desenho quando a adoção é quase universal.
+    en: Did the installation of computer laboratories by ProInfo Integrado, which reached about 89,500 Brazilian public schools between 2007 and 2019, raise school achievement? A paper derived from the doctoral thesis that reassesses the programme with staggered difference-in-differences and discusses how sensitive this design becomes when adoption is nearly universal.
+  researchQuestion:
+    pt: A instalação de laboratórios de informática pelo ProInfo Integrado elevou o Ideb e as notas do Saeb das escolas públicas atendidas?
+    en: Did the installation of computer laboratories by ProInfo Integrado raise the Ideb index and Saeb scores of the public schools it reached?
+  motivation:
+    pt: O Brasil investiu por mais de uma década na informatização das escolas públicas. Saber se esse investimento se traduziu em aprendizagem, e com que grau de confiança, orienta novas rodadas de política de tecnologia educacional.
+    en: Brazil invested for more than a decade in equipping public schools with computers. Knowing whether that investment translated into learning, and with what degree of confidence, informs new rounds of educational-technology policy.
+  dataSources:
+    pt:
+      - Registros administrativos do FNDE sobre a entrega e a instalação dos laboratórios
+      - Censo Escolar, Ideb e Saeb (Inep), painéis de escolas dos anos iniciais e finais do ensino fundamental
+    en:
+      - FNDE administrative records on laboratory delivery and installation
+      - School Census, Ideb and Saeb (Inep), panels of primary and lower-secondary schools
+  methods:
+    pt:
+      - Diferenças em diferenças com adoção escalonada (Callaway e Sant'Anna), com escolas ainda não tratadas como comparação
+      - Análise de sensibilidade (HonestDiD), placebos e definições alternativas da data de tratamento
+    en:
+      - Staggered-adoption difference-in-differences (Callaway and Sant'Anna) with not-yet-treated schools as controls
+      - Sensitivity analysis (HonestDiD), placebos and alternative treatment-timing definitions
+  methodTags: [painel, did, estudo-de-eventos]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - Manuscrito em pré-submissão; os resultados serão divulgados após a avaliação por pares.
+    en:
+      - Manuscript at the pre-submission stage; results will be released after peer review.
+  implications:
+    pt:
+      - Avaliação de programas de tecnologia educacional e do custo de oportunidade dos equipamentos.
+      - Cuidados no uso de diferenças em diferenças escalonadas sob adoção quase universal.
+    en:
+      - Evaluation of educational-technology programmes and of the opportunity cost of equipment.
+      - Caveats for staggered difference-in-differences under near-universal adoption.
+  extensionProducts:
+    pt:
+      - Material didático sobre avaliação de políticas educacionais para as disciplinas de Economia
+    en:
+      - Teaching material on education-policy evaluation for Economics courses
+  repository: null
+  repositoryVisibility: none
+  languages: [R, LaTeX]
+  outputTypes: [artigo]
+  codeAvailable: false
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: false
+  lastEditorialReview: '2026-09-22'
+
+- slug: prouca-laptops-desempenho
+  title: "Brazil's One Computer per Student Programme and school achievement: evidence from the 2010 laptop distribution"
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-politicas-publicas
+  status: pre-submissao
+  summary:
+    pt: A distribuição de 143 mil laptops a 367 escolas públicas pelo Programa Um Computador por Aluno (Prouca), em 2010, melhorou o desempenho dos alunos? Artigo derivado da tese de doutorado, que estima o efeito da participação no programa sobre o Ideb, as notas do Saeb e as taxas de rendimento.
+    en: Did the distribution of 143,000 laptops to 367 public schools by Brazil's One Computer per Student Programme (Prouca) in 2010 improve pupil achievement? A paper derived from the doctoral thesis that estimates the effect of programme participation on the Ideb index, Saeb scores and progression rates.
+  researchQuestion:
+    pt: A participação no Prouca alterou o Ideb, as notas de matemática e língua portuguesa do Saeb e as taxas de aprovação, reprovação e abandono das escolas atendidas?
+    en: Did participation in Prouca change the Ideb index, Saeb mathematics and Portuguese scores and the approval, retention and dropout rates of the schools involved?
+  motivation:
+    pt: Governos de países de renda média continuam comprando dispositivos individuais para estudantes, embora a evidência sobre ganhos de aprendizagem seja mista. O Prouca é um caso brasileiro de grande escala para testar essa aposta.
+    en: Governments in middle-income countries keep buying personal devices for pupils although the evidence on learning gains is mixed. Prouca is a large-scale Brazilian case for testing that bet.
+  dataSources:
+    pt:
+      - Lista de escolas participantes e quantidade de laptops entregues (Prouca, 2010)
+      - Censo Escolar, Ideb, Saeb e taxas de rendimento (Inep), 2005–2015
+    en:
+      - List of participating schools and number of laptops delivered (Prouca, 2010)
+      - School Census, Ideb, Saeb and progression rates (Inep), 2005–2015
+  methods:
+    pt:
+      - Diferenças em diferenças com efeitos fixos de escola e ano, balanceamento por entropia e pareamento
+      - Placebos pré-programa, estudo de eventos, ajuste para testes múltiplos e relação dose-resposta
+    en:
+      - Difference-in-differences with school and year fixed effects, entropy balancing and matching
+      - Pre-programme placebos, event study, multiple-testing adjustment and dose-response analysis
+  methodTags: [painel, did, efeitos-fixos, estudo-de-eventos]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - Manuscrito em pré-submissão; os resultados serão divulgados após a avaliação por pares.
+    en:
+      - Manuscript at the pre-submission stage; results will be released after peer review.
+  implications:
+    pt:
+      - Desenho de programas de dispositivos individuais (conectividade, manutenção e integração pedagógica).
+      - Custo de oportunidade dos recursos aplicados em equipamentos.
+    en:
+      - Design of one-to-one device programmes (connectivity, maintenance and pedagogical integration).
+      - Opportunity cost of resources spent on equipment.
+  extensionProducts:
+    pt:
+      - Material didático sobre avaliação de políticas educacionais para as disciplinas de Economia
+    en:
+      - Teaching material on education-policy evaluation for Economics courses
+  repository: null
+  repositoryVisibility: none
+  languages: [R, LaTeX]
+  outputTypes: [artigo]
+  codeAvailable: false
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: false
+  lastEditorialReview: '2026-09-22'
+
 # ---------------------------------------------------------------------------
 # 6.2 Economia do Direito e Jurimetria
 # ---------------------------------------------------------------------------
@@ -624,7 +743,7 @@
   authors:
     - Valber Gregory Barbosa Costa Bezerra Santos
   track: economia-turismo
-  status: redacao
+  status: pre-submissao
   summary:
     pt: Qual é o papel da distância, da conectividade aérea e da competitividade de preços na demanda internacional de turismo para o Brasil? Painel mensal de 2000 a 2025 com 87 origens e modelos gravitacionais estimados por PPML.
     en: What is the role of distance, air connectivity and price competitiveness in international tourism demand for Brazil? Monthly panel from 2000 to 2025 with 87 origin countries and gravity models estimated by PPML.
@@ -652,10 +771,10 @@
   showPreliminaryFindings: false
   limitations:
     pt:
-      - Manuscrito em desenvolvimento; a redação dos resultados ainda não foi concluída.
+      - Manuscrito em pré-submissão; os resultados serão divulgados após a avaliação por pares.
       - Os dados brutos não são redistribuídos; o pipeline os baixa das fontes oficiais.
     en:
-      - Manuscript in development; the write-up of results is not complete.
+      - Manuscript at the pre-submission stage; results will be released after peer review.
       - Raw data are not redistributed; the pipeline downloads them from the official sources.
   implications:
     pt:
@@ -1026,3 +1145,61 @@
   featured: false
   allowAutomaticMetadata: true
   lastEditorialReview: '2026-09-12'
+
+- slug: pix-regulation-fraud
+  title: 'Regulatory Interventions, Fraud, and Pix Diffusion: A Time-Series Analysis of Security Measures'
+  authors:
+    - Valber Gregory Barbosa Costa Bezerra Santos
+  track: economia-digital-direito-digital
+  status: pre-submissao
+  summary:
+    pt: As medidas de segurança do Pix estão associadas a mudanças na incidência e na gravidade das fraudes registradas, na recuperação de valores e na intensidade de uso do sistema? Séries mensais públicas do Banco Central analisadas com séries temporais interrompidas e modelos ARIMAX.
+    en: Are Pix security regulations associated with changes in the incidence and severity of recorded fraud, fund recovery and the intensity of system use? Monthly public series from the Central Bank analysed with interrupted time series and ARIMAX models.
+  researchQuestion:
+    pt: As intervenções regulatórias de segurança do Pix estão associadas a mudanças na incidência relativa e na gravidade financeira das fraudes, na recuperação de valores e no uso do sistema?
+    en: Are Pix security interventions associated with changes in the relative incidence and financial severity of fraud, in fund recovery and in system use?
+  motivation:
+    pt: O Pix popularizou os pagamentos instantâneos no Brasil e, com eles, os golpes em que a própria vítima autoriza a transferência. O Banco Central respondeu com uma sequência de regras de segurança; medir sua associação com fraude e uso ajuda a calibrar a regulação sem frear a difusão.
+    en: Pix made instant payments widespread in Brazil and, with them, scams in which the victim authorises the transfer. The Central Bank responded with a sequence of security rules; measuring their association with fraud and use helps calibrate regulation without slowing diffusion.
+  dataSources:
+    pt:
+      - Estatísticas mensais do Pix e do Mecanismo Especial de Devolução (dados abertos do Banco Central do Brasil)
+      - Cronologia das intervenções regulatórias de segurança, conferida em fonte oficial
+    en:
+      - Monthly Pix and Special Return Mechanism (MED) statistics (Banco Central do Brasil open data)
+      - Chronology of security interventions, checked against official sources
+  methods:
+    pt:
+      - Auditoria de mensuração das séries públicas
+      - Séries temporais interrompidas e modelos ARIMAX, condicionados ao comprimento e à comparabilidade das séries
+    en:
+      - Measurement audit of the public series
+      - Interrupted time series and ARIMAX models, conditional on series length and comparability
+  methodTags: [series-temporais]
+  showPreliminaryFindings: false
+  limitations:
+    pt:
+      - Manuscrito em pré-submissão; os resultados serão divulgados após a avaliação por pares.
+      - As séries públicas comparáveis são curtas; análises com menos de 12 meses antes e depois de cada intervenção são tratadas como exploratórias.
+    en:
+      - Manuscript at the pre-submission stage; results will be released after peer review.
+      - Comparable public series are short; analyses with fewer than 12 months before and after an intervention are treated as exploratory.
+  implications:
+    pt:
+      - Desenho e avaliação de regras de segurança em pagamentos instantâneos.
+    en:
+      - Design and evaluation of security rules for instant payments.
+  extensionProducts:
+    pt:
+      - Material didático sobre regulação de pagamentos e sistemas de informação
+    en:
+      - Teaching material on payments regulation and information systems
+  repository: null
+  repositoryVisibility: none
+  languages: [R, LaTeX]
+  outputTypes: [artigo]
+  codeAvailable: false
+  dataAvailable: false
+  featured: false
+  allowAutomaticMetadata: false
+  lastEditorialReview: '2026-09-22'
