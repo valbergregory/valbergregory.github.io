@@ -42,7 +42,7 @@ jobs:
       # Mantém o último JSON válido entre execuções, para que uma falha da
       # API do GitHub não deixe o site sem metadados.
       - name: Restaurar cache de metadados do GitHub
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: src/generated/github-projects.json
           key: github-projects-${{ github.run_id }}
@@ -55,7 +55,7 @@ jobs:
         run: npm run sync:github
 
       - name: Salvar cache de metadados do GitHub
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         if: always()
         with:
           path: src/generated/github-projects.json
