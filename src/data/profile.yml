@@ -323,6 +323,14 @@ publicExamsIntro:
     in the National Judiciary Examination (ENAM). I still sit public examinations and follow calls,
     examination boards and the structuring of public careers, which keeps alive my interest in
     evaluation, management and personnel policy in the public sector.
+# Resumo curto usado na página inicial (a lista completa fica no currículo).
+publicExamsSummary:
+  pt: >-
+    Aprovado em oito concursos públicos — três deles em primeiro lugar — e habilitado no
+    Exame Nacional da Magistratura (ENAM).
+  en: >-
+    Passed eight public service examinations — three of them in first place — and certified in the
+    National Judiciary Examination (ENAM).
 publicExams:
   - place: 1
     role:

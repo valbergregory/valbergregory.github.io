@@ -92,6 +92,7 @@ const profileSchema = z.object({
   ),
   tools: z.array(z.string()),
   publicExamsIntro: bilingual,
+  publicExamsSummary: bilingual,
   publicExams: z.array(
     z.object({
       place: z.number().int().positive(),

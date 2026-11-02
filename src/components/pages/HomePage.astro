@@ -6,7 +6,6 @@ import Icon from '@/components/Icon.astro';
 import NetworkDecor from '@/components/NetworkDecor.astro';
 import ResearchCard from '@/components/ResearchCard.astro';
 import RepoMeta from '@/components/RepoMeta.astro';
-import ExamsList from '@/components/ExamsList.astro';
 import portrait from '@/assets/valber-portrait.jpg';
 import { alternates, route, type Lang } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/ui';
@@ -268,12 +267,12 @@ const roles = [
   </section>
 
   <section class="section exams-section" aria-labelledby="exams-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="exams-title">{t('exams.title')}</h2>
-        <p class="lead">{pick(profile.publicExamsIntro, lang)}</p>
-      </div>
-      <ExamsList {lang} compact />
+    <div class="container exams-note">
+      <h2 id="exams-title" class="exams-heading">{t('exams.title')}</h2>
+      <p class="small muted">
+        {pick(profile.publicExamsSummary, lang)}{' '}
+        <a href={`${route('cv', lang)}#exams-title`}>{t('exams.cv')}</a>
+      </p>
     </div>
   </section>
 
@@ -600,8 +599,20 @@ const roles = [
   .two-col .prose {
     margin-inline: auto;
   }
-  .exams-section .lead {
-    max-width: 72ch;
+  /* Concursos: só um resumo discreto na inicial; a lista completa fica no currículo (pedido de 02/11/2026). */
+  .exams-section {
+    padding-block: var(--space-5);
+  }
+  .exams-note {
+    text-align: center;
+    max-width: 60ch;
+  }
+  .exams-heading {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
+  }
+  .exams-note p {
+    margin: 0;
   }
 
   .closing {

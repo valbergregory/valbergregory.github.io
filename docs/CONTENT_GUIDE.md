@@ -186,7 +186,7 @@ A busca (`/busca/`) usa o Pagefind: o índice é gerado no build a partir do con
 
 ## Perfil, vínculos e formação
 
-Tudo em `src/data/profile.yml`: nome, posicionamento, e-mail institucional, links (GitHub, LinkedIn, Lattes, ORCID, Google Scholar), vínculos (`roles`), formação (`education`), linhas de pesquisa (`researchLines`), ferramentas (`tools`) e aprovações em concursos públicos (`publicExams`, com `place`, `role` bilíngue, `institution` e `notice`; o texto introdutório fica em `publicExamsIntro`). A lista aparece na página inicial e no currículo, ordenada pela colocação.
+Tudo em `src/data/profile.yml`: nome, posicionamento, e-mail institucional, links (GitHub, LinkedIn, Lattes, ORCID, Google Scholar), vínculos (`roles`), formação (`education`), linhas de pesquisa (`researchLines`), ferramentas (`tools`) e aprovações em concursos públicos (`publicExams`, com `place`, `role` bilíngue, `institution` e `notice`; o texto introdutório fica em `publicExamsIntro` e o resumo de uma frase em `publicExamsSummary`). A lista completa aparece só no currículo (HTML e PDF), ordenada pela colocação; a página inicial mostra apenas o resumo com link para o currículo.
 
 ## Destaque de fundador (hero) e startups
 
