@@ -28,25 +28,31 @@
     en: Education cuts are often defended as immediate fiscal adjustment, yet education spending builds human capital that raises wages and the tax base in the future. Measuring this dynamic return helps assess whether educational austerity pays for itself or costs more than it saves.
   dataSources:
     pt:
-      - Painel das 27 unidades da federação (gasto em educação, salários regionais e arrecadação)
+      - 'Painel calibrado (simulado, com semente fixa) das 27 unidades da federação, 2010–2022: salário médio, gasto em educação per capita e PIB per capita'
+      - 'Coleta opcional de séries oficiais: IPCA (BCB/SGS 433), PIB, população e rendimento estaduais (SIDRA/IBGE, tabelas 5938, 6579 e 7453) e despesa estadual em educação (SICONFI/Tesouro Nacional, RREO Anexo 02)'
       - Parâmetros calibrados para a economia brasileira no modelo DSGE
     en:
-      - Panel of the 27 Brazilian states (education spending, regional wages and tax revenue)
+      - 'Calibrated (simulated, fixed-seed) panel of the 27 Brazilian states, 2010–2022: average wage, education spending per capita and GDP per capita'
+      - 'Optional collection of official series: IPCA (BCB/SGS 433), state GDP, population and income (SIDRA/IBGE tables 5938, 6579 and 7453) and state education expenditure (SICONFI/National Treasury, RREO Annex 02)'
       - Parameters calibrated to the Brazilian economy in the DSGE model
   methods:
     pt:
-      - Econometria de dados em painel
-      - Modelo DSGE fiscal com capital humano e simulação de choques de gasto
+      - Econometria de dados em painel (efeitos fixos bidirecionais, erros-padrão de Driscoll–Kraay, teste de Hausman)
+      - Bootstrap de elasticidades por UF e encolhimento empírico-bayesiano (James–Stein) em direção à elasticidade regional
+      - Modelo DSGE fiscal com capital humano resolvido por previsão perfeita não linear; cenários de corte de gasto, efeito Laffer, bem-estar e desigualdade regional
     en:
-      - Panel-data econometrics
-      - Fiscal DSGE model with human capital and simulation of spending shocks
+      - Panel-data econometrics (two-way fixed effects, Driscoll–Kraay standard errors, Hausman test)
+      - Bootstrap of state-level elasticities and empirical-Bayes (James–Stein) shrinkage toward the regional elasticity
+      - Fiscal DSGE model with human capital solved by non-linear perfect foresight; spending-cut scenarios, Laffer effect, welfare and regional inequality
   methodTags: [painel, dsge, efeitos-fixos]
   showPreliminaryFindings: false
   limitations:
     pt:
       - O modelo depende de calibração; os resultados quantitativos são sensíveis aos parâmetros de formação de capital humano.
+      - A base empírica padrão é calibrada/simulada; a coleta de séries oficiais via API está implementada apenas no porte R, como opção, e os códigos de tabela do SIDRA/SICONFI exigem conferência.
     en:
       - The model relies on calibration; quantitative results are sensitive to the human-capital formation parameters.
+      - The default empirical dataset is calibrated/simulated; official-series collection through public APIs is implemented only in the R port, as an option, and the SIDRA/SICONFI table codes need checking.
   implications:
     pt:
       - Avaliação de regras fiscais e de pisos constitucionais para a educação.
@@ -61,13 +67,13 @@
       - Teaching material on fiscal policy and human capital for Economics courses
   repository: https://github.com/valbergregory/artigo-dsge-educacao
   repositoryVisibility: public
-  languages: [Python, LaTeX]
+  languages: [Python, R, LaTeX]
   outputTypes: [artigo]
   codeAvailable: true
   dataAvailable: false
   featured: false
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-12'
+  lastEditorialReview: '2026-11-02'
 
 - slug: transmissao-precos-leite
   title: Transmissão de Preços do Leite ao Produtor entre Regiões Brasileiras
@@ -89,29 +95,33 @@
     en: Milk is produced in almost every Brazilian state, yet price formation is regionally uneven. Knowing which markets lead and how fast the others react informs supply, rural credit and competition policies.
   dataSources:
     pt:
-      - Preços mensais ao produtor por estado (CEPEA/ESALQ-USP), 2016–2026
-      - Deflacionamento pelo IPCA (IBGE)
+      - Preços mensais ao produtor por estado (CEPEA/ESALQ-USP), jan/2016–abr/2026; 9 regiões com cobertura completa (Média Brasil, BA, ES, GO, MG, PR, RJ, SC e SP)
+      - Deflacionamento pelo IPCA (IBGE), número-índice obtido pela API do IPEA
     en:
-      - Monthly farm-gate prices by state (CEPEA/ESALQ-USP), 2016–2026
-      - Deflation by the IPCA consumer price index (IBGE)
+      - Monthly farm-gate prices by state (CEPEA/ESALQ-USP), Jan 2016–Apr 2026; 9 regions with full coverage (Brazil average, BA, ES, GO, MG, PR, RJ, SC and SP)
+      - Deflation by the IPCA consumer price index (IBGE), index series obtained from the IPEA API
   methods:
     pt:
-      - Testes de raiz unitária e cointegração
-      - Modelo vetorial de correção de erros (VECM) e versão com limiar (TVECM) para assimetrias
-      - Causalidade de Granger
+      - Testes de raiz unitária e cointegração (ADF, PP, KPSS; Johansen e Phillips–Ouliaris)
+      - Modelo de correção de erros simétrico e assimétrico e cointegração com limiar (M-TAR)
+      - VECM com limiar (TVECM) com o teste de Hansen e Seo
+      - Causalidade de Granger e VAR com funções impulso-resposta e decomposição da variância
     en:
-      - Unit-root and cointegration tests
-      - Vector error-correction model (VECM) and threshold version (TVECM) for asymmetries
-      - Granger causality
+      - Unit-root and cointegration tests (ADF, PP, KPSS; Johansen and Phillips–Ouliaris)
+      - Symmetric and asymmetric error-correction models and M-TAR threshold cointegration
+      - Threshold VECM (TVECM) with the Hansen–Seo test
+      - Granger causality and VAR with impulse-response functions and forecast-error variance decomposition
   methodTags: [series-temporais, cointegracao]
   showPreliminaryFindings: false
   limitations:
     pt:
       - Preços estaduais agregam heterogeneidade dentro de cada estado.
       - Quebras estruturais (pandemia, choques de custo) exigem tratamento explícito.
+      - Ceará e Mato Grosso do Sul ficam fora da análise por séries incompletas; meses isolados faltantes em BA, ES e RJ são interpolados.
     en:
       - State-level prices aggregate heterogeneity within each state.
       - Structural breaks (pandemic, cost shocks) require explicit treatment.
+      - Ceará and Mato Grosso do Sul are left out because of incomplete series; isolated missing months in BA, ES and RJ are interpolated.
   implications:
     pt:
       - Identificação de mercados líderes para monitoramento de preços.
@@ -132,7 +142,7 @@
   dataAvailable: true
   featured: false
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-11-02'
 
 - slug: ia-produtividade-tribunais
   title: 'Inteligência Artificial e Produtividade no Setor Público: Evidências dos Tribunais de Justiça Brasileiros'
@@ -154,20 +164,22 @@
     en: Brazilian courts adopted AI tools at different paces since 2018. This variation over time makes it possible to test, with public administrative data, whether adoption shows up in aggregate productivity indicators — instead of assuming gains from use-case reports.
   dataSources:
     pt:
-      - Painel anual dos 27 Tribunais de Justiça (Justiça em Números, CNJ)
-      - Cronologia auditada da primeira adoção institucional de IA em cada tribunal
+      - Painel anual dos 27 Tribunais de Justiça, 2009–2025 (Justiça em Números, CNJ)
+      - Cronologia da primeira adoção institucional de IA em cada tribunal, com fonte, URL e grau de confiança por tribunal (CC BY 4.0, no repositório)
     en:
-      - Annual panel of the 27 state courts (Justiça em Números, CNJ)
-      - Audited timeline of the first institutional AI adoption in each court
+      - Annual panel of the 27 state courts, 2009–2025 (Justiça em Números, CNJ)
+      - Timeline of the first institutional AI adoption in each court, with source, URL and confidence level per court (CC BY 4.0, in the repository)
   methods:
     pt:
       - Efeitos fixos de tribunal e ano
       - Diferenças-em-diferenças escalonadas (estimadores robustos a heterogeneidade temporal)
       - Estudos de eventos e estimador de imputação
+      - Inferência para poucos clusters (CR2 e wild cluster bootstrap), definições alternativas da data de adoção, leave-one-tribunal-out e efeito mínimo detectável
     en:
       - Court and year fixed effects
       - Staggered difference-in-differences (estimators robust to treatment heterogeneity)
       - Event studies and imputation estimator
+      - Few-cluster inference (CR2 and wild cluster bootstrap), alternative adoption-date definitions, leave-one-court-out and minimum detectable effect
   methodTags: [painel, efeitos-fixos, did, estudo-de-eventos, imputacao]
   showPreliminaryFindings: true
   preliminaryFindings:
@@ -182,10 +194,12 @@
       - Indicadores agregados anuais são pouco sensíveis a ganhos concentrados em tarefas específicas.
       - A data de adoção oficial pode diferir da data de uso efetivo pelas unidades.
       - Um resultado nulo não é prova de que a IA não funciona; é ausência de efeito médio detectável com estes dados.
+      - Com apenas 27 tribunais, a inferência depende de correções para poucos clusters; para alguns tribunais a data de entrada em produção permanece incerta.
     en:
       - Annual aggregate indicators are not very sensitive to gains concentrated in specific tasks.
       - The official adoption date may differ from the date of effective use by units.
       - A null result is not proof that AI does not work; it is the absence of a detectable average effect with these data.
+      - With only 27 courts, inference relies on few-cluster corrections; for some courts the date of entry into production remains uncertain.
   implications:
     pt:
       - Avaliações de IA no Judiciário precisam de dados por tarefa e por unidade, e não apenas de indicadores agregados.
@@ -207,7 +221,7 @@
   featured: true
   featuredOrder: 1
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-12'
+  lastEditorialReview: '2026-11-02'
 
 # Artigos derivados da tese de doutorado (PPGE/UFPB, 2023), em pré-submissão (22/09/2026).
 # Resultados NÃO são divulgados aqui (avaliação cega); repositório de replicação ainda privado.
@@ -348,27 +362,33 @@
     en: Moral damages have no statutory schedule in Brazil. The dispersion of awards across similar cases affects predictability, incentives to litigate and equal treatment. Measuring that dispersion and its determinants is the first step to discussing it with evidence.
   dataSources:
     pt:
-      - Acórdãos públicos do Tribunal de Justiça do Distrito Federal e dos Territórios (2015–2025)
+      - Acórdãos públicos do Tribunal de Justiça do Distrito Federal e dos Territórios (API JurisDF, 2015–2025)
       - Extração estruturada de valores, matéria e características do caso a partir do texto
+      - Dados abertos do STJ (precedentes qualificados como calendário de eventos; íntegras e espelhos das 3ª e 4ª Turmas)
+      - IPCA e salário mínimo (séries SGS 433 e 1619 do Banco Central) para deflacionamento
     en:
-      - Public appellate decisions of the Federal District court (2015–2025)
+      - Public appellate decisions of the Federal District court (JurisDF API, 2015–2025)
       - Structured extraction of award values, subject matter and case characteristics from text
+      - STJ open data (qualified precedents as an event calendar; full texts and panel summaries of the 3rd and 4th Panels)
+      - IPCA and minimum wage (Central Bank SGS series 433 and 1619) for deflation
   methods:
     pt:
-      - Mineração de texto e extração de variáveis com validação manual
-      - Modelos de regressão para o valor da indenização e para a dispersão
+      - Mineração de texto e extração de valores por regras, com validação humana cega
+      - Regressão quantílica por tipo de lesão e estrato (Turmas Cíveis e Recursais) e modelo multinível para a parcela de variância atribuível a relator e órgão
+      - Estudo de eventos em torno dos precedentes qualificados do STJ
     en:
-      - Text mining and variable extraction with manual validation
-      - Regression models for award values and for dispersion
-  methodTags: [text-mining, painel]
+      - Text mining and rule-based value extraction, with blind human validation
+      - Quantile regression by type of harm and stratum (civil and small-claims appellate panels) and multilevel model for the share of variance attributable to rapporteur and panel
+      - Event study around qualified STJ precedents
+  methodTags: [text-mining, estudo-de-eventos]
   showPreliminaryFindings: false
   limitations:
     pt:
-      - A coleta ainda está em andamento; o extrator de variáveis está em validação.
-      - Apenas casos que chegaram à segunda instância são observados.
+      - A validação humana do extrator de valores (anotação cega de acórdãos) ainda está em curso; nenhum resultado é reportado antes dela.
+      - Apenas casos que chegaram à segunda instância são observados; as Turmas Recursais têm teto de 40 salários mínimos e composição distinta, por isso os estratos não são comparáveis causalmente.
     en:
-      - Data collection is still in progress; the variable extractor is under validation.
-      - Only cases that reached the appellate level are observed.
+      - Human validation of the value extractor (blind annotation of decisions) is still under way; no result is reported before it.
+      - Only cases that reached the appellate level are observed; small-claims appellate panels have a 40-minimum-wage cap and a different composition, so strata are not causally comparable.
   implications:
     pt:
       - Parâmetros empíricos para o debate sobre previsibilidade das indenizações.
@@ -383,14 +403,14 @@
       - Award-value lookup dashboard by subject matter (after validation)
   repository: https://github.com/valbergregory/Pricing-Non-Pecuniary-Harm
   repositoryVisibility: public
-  languages: [R]
+  languages: [R, SQL]
   outputTypes: [artigo, software]
   codeAvailable: true
   dataAvailable: false
   featured: true
   featuredOrder: 3
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-11-02'
 
 - slug: gatekeeping-the-quantum
   title: "Gatekeeping the Quantum: How Brazil's Superior Court of Justice Reviews Moral-Damages Awards"
@@ -409,23 +429,31 @@
     en: The STJ says it only reviews awards that are "derisory or exorbitant", but the line between re-examining facts (barred by Súmula 7) and a question of law is drawn case by case. Mapping that line with data shows what the rule does in practice.
   dataSources:
     pt:
-      - Metadados e textos de decisões do Superior Tribunal de Justiça sobre danos morais
+      - 'Portal de Dados Abertos do STJ: íntegras e metadados diários de decisões terminativas e acórdãos publicados no DJe (desde 2021), precedentes qualificados e acervo em tramitação'
+      - IPCA (IBGE/SIDRA, tabela 1737) para deflação dos valores
+      - Tabela Processual Unificada de assuntos (CNJ) para seleção por matéria
     en:
-      - Metadata and texts of Superior Court of Justice decisions on moral damages
+      - 'STJ Open Data Portal: full texts and daily metadata of terminative decisions and rulings published in the DJe (from 2021), qualified precedents and pending-docket snapshot'
+      - IPCA (IBGE/SIDRA, table 1737) to deflate award values
+      - CNJ unified subject table (TPU) for topic selection
   methods:
     pt:
-      - Censo e amostragem de decisões; classificação estruturada dos fundamentos
-      - Modelos para a probabilidade de conhecimento do recurso e de revisão do valor
+      - Censo dos metadados por família de assunto (TPU) e extração contextual de valores monetários nos textos, com anotação manual para medir a validade da extração
+      - 'Plano de análise pré-especificado: regressão quantílica, modelo hierárquico por tribunal de origem, regressão logística para a intervenção do STJ no valor, séries com quebras estruturais e estudo de evento, modelo preditivo com intervalos conformais'
     en:
-      - Census and sampling of decisions; structured classification of grounds
-      - Models for the probability of admitting the appeal and of revising the amount
-  methodTags: [text-mining, nlp]
+      - Metadata census by TPU subject family and contextual extraction of monetary values from the texts, with manual annotation to measure extraction validity
+      - 'Pre-specified analysis plan: quantile regression, hierarchical model by court of origin, logistic regression for STJ intervention in the amount, time series with structural breaks and an event study, predictive model with conformal intervals'
+  methodTags: [text-mining, nlp, series-temporais, estudo-de-eventos, ml-explicavel]
   showPreliminaryFindings: false
   limitations:
     pt:
-      - O protocolo de anotação das decisões ainda está em validação.
+      - O protocolo de anotação das decisões ainda está em validação; nenhuma estimação foi executada.
+      - O tribunal/UF de origem só é identificável em parte dos documentos (texto da decisão; o acervo em tramitação cobre apenas processos pendentes).
+      - O corpus do STJ é produto de filtros recursais e não representa as indenizações nacionais; o STJ raramente altera o valor.
     en:
-      - The decision annotation protocol is still under validation.
+      - The decision annotation protocol is still under validation; no estimation has been run.
+      - The court/state of origin can be identified only for part of the documents (from the decision text; the pending-docket dataset covers only pending cases).
+      - The STJ corpus is the product of appellate filters and does not represent national awards; the STJ rarely changes the amount.
   implications:
     pt:
       - Evidência sobre o papel dos filtros recursais na uniformização das indenizações.
@@ -444,7 +472,7 @@
   dataAvailable: false
   featured: false
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-12'
+  lastEditorialReview: '2026-11-02'
 
 - slug: geography-of-judicial-delay
   title: 'The Geography of Judicial Delay: Spatial Inequality and Procedural Trajectories in Brazil'
@@ -463,27 +491,31 @@
     en: Judicial delay is measured by national averages, but litigants live in a specific judicial district. Differences between neighbouring districts with similar structures point to institutional causes that management policies can address.
   dataSources:
     pt:
-      - Movimentações processuais públicas do DataJud (CNJ), com sondagem em 12 tribunais estaduais
-      - Características territoriais e institucionais das comarcas
+      - Movimentações processuais públicas do DataJud (CNJ), com sondagem em 12 tribunais estaduais (classes 7 e 436, coortes 2018–2023)
+      - Tabelas Processuais Unificadas do CNJ (movimentos, classes e complementos), base do dicionário movimento → estado
+      - Características territoriais e institucionais das comarcas (IBGE/SIDRA e malhas, Anatel, Justiça em Números)
     en:
-      - Public case-movement records from DataJud (CNJ), with a pilot in 12 state courts
-      - Territorial and institutional characteristics of judicial districts
+      - Public case-movement records from DataJud (CNJ), with a pilot in 12 state courts (classes 7 and 436, 2018–2023 cohorts)
+      - CNJ Unified Procedural Tables (movements, classes and complements), basis of the movement → state dictionary
+      - Territorial and institutional characteristics of judicial districts (IBGE/SIDRA and meshes, Anatel, Justiça em Números)
   methods:
     pt:
-      - Reconstrução de trajetórias processuais
+      - Reconstrução de trajetórias processuais a partir de um dicionário transparente TPU → estado (movimento, complemento, papel e confiança), com auditoria por tribunal e classe
       - Análise de sobrevivência e modelos espaciais
     en:
-      - Reconstruction of procedural trajectories
+      - Reconstruction of procedural trajectories from a transparent TPU → state dictionary (movement, complement, role and confidence), audited by court and class
       - Survival analysis and spatial models
   methodTags: [analise-espacial, sobrevivencia, painel]
   showPreliminaryFindings: false
   limitations:
     pt:
-      - A coleta ampla ainda não foi iniciada; o recorte de tribunais está em definição.
-      - A qualidade do registro de movimentações varia entre tribunais.
+      - A coleta ampla ainda não foi iniciada; o recorte A (TJCE e TJPE) foi recomendado e o piloto depende de autorização registrada.
+      - A qualidade do registro de movimentações varia entre tribunais e sistemas (SAJ, PJe, eproc, Projudi); a etapa de defesa só é mensurável onde a petição é tipada, e alguns tribunais não informam o município da unidade na maior parte dos documentos.
+      - A censura administrativa (data da última atualização) varia por tribunal.
     en:
-      - Large-scale collection has not started; the sample of courts is being defined.
-      - The quality of movement records varies across courts.
+      - Large-scale collection has not started; sample A (TJCE and TJPE) was recommended and the pilot depends on a recorded authorisation.
+      - The quality of movement records varies across courts and case-management systems (SAJ, PJe, eproc, Projudi); the defence stage is measurable only where the petition is typed, and some courts lack the unit's municipality in most documents.
+      - Administrative censoring (date of last update) varies by court.
   implications:
     pt:
       - Mapas de demora por comarca para gestão judiciária e políticas de acesso à Justiça.
@@ -502,7 +534,7 @@
   dataAvailable: false
   featured: false
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-11-02'
 
 - slug: binding-precedents
   title: 'Do Binding Precedents Actually Bind? Measuring Judicial Compliance and Diffusion Across Brazilian Courts'
@@ -521,25 +553,37 @@
     en: The qualified-precedent system of Brazil's 2015 Civil Procedure Code promises uniformity and predictability. Measuring whether, when and where courts start applying each precedent allows the promise to be assessed with data rather than doctrine alone.
   dataSources:
     pt:
-      - Teses vinculantes do STJ e do STF (temas repetitivos e repercussão geral)
-      - Decisões dos tribunais de origem que citam ou aplicam cada tese
+      - Registro de precedentes qualificados do STJ (temas repetitivos, controvérsias, IAC, PUIL, SIRDR) e processos paradigma — Portal de Dados Abertos do STJ
+      - Íntegras das decisões terminativas e acórdãos do STJ publicados no DJe (desde 2021), agrupadas por tribunal de origem
+      - Atas de distribuição e acervo em tramitação do STJ (recuperação do tribunal de origem pelo número CNJ)
+      - Metadados processuais da API Pública do DataJud (CNJ)
+      - Indicadores institucionais por tribunal-ano da base Justiça em Números (CNJ)
+      - Temas de repercussão geral do STF, observados apenas como citados nas decisões do STJ
     en:
-      - Binding precedents of the STJ and STF (repetitive-appeal themes and general repercussion)
-      - Lower-court decisions citing or applying each precedent
+      - STJ registry of qualified precedents (repetitive themes, controvérsias, IAC, PUIL, SIRDR) and paradigm cases — STJ Open Data Portal
+      - Full text of STJ terminative decisions and judgments published in the DJe (from 2021), grouped by court of origin
+      - STJ distribution records and pending-case snapshot (court-of-origin recovery via the CNJ case number)
+      - Case metadata from the CNJ DataJud public API
+      - Court-year institutional indicators from CNJ Justiça em Números
+      - STF general-repercussion themes, observed only as cited in STJ decisions
   methods:
     pt:
-      - Processamento de linguagem natural para detectar aplicação e citação
-      - Modelos de difusão e de tempo até a adoção por tribunal
+      - Extração de citações por expressões regulares e classificadores de texto para distinguir citação formal, aplicação material, conformidade de resultado, distinção e afastamento
+      - Análise de sobrevivência (tempo até a primeira citação/aplicação por tribunal), modelos multinível e análise espacial da heterogeneidade entre tribunais
+      - Estudo de eventos em torno da data de fixação da tese
     en:
-      - Natural language processing to detect application and citation
-      - Diffusion models and time-to-adoption by court
-  methodTags: [nlp, sobrevivencia, analise-espacial]
+      - Regex citation extraction and text classifiers distinguishing formal citation, material application, outcome conformity, reasoned distinction and departure
+      - Survival analysis (time to first citation/application by court), multilevel models and spatial analysis of cross-court heterogeneity
+      - Event study around the fixation date of each precedent
+  methodTags: [nlp, text-mining, sobrevivencia, analise-espacial, estudo-de-eventos]
   showPreliminaryFindings: false
   limitations:
     pt:
-      - A prova de conceito ainda não foi executada; o tema-piloto está em definição.
+      - O texto integral das decisões dos tribunais de origem não está disponível em massa; a adoção é medida no fluxo recursal que chegou ao STJ, condicionada à interposição de recurso.
+      - A prova de conceito foi executada com um tema-piloto provisório, ainda não confirmado.
     en:
-      - The proof of concept has not been run yet; the pilot precedent is being defined.
+      - Bulk full text of lower-court decisions is not available; adoption is measured in the appellate flow that reached the STJ, conditional on an appeal being filed.
+      - The proof of concept was run on a provisional pilot precedent, not yet confirmed.
   implications:
     pt:
       - Indicadores de aderência a precedentes para gestão judiciária e para o debate sobre o sistema de precedentes.
@@ -552,13 +596,13 @@
       - Precedent-diffusion dashboard by court
   repository: https://github.com/valbergregory/binding-precedents-brazil
   repositoryVisibility: public
-  languages: [Python, R]
+  languages: [Python, R, SQL]
   outputTypes: [artigo, painel-publico]
   codeAvailable: true
   dataAvailable: false
   featured: false
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-11-02'
 
 - slug: generative-ai-legal-drafting
   title: 'Can Generative AI Draft Legally Reliable Decisions?'
@@ -634,24 +678,36 @@
     en: Repetitive and artificial litigation consumes judicial resources and harms those with legitimate claims. Screening tools exist, but they are rarely explainable or auditable. The project proposes a framework in which every signal is interpretable and the decision remains human.
   dataSources:
     pt:
-      - Metadados processuais públicos (DataJud e STJ), sem identificadores pessoais
+      - Íntegras das decisões terminativas e acórdãos do STJ publicados no DJe (texto integral, desde 2021) — Portal de Dados Abertos do STJ
+      - Espelhos de acórdãos do STJ (ementa, jurisprudência citada e referências legislativas)
+      - Acervo em tramitação e atas de distribuição do STJ, usados apenas como ponte entre o número de registro do STJ e o número CNJ (sem partes e advogados)
+      - Trajetórias processuais (classe, assunto, órgão e movimentos) da API Pública do DataJud (CNJ), no STJ e no tribunal de origem
+      - Recomendação CNJ 159/2024 (Anexo A), Resolução CNJ 615/2025 e Tabelas Processuais Unificadas do CNJ
     en:
-      - Public procedural metadata (DataJud and STJ), without personal identifiers
+      - Full text of STJ terminative decisions and judgments published in the DJe (from 2021) — STJ Open Data Portal
+      - STJ espelhos de acórdãos (summaries, cited case law and legislative references)
+      - STJ pending-case snapshot and distribution records, used only as the bridge between the STJ registry number and the CNJ case number (no parties or lawyers)
+      - Procedural trajectories (class, subject, judging body and movements) from the CNJ DataJud public API, in the STJ and in the court of origin
+      - CNJ Recommendation 159/2024 (Annex A), CNJ Resolution 615/2025 and the CNJ unified procedural tables
   methods:
     pt:
-      - Indicadores de padrão processual interpretáveis
+      - Léxico versionado (expressões regulares em camadas) aplicado ao texto integral, com precisão e revocação medidas contra um padrão-ouro anotado manualmente segundo protocolo publicado
+      - Covariáveis de trajetória processual construídas a partir dos movimentos do DataJud, com grupo de comparação de casos não sinalizados
       - Aprendizado de máquina explicável com salvaguardas de revisão humana
     en:
-      - Interpretable procedural-pattern indicators
+      - Versioned lexicon (tiered regular expressions) applied to the full text, with precision and recall measured against a manually annotated gold set under a published protocol
+      - Procedural-trajectory covariates built from DataJud movements, with a comparison group of unsignalled cases
       - Explainable machine learning with human-review safeguards
   methodTags: [ml-explicavel, text-mining]
   showPreliminaryFindings: false
   limitations:
     pt:
-      - 'Fase inicial: apenas sondagens de dados foram realizadas.'
+      - O padrão-ouro ainda está em anotação manual; nenhum modelo ou resultado existe.
+      - A sinalização judicial mede o que o STJ escreveu, não o fenômeno; casos não sinalizados não são "legítimos", e só chega ao STJ o que foi recorrido.
       - Padrões estatísticos não equivalem a conduta ilícita; qualquer uso exige supervisão humana e devido processo.
     en:
-      - Early stage - only data probes have been carried out.
+      - The gold set is still being annotated by hand; no model or result exists.
+      - Judicial signalling measures what the STJ wrote, not the phenomenon; unsignalled cases are not "legitimate", and only appealed cases reach the STJ.
       - Statistical patterns are not equivalent to unlawful conduct; any use requires human oversight and due process.
   implications:
     pt:
@@ -665,13 +721,13 @@
       - Annotation protocol and public documentation of the framework
   repository: https://github.com/valbergregory/abusive-litigation-jurimetrics
   repositoryVisibility: public
-  languages: [Python]
+  languages: [Python, SQL]
   outputTypes: [artigo, software]
   codeAvailable: true
   dataAvailable: false
   featured: false
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-11-02'
 
 # ---------------------------------------------------------------------------
 # 6.3 IA, segurança e governança judicial
@@ -695,24 +751,28 @@
     en: AI systems in the judiciary handle sensitive data and decisions that affect rights. The study checks, court by court, whether adoption came with minimum governance and security structures.
   dataSources:
     pt:
-      - Normas, portarias e documentos públicos dos 27 Tribunais de Justiça
+      - Portais oficiais e Diários de Justiça Eletrônicos dos 27 Tribunais de Justiça, janeiro de 2021 a junho de 2026
       - Matriz de replicação publicada com licença CC BY 4.0
     en:
-      - Regulations, ordinances and public documents of the 27 state courts
+      - Official portals and Electronic Court Gazettes of the 27 state courts, January 2021 to June 2026
       - Replication matrix published under a CC BY 4.0 licence
   methods:
     pt:
       - 'Análise documental comparativa em seis dimensões: governança de dados; política de segurança da informação; encarregado de proteção de dados; relatório de impacto; resposta a incidentes; regulamentação de IA'
+      - Matriz ponderada de prontidão com quatro níveis de maturidade (Inicial, Básico, Intermediário, Avançado)
+      - Leitura do OWASP LLM Top 10 (2025) no contexto judicial, com tática MITRE ATT&CK, controle DevSecOps e artigo da LGPD
     en:
       - 'Comparative document analysis across six dimensions: data governance; information-security policy; data-protection officer; impact assessment; incident response; AI regulation'
+      - Weighted readiness matrix with four maturity levels (Initial, Basic, Intermediate, Advanced)
+      - OWASP LLM Top 10 (2025) read in the judicial context, with MITRE ATT&CK tactic, DevSecOps control and LGPD article
   methodTags: [analise-documental]
   showPreliminaryFindings: false
   limitations:
     pt:
-      - Contagens finais estão em validação e não são divulgadas até a conclusão do manuscrito.
+      - A análise avalia conformidade formal publicada, não implementação técnica verificada em campo; a ausência de evidência pública é registrada como tal.
       - A análise capta a existência de normas públicas, não a sua efetividade.
     en:
-      - Final counts are under validation and are not disclosed until the manuscript is complete.
+      - The analysis assesses published formal compliance, not field-verified technical implementation; absence of public evidence is recorded as such.
       - The analysis captures the existence of public rules, not their effectiveness.
   implications:
     pt:
@@ -722,8 +782,10 @@
   extensionProducts:
     pt:
       - Dados abertos de replicação (matriz dos 27 tribunais)
+      - Tabela OWASP LLM Top 10 × Judiciário e diagnóstico LGPD × Resoluções CNJ × ISO/NIST
     en:
       - Open replication data (matrix of the 27 courts)
+      - OWASP LLM Top 10 × Judiciary table and LGPD × CNJ resolutions × ISO/NIST diagnostic
   repository: https://github.com/valbergregory/aisecdev-tjs-2026
   repositoryVisibility: public
   languages: []
@@ -733,7 +795,7 @@
   featured: true
   featuredOrder: 2
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-11-02'
 
 # ---------------------------------------------------------------------------
 # 6.4 Economia do Turismo
@@ -755,27 +817,35 @@
     en: Interest in the topic grew while teaching Tourism-related subjects in undergraduate courses in Penedo. The practical question is simple - what weighs most on foreign arrivals - being far away, having few flights or being expensive? - and the answer guides international promotion and aviation policy.
   dataSources:
     pt:
-      - Chegadas internacionais mensais por país de origem, 2000–2025 (87 origens)
-      - Distância, conectividade aérea e preços relativos
+      - Ministério do Turismo / Embratur — chegadas internacionais mensais por país de origem e via de acesso, 2000–2025
+      - ANAC — Dados Estatísticos do Transporte Aéreo (voos, assentos, passageiros e indicador de voo direto por país-mês)
+      - CEPII GeoDist — distâncias bilaterais, contiguidade, língua comum e vínculo colonial
+      - Banco Mundial (WDI) — PIB per capita, população, CPI, câmbio e níveis de preços
     en:
-      - Monthly international arrivals by origin country, 2000–2025 (87 origins)
-      - Distance, air connectivity and relative prices
+      - Ministério do Turismo / Embratur — monthly international arrivals by origin country and access mode, 2000–2025
+      - ANAC — Air Transport Statistics (flights, seats, passengers and direct-service indicator by country-month)
+      - CEPII GeoDist — bilateral distances, contiguity, common language and colonial link
+      - World Bank (WDI) — GDP per capita, population, CPI, exchange rate and price levels
   methods:
     pt:
-      - Modelos gravitacionais estimados por PPML com efeitos fixos
-      - Análises de robustez com exclusão de origens (leave-one-out)
+      - Modelos gravitacionais estimados por PPML com efeitos fixos de origem e de mês
+      - Especificações com efeitos aleatórios correlacionados (PPML-CRE) para distância, contiguidade, língua e vínculo colonial
+      - 'Robustez: subamostras pré-pandemia e pós-reabertura, medidas alternativas de preço, painel balanceado, frequência trimestral, painel por via de acesso e exclusão de origens (leave-one-out)'
     en:
-      - Gravity models estimated by PPML with fixed effects
-      - Robustness checks with leave-one-out exclusion of origins
+      - Gravity models estimated by PPML with origin and month fixed effects
+      - Correlated-random-effects specifications (PPML-CRE) for distance, contiguity, language and colonial link
+      - 'Robustness: pre-pandemic and post-reopening subsamples, alternative price measures, balanced panel, quarterly frequency, access-mode panel and leave-one-out exclusion of origins'
   methodTags: [gravitacional, ppml, painel, efeitos-fixos]
   showPreliminaryFindings: false
   limitations:
     pt:
       - Manuscrito em pré-submissão; os resultados serão divulgados após a avaliação por pares.
-      - Os dados brutos não são redistribuídos; o pipeline os baixa das fontes oficiais.
+      - Os dados brutos não são redistribuídos; o pipeline os baixa das fontes oficiais. Os painéis processados estão no repositório.
+      - Regimes de visto e a extensão de gravidade estrutural multidestino estão previstos no código, mas desativados.
     en:
       - Manuscript at the pre-submission stage; results will be released after peer review.
-      - Raw data are not redistributed; the pipeline downloads them from the official sources.
+      - Raw data are not redistributed; the pipeline downloads them from the official sources. Processed panels are in the repository.
+      - Visa regimes and the multi-destination structural-gravity extension are coded but switched off.
   implications:
     pt:
       - Promoção internacional, malha aérea, conectividade e competitividade.
@@ -793,13 +863,13 @@
   repository: https://github.com/valbergregory/tourism-gravity-brazil
   repositoryVisibility: public
   languages: [R]
-  outputTypes: [artigo, painel-publico]
+  outputTypes: [artigo, painel-publico, software]
   codeAvailable: true
-  dataAvailable: false
+  dataAvailable: true
   featured: true
   featuredOrder: 8
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-12'
+  lastEditorialReview: '2026-11-02'
 
 # ---------------------------------------------------------------------------
 # 6.5 Economia Marítima e Portos
@@ -891,21 +961,29 @@
     en: Port digitalisation is presented as a source of operational gains. Evaluating that promise with public data and documented adoption dates avoids both automatic optimism and evidence-free rejection.
   dataSources:
     pt:
-      - Estatísticas de atracação da ANTAQ, 2010–2026
-      - Datas de adoção do Porto Sem Papel por porto, documentadas em publicações oficiais
+      - Estatístico Aquaviário da ANTAQ (atracações, tempos de atracação e carga), 2010–2026
+      - 'Comex Stat (MDIC/SECEX): exportações e importações por NCM e unidade da Receita (URF), 2010–2026'
+      - Datas de adoção do Porto Sem Papel por porto, lidas nas portarias da SEP publicadas no Diário Oficial da União
+      - Malha estadual do IBGE (2024), usada apenas nos mapas
     en:
-      - ANTAQ berthing statistics, 2010–2026
-      - Porto Sem Papel adoption dates by port, documented in official publications
+      - ANTAQ Estatístico Aquaviário (vessel calls, berth times and cargo), 2010–2026
+      - 'Comex Stat (MDIC/SECEX): exports and imports by NCM and customs unit (URF), 2010–2026'
+      - Porto Sem Papel adoption dates by port, read from SEP ordinances published in the Official Gazette
+      - IBGE state boundaries (2024), used only for maps
   methods:
     pt:
-      - Diferenças-em-diferenças escalonadas e estudos de eventos
-      - Fronteira estocástica de eficiência portuária
+      - Diferenças-em-diferenças escalonadas e estudos de eventos (Sun–Abraham) por atracação
+      - Inferência com poucos clusters (wild cluster bootstrap e permutação de datas)
+      - Sensibilidade a pré-tendências (HonestDiD) e limites de Lee
+      - Fronteira estocástica e DEA de eficiência portuária
       - Modelos PPML para comércio e fretes
     en:
-      - Staggered difference-in-differences and event studies
-      - Stochastic frontier of port efficiency
+      - Staggered difference-in-differences and event studies (Sun–Abraham) at the vessel-call level
+      - Few-cluster inference (wild cluster bootstrap and date permutation)
+      - Pre-trend sensitivity (HonestDiD) and Lee bounds
+      - Stochastic frontier and DEA of port efficiency
       - PPML models for trade and freight
-  methodTags: [did, estudo-de-eventos, sfa, ppml, painel]
+  methodTags: [did, estudo-de-eventos, sfa, ppml, painel, text-mining]
   showPreliminaryFindings: true
   preliminaryFindings:
     pt:
@@ -918,9 +996,13 @@
     pt:
       - Resultados preliminares; a redação do manuscrito está em andamento.
       - Datas de adoção dependem de registros oficiais que podem não coincidir com o uso efetivo.
+      - Portarias de parte dos portos ainda não localizadas no DOU (pedido de acesso à informação em curso).
+      - A decomposição dos tempos documentais (T2/T4) é informada de forma incompleta pelos portos, com cobertura variável por ano.
     en:
       - Preliminary results; the manuscript is being written.
       - Adoption dates depend on official records that may not coincide with effective use.
+      - Ordinances for some ports have not yet been located in the Official Gazette (access-to-information request pending).
+      - The documentary time decomposition (T2/T4) is incompletely reported by ports, with coverage varying by year.
   implications:
     pt:
       - Instrumentos de avaliação de governo digital baseados em dados administrativos.
@@ -935,48 +1017,56 @@
       - Policy documentation and digital-government evaluation instruments
   repository: https://github.com/valbergregory/Port-Digitalization-Observatory
   repositoryVisibility: public
-  languages: [R, SQL]
+  languages: [R, SQL, Python]
   outputTypes: [artigo, painel-publico]
   codeAvailable: true
   dataAvailable: true
   featured: true
   featuredOrder: 5
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-11-02'
 
 # ---------------------------------------------------------------------------
 # 6.6 Economia Pesqueira
 # ---------------------------------------------------------------------------
 - slug: marine-heatwaves-fishing-effort
-  title: 'Marine Heatwaves, Ocean Productivity and Fishing Effort: High-Frequency Evidence from the Brazilian Coast'
+  title: 'Marine Heatwaves and Fishing Effort: High-Frequency Evidence from the Brazilian Coast'
   authors:
     - Valber Gregory Barbosa Costa Bezerra Santos
   track: economia-pesqueira
   status: redacao
   summary:
-    pt: Como ondas de calor marinhas e alterações na produtividade oceânica afetam o esforço pesqueiro na costa brasileira? Cubo de dados geoespacial de alta frequência com esforço de pesca, temperatura e produtividade.
-    en: How do marine heatwaves and changes in ocean productivity affect fishing effort along the Brazilian coast? High-frequency geospatial data cube combining fishing effort, temperature and productivity.
+    pt: Como ondas de calor marinhas afetam a intensidade e a distribuição espacial do esforço pesqueiro na costa brasileira? Cubo de dados geoespacial célula-mês (grade H3) com esforço de pesca e temperatura da superfície do mar, 2013–2024.
+    en: How do marine heatwaves affect the intensity and spatial distribution of fishing effort along the Brazilian coast? Cell-month geospatial data cube (H3 grid) combining fishing effort and sea-surface temperature, 2013–2024.
   researchQuestion:
-    pt: Como ondas de calor marinhas e alterações na produtividade oceânica afetam o esforço pesqueiro na costa brasileira?
-    en: How do marine heatwaves and changes in ocean productivity affect fishing effort along the Brazilian coast?
+    pt: Como ondas de calor marinhas afetam a intensidade e a distribuição espacial do esforço pesqueiro na costa brasileira?
+    en: How do marine heatwaves affect the intensity and spatial distribution of fishing effort along the Brazilian coast?
   motivation:
     pt: O interesse por Economia Pesqueira foi fortalecido ao lecionar a disciplina para Engenharia de Pesca na UFAL, em Penedo, em 2026. Eventos térmicos extremos estão mais frequentes, e a resposta da frota — atração, redução ou deslocamento — importa para comunidades costeiras e gestão pesqueira.
     en: Interest in fisheries economics grew while teaching the subject to Fisheries Engineering students at UFAL, Penedo, in 2026. Extreme thermal events are becoming more frequent, and the fleet's response - attraction, reduction or displacement - matters for coastal communities and fisheries management.
   dataSources:
     pt:
-      - Esforço de pesca por célula e dia (Global Fishing Watch), 2013–2024
-      - Temperatura da superfície do mar (NOAA OISST) e índices de produtividade oceânica
+      - Esforço de pesca aparente por célula e mês (Global Fishing Watch, API 4Wings v3), 2013–2024
+      - Temperatura da superfície do mar, NOAA OISST v2.1 (diária, 0,25°), 1991–2024, com climatologia 1991–2020
+      - Malhas municipais e estaduais do IBGE (região costeira e linha de costa)
     en:
-      - Fishing effort by cell and day (Global Fishing Watch), 2013–2024
-      - Sea-surface temperature (NOAA OISST) and ocean-productivity indices
+      - Apparent fishing effort by cell and month (Global Fishing Watch, 4Wings API v3), 2013–2024
+      - Sea-surface temperature, NOAA OISST v2.1 (daily, 0.25°), 1991–2024, with a 1991–2020 climatology
+      - IBGE municipal and state boundaries (coastal region and coastline)
   methods:
     pt:
-      - Cubo de dados geoespacial (H3, Parquet/DuckDB)
-      - Painéis célula-dia com efeitos fixos e testes de placebo
+      - Cubo de dados geoespacial célula-mês (grade H3, Parquet, pipeline targets)
+      - Ondas de calor marinhas pela definição de Hobday et al. (2016), com definições alternativas como robustez
+      - PPML com efeitos fixos de célula e período e sazonalidade regional, erros-padrão de Conley
+      - Defasagens e antecipações (placebo), transbordamento espacial por anéis de vizinhança e permutação espacial
+      - Heterogeneidade por arte de pesca e região; realocação em nível região-mês
     en:
-      - Geospatial data cube (H3, Parquet/DuckDB)
-      - Cell-day panels with fixed effects and placebo tests
-  methodTags: [cubo-de-dados, painel, efeitos-fixos, inferencia-causal]
+      - Cell-month geospatial data cube (H3 grid, Parquet, targets pipeline)
+      - Marine heatwaves under the Hobday et al. (2016) definition, with alternative definitions as robustness checks
+      - PPML with cell and period fixed effects and regional seasonality, Conley standard errors
+      - Lags and leads (placebo), spatial spillovers through neighbourhood rings and spatial permutation
+      - Heterogeneity by gear and region; reallocation at the region-month level
+  methodTags: [cubo-de-dados, painel, efeitos-fixos, ppml, analise-espacial, inferencia-causal]
   showPreliminaryFindings: true
   preliminaryFindings:
     pt:
@@ -986,10 +1076,14 @@
   limitations:
     pt:
       - Resultados preliminares; não devem ser lidos como causalidade definitiva.
-      - O esforço observado depende da cobertura do rastreamento por AIS, que varia no tempo.
+      - O esforço observado depende da cobertura do rastreamento por AIS, que varia no tempo; a frota artesanal é sub-representada.
+      - O esforço de pesca "aparente" é inferência de modelo da Global Fishing Watch, não esforço declarado.
+      - Produtividade oceânica, unidades de conservação e portos ficaram fora do cubo nesta versão.
     en:
       - Preliminary results; they should not be read as definitive causality.
-      - Observed effort depends on AIS tracking coverage, which varies over time.
+      - Observed effort depends on AIS tracking coverage, which varies over time; the artisanal fleet is under-represented.
+      - '"Apparent" fishing effort is a Global Fishing Watch model inference, not reported effort.'
+      - Ocean productivity, marine protected areas and ports are outside the cube in this version.
   implications:
     pt:
       - Alertas e planejamento para comunidades costeiras e gestores pesqueiros diante de eventos térmicos.
@@ -1004,21 +1098,21 @@
       - Tools for fishers, coastal communities, researchers and managers
   repository: https://github.com/valbergregory/marine-fisheries-data-cube
   repositoryVisibility: public
-  languages: [R, SQL]
+  languages: [R]
   outputTypes: [artigo, dados-abertos, painel-publico]
   codeAvailable: true
   dataAvailable: true
   featured: true
   featuredOrder: 6
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-11-02'
 
 - slug: fishing-closures-brazil
   title: "Do Fishing Closures Protect Fish or Displace Fishing? Causal Evidence from Brazil's Seasonal Bans and Marine Protected Areas"
   authors:
     - Valber Gregory Barbosa Costa Bezerra Santos
   track: economia-pesqueira
-  status: em-desenvolvimento
+  status: redacao
   summary:
     pt: Defesos e áreas marinhas protegidas reduzem a pressão pesqueira ou deslocam o esforço para áreas vizinhas? Avaliação causal com dados de rastreamento e uma base legal legível por máquina das normas de defeso.
     en: Do seasonal bans and marine protected areas reduce fishing pressure or displace effort to neighbouring areas? Causal evaluation with tracking data and a machine-readable knowledge base of closure regulations.
@@ -1032,17 +1126,23 @@
     pt:
       - Esforço de pesca por célula (Global Fishing Watch)
       - Corpus legal de normas de defeso e de áreas marinhas protegidas (26 normas), estruturado como base de conhecimento
+      - Microdados do Seguro-Defeso (CGU, Portal da Transparência), agregados por município e mês
+      - Temperatura da superfície do mar (NOAA OISST) e limites de unidades de conservação (ICMBio/INDE)
     en:
       - Fishing effort by cell (Global Fishing Watch)
       - Legal corpus of closure and marine-protected-area rules (26 regulations), structured as a knowledge base
+      - Seguro-Defeso (closed-season benefit) microdata (CGU, Transparency Portal), aggregated by municipality and month
+      - Sea-surface temperature (NOAA OISST) and conservation-unit boundaries (ICMBio/INDE)
   methods:
     pt:
-      - Diferenças-em-diferenças espaciais e testes de placebo
+      - Diferenças-em-diferenças espaciais, estudo de eventos e testes de placebo
+      - Diferenças-em-diferenças sintéticas e PPML como especificações alternativas
       - Decomposição por embarcação para separar mudanças de cobertura de mudanças reais de atividade
     en:
-      - Spatial difference-in-differences and placebo tests
+      - Spatial difference-in-differences, event study and placebo tests
+      - Synthetic difference-in-differences and PPML as alternative specifications
       - Vessel-level decomposition to separate coverage changes from real activity changes
-  methodTags: [did, analise-espacial, inferencia-causal, cubo-de-dados]
+  methodTags: [did, estudo-de-eventos, ppml, analise-espacial, inferencia-causal, cubo-de-dados]
   showPreliminaryFindings: true
   preliminaryFindings:
     pt:
@@ -1072,14 +1172,14 @@
       - Tools for fishers, coastal communities, researchers and managers
   repository: https://github.com/valbergregory/fisheries-closures-brazil
   repositoryVisibility: public
-  languages: [R, SQL]
+  languages: [R, Python, SQL]
   outputTypes: [artigo, base-conhecimento, painel-publico]
   codeAvailable: true
   dataAvailable: true
   featured: true
   featuredOrder: 7
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-11'
+  lastEditorialReview: '2026-11-02'
 
 # ---------------------------------------------------------------------------
 # 6.7 Economia Digital e Direito Digital
@@ -1101,31 +1201,33 @@
     en: Pix changed the economics of payments in Brazil within a few years, but adoption was not uniform across the territory. Forecasting its volume by municipality matters for banks, retailers and financial-inclusion policy, and coherence across geographic levels prevents local forecasts that do not add up to the national total.
   dataSources:
     pt:
-      - Estatísticas mensais do Pix por município (dados abertos do Banco Central do Brasil), nov/2020 em diante
-      - Malha municipal do IBGE e hierarquia município–UF–região–Brasil
+      - Estatísticas mensais do Pix por município (dados abertos do Banco Central do Brasil), de novembro de 2020 em diante; snapshot congelado de 30/08/2026
+      - Malha municipal do IBGE (2022, via geobr) e hierarquia município–UF–região–Brasil
     en:
-      - Monthly Pix statistics by municipality (Banco Central do Brasil open data), from Nov 2020 onwards
-      - IBGE municipal mesh and the municipality–state–region–Brazil hierarchy
+      - Monthly Pix statistics by municipality (Banco Central do Brasil open data), from November 2020 onwards; snapshot frozen on 30 August 2026
+      - IBGE municipal mesh (2022, via geobr) and the municipality–state–region–Brazil hierarchy
   methods:
     pt:
       - Geografia temporalmente estável e painel município-mês com hashes e metadados do snapshot
-      - Modelos globais de previsão avaliados por origem móvel (rolling origin) contra baselines
-      - Reconciliação hierárquica coerente e métricas de erro escaladas (MASE/RMSSE)
-      - Testes de quebras estruturais e análise de heterogeneidade da confiabilidade preditiva
+      - Modelos globais (Ridge e XGBoost) avaliados por origem móvel contra benchmarks locais (naive, naive sazonal, drift, ETS, ARIMA)
+      - Reconciliação hierárquica (bottom-up e MinT-WLS), métricas de erro escaladas (MASE/RMSSE) e comparações pareadas com erros-padrão Newey–West
+      - Testes de quebras estruturais (Bai–Perron, PELT) e regressão da confiabilidade preditiva por município
     en:
       - Temporally stable geography and municipality-month panel with snapshot hashes and metadata
-      - Global forecasting models evaluated by rolling origin against baselines
-      - Coherent hierarchical reconciliation and scaled error metrics (MASE/RMSSE)
-      - Structural-break tests and heterogeneity analysis of forecast reliability
-  methodTags: [series-temporais, painel, analise-espacial]
+      - Global models (Ridge and XGBoost) evaluated by rolling origin against local benchmarks (naive, seasonal naive, drift, ETS, ARIMA)
+      - Hierarchical reconciliation (bottom-up and MinT-WLS), scaled error metrics (MASE/RMSSE) and paired comparisons with Newey–West standard errors
+      - Structural-break tests (Bai–Perron, PELT) and a regression of forecast reliability by municipality
+  methodTags: [series-temporais, painel, ml-explicavel]
   showPreliminaryFindings: false
   limitations:
     pt:
-      - Estágio inicial — extração, descritivas e quebras estruturais executadas; modelos globais ainda não estimados.
-      - A disponibilidade e o contrato da API do Banco Central são externos ao projeto; o snapshot usado no artigo será congelado com hash.
+      - Piloto com dois estados (Alagoas e Roraima) executado; a estimação nacional ainda não foi concluída.
+      - O snapshot do BCB em uso é o de 30/08/2026; a disponibilidade do serviço de dados abertos é externa ao projeto.
+      - Dois municípios do Rio Grande do Norte só aparecem na série do BCB a partir de abril de 2025 e foram excluídos do painel.
     en:
-      - Early stage — extraction, descriptives and structural breaks run; global models not yet estimated.
-      - The availability and contract of the Central Bank API are external to the project; the snapshot used in the paper will be frozen with a hash.
+      - A two-state pilot (Alagoas and Roraima) has been run; the national estimation is not yet complete.
+      - The BCB snapshot in use is from 30 August 2026; the availability of the open-data service is external to the project.
+      - Two municipalities in Rio Grande do Norte only appear in the BCB series from April 2025 and were excluded from the panel.
   implications:
     pt:
       - Previsões territorialmente coerentes para planejamento de serviços financeiros e políticas de inclusão.
@@ -1144,7 +1246,7 @@
   dataAvailable: false
   featured: false
   allowAutomaticMetadata: true
-  lastEditorialReview: '2026-09-12'
+  lastEditorialReview: '2026-11-02'
 
 - slug: pix-regulation-fraud
   title: 'Regulatory Interventions, Fraud, and Pix Diffusion: A Time-Series Analysis of Security Measures'

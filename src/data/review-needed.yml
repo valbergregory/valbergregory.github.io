@@ -27,3 +27,27 @@
 - item: Fotografias da página Ensino
   status: 'mosaico RETIRADO em 13/09/2026 (auditoria): terceiros identificáveis sem termo de autorização arquivado; página usa o retrato do titular'
   action: 'Ver src/data/legal-review-needed.yml › autorizacao-imagem-mosaico e src/data/images.yml (consentVerified).'
+
+# Sincronização de 02/11/2026 (research.yml revisado contra os 14 repositórios públicos; READMEs
+# reescritos com objetivo, dados e estrutura). Pontos que dependem do titular:
+
+- item: Títulos de manuscritos divergentes entre repositório e página
+  status: 'fisheries-closures-brazil: docs/RESUME_HERE.md registra novo título (D17, "Moving the Closed Season…"), mas CITATION.cff e a página mantêm o antigo; Port-Digitalization-Observatory: a página usa "Digitalizing Port Processes…" e o CITATION.cff "Port Digitalization, Information Quality and Operational Times"'
+  action: 'Confirmar o título de cada artigo e alinhar `title` em research.yml, README e CITATION.cff.'
+
+- item: Estágio de marine-heatwaves-fishing-effort
+  status: 'mantido em `redacao`; docs/next_steps.md (09/10/2026) diz que a parte técnica está fechada e lista o que bloqueia a submissão (referências, resumo, enquadramento)'
+  action: 'Passar para `pre-submissao` quando esses itens forem fechados.'
+
+- item: Rótulos sem código correspondente nos repositórios
+  status: '`painel-publico` em tourism-gravity-brazil, binding-precedents e pix-geography-brazil (sem código de painel); `inferencia-causal` em marine-heatwaves (documentos adotam linguagem associacional)'
+  action: 'Decidir se permanecem como produto planejado ou saem de `outputTypes`/`methodTags`.'
+
+- item: Decisões registradas nos repositórios que podem gerar entradas novas
+  status: 'artigo-dsge-educacao fala em dois papers desmembrados (A fiscal/Laffer; B desigualdade regional); pix-geography-brazil registra programa de três artigos (docs/PROGRAMA_DE_PESQUISA.md); STJ-Moral-Damages e Pricing-Non-Pecuniary-Harm têm sobreposição anotada em decisions_log.md'
+  action: 'Confirmar se viram entradas próprias em research.yml ou permanecem fora da página.'
+
+- item: Notas de trabalho públicas nos repositórios
+  status: 'arquivos com caminhos locais do Windows e notas de retomada (docs/RETOMAR_AQUI.md, docs/RESUME_HERE.md, GUIA_EXECUCAO_ECONOMETRIA.md, LEIA_ME_*.txt); referências a docs/AI_POLICY_AND_REPRODUCIBILITY.md e CLAUDE.md em código e comentários, arquivos que não estão versionados'
+  action: 'Decidir se esses arquivos e referências permanecem públicos; não foram alterados nesta rodada (só README.md).'
+
