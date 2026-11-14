@@ -401,7 +401,7 @@
       - Painel de consulta de valores por matéria (após validação)
     en:
       - Award-value lookup dashboard by subject matter (after validation)
-  repository: https://github.com/valbergregory/Pricing-Non-Pecuniary-Harm
+  repository: https://github.com/valbergregory/pricing-non-pecuniary-harm
   repositoryVisibility: public
   languages: [R, SQL]
   outputTypes: [artigo, software]
@@ -464,7 +464,7 @@
       - Base anotada de decisões do STJ sobre revisão do quantum (após validação)
     en:
       - Annotated dataset of STJ decisions on quantum review (after validation)
-  repository: https://github.com/valbergregory/STJ-Moral-Damages-Jurimetrics
+  repository: https://github.com/valbergregory/stj-moral-damages-jurimetrics
   repositoryVisibility: public
   languages: [R, SQL]
   outputTypes: [artigo, dados-abertos]
@@ -526,7 +526,7 @@
       - Mapas e painéis de duração processual por território
     en:
       - Maps and dashboards of case duration by territory
-  repository: https://github.com/valbergregory/Geography-of-Judicial-Delay
+  repository: https://github.com/valbergregory/geography-of-judicial-delay
   repositoryVisibility: public
   languages: [R, SQL]
   outputTypes: [artigo, painel-publico]
@@ -1015,7 +1015,7 @@
     en:
       - Dashboards, historical series and maps on port digitalisation
       - Policy documentation and digital-government evaluation instruments
-  repository: https://github.com/valbergregory/Port-Digitalization-Observatory
+  repository: https://github.com/valbergregory/port-digitalization-observatory
   repositoryVisibility: public
   languages: [R, SQL, Python]
   outputTypes: [artigo, painel-publico]

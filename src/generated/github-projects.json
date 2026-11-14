@@ -143,9 +143,9 @@
       "stale": false
     },
     {
-      "fullName": "valbergregory/Geography-of-Judicial-Delay",
-      "name": "Geography-of-Judicial-Delay",
-      "url": "https://github.com/valbergregory/Geography-of-Judicial-Delay",
+      "fullName": "valbergregory/geography-of-judicial-delay",
+      "name": "geography-of-judicial-delay",
+      "url": "https://github.com/valbergregory/geography-of-judicial-delay",
       "description": "Spatial inequality and procedural trajectories in Brazilian civil justice (DataJud, R + DuckDB) — research code",
       "homepage": null,
       "language": "R",
@@ -261,9 +261,9 @@
       "stale": false
     },
     {
-      "fullName": "valbergregory/Port-Digitalization-Observatory",
-      "name": "Port-Digitalization-Observatory",
-      "url": "https://github.com/valbergregory/Port-Digitalization-Observatory",
+      "fullName": "valbergregory/port-digitalization-observatory",
+      "name": "port-digitalization-observatory",
+      "url": "https://github.com/valbergregory/port-digitalization-observatory",
       "description": "Port digitalization, efficiency and trade costs in Brazilian ports: causal evaluation (staggered DiD, SFA, PPML) + reproducible R/DuckDB observatory",
       "homepage": null,
       "language": "R",
@@ -293,9 +293,9 @@
       "stale": false
     },
     {
-      "fullName": "valbergregory/Pricing-Non-Pecuniary-Harm",
-      "name": "Pricing-Non-Pecuniary-Harm",
-      "url": "https://github.com/valbergregory/Pricing-Non-Pecuniary-Harm",
+      "fullName": "valbergregory/pricing-non-pecuniary-harm",
+      "name": "pricing-non-pecuniary-harm",
+      "url": "https://github.com/valbergregory/pricing-non-pecuniary-harm",
       "description": "Jurimetric analysis of moral damages awards in Brazilian appellate courts (R-only, reproducible)",
       "homepage": null,
       "language": "R",
@@ -321,9 +321,9 @@
       "stale": false
     },
     {
-      "fullName": "valbergregory/STJ-Moral-Damages-Jurimetrics",
-      "name": "STJ-Moral-Damages-Jurimetrics",
-      "url": "https://github.com/valbergregory/STJ-Moral-Damages-Jurimetrics",
+      "fullName": "valbergregory/stj-moral-damages-jurimetrics",
+      "name": "stj-moral-damages-jurimetrics",
+      "url": "https://github.com/valbergregory/stj-moral-damages-jurimetrics",
       "description": "Reproducible R+DuckDB pipeline on moral-damages awards in STJ decisions (jurimetrics, law and economics) — work in progress",
       "homepage": null,
       "language": "R",
